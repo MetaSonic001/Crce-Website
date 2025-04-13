@@ -10,16 +10,10 @@ import HomeAlumni from '@/components/homeAlumni'
 import ISP from '@/components/ISP'
 
 export default async function Home() {
-  const newsRes = await getNews()
-  const eventRes = await getEvents()
-
-  const news = newsRes?.data ?? []
-  const events = eventRes?.data ?? []
-
   return (
     <main className="flex flex-col items-center justify-between">
       <HeroSection />
-      <EventsCards events={events} />
+      <EventsCards />
       <NoticesSection />
       <HomeAbout />
       <HomeAChivements />

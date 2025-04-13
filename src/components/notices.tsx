@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { Calendar, ChevronRight, Bell, Book, GraduationCap } from 'lucide-react'
+import { useQuery } from '@tanstack/react-query'
 import getNotices from '@/app/api/notices'
 
 interface Notice {
@@ -41,31 +42,26 @@ const getColorForNoticeType = (type: string) => {
 }
 
 const NoticesSection: React.FC = () => {
-  const [notices, setNotices] = useState<Notice[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
   const [showAll, setShowAll] = useState(false)
   const [visibleNoticesCount, setVisibleNoticesCount] = useState(6)
 
-  useEffect(() => {
-    async function fetchNotices() {
+  const { data, isLoading, isError, error } = useQuery<Notice[]>({
+    queryKey: ['notices'],
+    queryFn: async () => {
       try {
-        const response = await getNotices()
-        if (!response?.data || !Array.isArray(response.data)) {
-          throw new Error('Failed to fetch notices: Invalid data format')
+        const res = await getNotices()
+        if (!res?.data || !Array.isArray(res.data)) {
+          throw new Error('Invalid data format')
         }
-        setNotices(
-          response.data.filter(
-            (notice): notice is Notice =>
-              notice && typeof notice === 'object' && 'id' in notice
-          )
+        return res.data.filter(
+          (notice): notice is Notice =>
+            notice && typeof notice === 'object' && 'id' in notice
         )
       } catch (err) {
         console.error('Error fetching notices:', err)
-        setError((err as Error).message)
 
-        // Fallback dummy data
-        const dummyData: Notice[] = [
+        // Return fallback dummy data
+        return [
           {
             id: 1,
             status: 'published',
@@ -94,15 +90,10 @@ const NoticesSection: React.FC = () => {
             about: 'event',
           },
         ]
-
-        setNotices(dummyData)
-      } finally {
-        setLoading(false)
       }
-    }
+    },
+  })
 
-    fetchNotices()
-  }, [])
   useEffect(() => {
     const updateVisibleNoticesCount = () => {
       if (window.innerWidth < 640) {
@@ -119,11 +110,12 @@ const NoticesSection: React.FC = () => {
   }, [])
 
   const visibleNotices = showAll
-    ? notices
-    : notices.slice(0, visibleNoticesCount)
+    ? (data ?? [])
+    : (data ?? []).slice(0, visibleNoticesCount)
 
-  if (loading) return <p>Loading...</p>
-  if (error) return <p className="text-red-500">Error: {error}</p>
+  if (isLoading) return <p>Loading...</p>
+  if (isError)
+    return <p className="text-red-500">Error: {(error as Error).message}</p>
 
   return (
     <section id="notices" className="w-full bg-white py-10 text-black">
