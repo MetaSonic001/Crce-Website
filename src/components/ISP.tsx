@@ -18,7 +18,7 @@ export default function InnovationPolicy() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="overflow-hidden rounded-2xl bg-white p-8 shadow-xl ring-1 ring-gray-100"
+          className="overflow-hidden rounded-2xl bg-white p-8  ring-1 ring-gray-100"
         >
           {/* Modern Header */}
           <div className="mb-10 text-center">
@@ -92,29 +92,7 @@ export default function InnovationPolicy() {
           </div>
           
           {/* Benefits with Modern List Style */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            className="mb-12 rounded-xl bg-gray-50 p-6"
-          >
-            <h3 className="mb-6 text-xl font-semibold text-gray-900">
-              Key Benefits
-            </h3>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              {[
-                "Intellectual property protection",
-                "Market research assistance",
-                "Business plan development",
-                "Networking opportunities"
-              ].map((benefit, index) => (
-                <div key={index} className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-blue-600" />
-                  <span className="text-gray-700">{benefit}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+          
           
           {/* Modern CTA Button */}
           <motion.div

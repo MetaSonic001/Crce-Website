@@ -48,6 +48,7 @@ import {
   Images,
   ScrollText,
   Folder,
+  Lightbulb,
 } from 'lucide-react'
 
 interface DropdownItem {
@@ -125,6 +126,11 @@ const dropdownContent: DropdownContent = {
       name: 'Autonomous Rules',
       href: '/academics/autonomous/rules-and-policies',
       icon: <ScrollText size={18} />,
+    },
+    {
+      name: 'IIC',
+      href: '/academics/iic',
+      icon: <Lightbulb size={18} />,
     },
     {
       name: 'Academic/Holiday Calender',
