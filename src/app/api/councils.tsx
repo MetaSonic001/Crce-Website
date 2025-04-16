@@ -7,6 +7,15 @@ export interface Council {
   report: string
   image: string
   website: string
+  members?: Member[]
+  // Add other fields if needed
+}
+
+export interface Member {
+  name: string
+  role: string
+  image: string
+  class: string
   // Add other fields if needed
 }
 

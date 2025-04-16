@@ -7,7 +7,15 @@ export interface OneCouncil {
   report: string
   image: string
   website: string
+  members?: Member[]
   data: any // Update type if you know the shape of `data`
+}
+export interface Member {
+  name: string
+  role: string
+  image: string
+  class: string
+  // Add other fields if needed
 }
 
 export async function getOneCouncil(id: string): Promise<OneCouncil> {

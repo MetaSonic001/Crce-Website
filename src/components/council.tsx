@@ -21,6 +21,20 @@ const dummyData: Council[] = [
     website: 'https://codelabscrce.netlify.app/',
     image: '/councils/codelabs.jpg',
     report: '', // Ignored
+    members: [
+      {
+        name: 'John Doe',
+        role: 'President',
+        image: '/councils/ieee.jpg',
+        class: 'B.E. Computer Engineering',
+      },
+      {
+        name: 'Jane Smith',
+        role: 'Vice President',
+        image: '/councils/ieee.jpg',
+        class: 'B.E. Information Technology',
+      },
+    ],
   },
   {
     id: 2,
@@ -29,6 +43,20 @@ const dummyData: Council[] = [
     website: 'https://ieeewiecrce.netlify.app/',
     image: '/councils/ieee.jpg',
     report: '', // Ignored
+    members: [
+      {
+        name: 'John Doe',
+        role: 'President',
+        image: '/councils/ieee.jpg',
+        class: 'B.E. Computer Engineering',
+      },
+      {
+        name: 'Jane Smith',
+        role: 'Vice President',
+        image: '/councils/ieee.jpg',
+        class: 'B.E. Information Technology',
+      },
+    ],
   },
 ]
 
@@ -95,7 +123,7 @@ export default function Council() {
                     <a href={`${card.website}`}>
                       <Earth className="text-2xl text-blue-600" />
                     </a>{' '}
-                    <a href={`/councils/${card.id}`}>
+                    <a href={`/students/councils/${card.id}`}>
                       <FileInput className="text-2xl text-blue-800" />
                     </a>
                     {card.linkedin && (
