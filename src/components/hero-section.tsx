@@ -41,11 +41,19 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden text-gray-600">
       <div className="absolute inset-0">
-        <video className="h-full w-full object-cover" autoPlay muted loop>
+        <video
+          className="h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        >
+          {' '}
           <source src="intro.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className=" absolute top-[20%] z-40 flex w-full flex-col items-center justify-center text-white md:top-[57%] md:w-fit md:flex-row">
+        <div className="absolute top-[20%] z-40 flex w-full flex-col items-center justify-center text-white md:top-[57%] md:w-fit md:flex-row">
           <Image
             height={300}
             width={250}
@@ -61,11 +69,11 @@ export default function HeroSection() {
             className="block md:hidden"
           />
           <div className="flex flex-col items-center justify-center space-y-1 md:space-y-2">
-            <h1 className="font-Helvetica-neue w-full md:text-justify text-center text-xl font-bold text-white md:text-5xl">
+            <h1 className="font-Helvetica-neue w-full text-center text-xl font-bold text-white md:text-justify md:text-5xl">
               Fr. Conceicao Rodrigues <br />
               College of Engineering
             </h1>
-            <h1 className="font-josefinsans w-full md:text-justify text-center font-semibold text-white md:text-2xl">
+            <h1 className="font-josefinsans w-full text-center font-semibold text-white md:text-justify md:text-2xl">
               An Autonomous Institute Affiliated to <br />
               University of Mumbai <br className="block md:hidden" />| NAAC "A"
               Grade Accredited |
@@ -152,7 +160,9 @@ export default function HeroSection() {
                   <span className="flex pl-2">Faculty Recruitment Advt</span>
                 </motion.button>
                 <motion.button className="group text-md hover:to- w-full rounded-sm bg-gradient-to-r from-white to-gray-100 p-2 font-semibold text-[hsl(225,38%,20%)] shadow-sm duration-100 ease-in-out hover:bg-gradient-to-r hover:from-[hsl(225,38%,20%)] hover:text-white hover:shadow-md focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
-                  <Link href={"/nirf"} className="flex pl-2">NIRF</Link>
+                  <Link href={'/nirf'} className="flex pl-2">
+                    NIRF
+                  </Link>
                 </motion.button>
                 <motion.button className="group text-md w-full rounded-sm bg-gradient-to-r from-white to-gray-100 p-2 font-semibold text-[hsl(225,38%,20%)] shadow-sm transition-all duration-100 ease-in-out hover:from-[hsl(225,38%,20%)] hover:to-gray-100 hover:text-white hover:shadow-md focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
                   <span className="flex pl-2">Students Bytes</span>
