@@ -89,12 +89,12 @@ export default function FamousAlumni() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="relative md:absolute mt-6 md:mt-0 md:top-[70%] md:left-[55%] z-10 w-full md:w-96 rounded-lg bg-white p-6 shadow-xl"
+              className="relative md:absolute mt-6 md:mt-0 md:top-[70%] md:left-[55%] z-10 w-full md:w-72  rounded-lg bg-white p-6 shadow-xl"
             >
-              <h3 className="mb-3 text-2xl font-bold text-blue-800">
+              <h3 className="mb-3 text-lg font-bold text-blue-800">
                 Excellence in Every Field
               </h3>
-              <p className="mb-4 text-slate-700">
+              <p className="mb-4 text-slate-700 text-sm">
                 Our alumni have achieved remarkable success across various
                 industries, from technology and research to entrepreneurship and
                 innovation. Their accomplishments showcase our institution's
