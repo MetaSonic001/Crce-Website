@@ -42,7 +42,7 @@ export default function HeroSection() {
     <section className="relative min-h-screen w-full overflow-hidden text-gray-600">
       <div className="absolute inset-0">
         <video className="h-full w-full object-cover" autoPlay muted loop>
-          <source src="intro3.mp4" type="video/mp4" />
+          <source src="intro.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className=" absolute top-[20%] z-40 flex w-full flex-col items-center justify-center text-white md:top-[57%] md:w-fit md:flex-row">
