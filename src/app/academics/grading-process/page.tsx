@@ -1,7 +1,6 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { Zilla_Slab } from 'next/font/google'
-import { FileText, Book, Award } from 'lucide-react'
 
 const zilla = Zilla_Slab({
   weight: ['400', '700'],
@@ -10,154 +9,94 @@ const zilla = Zilla_Slab({
   display: 'swap',
 })
 
+
+
 const CreditBasedEvaluationSystem = () => {
-  return (
-    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900">
-      {/* Header Section */}
-      <div className="flex h-full w-full flex-col bg-white pt-24 md:flex-row">
-        <div className="flex w-full flex-col px-28 pt-36 text-[#00122a]">
-          <h1
-            className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
-          >
-            CREDIT BASED EVALUATION SYSTEM
-          </h1>
-        </div>
-      </div>
+  const [activeTab, setActiveTab] = useState("scheme")
+  
+  const tabs = [
+    { id: "scheme", title: "Scheme of Examination" },
+    { id: "credits", title: "Minimum Credit Requirements" },
+    { id: "assessment", title: "Examination / Assessment" },
+    { id: "attendance", title: "Attendance" },
+    { id: "modes", title: "Modes of Assessment/Evaluation" }
+  ]
 
-      {/* Main Content */}
-      <div className="container mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-28 py-8 md:py-16">
-        <div className="mb-8 md:mb-16">
-          <div className="rounded-lg bg-gray-100 p-4 md:p-6 shadow-lg">
-            <p className="mb-3 md:mb-4 text-lg md:text-xl font-semibold text-[#4a90e2]">
-              "University of Mumbai Evaluation System"
-            </p>
+  const renderTabContent = () => {
+    switch(activeTab) {
+      case "scheme":
+        return (
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">Scheme of Examination</h2>
             <p className="text-sm md:text-base text-gray-700">
-              A student at the entry-level is expected to have information about
-              the examination system, rules, and regulations as laid down by the
-              University of Mumbai.
+              The performance of the learners shall be evaluated into two
+              components. The learner's performance shall be assessed by
+              Internal Assessment with 40% marks in the first component by
+              conducting the Semester End Examinations with 60% marks in the
+              second component.
             </p>
           </div>
-        </div>
-
-        {/* Scheme of Examination */}
-        <div className="mb-8 md:mb-16">
-          <h2 className={`mb-4 md:mb-6 text-xl md:text-2xl font-bold text-[#001f3f]`}>
-            Scheme of Examination
-          </h2>
-          
-          <div className="rounded-lg bg-gray-100 p-4 md:p-6 shadow-lg">
-            <div className="flex items-start">
-              <span className="mr-3 md:mr-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-white">
-                <Award className="h-4 w-4 md:h-5 md:w-5" />
-              </span>
-              <div>
-                <p className="text-sm md:text-base text-gray-700">
-                  The performance of the learners shall be evaluated into two
-                  components. The learner's performance shall be assessed by
-                  Internal Assessment with 40% marks in the first component by
-                  conducting the Semester End Examinations with 60% marks in the
-                  second component.
-                </p>
-              </div>
-            </div>
+        )
+      case "credits":
+        return (
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">Minimum Credit Requirements</h2>
+            <p className="text-sm md:text-base text-gray-700">
+              The minimum credit required for the award of a B.E. degree is 180.
+              This is normally divided into Theory courses, tutorials,
+              laboratory courses, seminars and projects in the duration of eight
+              semesters. The minimum credit required for the award of an M.E.
+              degree is 70. The credits are distributed semester wise as shown
+              in the structure and syllabus manual of each programme. Courses
+              generally progress in sequences, building competencies and their
+              positioning indicates certain academic maturity on the part of the
+              learners. Learners are expected to follow the semester wise
+              schedule of courses given in the syllabus manual of respective
+              programmes.
+            </p>
           </div>
-        </div>
-
-        {/* Minimum Credit Requirements */}
-        <div className="mb-8 md:mb-16">
-          <h2 className={`mb-4 md:mb-6 text-xl md:text-2xl font-bold text-[#001f3f]`}>
-            Minimum Credit Requirements
-          </h2>
-          
-          <div className="rounded-lg bg-gray-100 p-4 md:p-6 shadow-lg">
-            <div className="flex items-start">
-              <span className="mr-3 md:mr-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-white">
-                <Book className="h-4 w-4 md:h-5 md:w-5" />
-              </span>
-              <div>
-                <p className="text-sm md:text-base text-gray-700">
-                  The minimum credit required for the award of a B.E. degree is 180.
-                  This is normally divided into Theory courses, tutorials,
-                  laboratory courses, seminars and projects in the duration of eight
-                  semesters. The minimum credit required for the award of an M.E.
-                  degree is 70. The credits are distributed semester wise as shown
-                  in the structure and syllabus manual of each programme. Courses
-                  generally progress in sequences, building competencies and their
-                  positioning indicates certain academic maturity on the part of the
-                  learners. Learners are expected to follow the semester wise
-                  schedule of courses given in the syllabus manual of respective
-                  programmes.
-                </p>
-              </div>
-            </div>
+        )
+      case "assessment":
+        return (
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">Examination / Assessment</h2>
+            <p className="text-sm md:text-base text-gray-700">
+              Semester wise performance assessment of every registered learner
+              is to be carried out through various modes of examinations. These
+              include the Internal Assessment and End Semester Examination.
+              Internal Assessment includes class tests, home assignments based
+              on live problems, course projects either in a group or
+              individually. The modes of evaluation and distribution of
+              weightage for each of the assessments is given in the syllabus
+              manual of each programmes. Normally weightage of Internal
+              Assessment and End Semester Examinations 20 and 80 percent
+              respectively in theory courses. In laboratory courses, continuous
+              assessment should be carried out and appropriate weightage should
+              be given to each practical/assignment/course project and proper
+              record of the same to be preserved by the concerned faculty for
+              the purpose of inspection as and when required.
+            </p>
           </div>
-        </div>
-
-        {/* Examination / Assessment and Grading */}
-        <div className="mb-8 md:mb-16">
-          <h2 className={`mb-4 md:mb-6 text-xl md:text-2xl font-bold text-[#001f3f]`}>
-            Examination / Assessment and Grading
-          </h2>
-          
-          <div className="rounded-lg bg-gray-100 p-4 md:p-6 shadow-lg">
-            <div className="flex items-start">
-              <span className="mr-3 md:mr-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-white">
-                <FileText className="h-4 w-4 md:h-5 md:w-5" />
-              </span>
-              <div>
-                <p className="text-sm md:text-base text-gray-700">
-                  Semester wise performance assessment of every registered learner
-                  is to be carried out through various modes of examinations. These
-                  include the Internal Assessment and End Semester Examination.
-                  Internal Assessment includes class tests, home assignments based
-                  on live problems, course projects either in a group or
-                  individually. The modes of evaluation and distribution of
-                  weightage for each of the assessments is given in the syllabus
-                  manual of each programmes. Normally weightage of Internal
-                  Assessment and End Semester Examinations 20 and 80 percent
-                  respectively in theory courses. In laboratory courses, continuous
-                  assessment should be carried out and appropriate weightage should
-                  be given to each practical/assignment/course project and proper
-                  record of the same to be preserved by the concerned faculty for
-                  the purpose of inspection as and when required.
-                </p>
-              </div>
-            </div>
+        )
+      case "attendance":
+        return (
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">Attendance</h2>
+            <p className="text-sm md:text-base text-gray-700">
+              Attendance for all Theory, Tutorial, Practical, Seminar and
+              Project/Dissertation is compulsory. As per the University
+              Ordinance 119, 75% attendance is compulsory for keeping the term.
+            </p>
           </div>
-        </div>
-
-        {/* Attendance */}
-        <div className="mb-8 md:mb-16">
-          <h2 className={`mb-4 md:mb-6 text-xl md:text-2xl font-bold text-[#001f3f]`}>
-            Attendance
-          </h2>
-          
-          <div className="rounded-lg bg-gray-100 p-4 md:p-6 shadow-lg">
-            <div className="flex items-start">
-              <span className="mr-3 md:mr-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-white">
-                <span className="text-sm md:text-base">A</span>
-              </span>
-              <div>
-                <p className="text-sm md:text-base text-gray-700">
-                  Attendance for all Theory, Tutorial, Practical, Seminar and
-                  Project/Dissertation is compulsory. As per the University
-                  Ordinance 119, 75% attendance is compulsory for keeping the term.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Modes of Assessment/Evaluation */}
-        <div className="mb-8 md:mb-16">
-          <h2 className={`mb-4 md:mb-6 text-xl md:text-2xl font-bold text-[#001f3f]`}>
-            Modes of Assessment/Evaluation
-          </h2>
-          
-          <div className="space-y-4 md:space-y-6">
+        )
+      case "modes":
+        return (
+          <div className="p-4 md:p-6">
+            
+             <div className="space-y-4 md:space-y-6">
             {/* Theory Courses */}
-            <div className="rounded-lg bg-gray-100 p-4 md:p-6 shadow-lg">
-              <h3 className="mb-2 md:mb-3 text-lg md:text-xl font-semibold text-[#4a90e2]">
+            <div className="rounded-lg bg-white p-4 md:p-6 ">
+              <h3 className="mb-2 md:mb-3 text-lg md:text-xl font-semibold text-[#012146] w-full">
                 Modes of Evaluation for Theory Courses
               </h3>
               <p className="text-sm md:text-base text-gray-700">
@@ -179,8 +118,8 @@ const CreditBasedEvaluationSystem = () => {
             </div>
 
             {/* Laboratory Courses */}
-            <div className="rounded-lg bg-gray-100 p-4 md:p-6 shadow-lg">
-              <h3 className="mb-2 md:mb-3 text-lg md:text-xl font-semibold text-[#4a90e2]">
+            <div className="rounded-lg bg-white p-4 md:p-6 ">
+              <h3 className="mb-2 md:mb-3 text-lg md:text-xl font-semibold text-[#012146] w-full">
                 Modes of Evaluation for Laboratory Courses
               </h3>
               <p className="text-sm md:text-base text-gray-700">
@@ -200,8 +139,8 @@ const CreditBasedEvaluationSystem = () => {
             </div>
 
             {/* Seminars */}
-            <div className="rounded-lg bg-gray-100 p-4 md:p-6 shadow-lg">
-              <h3 className="mb-2 md:mb-3 text-lg md:text-xl font-semibold text-[#4a90e2]">
+            <div className="rounded-lg bg-white p-4 md:p-6 ">
+              <h3 className="mb-2 md:mb-3 text-lg md:text-xl font-semibold text-[#012146] w-full">
                 Modes of Evaluation for Seminars
               </h3>
               <p className="text-sm md:text-base text-gray-700">
@@ -217,8 +156,8 @@ const CreditBasedEvaluationSystem = () => {
             </div>
 
             {/* Projects/Dissertation */}
-            <div className="rounded-lg bg-gray-100 p-4 md:p-6 shadow-lg">
-              <h3 className="mb-2 md:mb-3 text-lg md:text-xl font-semibold text-[#4a90e2]">
+            <div className="rounded-lg bg-white p-4 md:p-6 ">
+              <h3 className="mb-2 md:mb-3 text-lg md:text-xl font-semibold text-[#012146] w-full">
                 Modes of Evaluation for Projects/Dissertation
               </h3>
               
@@ -268,16 +207,58 @@ const CreditBasedEvaluationSystem = () => {
               </p>
             </div>
           </div>
-        </div>
+          </div>
+        )
+      default:
+        return null
+    }
+  }
 
-        {/* Grading of Performance */}
-        <div className="mb-8 md:mb-16">
-          <h2 className={`mb-4 md:mb-6 text-xl md:text-2xl font-bold text-[#001f3f]`}>
-            Grading of Performance
-          </h2>
+  return (
+    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 mt-36">
+      {/* Header Section */}
+      <div className="flex h-full w-full flex-col bg-white pt-12 md:pt-16">
+        <div className="flex w-full flex-col px-4 sm:px-8 md:px-16 lg:px-24 pb-6 md:pb-8 text-[#00122a]">
+        <h1 className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}>
           
-          <div className="rounded-lg bg-gray-100 p-4 md:p-6 shadow-lg">
-            <h3 className="mb-3 md:mb-4 text-lg md:text-xl font-semibold text-[#4a90e2]">
+        
+            CREDIT BASED EVALUATION SYSTEM
+          </h1>
+        </div>
+      </div>
+
+      {/* Tab Navigation */}
+      <div className="container mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-24">
+        <div className="flex flex-wrap">
+          {tabs.map(tab => (
+            <button
+              key={tab.id}
+              className={`px-3 md:px-4 py-2 md:py-3 text-center whitespace-nowrap text-xs md:text-sm lg:text-base ${
+                activeTab === tab.id 
+                ? "bg-white font-semibold text-[#012146] rounded-t-lg" 
+                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
+              onClick={() => setActiveTab(tab.id)}
+            >
+              <span>{tab.title}</span>
+            </button>
+          ))}
+        </div>
+        
+        {/* Tab Content */}
+        <div className="bg-white rounded-b-lg rounded-tr-lg shadow-lg mb-8">
+          {renderTabContent()}
+        </div>
+      </div>
+
+      {/* Grading Section (Separate Component) */}
+      <div className="container mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-24 py-4 md:py-8">
+        <div className="bg-white rounded-lg shadow-lg">
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+              Grading of Performance
+            </h2>
+            <h3 className="mb-3 text-base md:text-lg font-semibold text-[#012146] w-full">
               Letter Grade and Grade Point Allocation
             </h3>
             <p className="mb-4 text-sm md:text-base text-gray-700">
@@ -294,69 +275,69 @@ const CreditBasedEvaluationSystem = () => {
             </p>
 
             <div className="overflow-x-auto">
-              <table className="mb-4 w-full border-collapse border border-gray-300 text-sm md:text-base">
-                <thead className="bg-[#4a90e2] text-white">
+              <table className="mb-4 w-full text-sm md:text-base">
+                <thead className="bg-[#012146] text-white">
                   <tr>
-                    <th className="border border-gray-300 p-2">
+                    <th className="p-2">
                       Percentage of Marks Obtained
                     </th>
-                    <th className="border border-gray-300 p-2">Letter Grade</th>
-                    <th className="border border-gray-300 p-2">Grade Points</th>
-                    <th className="border border-gray-300 p-2">Performance</th>
+                    <th className="p-2">Letter Grade</th>
+                    <th className="p-2">Grade Points</th>
+                    <th className="p-2">Performance</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td className="border border-gray-300 p-2">
+                  <tr className="bg-gray-50">
+                    <td className="p-2">
                       80.00 and above
                     </td>
-                    <td className="border border-gray-300 p-2 text-center">O</td>
-                    <td className="border border-gray-300 p-2 text-center">10</td>
-                    <td className="border border-gray-300 p-2">Outstanding</td>
+                    <td className="p-2 text-center">O</td>
+                    <td className="p-2 text-center">10</td>
+                    <td className="p-2">Outstanding</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-300 p-2">75.00 – 79.99</td>
-                    <td className="border border-gray-300 p-2 text-center">A</td>
-                    <td className="border border-gray-300 p-2 text-center">9</td>
-                    <td className="border border-gray-300 p-2">Excellent</td>
+                    <td className="p-2">75.00 – 79.99</td>
+                    <td className="p-2 text-center">A</td>
+                    <td className="p-2 text-center">9</td>
+                    <td className="p-2">Excellent</td>
+                  </tr>
+                  <tr className="bg-gray-50">
+                    <td className="p-2">70.00 – 74.99</td>
+                    <td className="p-2 text-center">B</td>
+                    <td className="p-2 text-center">8</td>
+                    <td className="p-2">Very Good</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-300 p-2">70.00 – 74.99</td>
-                    <td className="border border-gray-300 p-2 text-center">B</td>
-                    <td className="border border-gray-300 p-2 text-center">8</td>
-                    <td className="border border-gray-300 p-2">Very Good</td>
+                    <td className="p-2">60.00 – 69.99</td>
+                    <td className="p-2 text-center">C</td>
+                    <td className="p-2 text-center">7</td>
+                    <td className="p-2">Good</td>
+                  </tr>
+                  <tr className="bg-gray-50">
+                    <td className="p-2">50.00 – 59.99</td>
+                    <td className="p-2 text-center">D</td>
+                    <td className="p-2 text-center">6</td>
+                    <td className="p-2">Fair</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-300 p-2">60.00 – 69.99</td>
-                    <td className="border border-gray-300 p-2 text-center">C</td>
-                    <td className="border border-gray-300 p-2 text-center">7</td>
-                    <td className="border border-gray-300 p-2">Good</td>
+                    <td className="p-2">45.00 – 49.99</td>
+                    <td className="p-2 text-center">E</td>
+                    <td className="p-2 text-center">5</td>
+                    <td className="p-2">Average</td>
+                  </tr>
+                  <tr className="bg-gray-50">
+                    <td className="p-2">40.00 – 44.99</td>
+                    <td className="p-2 text-center">P</td>
+                    <td className="p-2 text-center">4</td>
+                    <td className="p-2">Pass</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-300 p-2">50.00 – 59.99</td>
-                    <td className="border border-gray-300 p-2 text-center">D</td>
-                    <td className="border border-gray-300 p-2 text-center">6</td>
-                    <td className="border border-gray-300 p-2">Fair</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 p-2">45.00 – 49.99</td>
-                    <td className="border border-gray-300 p-2 text-center">E</td>
-                    <td className="border border-gray-300 p-2 text-center">5</td>
-                    <td className="border border-gray-300 p-2">Average</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 p-2">40.00 – 44.99</td>
-                    <td className="border border-gray-300 p-2 text-center">P</td>
-                    <td className="border border-gray-300 p-2 text-center">4</td>
-                    <td className="border border-gray-300 p-2">Pass</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 p-2">
+                    <td className="p-2">
                       Less than 40.00
                     </td>
-                    <td className="border border-gray-300 p-2 text-center">F</td>
-                    <td className="border border-gray-300 p-2 text-center">0</td>
-                    <td className="border border-gray-300 p-2">Fail</td>
+                    <td className="p-2 text-center">F</td>
+                    <td className="p-2 text-center">0</td>
+                    <td className="p-2">Fail</td>
                   </tr>
                 </tbody>
               </table>

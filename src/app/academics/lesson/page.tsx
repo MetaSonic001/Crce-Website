@@ -75,101 +75,89 @@ const LessonPlanPage = () => {
   ]
 
   return (
-    <div className="flex h-fit w-full flex-col bg-white text-gray-900">
-      {/* Header Section - Matching the IQAC style */}
-      <div className="flex h-full w-full flex-col bg-white pt-24 md:flex-row">
-        <div className="flex w-full flex-col px-4 sm:px-8 md:px-16 lg:px-28 pt-8 md:pt-36 text-[#00122a]">
-          <h1
-            className={`mb-4 flex font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
-          >
+    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 mt-40">
+      {/* Header Section */}
+      <div className="flex h-full w-full flex-col bg-white pt-12 md:pt-16">
+        <div className="flex w-full flex-col px-4 sm:px-8 md:px-16 lg:px-24 pb-6 md:pb-8 text-[#00122a]">
+          <h1 className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}>
             ACADEMIC LESSON PLANS
           </h1>
-          <div className="flex justify-center">
-            <Navigation items={navigationItems} />
-          </div>
+        
         </div>
       </div>
 
-      <div className="container mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-28 py-8 md:py-16">
+      <div className="container mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-24 py-4 md:py-8">
         {/* About Lesson Plans */}
-        <section className="mb-8 md:mb-16">
-          <h2 className={`mb-4 md:mb-6 text-xl md:text-2xl font-bold text-[#001f3f]`}>
-            About Lesson Plans
-          </h2>
-          <div className="rounded-lg bg-gray-100 p-4 md:p-6 shadow-lg">
-            <p className="mb-4 text-sm md:text-base text-gray-700">
+        <div className="bg-white rounded-lg shadow-lg mb-8">
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+              About Lesson Plans
+            </h2>
+            <p className="text-sm md:text-base text-gray-700">
               Fr. Conceicao Rodrigues College of Engineering (FR.CRCE) is
               affiliated to the University of Mumbai. Our lesson plans are
               carefully designed to provide a comprehensive educational experience
               with regular updates based on industry needs and academic standards.
             </p>
           </div>
-        </section>
+        </div>
 
         {/* Curriculum Delivery Process */}
-        <section className="mb-8 md:mb-16">
-          <h2 className={`mb-4 md:mb-6 text-xl md:text-2xl font-bold text-[#001f3f]`}>
-            Curriculum Delivery Process
-          </h2>
-          <div className="rounded-lg bg-gray-100 p-4 md:p-6 shadow-lg">
+        <div className="bg-white rounded-lg shadow-lg mb-8">
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+              Curriculum Delivery Process
+            </h2>
             <div className="space-y-4">
               {lessonPlanSteps.map((step, index) => (
-                <div key={index} className="flex items-start">
-                  <span className="mr-3 md:mr-4 flex h-6 w-6 md:h-8 md:w-8 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-white">
-                    {step.icon}
-                  </span>
-                  <div className="flex-1">
-                    <h3 className="mb-2 text-sm md:text-base font-semibold text-[#001f3f]">
-                      {step.title}
-                    </h3>
-                    <p className="text-sm md:text-base text-gray-700">{step.content}</p>
-                  </div>
+                <div key={index} className="mb-4">
+                  <h3 className="text-base md:text-lg font-semibold mb-2 text-[#012146]">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-gray-700">{step.content}</p>
                 </div>
               ))}
             </div>
           </div>
-        </section>
+        </div>
 
         {/* Department Lesson Plans */}
-        <section className="mb-8 md:mb-16">
-          <h2 className={`mb-4 md:mb-6 text-xl md:text-2xl font-bold text-[#001f3f]`}>
-            Department Lesson Plans
-          </h2>
-          <div className="rounded-lg bg-gray-100 p-4 md:p-6 shadow-lg">
-            <p className="mb-4 text-sm md:text-base text-gray-700">
+        <div className="bg-white rounded-lg shadow-lg mb-8">
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+              Department Lesson Plans
+            </h2>
+            <p className="text-sm md:text-base text-gray-700 mb-4">
               Access lesson plans by department to find specific course information.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-              {departments.map((dept, index) => (
-                <div key={dept.id} className="flex items-start">
-                  <span className="mr-3 md:mr-4 flex h-6 w-6 md:h-8 md:w-8 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-white text-sm md:text-base">
-                    {index + 1}
-                  </span>
-                  <div className="flex-1">
-                    <a
-                      href={`/index.php/academics/tlp/lesson-plan/category/${dept.id}-${dept.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`}
-                      className="flex items-center justify-between rounded-lg border border-gray-200 bg-white p-3 text-[#001f3f] transition-colors hover:bg-gray-50 hover:border-[#4a90e2]"
-                    >
-                      <span className="text-sm md:text-base">{dept.name}</span>
-                      <span className="text-xs text-gray-400">(0)</span>
-                    </a>
-                  </div>
+              {departments.map((dept) => (
+                <div key={dept.id}>
+                  <a
+                    href={`/index.php/academics/tlp/lesson-plan/category/${dept.id}-${dept.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`}
+                    className="flex items-center justify-between rounded-lg border border-gray-200 bg-white p-3 text-[#012146] transition-colors hover:bg-gray-50 hover:border-[#4a90e2]"
+                  >
+                    <span className="text-sm md:text-base">{dept.name}</span>
+                    <span className="text-xs text-gray-400">(0)</span>
+                  </a>
                 </div>
               ))}
             </div>
           </div>
-        </section>
+        </div>
 
         {/* Download Section */}
-        <div className="flex justify-center mt-6 md:mt-10">
+        <div className="text-center">
           <a
             href="/lesson-plans.pdf"
-            className="rounded-lg bg-[#4a90e2] px-4 sm:px-6 md:px-8 py-3 md:py-4 text-sm md:text-base font-semibold text-white transition-all hover:bg-[#3a7bc2] hover:shadow-lg flex items-center"
+            className="inline-block rounded-full bg-[#4a90e2] px-6 py-3 font-semibold text-white transition-all hover:bg-[#357abd]"
             download
           >
-            <FileText className="mr-2 h-4 w-4 md:h-5 md:w-5" />
-            Download Lesson Plan Guide
+            <span className="flex items-center">
+              <FileText className="mr-2 h-4 w-4" />
+              Download Lesson Plan Guide
+            </span>
           </a>
         </div>
       </div>

@@ -105,26 +105,16 @@ const getColorForNoticeType = (type: Notice['type']) => {
 export default function Page() {
   return (
     <main className="flex h-fit w-full flex-col items-center justify-center">
-      <div
-        className="flex h-full w-full flex-col justify-center bg-linear-to-br from-[#001f3f] to-[#003366] md:flex-row md:pt-36"
-        id="iqac"
-      >
-        <div className="flex w-full flex-col items-center justify-center p-8 pt-36 text-white md:w-2/3 md:p-16 md:pt-16">
-          <h1
-            className={`${zilla.className} mb-3 text-center text-4xl font-bold md:text-5xl lg:text-7xl`}
-          >
-            Annoucements
-          </h1>
-        </div>
-      </div>
+    
+       
 
-      <section className="bg-white py-12 text-black sm:py-16 lg:py-20">
+      <section className="bg-white m-20 py-20 text-black sm:py-16 lg:py-20">
         <div className="mx-auto w-3/4 px-4 sm:px-6 lg:px-8">
           <div className="relative mb-8 mt-10 text-center">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-3/4 border-t border-gray-300"></div>
             </div>
-            <h1 className="relative z-10 inline-block bg-white px-4 font-serif text-4xl text-gray-800">
+            <h1 className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}>
               Notices
             </h1>
           </div>

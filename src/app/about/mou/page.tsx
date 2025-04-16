@@ -273,7 +273,7 @@ const MOUCollaborationPage = () => {
           >
             About Our Collaborations
           </h2>
-          <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
+          <div className="rounded-lg bg-white p-4 shadow-lg md:p-6">
             <p className="mb-4 text-sm text-gray-700 md:text-base">
               The institute has signed various Memorandums of Understanding with
               several Companies, Foreign Universities, Institutes of national
@@ -313,7 +313,7 @@ const MOUCollaborationPage = () => {
           >
             Find Collaborations
           </h2>
-          <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
+          <div className="rounded-lg bg-white p-4 shadow-lg md:p-6">
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
               <div className="relative w-full md:w-1/2">
                 <Search
@@ -358,7 +358,7 @@ const MOUCollaborationPage = () => {
           >
             Our Partner Organizations
           </h2>
-          <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
+          <div className="rounded-lg bg-white p-4 shadow-lg md:p-6">
             {filteredMouData.length > 0 ? (
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {filteredMouData.map((mou, index) => {

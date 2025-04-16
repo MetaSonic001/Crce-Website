@@ -19,27 +19,25 @@ const IQACPage = () => {
   ]
 
   return (
-    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900">
-      {/* Header Section - Updated to match the provided style */}
-      <div className="flex h-full w-full flex-col bg-white pt-24 md:flex-row">
-        <div className="flex w-full flex-col px-4 pt-8 text-[#00122a] sm:px-8 md:px-16 md:pt-36 lg:px-28">
-          <h1
-            className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
-          >
+    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 mt-44">
+      {/* Header Section */}
+      <div className="flex h-full w-full flex-col bg-white pt-12 md:pt-16">
+        <div className="flex w-full flex-col px-4 sm:px-8 md:px-16 lg:px-24 pb-6 md:pb-8 text-[#00122a]">
+          <h1 className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}>
             IQAC - INTERNAL QUALITY ASSESSMENT CELL
           </h1>
+          
         </div>
       </div>
 
-      <div className="container mx-auto w-full px-4 py-8 sm:px-8 md:px-16 md:py-16 lg:px-28">
-        <section className="mb-8 md:mb-16">
-          <h2
-            className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-          >
-            About IQAC
-          </h2>
-          <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
-            <p className="mb-4 text-sm text-gray-700 md:text-base">
+      <div className="container mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-24 py-4 md:py-8">
+        {/* About IQAC */}
+        <div className="bg-white rounded-lg shadow-lg mb-8">
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+              About IQAC
+            </h2>
+            <p className="text-sm md:text-base text-gray-700 mb-4">
               National Assessment and Accreditation Council (NAAC), Bangalore
               proposed that every accredited institution should establish an
               Internal Quality Assurance Cell (IQAC) as a quality sustenance
@@ -47,7 +45,7 @@ const IQACPage = () => {
               IQAC is a part of the institution's system and works towards the
               realisation of the goals of quality enhancement and sustenance.
             </p>
-            <p className="text-sm text-gray-700 md:text-base">
+            <p className="text-sm md:text-base text-gray-700">
               The work of the IQAC is the first step towards the internalization
               and institutionalization of quality enhancement initiatives. Its
               success depends upon the sense of belongingness and participation
@@ -55,75 +53,51 @@ const IQACPage = () => {
               and participative voluntary system/unit/organ of the institution.
             </p>
           </div>
-        </section>
+        </div>
 
-        <section className="mb-8 md:mb-16">
-          <h2
-            className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-          >
-            IQAC Vision
-          </h2>
-          <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
-            <div className="flex items-start">
-              <span className="mr-3 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-white md:mr-4">
-                <Award className="h-4 w-4 md:h-5 md:w-5" />
-              </span>
-              <div>
-                <p className="text-sm text-gray-700 md:text-base">
-                  To ensure quality culture as the prime concern for the Higher
-                  Education Institutions through institutionalizing and
-                  internalizing all the initiatives taken with internal and
-                  external support.
-                </p>
-              </div>
-            </div>
+        {/* IQAC Vision */}
+        <div className="bg-white rounded-lg shadow-lg mb-8">
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+              IQAC Vision
+            </h2>
+            <p className="text-sm md:text-base text-gray-700">
+              To ensure quality culture as the prime concern for the Higher
+              Education Institutions through institutionalizing and
+              internalizing all the initiatives taken with internal and
+              external support.
+            </p>
           </div>
-        </section>
+        </div>
 
-        <section className="mb-8 md:mb-16">
-          <h2
-            className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-          >
-            Objectives
-          </h2>
-          <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
-            <div className="space-y-4">
-              <div className="flex items-start">
-                <span className="mr-3 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-sm text-white md:mr-4 md:h-8 md:w-8 md:text-base">
-                  1
-                </span>
-                <div className="flex-1">
-                  <p className="text-sm text-gray-700 md:text-base">
-                    To develop a system for conscious, consistent and catalytic
-                    action to improve the academic and administrative
-                    performance of the institution.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <span className="mr-3 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-sm text-white md:mr-4 md:h-8 md:w-8 md:text-base">
-                  2
-                </span>
-                <div className="flex-1">
-                  <p className="text-sm text-gray-700 md:text-base">
-                    To promote measures for institutional functioning towards
-                    quality enhancement through internalization of quality
-                    culture and institutionalization of best practices.
-                  </p>
-                </div>
-              </div>
-            </div>
+        {/* Objectives */}
+        <div className="bg-white rounded-lg shadow-lg mb-8">
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+              Objectives
+            </h2>
+            <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
+              <li>
+                To develop a system for conscious, consistent and catalytic
+                action to improve the academic and administrative
+                performance of the institution.
+              </li>
+              <li>
+                To promote measures for institutional functioning towards
+                quality enhancement through internalization of quality
+                culture and institutionalization of best practices.
+              </li>
+            </ul>
           </div>
-        </section>
+        </div>
 
-        <section className="mb-8 md:mb-16">
-          <h2
-            className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-          >
-            Strategies
-          </h2>
-          <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
-            <div className="space-y-4">
+        {/* Strategies */}
+        <div className="bg-white rounded-lg shadow-lg mb-8">
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+              Strategies
+            </h2>
+            <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
               {[
                 'Ensuring the timely, efficient and progressive performance of academic, administrative and financial tasks;',
                 'Relevant and quality academic/ research programmes;',
@@ -133,29 +107,19 @@ const IQACPage = () => {
                 'Ensuring the adequacy, maintenance and proper allocation of support structure and services;',
                 'Sharing of research findings and networking with other institutions in India and abroad.',
               ].map((strategy, index) => (
-                <div key={index} className="flex items-start">
-                  <span className="mr-3 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-sm text-white md:mr-4 md:h-8 md:w-8 md:text-base">
-                    {index + 1}
-                  </span>
-                  <div className="flex-1">
-                    <p className="text-sm text-gray-700 md:text-base">
-                      {strategy}
-                    </p>
-                  </div>
-                </div>
+                <li key={index}>{strategy}</li>
               ))}
-            </div>
+            </ul>
           </div>
-        </section>
+        </div>
 
-        <section className="mb-8 md:mb-16">
-          <h2
-            className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-          >
-            Functions
-          </h2>
-          <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
-            <div className="space-y-4">
+        {/* Functions */}
+        <div className="bg-white rounded-lg shadow-lg mb-8">
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+              Functions
+            </h2>
+            <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
               {[
                 'Development and application of quality benchmarks;',
                 'Parameters for various academic and administrative activities of the institution;',
@@ -169,29 +133,19 @@ const IQACPage = () => {
                 'Periodical conduct of Academic and Administrative Audit and its follow-up;',
                 'Preparation and submission of the Annual Quality Assurance Report (AQAR) as per the guidelines and parameters of the NAAC.',
               ].map((function_item, index) => (
-                <div key={index} className="flex items-start">
-                  <span className="mr-3 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-sm text-white md:mr-4 md:h-8 md:w-8 md:text-base">
-                    {index + 1}
-                  </span>
-                  <div className="flex-1">
-                    <p className="text-sm text-gray-700 md:text-base">
-                      {function_item}
-                    </p>
-                  </div>
-                </div>
+                <li key={index}>{function_item}</li>
               ))}
-            </div>
+            </ul>
           </div>
-        </section>
+        </div>
 
-        <section className="mb-8 md:mb-16">
-          <h2
-            className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-          >
-            Benefits
-          </h2>
-          <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
-            <div className="space-y-4">
+        {/* Benefits */}
+        <div className="bg-white rounded-lg shadow-lg mb-8">
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+              Benefits
+            </h2>
+            <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
               {[
                 'Ensure clarity and focus in institutional functioning towards quality enhancement;',
                 'Ensure internalization of the quality culture;',
@@ -200,42 +154,28 @@ const IQACPage = () => {
                 'Act as a dynamic system for quality changes in HEIs;',
                 'Build an organized methodology of documentation and internal communication.',
               ].map((benefit, index) => (
-                <div key={index} className="flex items-start">
-                  <span className="mr-3 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-sm text-white md:mr-4 md:h-8 md:w-8 md:text-base">
-                    {index + 1}
-                  </span>
-                  <div className="flex-1">
-                    <p className="text-sm text-gray-700 md:text-base">
-                      {benefit}
-                    </p>
-                  </div>
-                </div>
+                <li key={index}>{benefit}</li>
               ))}
-            </div>
+            </ul>
           </div>
-        </section>
+        </div>
 
-        <section className="mb-8 md:mb-16">
-          <h2
-            className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-          >
-            IQAC-Composition
-          </h2>
-          <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
-            <p className="mb-4 text-sm text-gray-700 md:text-base">
+        {/* IQAC-Composition */}
+        <div className="bg-white rounded-lg shadow-lg mb-8">
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+              IQAC-Composition
+            </h2>
+            <p className="mb-4 text-sm md:text-base text-gray-700">
               The composition of IQAC consists of:
             </p>
 
             <div className="overflow-x-auto">
-              <table className="w-full border-collapse overflow-hidden rounded-lg">
-                <thead>
-                  <tr className="bg-[#4a90e2] text-white">
-                    <th className="w-[10%] p-3 text-center text-sm font-semibold md:text-base">
-                      No.
-                    </th>
-                    <th className="w-[90%] p-3 text-left text-sm font-semibold md:text-base">
-                      Designation
-                    </th>
+              <table className="min-w-full border border-gray-300 bg-white text-center text-sm md:text-base">
+                <thead className="bg-[#012146] text-white">
+                  <tr>
+                    <th className="p-2 w-[10%]">No.</th>
+                    <th className="p-2 w-[90%] text-left">Designation</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -257,41 +197,32 @@ const IQACPage = () => {
                     { id: 15, title: `Stakeholder's Nominee (Parent)1` },
                     { id: 16, title: 'Entrepreneur' },
                     { id: 17, title: 'Nominee from Industry' },
-                    {
-                      id: 18,
-                      title: 'Nominee of the Student- General Secretary',
-                    },
+                    { id: 18, title: 'Nominee of the Student- General Secretary' },
                     { id: 19, title: 'NAAC and NBA Co-ordinator' },
                     { id: 20, title: 'NIRF Co-ordinator' },
                   ].map((item, index) => (
-                    <tr
-                      key={item.id}
-                      className={`transition-colors duration-150 hover:bg-blue-50 ${
-                        index % 2 === 0 ? 'bg-white' : 'bg-gray-50'
-                      }`}
-                    >
-                      <td className="border-b border-gray-200 p-3 text-center text-sm font-medium text-[#4a90e2] md:text-base">
-                        {item.id}
-                      </td>
-                      <td className="border-b border-gray-200 p-3 text-sm md:text-base">
-                        {item.title}
-                      </td>
+                    <tr key={item.id} className={index % 2 === 0 ? 'bg-gray-50' : ''}>
+                      <td className="p-2">{item.id}</td>
+                      <td className="p-2 text-left">{item.title}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
           </div>
-        </section>
+        </div>
 
-        <div className="mt-6 flex justify-center md:mt-10">
+        {/* Download Section */}
+        <div className="text-center">
           <a
             href="/IQAC-2023.pdf"
-            className="flex items-center rounded-lg bg-[#4a90e2] px-4 py-3 text-sm font-semibold text-white transition-all hover:bg-[#3a7bc2] hover:shadow-lg sm:px-6 md:px-8 md:py-4 md:text-base"
+            className="inline-block rounded-full bg-[#4a90e2] px-6 py-3 font-semibold text-white transition-all hover:bg-[#357abd]"
             download
           >
-            <Download className="mr-2 h-4 w-4 md:h-5 md:w-5" />
-            Download IQAC 2023 PDF
+            <span className="flex items-center">
+              <Download className="mr-2 h-4 w-4" />
+              Download IQAC 2023 PDF
+            </span>
           </a>
         </div>
       </div>

@@ -57,7 +57,7 @@ const CodeOfConduct = () => {
                 ].map((section, index) => (
                   <div
                     key={index}
-                    className="rounded-lg bg-gray-100 p-6 shadow-md hover:shadow-lg"
+                    className="rounded-lg bg-white p-6 shadow-md hover:shadow-lg"
                   >
                     <h3
                       className={`${zilla.className} mb-4 text-xl font-semibold text-[#4a90e2]`}
@@ -125,7 +125,7 @@ const CodeOfConduct = () => {
                     ].map((row, index) => (
                       <tr
                         key={index}
-                        className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}
+                        className={index % 2 === 0 ? 'bg-white' : 'bg-white'}
                       >
                         <td className="border border-gray-300 p-3">{row[0]}</td>
                         <td className="border border-gray-300 p-3">{row[1]}</td>

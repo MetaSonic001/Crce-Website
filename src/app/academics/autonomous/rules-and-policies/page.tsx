@@ -68,7 +68,7 @@ const RulesAndPoliciesPage = () => {
           <h2 className={`mb-6 text-2xl font-bold text-[#001f3f] md:text-2xl`}>
             Institutional Guidelines
           </h2>
-          <div className="rounded-lg bg-gray-100 p-6 shadow-lg">
+          <div className="rounded-lg bg-white p-6 shadow-lg">
             <p className="mb-4 text-xl font-semibold text-[#4a90e2]">
               "Creating a Structured Environment for Academic Excellence"
             </p>
@@ -88,7 +88,7 @@ const RulesAndPoliciesPage = () => {
           
           <div className="space-y-4">
             {rulesData.map((item, index) => (
-              <div key={item.id} className="flex items-start rounded-lg bg-gray-100 p-4 shadow-lg">
+              <div key={item.id} className="flex items-start rounded-lg bg-white p-4 shadow-lg">
                 <span className="mr-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-white">
                   {index + 1}
                 </span>
@@ -114,7 +114,7 @@ const RulesAndPoliciesPage = () => {
           <h2 className={`mb-6 text-2xl font-bold text-[#001f3f] md:text-2xl`}>
             Compliance
           </h2>
-          <div className="rounded-lg bg-gray-100 p-6 shadow-lg">
+          <div className="rounded-lg bg-white p-6 shadow-lg">
             <p className="mb-4 text-gray-700">
               All students and faculty members are expected to familiarize themselves with these 
               rules and comply with them. Non-compliance may result in disciplinary action as 

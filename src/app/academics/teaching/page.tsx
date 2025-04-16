@@ -142,7 +142,7 @@ const TeachingLearningProcessPage = () => {
           >
             Our Teaching Learning Cycle
           </h2>
-          <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
+          <div className="rounded-lg bg-white p-4 shadow-lg md:p-6">
             <div className="flex flex-wrap justify-between gap-4">
               {processSteps.map((step, index) => (
                 <div key={index} className="flex flex-col items-center">
@@ -169,7 +169,7 @@ const TeachingLearningProcessPage = () => {
             >
               {section.title}
             </h2>
-            <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
+            <div className="rounded-lg bg-white p-4 shadow-lg md:p-6">
               {section.content.text && (
                 <p className="mb-4 text-sm text-gray-700 md:text-base">
                   {section.content.text}

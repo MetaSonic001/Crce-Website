@@ -74,7 +74,7 @@ const CoreValues = () => {
                 ].map((section, index) => (
                   <div
                     key={index}
-                    className="rounded-lg bg-gray-100 p-6 shadow-md hover:shadow-lg"
+                    className="rounded-lg bg-white p-6 shadow-md hover:shadow-lg"
                   >
                     <h3
                       className={`${zilla.className} mb-4 text-xl font-semibold text-[#4a90e2]`}

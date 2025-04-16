@@ -46,123 +46,53 @@ const ResearchPage = () => {
   }
 
   return (
-    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900">
-      {/* Header Section - Matching the IQAC style */}
-      <div className="flex h-full w-full flex-col bg-white pt-24 md:flex-row">
-        <div className="flex w-full flex-col px-4 pt-8 text-[#00122a] sm:px-8 md:px-16 md:pt-36 lg:px-28">
-          <h1
-            className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
-          >
+    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 mt-36">
+      {/* Header Section */}
+      <div className="flex h-full w-full flex-col bg-white pt-12 md:pt-16">
+        <div className="flex w-full flex-col px-4 sm:px-8 md:px-16 lg:px-24 pb-6 md:pb-8 text-[#00122a]">
+          <h1 className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}>
             RESEARCH AND DEVELOPMENT
           </h1>
+          
         </div>
       </div>
 
-      <div className="container mx-auto w-full px-4 py-8 sm:px-8 md:px-16 md:py-16 lg:px-28">
+      <div className="container mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-24 py-4 md:py-8">
         {/* Navigation Tabs */}
-        <div className="mb-8 flex flex-wrap gap-2">
-          <button
-            onClick={() => showSection('overview')}
-            className={`rounded-lg px-4 py-2 text-sm md:text-base ${
-              activeSection === 'overview'
-                ? 'bg-[#4a90e2] font-semibold text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            Overview
-          </button>
-          <button
-            onClick={() => showSection('ethics')}
-            className={`rounded-lg px-4 py-2 text-sm md:text-base ${
-              activeSection === 'ethics'
-                ? 'bg-[#4a90e2] font-semibold text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            Code of Ethics
-          </button>
-          <button
-            onClick={() => showSection('research-centre')}
-            className={`rounded-lg px-4 py-2 text-sm md:text-base ${
-              activeSection === 'research-centre'
-                ? 'bg-[#4a90e2] font-semibold text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            Research Centre Details
-          </button>
-          <button
-            onClick={() => showSection('computer')}
-            className={`rounded-lg px-4 py-2 text-sm md:text-base ${
-              activeSection === 'computer'
-                ? 'bg-[#4a90e2] font-semibold text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            Computer Engineering
-          </button>
-          <button
-            onClick={() => showSection('ecs')}
-            className={`rounded-lg px-4 py-2 text-sm md:text-base ${
-              activeSection === 'ecs'
-                ? 'bg-[#4a90e2] font-semibold text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            ECS
-          </button>
-          <button
-            onClick={() => showSection('ai-ds')}
-            className={`rounded-lg px-4 py-2 text-sm md:text-base ${
-              activeSection === 'ai-ds'
-                ? 'bg-[#4a90e2] font-semibold text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            AI & DS
-          </button>
-          <button
-            onClick={() => showSection('mechanical')}
-            className={`rounded-lg px-4 py-2 text-sm md:text-base ${
-              activeSection === 'mechanical'
-                ? 'bg-[#4a90e2] font-semibold text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            Mechanical
-          </button>
-          <button
-            onClick={() => showSection('patents')}
-            className={`rounded-lg px-4 py-2 text-sm md:text-base ${
-              activeSection === 'patents'
-                ? 'bg-[#4a90e2] font-semibold text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            Patents
-          </button>
-          <button
-            onClick={() => showSection('funded')}
-            className={`rounded-lg px-4 py-2 text-sm md:text-base ${
-              activeSection === 'funded'
-                ? 'bg-[#4a90e2] font-semibold text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            Funded Projects
-          </button>
+        <div className="flex flex-wrap mb-4">
+          {[
+            { id: 'overview', title: 'Overview' },
+            { id: 'ethics', title: 'Code of Ethics' },
+            { id: 'research-centre', title: 'Research Centre Details' },
+            { id: 'computer', title: 'Computer Engineering' },
+            { id: 'ecs', title: 'ECS' },
+            { id: 'ai-ds', title: 'AI & DS' },
+            { id: 'mechanical', title: 'Mechanical' },
+            { id: 'patents', title: 'Patents' },
+            { id: 'funded', title: 'Funded Projects' }
+          ].map(tab => (
+            <button
+              key={tab.id}
+              className={`px-3 md:px-4 py-2 md:py-3 text-center whitespace-nowrap text-xs md:text-sm lg:text-base ${
+                activeSection === tab.id 
+                ? "bg-white font-semibold text-[#012146] rounded-t-lg" 
+                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
+              onClick={() => showSection(tab.id as SectionId)}
+            >
+              <span>{tab.title}</span>
+            </button>
+          ))}
         </div>
 
         {/* Section Content */}
-        {activeSection === 'overview' && (
-          <section className="mb-8 md:mb-16">
-            <h2
-              className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-            >
-              Overview
-            </h2>
-            <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
-              <p className="mb-4 text-sm text-gray-700 md:text-base">
+        <div className="bg-white rounded-b-lg rounded-tr-lg shadow-lg mb-8">
+          {activeSection === 'overview' && (
+            <div className="p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+                Overview
+              </h2>
+              <p className="text-sm md:text-base text-gray-700 mb-4">
                 Fr. Conceicao Rodrigues College of Engineering encourages
                 multidisciplinary quality research related to science,
                 engineering and technology in the domain of Computer
@@ -175,89 +105,42 @@ const ResearchPage = () => {
                 students engaged in emerging area research.
               </p>
 
-              <h3 className="mt-6 mb-3 text-lg font-semibold text-[#001f3f] md:text-xl">
+              <h3 className="text-base md:text-lg font-semibold mb-3 text-[#012146] mt-6">
                 Vision
               </h3>
-              <div className="mb-4 rounded-lg bg-white p-3 shadow-sm">
-                <p className="text-sm text-gray-700 md:text-base">
-                  To foster an environment conducive to multi-disciplinary
-                  research in engineering and technology
-                </p>
-              </div>
+              <p className="text-sm md:text-base text-gray-700 mb-4">
+                To foster an environment conducive to multi-disciplinary
+                research in engineering and technology
+              </p>
 
-              <h3 className="mt-6 mb-3 text-lg font-semibold text-[#001f3f] md:text-xl">
+              <h3 className="text-base md:text-lg font-semibold mb-3 text-[#012146] mt-6">
                 Mission
               </h3>
-              <div className="space-y-2">
-                <div className="flex items-start">
-                  <span className="mr-3 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-sm text-white md:mr-4 md:h-8 md:w-8 md:text-base">
-                    1
-                  </span>
-                  <div className="flex-1">
-                    <p className="text-sm text-gray-700 md:text-base">
-                      To promote inventiveness and moral research among faculty,
-                      students, and alumni.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <span className="mr-3 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-sm text-white md:mr-4 md:h-8 md:w-8 md:text-base">
-                    2
-                  </span>
-                  <div className="flex-1">
-                    <p className="text-sm text-gray-700 md:text-base">
-                      To encourage interdisciplinary and collaborative research
-                      that benefits various facets of society and industry.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
+                <li>To promote inventiveness and moral research among faculty,
+                  students, and alumni.</li>
+                <li>To encourage interdisciplinary and collaborative research
+                  that benefits various facets of society and industry.</li>
+              </ul>
 
-              <h3 className="mt-6 mb-3 text-lg font-semibold text-[#001f3f] md:text-xl">
+              <h3 className="text-base md:text-lg font-semibold mb-3 text-[#012146] mt-6">
                 Objective
               </h3>
-              <div className="space-y-2">
-                <div className="flex items-start">
-                  <span className="mr-3 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-sm text-white md:mr-4 md:h-8 md:w-8 md:text-base">
-                    1
-                  </span>
-                  <div className="flex-1">
-                    <p className="text-sm text-gray-700 md:text-base">
-                      To inspire faculty and students to realize their research
-                      potential and improve their involvement in research and
-                      development activities.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <span className="mr-3 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-sm text-white md:mr-4 md:h-8 md:w-8 md:text-base">
-                    2
-                  </span>
-                  <div className="flex-1">
-                    <p className="text-sm text-gray-700 md:text-base">
-                      To support collaboration and interdisciplinary research
-                      projects.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <span className="mr-3 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-sm text-white md:mr-4 md:h-8 md:w-8 md:text-base">
-                    3
-                  </span>
-                  <div className="flex-1">
-                    <p className="text-sm text-gray-700 md:text-base">
-                      To support the students and faculty in their efforts to
-                      create, protect, and leverage Intellectual Property
-                      Rights.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
+                <li>To inspire faculty and students to realize their research
+                  potential and improve their involvement in research and
+                  development activities.</li>
+                <li>To support collaboration and interdisciplinary research
+                  projects.</li>
+                <li>To support the students and faculty in their efforts to
+                  create, protect, and leverage Intellectual Property
+                  Rights.</li>
+              </ul>
 
-              <h3 className="mt-6 mb-3 text-lg font-semibold text-[#001f3f] md:text-xl">
+              <h3 className="text-base md:text-lg font-semibold mb-3 text-[#012146] mt-6">
                 Research & Development Committee (2022-23)
               </h3>
-              <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+              <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
                 {[
                   'Dr. Ketaki Joshi(In-charge)',
                   'Prof. Swapnali Mahadik',
@@ -273,52 +156,40 @@ const ResearchPage = () => {
                   'Divya Fernandes(TE AI & DS)',
                   'Snow Doritto (TE AI & DS)',
                 ].map((member, index) => (
-                  <div key={index} className="flex items-start">
-                    <span className="mr-3 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-sm text-white md:mr-4 md:h-8 md:w-8 md:text-base">
-                      {index + 1}
-                    </span>
-                    <div className="flex-1">
-                      <p className="text-sm text-gray-700 md:text-base">
-                        {member}
-                      </p>
-                    </div>
-                  </div>
+                  <li key={index}>{member}</li>
                 ))}
-              </div>
+              </ul>
 
-              <h3 className="mt-6 mb-3 text-lg font-semibold text-[#001f3f] md:text-xl">
+              <h3 className="text-base md:text-lg font-semibold mb-3 text-[#012146] mt-6">
                 Research Promotion Policy
               </h3>
-              <p className="mb-4 text-sm text-gray-700 md:text-base">
+              <p className="text-sm md:text-base text-gray-700 mb-4">
                 A research and development committee has been formed at Fr. CRCE
                 to strengthen the institute's presence in the field of research
                 by actively promoting research culture and facilitating research
                 activities.
               </p>
-              <div className="mt-4">
+              <div className="mt-4 text-center">
                 <Link
                   href="https://frcrce.ac.in/attachments/article/173/Research%20Promotion%20Policy.pdf"
-                  className="inline-flex items-center rounded-lg bg-[#4a90e2] px-4 py-3 text-sm font-semibold text-white transition-all hover:bg-[#3a7bc2] hover:shadow-lg sm:px-6 md:px-8 md:py-4 md:text-base"
+                  className="inline-block rounded-full bg-[#4a90e2] px-6 py-3 font-semibold text-white transition-all hover:bg-[#357abd]"
                 >
                   Research Promotion Policy.pdf
                 </Link>
               </div>
             </div>
-          </section>
-        )}
+          )}
 
-        {activeSection === 'ethics' && (
-          <section className="mb-8 md:mb-16">
-            <h2
-              className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-            >
-              Code of Ethics
-            </h2>
-            <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
-              <h3 className="mb-3 text-lg font-semibold text-[#001f3f] md:text-xl">
+          {activeSection === 'ethics' && (
+            <div className="p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+                Code of Ethics
+              </h2>
+              
+              <h3 className="text-base md:text-lg font-semibold mb-3 text-[#012146]">
                 Preamble
               </h3>
-              <p className="mb-4 text-sm text-gray-700 md:text-base">
+              <p className="text-sm md:text-base text-gray-700 mb-4">
                 University Of Mumbai adopted notification regarding Promotion of
                 Academic Integrity and Prevention of Plagiarism by UGC vide
                 circular number Th./ICD/2018-19/558 dated 6th October 2018. Our
@@ -335,10 +206,10 @@ const ResearchPage = () => {
                 work.
               </p>
 
-              <h3 className="mt-6 mb-3 text-lg font-semibold text-[#001f3f] md:text-xl">
+              <h3 className="text-base md:text-lg font-semibold mb-3 text-[#012146] mt-6">
                 Code of Ethics and Publishing your Work
               </h3>
-              <div className="space-y-2">
+              <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
                 {[
                   'The work of the authors should be original research that is transparent and written by them in their own words.',
                   'The work of the author should not infringe any intellectual property rights or any rights of others.',
@@ -352,191 +223,155 @@ const ResearchPage = () => {
                   'The authorship of the work should be given to those who have significantly contributed to improving the quality of the manuscript.',
                   'The authors should ensure that they strictly adhere to the ethical guidelines given by their discipline where subjects like human are involved.',
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start">
-                    <span className="mr-3 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-sm text-white md:mr-4 md:h-8 md:w-8 md:text-base">
-                      {index + 1}
-                    </span>
-                    <div className="flex-1">
-                      <p className="text-sm text-gray-700 md:text-base">
-                        {item}
-                      </p>
-                    </div>
-                  </div>
+                  <li key={index}>{item}</li>
                 ))}
-              </div>
+              </ul>
             </div>
-          </section>
-        )}
+          )}
 
-        {activeSection === 'research-centre' && (
-          <section className="mb-8 md:mb-16">
-            <h2
-              className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-            >
-              Research Centre Details
-            </h2>
-            <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
-              <h3 className="mb-4 text-lg font-semibold text-[#001f3f]">
+          {activeSection === 'research-centre' && (
+            <div className="p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+                Research Centre Details
+              </h2>
+              
+              <h3 className="text-base md:text-lg font-semibold mb-4 text-[#012146]">
                 Research Centre Statistics
               </h3>
 
               <div className="overflow-x-auto">
-                <table className="min-w-full border border-gray-300 bg-white text-center">
-                  <thead>
-                    <tr className="bg-[#4a90e2] text-white">
-                      <th className="border-r border-gray-300 p-4">
+                <table className="min-w-full border border-gray-300 bg-white text-center text-sm md:text-base">
+                  <thead className="bg-[#012146] text-white">
+                    <tr>
+                      <th className="p-2">
                         Research Centre
                       </th>
-                      <th className="border-r border-gray-300 p-4">
+                      <th className="p-2">
                         Electronics Engineering
                       </th>
-                      <th className="border-r border-gray-300 p-4">
+                      <th className="p-2">
                         Mechanical Engineering
                       </th>
-                      <th className="p-4">Computer Engineering</th>
+                      <th className="p-2">Computer Engineering</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b">
-                      <td className="border-r border-gray-300 bg-gray-50 p-4">
+                    <tr className="bg-gray-50">
+                      <td className="p-2">
                         Year of Introduction
                       </td>
-                      <td className="border-r border-gray-300 p-4">2014</td>
-                      <td className="border-r border-gray-300 p-4">2015</td>
-                      <td className="p-4">2023</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="border-r border-gray-300 bg-gray-50 p-4">
-                        Sanctioned Intake
-                      </td>
-                      <td className="border-r border-gray-300 p-4">14</td>
-                      <td className="border-r border-gray-300 p-4">10</td>
-                      <td className="p-4">10</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="border-r border-gray-300 bg-gray-50 p-4">
-                        No. of Candidates pursuing Ph.D.
-                      </td>
-                      <td className="border-r border-gray-300 p-4">7</td>
-                      <td className="border-r border-gray-300 p-4">8</td>
-                      <td className="p-4">6</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="border-r border-gray-300 bg-gray-50 p-4">
-                        No. of Candidates Registered
-                      </td>
-                      <td className="border-r border-gray-300 p-4">5</td>
-                      <td className="border-r border-gray-300 p-4">5</td>
-                      <td className="p-4">6</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="border-r border-gray-300 bg-gray-50 p-4">
-                        No. of Candidates with Thesis Submitted
-                      </td>
-                      <td className="border-r border-gray-300 p-4">1</td>
-                      <td className="border-r border-gray-300 p-4">1</td>
-                      <td className="p-4">-</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="border-r border-gray-300 bg-gray-50 p-4">
-                        No. of Candidates with Ph.D. Awarded
-                      </td>
-                      <td className="border-r border-gray-300 p-4">7</td>
-                      <td className="border-r border-gray-300 p-4">1</td>
-                      <td className="p-4">-</td>
+                      <td className="p-2">2014</td>
+                      <td className="p-2">2015</td>
+                      <td className="p-2">2023</td>
                     </tr>
                     <tr>
-                      <td className="border-r border-gray-300 bg-gray-50 p-4">
+                      <td className="p-2">
+                        Sanctioned Intake
+                      </td>
+                      <td className="p-2">14</td>
+                      <td className="p-2">10</td>
+                      <td className="p-2">10</td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="p-2">
+                        No. of Candidates pursuing Ph.D.
+                      </td>
+                      <td className="p-2">7</td>
+                      <td className="p-2">8</td>
+                      <td className="p-2">6</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2">
+                        No. of Candidates Registered
+                      </td>
+                      <td className="p-2">5</td>
+                      <td className="p-2">5</td>
+                      <td className="p-2">6</td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="p-2">
+                        No. of Candidates with Thesis Submitted
+                      </td>
+                      <td className="p-2">1</td>
+                      <td className="p-2">1</td>
+                      <td className="p-2">-</td>
+                    </tr>
+                    <tr>
+                      <td className="p-2">
+                        No. of Candidates with Ph.D. Awarded
+                      </td>
+                      <td className="p-2">7</td>
+                      <td className="p-2">1</td>
+                      <td className="p-2">-</td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="p-2">
                         Total Vacancies
                       </td>
-                      <td className="border-r border-gray-300 p-4">7</td>
-                      <td className="border-r border-gray-300 p-4">2</td>
-                      <td className="p-4">4</td>
+                      <td className="p-2">7</td>
+                      <td className="p-2">2</td>
+                      <td className="p-2">4</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
-          </section>
-        )}
+          )}
 
-        {activeSection === 'computer' && (
-          <section className="mb-8 md:mb-16">
-            <h2
-              className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-            >
-              Computer Engineering Research Publications
-            </h2>
-            <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
+          {activeSection === 'computer' && (
+            <div className="p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+                Computer Engineering Research Publications
+              </h2>
               <Publications />
             </div>
-          </section>
-        )}
+          )}
 
-        {activeSection === 'ecs' && (
-          <section className="mb-8 md:mb-16">
-            <h2
-              className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-            >
-              Electronics and Computer Science Research Publications
-            </h2>
-            <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
+          {activeSection === 'ecs' && (
+            <div className="p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+                Electronics and Computer Science Research Publications
+              </h2>
               <ECSPublications />
             </div>
-          </section>
-        )}
+          )}
 
-        {activeSection === 'ai-ds' && (
-          <section className="mb-8 md:mb-16">
-            <h2
-              className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-            >
-              Artificial Intelligence & Data Science Research Publications
-            </h2>
-            <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
+          {activeSection === 'ai-ds' && (
+            <div className="p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+                Artificial Intelligence & Data Science Research Publications
+              </h2>
               <AidsPublications />
             </div>
-          </section>
-        )}
+          )}
 
-        {activeSection === 'mechanical' && (
-          <section className="mb-8 md:mb-16">
-            <h2
-              className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-            >
-              Mechanical Engineering Research Publications
-            </h2>
-            <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
+          {activeSection === 'mechanical' && (
+            <div className="p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+                Mechanical Engineering Research Publications
+              </h2>
               <MechPublications />
             </div>
-          </section>
-        )}
+          )}
 
-        {activeSection === 'patents' && (
-          <section className="mb-8 md:mb-16">
-            <h2
-              className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-            >
-              Patents
-            </h2>
-            <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
+          {activeSection === 'patents' && (
+            <div className="p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+                Patents
+              </h2>
               <PatentsPublications />
             </div>
-          </section>
-        )}
+          )}
 
-        {activeSection === 'funded' && (
-          <section className="mb-8 md:mb-16">
-            <h2
-              className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-            >
-              Funded Research Projects
-            </h2>
-            <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
+          {activeSection === 'funded' && (
+            <div className="p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+                Funded Research Projects
+              </h2>
               <FundedPublications />
             </div>
-          </section>
-        )}
+          )}
+        </div>
       </div>
     </div>
   )

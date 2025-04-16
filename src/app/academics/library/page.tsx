@@ -8,16 +8,7 @@ import {
   Clock,
   Phone,
   Users,
-  BookOpen,
-  ExternalLink,
-  BookMarked,
-  Info,
-  Calendar,
-  Wifi,
-  Printer,
-  Search,
-  Newspaper,
-  Database,
+  FileText,
   ChevronDown,
   ChevronUp,
   ChevronLeft,
@@ -154,25 +145,22 @@ export default function LibraryPage() {
   }
 
   return (
-    <div className="flex h-fit w-full flex-col bg-linear-to-b from-white to-[#E5F0FF] text-gray-900">
-      {/* Header Section - now matching the provided image style */}
-      <div className="flex h-full w-full flex-col bg-white pt-24 md:flex-row">
-        <div className="flex w-full flex-col px-8 pt-36 text-[#011a3b] md:px-28">
-          <h1
-            className={`text-left font-serif text-5xl font-bold tracking-wide`}
-          >
+    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 mt-44">
+      {/* Header Section */}
+      <div className="flex h-full w-full flex-col bg-white pt-12 md:pt-16">
+        <div className="flex w-full flex-col px-4 sm:px-8 md:px-16 lg:px-24 pb-6 md:pb-8 text-[#00122a]">
+          <h1 className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}>
             LIBRARY
           </h1>
-          <Navigation items={navigationItems} />
+         
         </div>
       </div>
 
-      {/* Content Container */}
-      <div className="container mx-auto w-full px-8 py-16 md:px-28">
+      <div className="container mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-24 py-4 md:py-8">
         {/* Carousel */}
-        <div className="relative mb-16">
+        <div className="relative mb-8">
           <div className="overflow-hidden rounded-lg shadow-lg">
-            <div className="relative h-[400px] w-full">
+            <div className="relative h-[300px] md:h-[400px] w-full">
               {carouselImages.map((image, index) => (
                 <div
                   key={index}
@@ -202,7 +190,7 @@ export default function LibraryPage() {
             >
               <ChevronRight className="h-6 w-6" />
             </button>
-            <div className="absolute right-0 bottom-16 left-0 flex justify-center space-x-2">
+            <div className="absolute right-0 bottom-4 left-0 flex justify-center space-x-2">
               {carouselImages.map((_, index) => (
                 <button
                   key={index}
@@ -219,15 +207,12 @@ export default function LibraryPage() {
         </div>
 
         {/* About Library Section */}
-        <div className="mb-16">
-          <h2 className={`mb-6 text-2xl font-bold text-[#0A244A] md:text-2xl`}>
-            About Our Library
-          </h2>
-          <div className="rounded-lg bg-gray-50 p-8 shadow-lg">
-            <p className="mb-4 text-xl font-semibold text-[#4a90e2]">
-              "Empowering Minds, Inspiring Knowledge"
-            </p>
-            <p className="text-gray-700">
+        <div className="bg-white rounded-lg shadow-lg mb-8">
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+              About Our Library
+            </h2>
+            <p className="text-sm md:text-base text-gray-700">
               Our college library serves as a central hub for academic
               resources, research materials, and digital services. With a vast
               collection of books, journals, and electronic resources, we aim to
@@ -241,143 +226,64 @@ export default function LibraryPage() {
 
         {/* Two-Column Layout for Content and Links */}
         <div className="grid gap-8 md:grid-cols-3">
-          {/* Quick Links Column */}
-          <div className="order-2 md:order-1 md:col-span-1">
-            <h2
-              className={`mb-6 text-2xl font-bold text-[#0A244A] md:text-2xl`}
-            >
-              Quick Links
-            </h2>
-            <div className="rounded-lg bg-gray-50 p-6 shadow-lg">
-              <ul className="space-y-3">
-                {quickLinks.map((link, index) => (
-                  <li key={index} className="border-b border-gray-200 pb-2">
-                    <Link
-                      href={link.url}
-                      className="text-[#1F2942] transition-colors hover:text-[#357abd] hover:underline"
-                      target={link.url.startsWith('http') ? '_blank' : '_self'}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
           {/* Main Content Column */}
-          <div className="order-1 md:order-2 md:col-span-2">
+          <div className="md:col-span-2">
             {/* Library Services Section */}
-            <div className="mb-12">
-              <h2
-                className={`mb-6 text-2xl font-bold text-[#0A244A] md:text-2xl`}
-              >
-                Library Services & Facilities
-              </h2>
-              <div
-                className="rounded-t-sm bg-gray-50 p-8 shadow-lg"
-                id="services-container"
-              >
-                <div className="grid gap-y-4 md:grid-cols-2 md:gap-x-12">
-                  <div className="space-y-4">
-                    <div className="border-b border-gray-200 py-3">
-                      <p className="text-gray-700">Home Lending of Books</p>
-                    </div>
-                    <div className="border-b border-gray-200 py-3">
-                      <p className="text-gray-700">Open Access of Books</p>
-                    </div>
-                    <div className="border-b border-gray-200 py-3">
-                      <p className="text-gray-700">
-                        Reference and information system
-                      </p>
-                    </div>
-                    <div className="border-b border-gray-200 py-3">
-                      <p className="text-gray-700">Book bank scheme</p>
-                    </div>
-                    <div className="border-b border-gray-200 py-3">
-                      <p className="text-gray-700">Reservation of Books</p>
-                    </div>
-                    
+            <div className="bg-white rounded-lg shadow-lg mb-8">
+              <div className="p-4 md:p-6">
+                <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+                  Library Services & Facilities
+                </h2>
+                <div className="grid gap-y-4 md:grid-cols-2 md:gap-x-6">
+                  <div>
+                    <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
+                      <li>Home Lending of Books</li>
+                      <li>Open Access of Books</li>
+                      <li>Reference and information system</li>
+                      <li>Book bank scheme</li>
+                      <li>Reservation of Books</li>
+                    </ul>
                   </div>
-                  <div className="space-y-4">
-                    <div className="border-b border-gray-200 py-3">
-                      <p className="text-gray-700">E-Journals, Ebooks</p>
-                    </div>
-                    <div className="border-b border-gray-200 py-3">
-                      <p className="text-gray-700">Bound Volume Periodicals</p>
-                    </div>
-                    <div className="border-b border-gray-200 py-3">
-                      <p className="text-gray-700">
-                        Display of Current content of Journals
-                      </p>
-                    </div>
-                    <div className="border-b border-gray-200 py-3">
-                      <p className="text-gray-700">
-                        Availability of Syllabus and question papers
-                      </p>
-                    </div>
-                    <div className="border-b border-gray-200 py-3">
-                      <p className="text-gray-700">Multimedia center</p>
-                    </div>
+                  <div>
+                    <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
+                      <li>E-Journals, Ebooks</li>
+                      <li>Bound Volume Periodicals</li>
+                      <li>Display of Current content of Journals</li>
+                      <li>Availability of Syllabus and question papers</li>
+                      <li>Multimedia center</li>
+                    </ul>
                   </div>
                 </div>
+                
                 {showAdditionalServices && (
                   <div className="mt-4">
-                    <div className="mt-4 grid gap-y-4 md:grid-cols-2 md:gap-x-12">
-                      <div className="space-y-4">
-                        <div className="border-b border-gray-200 py-3">
-                          <p className="text-gray-700">
-                            Current Awareness system (CAS)
-                          </p>
-                        </div>
-                        
-                        <div className="border-b border-gray-200 py-3">
-                          <p className="text-gray-700">Newspaper clippings</p>
-                        </div>
-                        <div className="border-b border-gray-200 py-3">
-                          <p className="text-gray-700">
-                            Selective dissemination of Information (SDI)
-                          </p>
-                        </div>
-                        <div className="border-b border-gray-200 py-3">
-                          <p className="text-gray-700">Reprographic Facility</p>
-                        </div>
-                        <div className="border-b border-gray-200 py-3">
-                          <p className="text-gray-700">
-                            Online Public Access Catalogue (Web OPAC)
-                          </p>
-                        </div>
-                        <div className="border-b border-gray-200 py-3">
-                          <p className="text-gray-700">Internet Facility</p>
-                        </div>
+                    <div className="grid gap-y-4 md:grid-cols-2 md:gap-x-6">
+                      <div>
+                        <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
+                          <li>Current Awareness system (CAS)</li>
+                          <li>Newspaper clippings</li>
+                          <li>Selective dissemination of Information (SDI)</li>
+                          <li>Reprographic Facility</li>
+                          <li>Online Public Access Catalogue (Web OPAC)</li>
+                          <li>Internet Facility</li>
+                        </ul>
                       </div>
-                      <div className="space-y-4">
-                        <div className="border-b border-gray-200 py-3">
-                          <p className="text-gray-700">
-                            CD's of Technical topics
-                          </p>
-                        </div>
-                        <div className="border-b border-gray-200 py-3">
-                          <p className="text-gray-700">Wi-fi facility</p>
-                        </div>
-                        <div className="border-b border-gray-200 py-3">
-                          <p className="text-gray-700">CCTV Facility</p>
-                        </div>
-                        <div className="border-b border-gray-200 py-3">
-                          <p className="text-gray-700">
-                            National Digital library
-                          </p>
-                        </div>
-                        <div className="border-b border-gray-200 py-3">
-                          <p className="text-gray-700">Newspapers</p>
-                        </div>
+                      <div>
+                        <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
+                          <li>CD's of Technical topics</li>
+                          <li>Wi-fi facility</li>
+                          <li>CCTV Facility</li>
+                          <li>National Digital library</li>
+                          <li>Newspapers</li>
+                        </ul>
                       </div>
                     </div>
                   </div>
                 )}
-                <div className="mt-12 text-center">
+                
+                <div className="mt-6 text-center">
                   <button
-                    className="inline-block rounded-full bg-[#1F2942] px-10 py-3 font-semibold text-white transition-all hover:bg-[#357abd] hover:shadow-lg"
+                    className="inline-block rounded-full bg-[#4a90e2] px-6 py-3 font-semibold text-white transition-all hover:bg-[#357abd]"
                     onClick={toggleAdditionalServices}
                   >
                     {showAdditionalServices
@@ -386,76 +292,61 @@ export default function LibraryPage() {
                   </button>
                 </div>
               </div>
-              {/* Expandable Sections with Horizontal Headers */}
-              <div className="mb-16">
-                <div className="overflow-hidden rounded-b-lg shadow-lg">
-                  {/* Header Row */}
-                  <div className="grid grid-cols-3 bg-gray-100 text-[#1F2942">
-                    {/* User Orientation Section Header */}
-                    <div
-                      className={`flex cursor-pointer items-center justify-between border-r border-gray-200 px-6 py-4 ${activeSection === 'orientation' ? 'bg-gray-300/35' : ''}`}
-                      onClick={() => toggleSection('orientation')}
-                    >
-                      <h3 className="font-semibold">
-                        User Orientation & Book Exhibition
-                      </h3>
-                      {activeSection === 'orientation' ? (
-                        <ChevronUp className="h-5 w-5" />
-                      ) : (
-                        <ChevronDown className="h-5 w-5" />
-                      )}
-                    </div>
+            </div>
 
-                    {/* Print Collection Section Header */}
-                    <div
-                      className={`flex cursor-pointer items-center justify-between border-r border-gray-200 px-6 py-4 ${activeSection === 'print' ? 'bg-gray-300/35' : ''}`}
-                      onClick={() => toggleSection('print')}
-                    >
-                      <h3 className="font-semibold">Print Collection</h3>
-                      {activeSection === 'print' ? (
-                        <ChevronUp className="h-5 w-5" />
-                      ) : (
-                        <ChevronDown className="h-5 w-5" />
-                      )}
-                    </div>
-
-                    {/* Digital Resources Section Header */}
-                    <div
-                      className={`flex cursor-pointer items-center justify-between px-6 py-4 ${activeSection === 'digital' ? 'bg-gray-300/35' : ''}`}
-                      onClick={() => toggleSection('digital')}
-                    >
-                      <h3 className="font-semibold">Digital Resources</h3>
-                      {activeSection === 'digital' ? (
-                        <ChevronUp className="h-5 w-5" />
-                      ) : (
-                        <ChevronDown className="h-5 w-5" />
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Expandable Content Sections */}
+            {/* Resources Sections */}
+            <div className="bg-white rounded-lg shadow-lg mb-8">
+              <div className="p-4 md:p-6">
+                <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+                  Library Resources
+                </h2>
+                
+                <div className="mb-4">
+                  <button
+                    className="flex w-full items-center justify-between p-3 text-left"
+                    onClick={() => toggleSection('orientation')}
+                  >
+                    <h3 className={`text-md md:text-lg font-semibold ${activeSection === 'orientation' ? 'text-[#043874]' : 'text-[#001a38]'}`}>
+                      User Orientation & Book Exhibition
+                    </h3>
+                    <span className="ml-2 text-[#043874]">
+                      {activeSection === 'orientation' ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                    </span>
+                  </button>
+                  
                   {activeSection === 'orientation' && (
-                    <div className="border-t border-gray-200 bg-gray-50 p-8">
-                      <p className="mb-4 text-gray-700">
+                    <div className="p-3">
+                      <p className="text-sm md:text-base text-gray-700 mb-2">
                         First-year students are given orientation about the
                         library rules, services, and facilities. They are taken
                         on a library tour, informed about various sections, and
                         the rules to be followed.
                       </p>
-                      <p className="text-gray-700">
+                      <p className="text-sm md:text-base text-gray-700">
                         Additionally, a book exhibition is organized for
                         students to explore new titles and research materials
                         relevant to their courses.
                       </p>
                     </div>
                   )}
-
+                </div>
+                
+                <div className="mb-4">
+                  <button
+                    className="flex w-full items-center justify-between p-3 text-left"
+                    onClick={() => toggleSection('print')}
+                  >
+                    <h3 className={`text-md md:text-lg font-semibold ${activeSection === 'print' ? 'text-[#043874]' : 'text-[#001a38]'}`}>
+                      Print Collection
+                    </h3>
+                    <span className="ml-2 text-[#043874]">
+                      {activeSection === 'print' ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                    </span>
+                  </button>
+                  
                   {activeSection === 'print' && (
-                    <div className="border-t border-gray-200 bg-gray-50 p-8">
-                      <h3 className="mb-4 font-bold text-[#1F2942]">
-                        Print Collection
-                      </h3>
-                      <ul className="list-disc space-y-2 pl-5 text-gray-700">
+                    <div className="p-3">
+                      <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
                         <li>Over 20,000 books covering all disciplines</li>
                         <li>Current and bound journals</li>
                         <li>Magazines and newspapers</li>
@@ -464,13 +355,24 @@ export default function LibraryPage() {
                       </ul>
                     </div>
                   )}
-
+                </div>
+                
+                <div className="mb-4">
+                  <button
+                    className="flex w-full items-center justify-between p-3 text-left"
+                    onClick={() => toggleSection('digital')}
+                  >
+                    <h3 className={`text-md md:text-lg font-semibold ${activeSection === 'digital' ? 'text-[#043874]' : 'text-[#001a38]'}`}>
+                      Digital Resources
+                    </h3>
+                    <span className="ml-2 text-[#043874]">
+                      {activeSection === 'digital' ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                    </span>
+                  </button>
+                  
                   {activeSection === 'digital' && (
-                    <div className="border-t border-gray-200 bg-gray-50 p-8">
-                      <h3 className="mb-4 font-bold text-[#1F2942]">
-                        Digital Resources
-                      </h3>
-                      <ul className="list-disc space-y-2 pl-5 text-gray-700">
+                    <div className="p-3">
+                      <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
                         <li>E-books and e-journals</li>
                         <li>Online databases</li>
                         <li>Digital repositories</li>
@@ -483,39 +385,57 @@ export default function LibraryPage() {
               </div>
             </div>
           </div>
+
+          {/* Quick Links Column */}
+          <div className="md:col-span-1">
+            <div className="bg-white rounded-lg shadow-lg mb-8">
+              <div className="p-4 md:p-6">
+                <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+                  Quick Links
+                </h2>
+                <ul className="text-sm md:text-base text-gray-700 space-y-2">
+                  {quickLinks.map((link, index) => (
+                    <li key={index} className="border-b border-gray-200 pb-2">
+                      <Link
+                        href={link.url}
+                        className="text-[#012146] hover:text-[#357abd]"
+                        target={link.url.startsWith('http') ? '_blank' : '_self'}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Contact Info Section */}
-        <div className="mb-16 mt-12">
-          <h2 className={`mb-6 text-2xl font-bold text-[#0A244A] md:text-2xl`}>
-            Contact Information
-          </h2>
-          <div className="rounded-lg bg-gray-50 p-8 shadow-lg">
-            <div className="grid gap-8 md:grid-cols-3">
+        <div className="bg-white rounded-lg shadow-lg mb-8">
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+              Contact Information
+            </h2>
+            <div className="grid gap-6 md:grid-cols-3">
               {/* Librarian Info */}
-              <div className="text-center">
-                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#1F2942] text-white">
-                  <Users className="h-8 w-8" />
-                </div>
-                <p className="mb-2 text-xl font-medium text-[#1F2942]">
+              <div>
+                <h3 className="text-base md:text-lg font-semibold mb-2 text-[#012146]">
                   Librarian
+                </h3>
+                <p className="text-sm md:text-base text-gray-700 mb-2">Ms. G. Jothilakshmi</p>
+                <p className="text-sm md:text-base text-gray-700 flex items-center">
+                  <Phone className="mr-2 h-4 w-4" />
+                  022-642114114
                 </p>
-                <p className="mb-2 text-gray-700">Ms. G. Jothilakshmi</p>
-                <div className="flex items-center justify-center text-gray-700">
-                  <Phone className="mr-2 h-4 w-4 text-[#1F2942]" />
-                  <span>022-642114114</span>
-                </div>
               </div>
 
               {/* Library Hours */}
-              <div className="text-center">
-                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#1F2942] text-white">
-                  <Clock className="h-8 w-8" />
-                </div>
-                <p className="mb-2 text-xl font-medium text-[#1F2942]">
+              <div>
+                <h3 className="text-base md:text-lg font-semibold mb-2 text-[#012146]">
                   Library Hours
-                </p>
-                <div className="text-gray-700">
+                </h3>
+                <div className="text-sm md:text-base text-gray-700">
                   <p>Monday - Friday: 8:15 AM to 6:00 PM</p>
                   <p>(Exam Period: 8:15 AM to 7:00 PM)</p>
                   <p>Saturday: 8:15 AM to 4:30 PM</p>
@@ -523,26 +443,14 @@ export default function LibraryPage() {
               </div>
 
               {/* Committee Members */}
-              <div className="text-center">
-                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#1F2942] text-white">
-                  <Users className="h-8 w-8" />
-                </div>
-                <p className="mb-2 text-xl font-medium text-[#1F2942]">
+              <div>
+                <h3 className="text-base md:text-lg font-semibold mb-2 text-[#012146]">
                   Committee
-                </p>
-                <div className="text-gray-700">
-                  <p>
-                    <span className="font-medium">Chairman:</span> Dr. V.S.
-                    Jorapur
-                  </p>
-                  <p>
-                    <span className="font-medium">Secretary:</span> Mrs. G.
-                    Jothilakshmi
-                  </p>
-                  <p>
-                    <span className="font-medium">Members:</span> Prof. Prasad
-                    Lalit & Team
-                  </p>
+                </h3>
+                <div className="text-sm md:text-base text-gray-700">
+                  <p><span className="font-medium">Chairman:</span> Dr. V.S. Jorapur</p>
+                  <p><span className="font-medium">Secretary:</span> Mrs. G. Jothilakshmi</p>
+                  <p><span className="font-medium">Members:</span> Prof. Prasad Lalit & Team</p>
                 </div>
               </div>
             </div>
