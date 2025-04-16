@@ -165,7 +165,9 @@ export default function HeroSection() {
                   </Link>
                 </motion.button>
                 <motion.button className="group text-md w-full rounded-sm bg-gradient-to-r from-white to-gray-100 p-2 font-semibold text-[hsl(225,38%,20%)] shadow-sm transition-all duration-100 ease-in-out hover:from-[hsl(225,38%,20%)] hover:to-gray-100 hover:text-white hover:shadow-md focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
-                  <span className="flex pl-2">Students Bytes</span>
+                  <Link href={'/students-bytes'} className="flex pl-2">
+                    Students Bytes
+                  </Link>
                 </motion.button>
                 <motion.button className="group text-md w-full rounded-sm bg-gradient-to-r from-white to-gray-100 p-2 font-semibold text-[hsl(225,38%,20%)] shadow-sm transition-all duration-100 ease-in-out hover:from-[hsl(225,38%,20%)] hover:to-gray-100 hover:text-white hover:shadow-md focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
                   <span className="flex pl-2">Alumni Spotlight</span>
