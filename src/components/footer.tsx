@@ -370,7 +370,7 @@ const Footer: React.FC = () => {
             className="group inline-flex items-center justify-center gap-2"
           >
             <p className="text-sm text-gray-500 group-hover:underline">
-              Made by GDSC Fr.CRCE 2024
+              Made by GDSC CRCE 2024-25
             </p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
