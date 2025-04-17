@@ -10,8 +10,8 @@ services:
     volumes:
       - crce-website_minio_data:/bitnami/minio/data
     ports:
-      - 9000:9000
-      - 9001:9001
+      - 9001:9000
+      - 9000:9001
 
   directus:
     image: directus/directus:11
