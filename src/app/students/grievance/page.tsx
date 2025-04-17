@@ -1,8 +1,14 @@
 'use client'
-import React, { useState, useCallback, ChangeEvent, FormEvent } from 'react'
+import React, {
+  useState,
+  useCallback,
+  ChangeEvent,
+  FormEvent,
+  useEffect,
+} from 'react'
 import { Zilla_Slab } from 'next/font/google'
-import { useReCaptcha } from 'next-recaptcha-v3'
 import Footer from '@/components/footer'
+import { CaptchaSchema, CaptchaResponse } from '@/app/api/captcha/route'
 
 const zilla = Zilla_Slab({
   weight: ['400', '700'],
@@ -43,7 +49,30 @@ const GrievanceForm: React.FC = () => {
     message: '',
   })
 
-  const { executeRecaptcha } = useReCaptcha()
+  const [captcha, setCaptcha] = useState<CaptchaResponse>({
+    svg: '',
+    text: '',
+  })
+  const [captchaInput, setCaptchaInput] = useState('')
+  const [captchaError, setCaptchaError] = useState(false)
+
+  const generateCaptcha = useCallback(async () => {
+    try {
+      const res = await fetch('/api/captcha')
+      const json = await res.json()
+      const parsed = CaptchaSchema.safeParse(json)
+      if (!parsed.success) throw new Error('Invalid captcha response')
+      setCaptcha(parsed.data)
+      setCaptchaInput('')
+      setCaptchaError(false)
+    } catch (error) {
+      console.error('Error generating captcha:', error)
+    }
+  }, [])
+
+  useEffect(() => {
+    generateCaptcha()
+  }, [generateCaptcha])
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -51,52 +80,52 @@ const GrievanceForm: React.FC = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
+  const handleCaptchaChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setCaptchaInput(e.target.value)
+    setCaptchaError(false)
+  }
+
   const handleSubmit = useCallback(
     async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
-      try {
-        const token = await executeRecaptcha('grievance_form')
-        if (!token) {
-          alert('Failed to verify reCAPTCHA. Please try again.')
-          return
-        }
 
-        // Here you would typically send the form data along with the token to your server
-        console.log({ ...formData, recaptchaToken: token })
-
-        // Example API call (replace with your actual API endpoint)
-        // const response = await fetch('/api/submit-grievance', {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   },
-        //   body: JSON.stringify({ ...formData, recaptchaToken: token }),
-        // })
-
-        // if (response.ok) {
-        //   alert('Grievance submitted successfully!')
-        //   // Reset form or redirect user
-        // } else {
-        //   alert('Failed to submit grievance. Please try again.')
-        // }
-      } catch (error) {
-        console.error('reCAPTCHA or form submission error:', error)
-        alert('An error occurred. Please try again.')
+      if (captchaInput.trim().toLowerCase() !== captcha.text.toLowerCase()) {
+        setCaptchaError(true)
+        generateCaptcha()
+        return
       }
+
+      // CAPTCHA passed
+      console.log({
+        ...formData,
+        captchaInput,
+      })
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        mobile: '',
+        messageCategory: '',
+        subject: '',
+        message: '',
+      })
+      setCaptchaInput('')
+      generateCaptcha()
     },
-    [executeRecaptcha, formData]
+    [formData, captchaInput, captcha.text, generateCaptcha]
   )
 
   return (
-    <div className="flex h-fit w-full flex-col bg-linear-to-b from-white to-[#E5F0FF] text-gray-900">
-      <div className="flex h-fit w-full flex-col items-center justify-center bg-linear-to-br from-[#001f3f] to-[#003366] pt-10 md:pt-40">
+    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900">
+      <div className="flex h-fit w-full flex-col items-center justify-center bg-gradient-to-br from-[#001f3f] to-[#003366] pt-10 md:pt-40">
         <div className="flex w-full flex-col items-center justify-center p-8 pt-40 text-white md:w-2/3 md:p-16 md:pt-16">
           <h1
             className={`${zilla.className} mb-6 text-4xl font-bold md:text-5xl lg:text-7xl`}
           >
             Grievance Submission
           </h1>
-          <p className="rounded-full bg-white/20 px-4 py-2 text-sm font-light text-white backdrop-blur-xs md:text-base">
+          <p className="rounded-full bg-white/20 px-4 py-2 text-sm font-light backdrop-blur-xs md:text-base">
             Home {'>'} Contact {'>'} Grievance
           </p>
         </div>
@@ -108,47 +137,28 @@ const GrievanceForm: React.FC = () => {
           className="rounded-lg bg-white p-8 shadow-lg"
         >
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div>
-              <label htmlFor="name" className="mb-2 block font-semibold">
-                Your Name *
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#001f3f] focus:outline-hidden"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="mb-2 block font-semibold">
-                Your eMail *
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#001f3f] focus:outline-hidden"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="mobile" className="mb-2 block font-semibold">
-                Your Mobile No.
-              </label>
-              <input
-                type="tel"
-                id="mobile"
-                name="mobile"
-                value={formData.mobile}
-                onChange={handleInputChange}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#001f3f] focus:outline-hidden"
-              />
-            </div>
+            {/* Basic fields */}
+            {['name', 'email', 'mobile', 'subject'].map((field) => (
+              <div key={field}>
+                <label
+                  htmlFor={field}
+                  className="mb-2 block font-semibold capitalize"
+                >
+                  {field === 'email' ? 'Your eMail *' : `Your ${field} *`}
+                </label>
+                <input
+                  type={field === 'email' ? 'email' : 'text'}
+                  id={field}
+                  name={field}
+                  value={formData[field as keyof FormData]}
+                  onChange={handleInputChange}
+                  className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#001f3f] focus:outline-none"
+                  required={field !== 'mobile'}
+                />
+              </div>
+            ))}
+
+            {/* Category */}
             <div>
               <label
                 htmlFor="messageCategory"
@@ -161,31 +171,19 @@ const GrievanceForm: React.FC = () => {
                 name="messageCategory"
                 value={formData.messageCategory}
                 onChange={handleInputChange}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#001f3f] focus:outline-hidden"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#001f3f] focus:outline-none"
                 required
               >
                 <option value="">Select a category</option>
-                {messageCategories.map((category, index) => (
-                  <option key={index} value={category}>
+                {messageCategories.map((category) => (
+                  <option key={category} value={category}>
                     {category}
                   </option>
                 ))}
               </select>
             </div>
-            <div>
-              <label htmlFor="subject" className="mb-2 block font-semibold">
-                Subject *
-              </label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleInputChange}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#001f3f] focus:outline-hidden"
-                required
-              />
-            </div>
+
+            {/* Message */}
             <div>
               <label htmlFor="message" className="mb-2 block font-semibold">
                 Message * (Max 250 Characters)
@@ -196,9 +194,45 @@ const GrievanceForm: React.FC = () => {
                 value={formData.message}
                 onChange={handleInputChange}
                 maxLength={250}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#001f3f] focus:outline-hidden"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#001f3f] focus:outline-none"
                 required
               ></textarea>
+            </div>
+
+            {/* Captcha */}
+            <div className="md:col-span-2">
+              <label
+                htmlFor="captchaInput"
+                className="mb-2 block font-semibold"
+              >
+                Enter the text you see below *
+              </label>
+              <div
+                className="mb-2"
+                dangerouslySetInnerHTML={{ __html: captcha.svg }}
+              />
+              <input
+                type="text"
+                id="captchaInput"
+                value={captchaInput}
+                onChange={handleCaptchaChange}
+                className={`w-full rounded-lg border px-4 py-2 ${
+                  captchaError ? 'border-red-500' : 'border-gray-300'
+                } focus:border-[#001f3f] focus:outline-none`}
+                required
+              />
+              {captchaError && (
+                <p className="mt-1 text-sm text-red-600">
+                  Incorrect CAPTCHA. Please try again.
+                </p>
+              )}
+              <button
+                type="button"
+                onClick={generateCaptcha}
+                className="mt-2 text-sm text-blue-600 hover:underline"
+              >
+                Refresh Captcha
+              </button>
             </div>
           </div>
 
