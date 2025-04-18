@@ -17,25 +17,26 @@ const NAACAccreditationsPage = () => {
   ]
 
   return (
-    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 mt-44">
+    <div className="mt-25 flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 md:mt-44">
       {/* Header Section */}
       <div className="flex h-full w-full flex-col bg-white pt-12 md:pt-16">
-        <div className="flex w-full flex-col px-4 sm:px-8 md:px-16 lg:px-24 pb-6 md:pb-8 text-[#00122a]">
-          <h1 className={` flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}>
+        <div className="flex w-full flex-col px-4 pb-6 text-[#00122a] sm:px-8 md:px-16 md:pb-8 lg:px-24">
+          <h1
+            className={`flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
+          >
             NAAC ACCREDITATIONS
           </h1>
-         
         </div>
       </div>
 
-      <div className="container mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-24 py-4 md:py-8">
+      <div className="container mx-auto w-full px-4 py-4 sm:px-8 md:px-16 md:py-8 lg:px-24">
         {/* About NAAC */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
+        <div className="mb-8 rounded-lg bg-white shadow-lg">
           <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+            <h2 className="mb-4 w-full text-lg font-semibold text-[#012146] md:text-xl">
               About NAAC
             </h2>
-            <p className="text-sm md:text-base text-gray-700">
+            <p className="text-sm text-gray-700 md:text-base">
               The National Assessment and Accreditation Council (NAAC) is an
               autonomous body established by the University Grants Commission
               (UGC) of India to assess and accredit institutions of higher
@@ -47,24 +48,24 @@ const NAACAccreditationsPage = () => {
         </div>
 
         {/* Our NAAC Accreditation */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
+        <div className="mb-8 rounded-lg bg-white shadow-lg">
           <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+            <h2 className="mb-4 w-full text-lg font-semibold text-[#012146] md:text-xl">
               Our NAAC Accreditation
             </h2>
-            <p className="text-sm md:text-base text-gray-700">
-              We are proud to announce that our institution has been accredited by
-              NAAC. This accreditation is a testament to our commitment to quality
-              education and continuous improvement in all aspects of our academic
-              and administrative processes.
+            <p className="text-sm text-gray-700 md:text-base">
+              We are proud to announce that our institution has been accredited
+              by NAAC. This accreditation is a testament to our commitment to
+              quality education and continuous improvement in all aspects of our
+              academic and administrative processes.
             </p>
           </div>
         </div>
 
         {/* NAAC Certificate */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
+        <div className="mb-8 rounded-lg bg-white shadow-lg">
           <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+            <h2 className="mb-4 w-full text-lg font-semibold text-[#012146] md:text-xl">
               NAAC Certificate 2023
             </h2>
             <div className="h-[500px] w-full">
@@ -86,12 +87,12 @@ const NAACAccreditationsPage = () => {
         </div>
 
         {/* Self Study Report */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
+        <div className="mb-8 rounded-lg bg-white shadow-lg">
           <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+            <h2 className="mb-4 w-full text-lg font-semibold text-[#012146] md:text-xl">
               Self Study Report (SSR) 2022-2023
             </h2>
-            <p className="mb-6 text-sm md:text-base text-gray-700">
+            <p className="mb-6 text-sm text-gray-700 md:text-base">
               The Self Study Report (SSR) is a comprehensive document that
               provides detailed information about our institution's performance
               across various parameters set by NAAC. It reflects our strengths,
@@ -109,15 +110,21 @@ const NAACAccreditationsPage = () => {
         </div>
 
         {/* Benefits of NAAC Accreditation - Simplified to text only */}
-        <div className="bg-white rounded-lg shadow-lg">
+        <div className="rounded-lg bg-white shadow-lg">
           <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+            <h2 className="mb-4 w-full text-lg font-semibold text-[#012146] md:text-xl">
               Benefits of NAAC Accreditation
             </h2>
-            <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
-              <li>Facilitates global recognition of the degrees offered by the institution</li>
+            <ul className="list-disc space-y-2 pl-5 text-sm text-gray-700 md:text-base">
+              <li>
+                Facilitates global recognition of the degrees offered by the
+                institution
+              </li>
               <li>Acts as a quality indicator for funding agencies</li>
-              <li>Creates sound basis for decision-making for all educational reforms</li>
+              <li>
+                Creates sound basis for decision-making for all educational
+                reforms
+              </li>
               <li>Enhances employability of graduates</li>
               <li>Promotes intra and inter-institutional interactions</li>
             </ul>
@@ -129,3 +136,4 @@ const NAACAccreditationsPage = () => {
 }
 
 export default NAACAccreditationsPage
+
