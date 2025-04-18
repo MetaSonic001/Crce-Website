@@ -42,14 +42,19 @@ export default function HeroSection() {
     <section className="relative min-h-screen w-full overflow-hidden text-gray-600">
       <div className="absolute inset-0">
         <video
+          key={Date.now()} // Add a unique key to force remount
           className="h-full w-full object-cover"
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
+          onLoadedData={(e) => {
+            // Ensure video plays when loaded
+            const video = e.target as HTMLVideoElement;
+            video.play().catch(err => console.log("Video play error:", err));
+          }}
         >
-          {' '}
           <source src="intro.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
