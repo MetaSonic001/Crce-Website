@@ -3,14 +3,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { Zilla_Slab } from 'next/font/google'
 import Navigation from '@/components/navigation'
-import {
-  Calendar,
-  School,
-  FileText,
-  BookOpen,
-  List,
-  Users,
-} from 'lucide-react'
+import { Calendar, School, FileText, BookOpen, List, Users } from 'lucide-react'
 
 const zilla = Zilla_Slab({
   weight: ['400', '700'],
@@ -75,46 +68,50 @@ const LessonPlanPage = () => {
   ]
 
   return (
-    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 mt-40">
+    <div className="mt-25 flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 md:mt-40">
       {/* Header Section */}
       <div className="flex h-full w-full flex-col bg-white pt-12 md:pt-16">
-        <div className="flex w-full flex-col px-4 sm:px-8 md:px-16 lg:px-24 pb-6 md:pb-8 text-[#00122a]">
-          <h1 className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}>
+        <div className="flex w-full flex-col px-4 pb-6 text-[#00122a] sm:px-8 md:px-16 md:pb-8 lg:px-24">
+          <h1
+            className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
+          >
             ACADEMIC LESSON PLANS
           </h1>
-        
         </div>
       </div>
 
-      <div className="container mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-24 py-4 md:py-8">
+      <div className="container mx-auto w-full px-4 py-4 sm:px-8 md:px-16 md:py-8 lg:px-24">
         {/* About Lesson Plans */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
+        <div className="mb-8 rounded-lg bg-white shadow-lg">
           <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+            <h2 className="mb-4 w-full text-lg font-semibold text-[#012146] md:text-xl">
               About Lesson Plans
             </h2>
-            <p className="text-sm md:text-base text-gray-700">
+            <p className="text-sm text-gray-700 md:text-base">
               Fr. Conceicao Rodrigues College of Engineering (FR.CRCE) is
               affiliated to the University of Mumbai. Our lesson plans are
-              carefully designed to provide a comprehensive educational experience
-              with regular updates based on industry needs and academic standards.
+              carefully designed to provide a comprehensive educational
+              experience with regular updates based on industry needs and
+              academic standards.
             </p>
           </div>
         </div>
 
         {/* Curriculum Delivery Process */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
+        <div className="mb-8 rounded-lg bg-white shadow-lg">
           <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+            <h2 className="mb-4 w-full text-lg font-semibold text-[#012146] md:text-xl">
               Curriculum Delivery Process
             </h2>
             <div className="space-y-4">
               {lessonPlanSteps.map((step, index) => (
                 <div key={index} className="mb-4">
-                  <h3 className="text-base md:text-lg font-semibold mb-2 text-[#012146]">
+                  <h3 className="mb-2 text-base font-semibold text-[#012146] md:text-lg">
                     {step.title}
                   </h3>
-                  <p className="text-sm md:text-base text-gray-700">{step.content}</p>
+                  <p className="text-sm text-gray-700 md:text-base">
+                    {step.content}
+                  </p>
                 </div>
               ))}
             </div>
@@ -122,21 +119,22 @@ const LessonPlanPage = () => {
         </div>
 
         {/* Department Lesson Plans */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
+        <div className="mb-8 rounded-lg bg-white shadow-lg">
           <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+            <h2 className="mb-4 w-full text-lg font-semibold text-[#012146] md:text-xl">
               Department Lesson Plans
             </h2>
-            <p className="text-sm md:text-base text-gray-700 mb-4">
-              Access lesson plans by department to find specific course information.
+            <p className="mb-4 text-sm text-gray-700 md:text-base">
+              Access lesson plans by department to find specific course
+              information.
             </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+
+            <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
               {departments.map((dept) => (
                 <div key={dept.id}>
                   <a
                     href={`/index.php/academics/tlp/lesson-plan/category/${dept.id}-${dept.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')}`}
-                    className="flex items-center justify-between rounded-lg border border-gray-200 bg-white p-3 text-[#012146] transition-colors hover:bg-gray-50 hover:border-[#4a90e2]"
+                    className="flex items-center justify-between rounded-lg border border-gray-200 bg-white p-3 text-[#012146] transition-colors hover:border-[#4a90e2] hover:bg-gray-50"
                   >
                     <span className="text-sm md:text-base">{dept.name}</span>
                     <span className="text-xs text-gray-400">(0)</span>
@@ -166,3 +164,4 @@ const LessonPlanPage = () => {
 }
 
 export default LessonPlanPage
+

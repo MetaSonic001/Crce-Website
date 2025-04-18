@@ -49,31 +49,6 @@ const GrievanceForm: React.FC = () => {
     message: '',
   })
 
-  const [captcha, setCaptcha] = useState<CaptchaResponse>({
-    svg: '',
-    text: '',
-  })
-  const [captchaInput, setCaptchaInput] = useState('')
-  const [captchaError, setCaptchaError] = useState(false)
-
-  const generateCaptcha = useCallback(async () => {
-    try {
-      const res = await fetch('/api/captcha')
-      const json = await res.json()
-      const parsed = CaptchaSchema.safeParse(json)
-      if (!parsed.success) throw new Error('Invalid captcha response')
-      setCaptcha(parsed.data)
-      setCaptchaInput('')
-      setCaptchaError(false)
-    } catch (error) {
-      console.error('Error generating captcha:', error)
-    }
-  }, [])
-
-  useEffect(() => {
-    generateCaptcha()
-  }, [generateCaptcha])
-
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
@@ -88,32 +63,30 @@ const GrievanceForm: React.FC = () => {
   const handleSubmit = useCallback(
     async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
+      try {
+        // Example API call (replace with your actual API endpoint)
+        // const response = await fetch('/api/submit-grievance', {
+        //   method: 'POST',
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //   },
+        //   body: JSON.stringify(formData),
+        // })
 
-      if (captchaInput.trim().toLowerCase() !== captcha.text.toLowerCase()) {
-        setCaptchaError(true)
-        generateCaptcha()
-        return
+        // if (response.ok) {
+        //   alert('Grievance submitted successfully!')
+        //   // Reset form or redirect user
+        // } else {
+        //   alert('Failed to submit grievance. Please try again.')
+        // }
+
+        console.log('Form Data:', formData)
+      } catch (error) {
+        console.error('Form submission error:', error)
+        alert('An error occurred. Please try again.')
       }
-
-      // CAPTCHA passed
-      console.log({
-        ...formData,
-        captchaInput,
-      })
-
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        mobile: '',
-        messageCategory: '',
-        subject: '',
-        message: '',
-      })
-      setCaptchaInput('')
-      generateCaptcha()
     },
-    [formData, captchaInput, captcha.text, generateCaptcha]
+    [formData]
   )
 
   return (

@@ -2,9 +2,7 @@ import React from 'react'
 
 const PDFViewerPage = () => {
   return (
-    <div className="flex min-h-screen w-full flex-col bg-linear-to-b mt-52 from-white to-[#E5F0FF]">
-      
-
+    <div className="mt-20 flex min-h-screen w-full flex-col bg-linear-to-b from-white to-[#E5F0FF] md:mt-52">
       <main className="container mx-auto my-8 grow p-4">
         <div className="mb-8 rounded-lg bg-white p-6 shadow-lg">
           <h2 className="mb-4 text-2xl font-semibold">Mandatory Disclosure</h2>

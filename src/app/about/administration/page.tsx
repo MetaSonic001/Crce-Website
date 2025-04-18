@@ -53,10 +53,9 @@ export default function Page() {
 
   return (
     <div className="flex-row">
-      <main className="flex h-fit w-full flex-col items-center justify-center mt-52">
-       
+      <main className="mt-25 flex h-fit w-full flex-col items-center justify-center md:mt-52">
         <div className="flex h-fit w-full flex-col justify-center bg-linear-to-b from-white to-[#E5F0FF] py-4 md:flex-row">
-          <div className="mx-2 flex min-w-max md:pl-10 md:pt-10">
+          <div className="mx-2 flex min-w-max md:pt-10 md:pl-10">
             <Sidebar
               tabs={tabs}
               activeTab={activeTab}

@@ -145,22 +145,23 @@ export default function LibraryPage() {
   }
 
   return (
-    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 mt-44">
+    <div className="mt-25 flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 md:mt-44">
       {/* Header Section */}
       <div className="flex h-full w-full flex-col bg-white pt-12 md:pt-16">
-        <div className="flex w-full flex-col px-4 sm:px-8 md:px-16 lg:px-24 pb-6 md:pb-8 text-[#00122a]">
-          <h1 className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}>
+        <div className="flex w-full flex-col px-4 pb-6 text-[#00122a] sm:px-8 md:px-16 md:pb-8 lg:px-24">
+          <h1
+            className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
+          >
             LIBRARY
           </h1>
-         
         </div>
       </div>
 
-      <div className="container mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-24 py-4 md:py-8">
+      <div className="container mx-auto w-full px-4 py-4 sm:px-8 md:px-16 md:py-8 lg:px-24">
         {/* Carousel */}
         <div className="relative mb-8">
           <div className="overflow-hidden rounded-lg shadow-lg">
-            <div className="relative h-[300px] md:h-[400px] w-full">
+            <div className="relative h-[300px] w-full md:h-[400px]">
               {carouselImages.map((image, index) => (
                 <div
                   key={index}
@@ -207,12 +208,12 @@ export default function LibraryPage() {
         </div>
 
         {/* About Library Section */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
+        <div className="mb-8 rounded-lg bg-white shadow-lg">
           <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+            <h2 className="mb-4 w-full text-lg font-semibold text-[#012146] md:text-xl">
               About Our Library
             </h2>
-            <p className="text-sm md:text-base text-gray-700">
+            <p className="text-sm text-gray-700 md:text-base">
               Our college library serves as a central hub for academic
               resources, research materials, and digital services. With a vast
               collection of books, journals, and electronic resources, we aim to
@@ -229,14 +230,14 @@ export default function LibraryPage() {
           {/* Main Content Column */}
           <div className="md:col-span-2">
             {/* Library Services Section */}
-            <div className="bg-white rounded-lg shadow-lg mb-8">
+            <div className="mb-8 rounded-lg bg-white shadow-lg">
               <div className="p-4 md:p-6">
-                <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+                <h2 className="mb-4 w-full text-lg font-semibold text-[#012146] md:text-xl">
                   Library Services & Facilities
                 </h2>
                 <div className="grid gap-y-4 md:grid-cols-2 md:gap-x-6">
                   <div>
-                    <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
+                    <ul className="list-disc space-y-2 pl-5 text-sm text-gray-700 md:text-base">
                       <li>Home Lending of Books</li>
                       <li>Open Access of Books</li>
                       <li>Reference and information system</li>
@@ -245,7 +246,7 @@ export default function LibraryPage() {
                     </ul>
                   </div>
                   <div>
-                    <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
+                    <ul className="list-disc space-y-2 pl-5 text-sm text-gray-700 md:text-base">
                       <li>E-Journals, Ebooks</li>
                       <li>Bound Volume Periodicals</li>
                       <li>Display of Current content of Journals</li>
@@ -254,12 +255,12 @@ export default function LibraryPage() {
                     </ul>
                   </div>
                 </div>
-                
+
                 {showAdditionalServices && (
                   <div className="mt-4">
                     <div className="grid gap-y-4 md:grid-cols-2 md:gap-x-6">
                       <div>
-                        <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
+                        <ul className="list-disc space-y-2 pl-5 text-sm text-gray-700 md:text-base">
                           <li>Current Awareness system (CAS)</li>
                           <li>Newspaper clippings</li>
                           <li>Selective dissemination of Information (SDI)</li>
@@ -269,7 +270,7 @@ export default function LibraryPage() {
                         </ul>
                       </div>
                       <div>
-                        <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
+                        <ul className="list-disc space-y-2 pl-5 text-sm text-gray-700 md:text-base">
                           <li>CD's of Technical topics</li>
                           <li>Wi-fi facility</li>
                           <li>CCTV Facility</li>
@@ -280,7 +281,7 @@ export default function LibraryPage() {
                     </div>
                   </div>
                 )}
-                
+
                 <div className="mt-6 text-center">
                   <button
                     className="inline-block rounded-full bg-[#4a90e2] px-6 py-3 font-semibold text-white transition-all hover:bg-[#357abd]"
@@ -295,34 +296,40 @@ export default function LibraryPage() {
             </div>
 
             {/* Resources Sections */}
-            <div className="bg-white rounded-lg shadow-lg mb-8">
+            <div className="mb-8 rounded-lg bg-white shadow-lg">
               <div className="p-4 md:p-6">
-                <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+                <h2 className="mb-4 w-full text-lg font-semibold text-[#012146] md:text-xl">
                   Library Resources
                 </h2>
-                
+
                 <div className="mb-4">
                   <button
                     className="flex w-full items-center justify-between p-3 text-left"
                     onClick={() => toggleSection('orientation')}
                   >
-                    <h3 className={`text-md md:text-lg font-semibold ${activeSection === 'orientation' ? 'text-[#043874]' : 'text-[#001a38]'}`}>
+                    <h3
+                      className={`text-md font-semibold md:text-lg ${activeSection === 'orientation' ? 'text-[#043874]' : 'text-[#001a38]'}`}
+                    >
                       User Orientation & Book Exhibition
                     </h3>
                     <span className="ml-2 text-[#043874]">
-                      {activeSection === 'orientation' ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                      {activeSection === 'orientation' ? (
+                        <ChevronUp className="h-4 w-4" />
+                      ) : (
+                        <ChevronDown className="h-4 w-4" />
+                      )}
                     </span>
                   </button>
-                  
+
                   {activeSection === 'orientation' && (
                     <div className="p-3">
-                      <p className="text-sm md:text-base text-gray-700 mb-2">
+                      <p className="mb-2 text-sm text-gray-700 md:text-base">
                         First-year students are given orientation about the
                         library rules, services, and facilities. They are taken
                         on a library tour, informed about various sections, and
                         the rules to be followed.
                       </p>
-                      <p className="text-sm md:text-base text-gray-700">
+                      <p className="text-sm text-gray-700 md:text-base">
                         Additionally, a book exhibition is organized for
                         students to explore new titles and research materials
                         relevant to their courses.
@@ -330,23 +337,29 @@ export default function LibraryPage() {
                     </div>
                   )}
                 </div>
-                
+
                 <div className="mb-4">
                   <button
                     className="flex w-full items-center justify-between p-3 text-left"
                     onClick={() => toggleSection('print')}
                   >
-                    <h3 className={`text-md md:text-lg font-semibold ${activeSection === 'print' ? 'text-[#043874]' : 'text-[#001a38]'}`}>
+                    <h3
+                      className={`text-md font-semibold md:text-lg ${activeSection === 'print' ? 'text-[#043874]' : 'text-[#001a38]'}`}
+                    >
                       Print Collection
                     </h3>
                     <span className="ml-2 text-[#043874]">
-                      {activeSection === 'print' ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                      {activeSection === 'print' ? (
+                        <ChevronUp className="h-4 w-4" />
+                      ) : (
+                        <ChevronDown className="h-4 w-4" />
+                      )}
                     </span>
                   </button>
-                  
+
                   {activeSection === 'print' && (
                     <div className="p-3">
-                      <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
+                      <ul className="list-disc space-y-2 pl-5 text-sm text-gray-700 md:text-base">
                         <li>Over 20,000 books covering all disciplines</li>
                         <li>Current and bound journals</li>
                         <li>Magazines and newspapers</li>
@@ -356,23 +369,29 @@ export default function LibraryPage() {
                     </div>
                   )}
                 </div>
-                
+
                 <div className="mb-4">
                   <button
                     className="flex w-full items-center justify-between p-3 text-left"
                     onClick={() => toggleSection('digital')}
                   >
-                    <h3 className={`text-md md:text-lg font-semibold ${activeSection === 'digital' ? 'text-[#043874]' : 'text-[#001a38]'}`}>
+                    <h3
+                      className={`text-md font-semibold md:text-lg ${activeSection === 'digital' ? 'text-[#043874]' : 'text-[#001a38]'}`}
+                    >
                       Digital Resources
                     </h3>
                     <span className="ml-2 text-[#043874]">
-                      {activeSection === 'digital' ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                      {activeSection === 'digital' ? (
+                        <ChevronUp className="h-4 w-4" />
+                      ) : (
+                        <ChevronDown className="h-4 w-4" />
+                      )}
                     </span>
                   </button>
-                  
+
                   {activeSection === 'digital' && (
                     <div className="p-3">
-                      <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
+                      <ul className="list-disc space-y-2 pl-5 text-sm text-gray-700 md:text-base">
                         <li>E-books and e-journals</li>
                         <li>Online databases</li>
                         <li>Digital repositories</li>
@@ -388,18 +407,20 @@ export default function LibraryPage() {
 
           {/* Quick Links Column */}
           <div className="md:col-span-1">
-            <div className="bg-white rounded-lg shadow-lg mb-8">
+            <div className="mb-8 rounded-lg bg-white shadow-lg">
               <div className="p-4 md:p-6">
-                <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+                <h2 className="mb-4 w-full text-lg font-semibold text-[#012146] md:text-xl">
                   Quick Links
                 </h2>
-                <ul className="text-sm md:text-base text-gray-700 space-y-2">
+                <ul className="space-y-2 text-sm text-gray-700 md:text-base">
                   {quickLinks.map((link, index) => (
                     <li key={index} className="border-b border-gray-200 pb-2">
                       <Link
                         href={link.url}
                         className="text-[#012146] hover:text-[#357abd]"
-                        target={link.url.startsWith('http') ? '_blank' : '_self'}
+                        target={
+                          link.url.startsWith('http') ? '_blank' : '_self'
+                        }
                       >
                         {link.label}
                       </Link>
@@ -412,19 +433,21 @@ export default function LibraryPage() {
         </div>
 
         {/* Contact Info Section */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
+        <div className="mb-8 rounded-lg bg-white shadow-lg">
           <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+            <h2 className="mb-4 w-full text-lg font-semibold text-[#012146] md:text-xl">
               Contact Information
             </h2>
             <div className="grid gap-6 md:grid-cols-3">
               {/* Librarian Info */}
               <div>
-                <h3 className="text-base md:text-lg font-semibold mb-2 text-[#012146]">
+                <h3 className="mb-2 text-base font-semibold text-[#012146] md:text-lg">
                   Librarian
                 </h3>
-                <p className="text-sm md:text-base text-gray-700 mb-2">Ms. G. Jothilakshmi</p>
-                <p className="text-sm md:text-base text-gray-700 flex items-center">
+                <p className="mb-2 text-sm text-gray-700 md:text-base">
+                  Ms. G. Jothilakshmi
+                </p>
+                <p className="flex items-center text-sm text-gray-700 md:text-base">
                   <Phone className="mr-2 h-4 w-4" />
                   022-642114114
                 </p>
@@ -432,10 +455,10 @@ export default function LibraryPage() {
 
               {/* Library Hours */}
               <div>
-                <h3 className="text-base md:text-lg font-semibold mb-2 text-[#012146]">
+                <h3 className="mb-2 text-base font-semibold text-[#012146] md:text-lg">
                   Library Hours
                 </h3>
-                <div className="text-sm md:text-base text-gray-700">
+                <div className="text-sm text-gray-700 md:text-base">
                   <p>Monday - Friday: 8:15 AM to 6:00 PM</p>
                   <p>(Exam Period: 8:15 AM to 7:00 PM)</p>
                   <p>Saturday: 8:15 AM to 4:30 PM</p>
@@ -444,13 +467,22 @@ export default function LibraryPage() {
 
               {/* Committee Members */}
               <div>
-                <h3 className="text-base md:text-lg font-semibold mb-2 text-[#012146]">
+                <h3 className="mb-2 text-base font-semibold text-[#012146] md:text-lg">
                   Committee
                 </h3>
-                <div className="text-sm md:text-base text-gray-700">
-                  <p><span className="font-medium">Chairman:</span> Dr. V.S. Jorapur</p>
-                  <p><span className="font-medium">Secretary:</span> Mrs. G. Jothilakshmi</p>
-                  <p><span className="font-medium">Members:</span> Prof. Prasad Lalit & Team</p>
+                <div className="text-sm text-gray-700 md:text-base">
+                  <p>
+                    <span className="font-medium">Chairman:</span> Dr. V.S.
+                    Jorapur
+                  </p>
+                  <p>
+                    <span className="font-medium">Secretary:</span> Mrs. G.
+                    Jothilakshmi
+                  </p>
+                  <p>
+                    <span className="font-medium">Members:</span> Prof. Prasad
+                    Lalit & Team
+                  </p>
                 </div>
               </div>
             </div>
@@ -460,3 +492,4 @@ export default function LibraryPage() {
     </div>
   )
 }
+
