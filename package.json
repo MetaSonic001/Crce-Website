@@ -18,7 +18,6 @@
     "lucide-react": "^0.412.0",
     "minio": "^8.0.5",
     "next": "15.2.4",
-    "next-recaptcha-v3": "^1.5.2",
     "next-sitemap": "^4.2.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",

@@ -1,7 +1,6 @@
 'use client'
 import React, { useState, useCallback, ChangeEvent, FormEvent } from 'react'
 import { Zilla_Slab } from 'next/font/google'
-import { useReCaptcha } from 'next-recaptcha-v3'
 import Footer from '@/components/footer'
 
 const zilla = Zilla_Slab({
@@ -43,8 +42,6 @@ const GrievanceForm: React.FC = () => {
     message: '',
   })
 
-  const { executeRecaptcha } = useReCaptcha()
-
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
@@ -55,22 +52,13 @@ const GrievanceForm: React.FC = () => {
     async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
       try {
-        const token = await executeRecaptcha('grievance_form')
-        if (!token) {
-          alert('Failed to verify reCAPTCHA. Please try again.')
-          return
-        }
-
-        // Here you would typically send the form data along with the token to your server
-        console.log({ ...formData, recaptchaToken: token })
-
         // Example API call (replace with your actual API endpoint)
         // const response = await fetch('/api/submit-grievance', {
         //   method: 'POST',
         //   headers: {
         //     'Content-Type': 'application/json',
         //   },
-        //   body: JSON.stringify({ ...formData, recaptchaToken: token }),
+        //   body: JSON.stringify(formData),
         // })
 
         // if (response.ok) {
@@ -79,12 +67,14 @@ const GrievanceForm: React.FC = () => {
         // } else {
         //   alert('Failed to submit grievance. Please try again.')
         // }
+
+        console.log('Form Data:', formData)
       } catch (error) {
-        console.error('reCAPTCHA or form submission error:', error)
+        console.error('Form submission error:', error)
         alert('An error occurred. Please try again.')
       }
     },
-    [executeRecaptcha, formData]
+    [formData]
   )
 
   return (
