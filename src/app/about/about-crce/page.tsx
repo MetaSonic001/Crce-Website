@@ -11,6 +11,7 @@ import {
   PlayCircle,
 } from 'lucide-react'
 import Link from 'next/link'
+import { college_pic } from '@/app/images/files'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -69,7 +70,7 @@ export default function Page() {
             <div className="relative aspect-[4/3] h-full w-full overflow-hidden">
               <Image
                 alt="Fr. CRCE Campus"
-                src="/college.jpg"
+                src={college_pic}
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
