@@ -45,7 +45,7 @@ const dummyData: OneCouncil = {
       class: 'B.E. Computer Engineering',
     },
     {
-      id: 2,  
+      id: 2,
       name: 'Jane Smith',
       role: 'Vice President',
       image: '/alumni/sharu.jpg',
@@ -75,14 +75,16 @@ export default function CouncilDetails({ params }: { params: { id: string } }) {
   return (
     <div className="flex min-h-screen flex-col">
       <main
-        className={`flex-grow bg-white px-8 pt-[180px] pb-[140px] ${zilla.className}`}
+        className={`flex-grow bg-white px-8 pt-[100px] lg:pt-[180px] ${zilla.className}`}
       >
         <div className="mt-4 flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div className="md:w-2/3">
-            <h1 className="mb-4 text-5xl font-bold">{council.name}</h1>
-            <span className="text-lg text-gray-600">
+            <h1 className="mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-5xl font-bold text-transparent">
+              {council.name}
+            </h1>
+            <div className="prose prose-blue max-w-none text-lg text-gray-600">
               <Markdown>{council.data}</Markdown>
-            </span>
+            </div>
             {council.website && (
               <a
                 href={
@@ -92,103 +94,129 @@ export default function CouncilDetails({ params }: { params: { id: string } }) {
                 }
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-1 text-blue-600 hover:underline"
+                className="mt-6 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-white transition-all hover:bg-blue-700 hover:shadow-lg"
               >
                 <Globe className="h-4 w-4" />
                 Visit Website
               </a>
             )}
           </div>
-          <div className="relative z-10 mt-2 flex h-[150px] w-[150px] items-center justify-center overflow-hidden rounded-xl border-2 border-gray-300 bg-white md:mt-0">
+          <div className="relative z-10 mt-2 flex h-[180px] w-[180px] items-center justify-center overflow-hidden rounded-2xl border-2 border-blue-200 bg-white p-4 shadow-lg transition-transform hover:scale-105 md:mt-0">
             <Image
               src={`${process.env.NEXT_PUBLIC_ASSET_URL}${council.image}`}
               alt={`${council.name} Logo`}
-              width={150}
-              height={150}
+              width={500}
+              height={500}
               className="object-contain"
             />
           </div>
         </div>
 
         {council.members && council.members.length > 0 && (
-          <>
-            <h2 className="mt-10 mb-4 text-3xl font-bold">Members</h2>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-5">
+          <section className="mt-16 mb-12">
+            <h2 className="mb-8 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-center text-4xl font-bold text-transparent">
+              Our Team
+            </h2>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {visibleMembers?.map((member, index) => (
                 <div
                   key={index}
-                  className="rounded-xl bg-white p-4 text-center shadow transition-all hover:shadow-lg"
+                  className="group relative overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-105 hover:ring-blue-300"
                 >
-                  <Image
-                    src={`${process.env.NEXT_PUBLIC_ASSET_URL}${member.image}`}
-                    alt={member.name}
-                    width={80}
-                    height={80}
-                    className="mx-auto mb-2 rounded-full"
-                  />
-                  <p className="font-semibold">{member.name}</p>
-                  <p className="text-sm text-gray-600">{member.role}</p>
-                  <p className="text-xs text-gray-500">{member.class}</p>
+                  <div className="relative mb-4 aspect-square overflow-hidden rounded-xl">
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_ASSET_URL}${member.image}`}
+                      alt={member.name}
+                      width={1000}
+                      height={1000}
+                      className="h-full w-full object-cover "
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-lg leading-snug font-bold text-gray-900">
+                      {member.name}
+                    </p>
+                    <p className="font-medium text-blue-600">{member.role}</p>
+                    <p className="text-sm text-gray-500">{member.class}</p>
+                  </div>
                 </div>
               ))}
             </div>
-            {!showAllMembers && council.members.length > 5 && (
-              <div className="mt-4 text-center">
+            {!showAllMembers && council.members.length > 4 && (
+              <div className="mt-10 text-center">
                 <button
                   onClick={() => setShowAllMembers(true)}
-                  className="rounded-full bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700"
+                  className="rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-3 font-semibold text-white transition-all hover:from-blue-700 hover:to-blue-800 hover:shadow-lg"
                 >
-                  View More
+                  View All Members
                 </button>
               </div>
             )}
-          </>
+          </section>
         )}
 
         {council.events && council.events.length > 0 && (
-          <>
-            <h2 className="mt-14 mb-6 text-3xl font-bold">Events</h2>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <section className="mt-16 mb-12">
+            <h2 className="mb-8 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-center text-4xl font-bold text-transparent">
+              Events & Activities
+            </h2>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {council.events.map((event, index) => (
                 <div
                   key={index}
-                  className="perspective relative h-[420px]"
+                  className="perspective relative h-[450px] cursor-pointer"
                   onClick={() =>
                     setFlippedIndex(flippedIndex === index ? null : index)
                   }
                 >
                   <div
-                    className={`transform-style preserve-3d relative h-full w-full transition-transform duration-700 ${
+                    className={`transform-style preserve-3d relative h-full w-full transition-all duration-700 ${
                       flippedIndex === index ? 'rotate-y-180' : ''
                     }`}
                   >
                     {/* Front */}
-                    <div className="absolute h-full w-full rounded-xl bg-white p-4 shadow-lg backface-hidden">
-                      <Image
-                        src={`${process.env.NEXT_PUBLIC_ASSET_URL}${event.image}`}
-                        alt={event.name}
-                        width={400}
-                        height={200}
-                        className="h-48 w-full rounded-md object-cover"
-                      />
-                      <h3 className="mt-4 text-xl font-bold">{event.name}</h3>
-                      <p className="text-sm text-gray-500">
-                        {event.date} 
-                      </p>
+                    <div className="absolute h-full w-full rounded-2xl bg-white p-6 ring-1 ring-gray-200 transition-transform duration-300 backface-hidden hover:scale-105 hover:ring-blue-300">
+                      <div className="relative h-72 w-full overflow-hidden rounded-xl">
+                        <Image
+                          src={`${process.env.NEXT_PUBLIC_ASSET_URL}${event.image}`}
+                          alt={event.name}
+                          width={1000}
+                          height={1000}
+                          className="h-full w-full object-contain"
+                        />
+                      </div>
+                      <div className="mt-4 space-y-2">
+                        <h3 className="text-2xl font-bold text-gray-900">
+                          {event.name}
+                        </h3>
+                        <p className="font-medium text-blue-600">
+                          {new Date(event.date).toLocaleDateString('en-US', {
+                            month: 'long',
+                            day: 'numeric',
+                            year: 'numeric',
+                          })}
+                        </p>
+                        <p className="mt-4 text-sm text-gray-500">
+                          Click to view details
+                        </p>
+                      </div>
                     </div>
 
                     {/* Back */}
-                    <div className="absolute flex h-full w-full rotate-y-180 flex-col justify-between rounded-xl bg-white p-4 shadow-xl backface-hidden">
-                      <p className="mb-4 overflow-auto text-sm text-gray-800">
+                    <div className="absolute flex h-full w-full rotate-y-180 flex-col rounded-2xl bg-white p-6 ring-1 ring-gray-200 backface-hidden">
+                      <h3 className="mb-4 text-2xl font-bold text-gray-900">
+                        {event.name}
+                      </h3>
+                      <p className="flex-grow overflow-auto leading-relaxed text-gray-600">
                         {event.description}
                       </p>
                       {event.report && (
                         <a
                           href={`${process.env.NEXT_PUBLIC_ASSET_URL}${event.report}`}
                           download
-                          className="mx-auto block rounded-full bg-blue-500 px-4 py-2 text-center text-white hover:bg-blue-600"
+                          className="mt-6 block rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-3 text-center font-semibold text-white transition-all hover:from-blue-700 hover:to-blue-800 hover:shadow-lg"
                         >
-                          Download PDF
+                          Download Report
                         </a>
                       )}
                     </div>
@@ -196,12 +224,11 @@ export default function CouncilDetails({ params }: { params: { id: string } }) {
                 </div>
               ))}
             </div>
-          </>
+          </section>
         )}
       </main>
 
-      {/* Tailwind extension for 3D flip */}
-      <style jsx global>{`
+      <style jsx>{`
         .perspective {
           perspective: 1000px;
         }

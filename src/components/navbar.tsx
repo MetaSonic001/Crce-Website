@@ -330,7 +330,7 @@ const Navbar: React.FC = () => {
     <>
       {/* Desktop Navigation */}
       <nav
-        className={`fixed top-0 z-50 hidden w-full bg-[hsl(224,37%,12%)] font-semibold text-white opacity-90 transition-transform duration-300 ease-in-out lg:block ${
+        className={`fixed top-0 z-50 hidden w-full bg-[hsl(224,37%,12%)]/90 font-semibold text-white transition-transform duration-300 ease-in-out lg:block ${
           hasScrolled
             ? visible
               ? 'translate-y-0'
@@ -491,7 +491,7 @@ const Navbar: React.FC = () => {
       )}{' '}
       {/* Mobile Navigation */}
       <nav
-        className={`bg-opacity-90 fixed top-0 z-50 w-full bg-gray-900 font-semibold text-white capitalize transition-transform duration-300 ease-in-out lg:hidden ${
+        className={` fixed top-0 z-50 w-full bg-[hsl(224,37%,12%)]/90 font-semibold text-white capitalize transition-transform duration-300 ease-in-out lg:hidden ${
           hasScrolled
             ? visible
               ? 'translate-y-0'
