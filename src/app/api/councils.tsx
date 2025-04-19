@@ -1,16 +1,16 @@
 'use server'
 
-export interface Council {
+export type Council = {
   id: number
-  status: string
   name: string
-  report: string
-  image: string
   website: string
-  members?: Member[]
-  // Add other fields if needed
+  image: string
+  linkedin?: string
+  instagram?: string
+  report?: string
+  subtitle: string
+  members: Member[]
 }
-
 export interface Member {
   name: string
   role: string
@@ -21,7 +21,7 @@ export interface Member {
 
 export default async function getCouncils(): Promise<Council[]> {
   const baseUrl = process.env.DIRECTUS_URL || 'http://localhost:8055'
-  const url = `${baseUrl}/items/councils?filter[status][_eq]=published`
+  const url = `${baseUrl}/items/councils`
 
   const response = await fetch(url, { cache: 'no-store' })
   if (!response.ok) {
