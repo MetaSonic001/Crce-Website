@@ -760,7 +760,9 @@ type CarouselButtonProps = {
 const CarouselButton = ({ onClick, children, active }: CarouselButtonProps) => (
   <button
     onClick={onClick}
-    className={`mx-2 rounded-sm p-2 ${active ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-600'}`}
+    className={`px-2 py-1 text-xs md:text-sm md:px-4 md:py-2 mx-1 md:mx-2 rounded-sm ${
+      active ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-600'
+    } transition-colors duration-200`}
   >
     {children}
   </button>
@@ -775,8 +777,8 @@ const TelephoneDirectory = () => {
   }
 
   return (
-    <div className="mx-auto max-w-4xl py-10">
-      <div className="mb-6 flex justify-center space-x-1 md:space-x-2">
+    <div className="mx-auto max-w-4xl py-6 px-4 md:py-10 md:px-0">
+      <div className="mb-4 md:mb-6 flex flex-wrap justify-center gap-2 md:gap-3">
         <CarouselButton
           onClick={() => handleLocationChange('college')}
           active={activeLocation === 'college'}
@@ -809,42 +811,44 @@ const TelephoneDirectory = () => {
         </CarouselButton>
       </div>
 
-      <table className="min-w-full border border-gray-300 bg-white shadow-md">
-        <thead>
-          <tr>
-            <th className="border-b px-4 py-2 text-left text-sm font-semibold text-gray-700">
-              Sr. No
-            </th>
-            <th className="border-b px-4 py-2 text-left text-sm font-semibold text-gray-700">
-              Extn No
-            </th>
-            <th className="border-b px-4 py-2 text-left text-sm font-semibold text-gray-700">
-              Telephone No
-            </th>
-            <th className="border-b px-4 py-2 text-left text-sm font-semibold text-gray-700">
-              Department
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {telephoneDirectoryData[activeLocation].map((entry) => (
-            <tr key={entry.srNo} className="hover:bg-gray-100">
-              <td className="border-b px-4 py-2 text-sm text-gray-600">
-                {entry.srNo}
-              </td>
-              <td className="border-b px-4 py-2 text-sm text-gray-600">
-                {entry.extNo}
-              </td>
-              <td className="border-b px-4 py-2 text-sm text-gray-600">
-                {entry.telephoneNo}
-              </td>
-              <td className="border-b px-4 py-2 text-sm text-gray-600">
-                {entry.department}
-              </td>
+      <div className="overflow-x-auto rounded-lg shadow">
+        <table className="min-w-full border border-gray-300 bg-white">
+          <thead className="bg-gray-50">
+            <tr>
+              <th className="border-b w-[10%] px-2 md:px-4 py-2 text-left text-xs md:text-sm font-semibold text-gray-700">
+                Sr. No
+              </th>
+              <th className="border-b w-[15%] px-2 md:px-4 py-2 text-left text-xs md:text-sm font-semibold text-gray-700">
+                Extn No
+              </th>
+              <th className="border-b w-[25%] px-2 md:px-4 py-2 text-left text-xs md:text-sm font-semibold text-gray-700">
+                Telephone No
+              </th>
+              <th className="border-b w-[50%] px-2 md:px-4 py-2 text-left text-xs md:text-sm font-semibold text-gray-700">
+                Department
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {telephoneDirectoryData[activeLocation].map((entry) => (
+              <tr key={entry.srNo} className="hover:bg-gray-100">
+                <td className="border-b px-2 md:px-4 py-1 md:py-2 text-xs md:text-sm text-gray-600">
+                  {entry.srNo}
+                </td>
+                <td className="border-b px-2 md:px-4 py-1 md:py-2 text-xs md:text-sm text-gray-600">
+                  {entry.extNo}
+                </td>
+                <td className="border-b px-2 md:px-4 py-1 md:py-2 text-xs md:text-sm text-gray-600">
+                  {entry.telephoneNo}
+                </td>
+                <td className="border-b px-2 md:px-4 py-1 md:py-2 text-xs md:text-sm text-gray-600">
+                  {entry.department}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }

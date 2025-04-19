@@ -4,12 +4,11 @@ const AICETExt = () => {
   return (
     <div className="flex min-h-screen w-full flex-col">
       <main className="container mx-auto grow p-4">
-        <div className="rounded-lg bg-white p-6 shadow-lg">
-          <h2 className="mb-4 text-2xl font-semibold">
+        <div className="rounded-lg bg-white p-4 sm:p-6 shadow-lg">
+          <h2 className="mb-4 text-xl sm:text-2xl font-semibold">
             AICTE - Extension For Approval Letter 2023-24
           </h2>
-          <div className="h-[800px] w-full">
-            {/* Adjust height as needed */}
+          <div className="h-[400px] sm:h-[500px] md:h-[600px] lg:h-[800px] w-full">
             <object
               data="/AICTE_Approval_2023-24.pdf"
               type="application/pdf"
@@ -20,7 +19,7 @@ const AICETExt = () => {
               <p>
                 Unable to display PDF file.
                 <a
-                  href="/Service_Rules_WEF_1Jan2017.pdf"
+                  href="/AICTE_Approval_2023-24.pdf"
                   className="text-blue-600 hover:underline"
                 >
                   Download
