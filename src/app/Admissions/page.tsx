@@ -20,7 +20,7 @@ const Page = () => {
   return (
     <div className="flex h-fit w-full flex-col bg-linear-to-b from-gray-50 to-[#E5F0FF] text-gray-900">
       <div
-        className="flex h-full w-full flex-col bg-linear-to-br from-[#001f3f] to-[#003366] pt-36 md:flex-row"
+        className="flex h-full w-full flex-col bg-linear-to-br from-[#001f3f] to-[#003366] pt-16 md:flex-row md:pt-36"
         id="admission"
       >
         <div className="flex w-full flex-col items-center justify-center p-8 pt-40 text-white md:w-2/3 md:p-16 md:pt-16">
@@ -32,9 +32,9 @@ const Page = () => {
           <Navigation items={navigationItems} />{' '}
         </div>
         <div className="relative mt-8 mb-8 flex w-full flex-col justify-center space-y-6 rounded-lg bg-white p-8 shadow-2xl md:mt-32 md:mr-16 md:mb-16 md:w-1/3 lg:p-10">
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 transform rounded-full bg-[#4a90e2] px-6 py-2 text-white">
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 transform rounded-full bg-[#4a90e2] px-8 py-2 text-white">
             <h2
-              className={`${zilla.className} text-xl font-semibold md:text-2xl`}
+              className={`${zilla.className} text-xl font-semibold whitespace-nowrap lg:text-2xl`}
             >
               Enquiry Form
             </h2>

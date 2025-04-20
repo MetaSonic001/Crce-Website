@@ -58,9 +58,9 @@ const rulesData = [
 
 const RulesAndPoliciesPage = () => {
   return (
-    <div className="flex h-fit w-full flex-col bg-linear-to-b from-white to-[#E5F0FF] text-gray-900">
+    <div className="flex h-fit w-full flex-col bg-linear-to-b from-white to-[#E5F0FF] px-2 text-gray-900">
       <div className="flex h-full w-full flex-col bg-white pt-24 md:flex-row">
-        <div className="flex w-full flex-col px-4 pt-8 text-[#00122a] sm:px-8 md:px-16 md:pt-36 lg:px-28">
+        <div className="flex w-full flex-col pt-18 text-[#00122a] sm:px-8 md:px-16 md:pt-36 lg:px-28">
           <h1
             className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
           >
@@ -155,4 +155,3 @@ const RulesAndPoliciesPage = () => {
 }
 
 export default RulesAndPoliciesPage
-
