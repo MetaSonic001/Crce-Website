@@ -2,9 +2,7 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react'
 import { Zilla_Slab } from 'next/font/google'
 import { z } from 'zod'
-import { toast } from 'react-hot-toast'
 import addGrievance from '@/app/api/grievance'
-import type { GrievanceResponse } from '@/app/api/grievance'
 
 const zilla = Zilla_Slab({
   weight: ['400', '700'],

@@ -30,14 +30,14 @@ interface Props {
 }
 
 const SyllabusTable = ({ course }: { course: Course }) => (
-  <div className="mb-8 md:mb-16 w-full max-w-2xl">
-    <div className="rounded-lg bg-gray-100 p-4 md:p-6 shadow-lg">
+  <div className="mb-8 w-full max-w-2xl md:mb-16">
+    <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
       <div className="flex items-start">
-        <span className="mr-3 md:mr-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-white">
+        <span className="mr-3 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-white md:mr-4">
           <FileText className="h-4 w-4 md:h-5 md:w-5" />
         </span>
         <div className="w-full">
-          <h3 className="mb-3 text-lg md:text-xl font-semibold text-[#4a90e2]">
+          <h3 className="mb-3 text-lg font-semibold text-[#4a90e2] md:text-xl">
             {course.name}
           </h3>
           <div className="overflow-x-auto">
@@ -45,7 +45,9 @@ const SyllabusTable = ({ course }: { course: Course }) => (
               <thead className="bg-[#4a90e2] text-white">
                 <tr>
                   <th className="border border-gray-300 p-2 text-left">Year</th>
-                  <th className="border border-gray-300 p-2 text-left">Syllabus</th>
+                  <th className="border border-gray-300 p-2 text-left">
+                    Syllabus
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -79,13 +81,13 @@ const SyllabusTable = ({ course }: { course: Course }) => (
 const AutonomousSyllabus = ({ syllabus }: Props) => {
   if (!syllabus || syllabus.length === 0) {
     return (
-      <div className="container mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-28 py-8 md:py-16">
+      <div className="container mx-auto w-full px-4 py-8 sm:px-8 md:px-16 md:py-16 lg:px-28">
         <div className="mb-8 md:mb-16">
-          <div className="rounded-lg bg-red-100 p-4 md:p-6 shadow-lg">
-            <p className="mb-3 md:mb-4 text-lg md:text-xl font-semibold text-red-600">
+          <div className="rounded-lg bg-red-100 p-4 shadow-lg md:p-6">
+            <p className="mb-3 text-lg font-semibold text-red-600 md:mb-4 md:text-xl">
               Oops!
             </p>
-            <p className="text-sm md:text-base text-red-700">
+            <p className="text-sm text-red-700 md:text-base">
               Couldn't load the syllabus at the moment. Please check back later.
             </p>
           </div>
@@ -109,19 +111,20 @@ const AutonomousSyllabus = ({ syllabus }: Props) => {
   })
 
   return (
-    <div className="container mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-28 py-8 md:py-16">
+    <div className="container mx-auto w-full px-4 py-8 sm:px-8 md:px-16 md:py-16 lg:px-28">
       <div className="mb-8 md:mb-16">
-        <div className="rounded-lg bg-gray-100 p-4 md:p-6 shadow-lg">
-          <p className="mb-3 md:mb-4 text-lg md:text-xl font-semibold text-[#4a90e2]">
+        <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
+          <p className="mb-3 text-lg font-semibold text-[#4a90e2] md:mb-4 md:text-xl">
             "University of Mumbai Syllabus Information"
           </p>
-          <p className="text-sm md:text-base text-gray-700">
-            The following syllabus documents are available for the Academic Year 2024-2025 (Autonomous).
-            Please select the appropriate course and download the PDF files.
+          <p className="text-sm text-gray-700 md:text-base">
+            The following syllabus documents are available for the Academic Year
+            2024-2025 (Autonomous). Please select the appropriate course and
+            download the PDF files.
           </p>
         </div>
       </div>
-      
+
       <div className="flex flex-col items-center">
         {formattedCourses.length > 0 ? (
           formattedCourses.map((course, index) => (
@@ -129,8 +132,8 @@ const AutonomousSyllabus = ({ syllabus }: Props) => {
           ))
         ) : (
           <div className="mb-8 md:mb-16">
-            <div className="rounded-lg bg-gray-100 p-4 md:p-6 shadow-lg">
-              <p className="text-sm md:text-base text-gray-700">
+            <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
+              <p className="text-sm text-gray-700 md:text-base">
                 No syllabus files available yet.
               </p>
             </div>
@@ -155,7 +158,7 @@ export default async function Page() {
     <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900">
       {/* Header Section */}
       <div className="flex h-full w-full flex-col bg-white pt-24 md:flex-row">
-        <div className="flex w-full flex-col px-28 pt-36 text-[#00122a]">
+        <div className="flex w-full flex-col px-4 pt-8 text-[#00122a] sm:px-8 md:px-16 md:pt-36 lg:px-28">
           <h1
             className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
           >
@@ -169,3 +172,4 @@ export default async function Page() {
     </div>
   )
 }
+

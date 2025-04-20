@@ -18,9 +18,9 @@ const Page = () => {
   ]
 
   return (
-    <div className="bg-linear-to-b flex h-fit w-full flex-col from-gray-50 to-[#E5F0FF] text-gray-900">
+    <div className="flex h-fit w-full flex-col bg-linear-to-b from-gray-50 to-[#E5F0FF] text-gray-900">
       <div
-        className="bg-linear-to-br flex h-full w-full flex-col from-[#001f3f] to-[#003366] pt-36 md:flex-row"
+        className="flex h-full w-full flex-col bg-linear-to-br from-[#001f3f] to-[#003366] pt-36 md:flex-row"
         id="admission"
       >
         <div className="flex w-full flex-col items-center justify-center p-8 pt-40 text-white md:w-2/3 md:p-16 md:pt-16">
@@ -31,7 +31,7 @@ const Page = () => {
           </h1>
           <Navigation items={navigationItems} />{' '}
         </div>
-        <div className="relative mb-8 mt-8 flex w-full flex-col justify-center space-y-6 rounded-lg bg-white p-8 shadow-2xl md:mb-16 md:mr-16 md:mt-32 md:w-1/3 lg:p-10">
+        <div className="relative mt-8 mb-8 flex w-full flex-col justify-center space-y-6 rounded-lg bg-white p-8 shadow-2xl md:mt-32 md:mr-16 md:mb-16 md:w-1/3 lg:p-10">
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 transform rounded-full bg-[#4a90e2] px-6 py-2 text-white">
             <h2
               className={`${zilla.className} text-xl font-semibold md:text-2xl`}
@@ -44,7 +44,7 @@ const Page = () => {
           </p>
           <Link
             href="/"
-            className="bg-linear-to-r rounded-full from-[#4a90e2] to-[#357abd] px-6 py-3 text-center text-sm font-semibold text-white transition-all hover:from-[#357abd] hover:to-[#4a90e2] hover:shadow-lg md:text-base"
+            className="rounded-full bg-linear-to-r from-[#4a90e2] to-[#357abd] px-6 py-3 text-center text-sm font-semibold text-white transition-all hover:from-[#357abd] hover:to-[#4a90e2] hover:shadow-lg md:text-base"
           >
             Fill Out Enquiry Form
           </Link>
@@ -149,7 +149,7 @@ const Page = () => {
                 </p>
                 <Link
                   href={link}
-                  className="bg-linear-to-r rounded-full from-[#4a90e2] to-[#357abd] px-6 py-3 text-sm font-semibold text-white transition-all hover:from-[#357abd] hover:to-[#4a90e2] hover:shadow-lg md:text-base"
+                  className="rounded-full bg-linear-to-r from-[#4a90e2] to-[#357abd] px-6 py-3 text-sm font-semibold text-white transition-all hover:from-[#357abd] hover:to-[#4a90e2] hover:shadow-lg md:text-base"
                 >
                   MORE ABOUT {title.toUpperCase()}
                 </Link>

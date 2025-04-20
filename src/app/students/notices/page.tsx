@@ -105,26 +105,22 @@ const getColorForNoticeType = (type: Notice['type']) => {
 export default function Page() {
   return (
     <main className="flex h-fit w-full flex-col items-center justify-center">
-    
-       
-
-      <section className="bg-white m-20 py-20 text-black sm:py-16 lg:py-20">
-        <div className="mx-auto w-3/4 px-4 sm:px-6 lg:px-8">
-          <div className="relative mb-8 mt-10 text-center">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-3/4 border-t border-gray-300"></div>
-            </div>
-            <h1 className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}>
+      <section className="w-full bg-white md:py-16 lg:py-20">
+        <div className="mx-auto w-full px-4 pt-36 text-[#00122a] sm:px-8 md:px-16 md:pt-36 lg:px-28">
+          <div className="relative text-center">
+            <h1
+              className={`mb-4 flex items-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
+            >
               Notices
             </h1>
           </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {notices.map((notice) => (
               <div
                 key={notice.id}
                 className="group relative overflow-hidden rounded-lg bg-white shadow-md transition duration-300 ease-in-out hover:shadow-lg"
               >
-                <div className="absolute right-0 top-0 h-24 w-24 translate-x-8 translate-y-8 transform rounded-full bg-linear-to-br from-blue-100 to-blue-200 opacity-20 transition-transform duration-300 group-hover:translate-x-6 group-hover:translate-y-6"></div>
+                <div className="absolute top-0 right-0 h-24 w-24 translate-x-8 translate-y-8 transform rounded-full bg-linear-to-br from-blue-100 to-blue-200 opacity-20 transition-transform duration-300 group-hover:translate-x-6 group-hover:translate-y-6"></div>
                 <div className="relative z-10 p-6">
                   <div className="mb-4 flex items-center justify-between">
                     <span
