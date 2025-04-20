@@ -18,7 +18,7 @@ export default async function getPlacements(
 ): Promise<Placement[]> {
   const encodedDept = encodeURIComponent(department)
   const baseUrl = process.env.DIRECTUS_URL || 'http://localhost:8055'
-  const url = `${baseUrl}/items/internships?filter[department][_eq]=${encodedDept}&filter[status][_eq]=published`
+  const url = `${baseUrl}/items/placements?filter[department][_eq]=${encodedDept}&filter[status][_eq]=published`
 
   const response = await fetch(url, { cache: 'no-store' })
   if (!response.ok) {
