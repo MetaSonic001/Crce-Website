@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { Zilla_Slab } from 'next/font/google'
 import Navigation from '@/components/navigation'
@@ -18,25 +18,26 @@ const IQACPage = () => {
     { label: 'IQAC', url: '/academics/IQAC' },
   ]
 
-  return (
-    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 mt-44">
-      {/* Header Section */}
-      <div className="flex h-full w-full flex-col bg-white pt-12 md:pt-16">
-        <div className="flex w-full flex-col px-4 sm:px-8 md:px-16 lg:px-24 pb-6 md:pb-8 text-[#00122a]">
-          <h1 className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}>
-            IQAC - INTERNAL QUALITY ASSESSMENT CELL
-          </h1>
-          
-        </div>
-      </div>
+  // Define tabs for the main content area
+  const tabs = [
+    { id: 'about', label: 'About IQAC' },
+    { id: 'vision', label: 'Vision' },
+    { id: 'objectives', label: 'Objectives' },
+    { id: 'strategies', label: 'Strategies' },
+    { id: 'functions', label: 'Functions' },
+    { id: 'benefits', label: 'Benefits' },
+    { id: 'composition', label: 'Composition' },
+  ]
 
-      <div className="container mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-24 py-4 md:py-8">
-        {/* About IQAC */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
-          <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
-              About IQAC
-            </h2>
+  // State to track the active tab
+  const [activeTab, setActiveTab] = useState('about')
+
+  // Function to render the content based on active tab
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case 'about':
+        return (
+          <div>
             <p className="text-sm md:text-base text-gray-700 mb-4">
               National Assessment and Accreditation Council (NAAC), Bangalore
               proposed that every accredited institution should establish an
@@ -53,14 +54,11 @@ const IQACPage = () => {
               and participative voluntary system/unit/organ of the institution.
             </p>
           </div>
-        </div>
-
-        {/* IQAC Vision */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
-          <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
-              IQAC Vision
-            </h2>
+        )
+      
+      case 'vision':
+        return (
+          <div>
             <p className="text-sm md:text-base text-gray-700">
               To ensure quality culture as the prime concern for the Higher
               Education Institutions through institutionalizing and
@@ -68,14 +66,11 @@ const IQACPage = () => {
               external support.
             </p>
           </div>
-        </div>
-
-        {/* Objectives */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
-          <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
-              Objectives
-            </h2>
+        )
+      
+      case 'objectives':
+        return (
+          <div>
             <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
               <li>
                 To develop a system for conscious, consistent and catalytic
@@ -89,14 +84,11 @@ const IQACPage = () => {
               </li>
             </ul>
           </div>
-        </div>
-
-        {/* Strategies */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
-          <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
-              Strategies
-            </h2>
+        )
+      
+      case 'strategies':
+        return (
+          <div>
             <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
               {[
                 'Ensuring the timely, efficient and progressive performance of academic, administrative and financial tasks;',
@@ -111,14 +103,11 @@ const IQACPage = () => {
               ))}
             </ul>
           </div>
-        </div>
-
-        {/* Functions */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
-          <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
-              Functions
-            </h2>
+        )
+      
+      case 'functions':
+        return (
+          <div>
             <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
               {[
                 'Development and application of quality benchmarks;',
@@ -137,14 +126,11 @@ const IQACPage = () => {
               ))}
             </ul>
           </div>
-        </div>
-
-        {/* Benefits */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
-          <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
-              Benefits
-            </h2>
+        )
+      
+      case 'benefits':
+        return (
+          <div>
             <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
               {[
                 'Ensure clarity and focus in institutional functioning towards quality enhancement;',
@@ -158,14 +144,11 @@ const IQACPage = () => {
               ))}
             </ul>
           </div>
-        </div>
-
-        {/* IQAC-Composition */}
-        <div className="bg-white rounded-lg shadow-lg mb-8">
-          <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
-              IQAC-Composition
-            </h2>
+        )
+      
+      case 'composition':
+        return (
+          <div>
             <p className="mb-4 text-sm md:text-base text-gray-700">
               The composition of IQAC consists of:
             </p>
@@ -209,6 +192,52 @@ const IQACPage = () => {
                 </tbody>
               </table>
             </div>
+          </div>
+        )
+      
+      default:
+        return null
+    }
+  }
+
+  return (
+    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 mt-44">
+      {/* Header Section */}
+      <div className="flex h-full w-full flex-col bg-white pt-12 md:pt-16">
+        <div className="flex w-full flex-col px-4 sm:px-8 md:px-16 lg:px-24 pb-6 md:pb-8 text-[#00122a]">
+          <h1 className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}>
+            IQAC - INTERNAL QUALITY ASSESSMENT CELL
+          </h1>
+        </div>
+      </div>
+
+      <div className="container mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-24 py-4 md:py-8">
+        {/* Main Card with Tabs */}
+        <div className="bg-white rounded-lg shadow-lg mb-8 overflow-hidden">
+          {/* Tab Navigation */}
+          <div className="flex overflow-x-auto border-b">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-3 py-2 text-center text-xs whitespace-nowrap md:px-4 md:py-3 md:text-sm lg:text-base ${
+                  activeTab === tab.id
+                    ? 'rounded-t-lg bg-white font-semibold text-[#012146]'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+                
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Tab Content */}
+          <div className="p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
+              {tabs.find(tab => tab.id === activeTab)?.label}
+            </h2>
+            {renderTabContent()}
           </div>
         </div>
 
