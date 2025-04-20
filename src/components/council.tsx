@@ -42,7 +42,7 @@ export default function Council() {
   return (
     <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900">
       {/* Header Section */}
-      <div className="flex h-full w-full flex-col bg-white md:flex-row">
+      <div className="flex h-full w-full flex-col md:flex-row">
         <div className="flex w-full flex-col px-4 pt-24 text-[#00122a] md:px-28 md:pt-20">
           <h1
             className={`mb-4 flex items-center justify-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}

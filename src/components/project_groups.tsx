@@ -1,7 +1,17 @@
 'use client'
-import { useState } from 'react'
-import { Earth, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react'
+
+import { useEffect, useState } from 'react'
+import {
+  Earth,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Youtube,
+  ChevronRight,
+} from 'lucide-react'
 import { Zilla_Slab } from 'next/font/google'
+import getProjectGroups, { type ProjectGroups } from '@/app/api/projectGroups'
+import Link from 'next/link'
 
 const zilla = Zilla_Slab({
   weight: ['400', '700'],
@@ -10,165 +20,105 @@ const zilla = Zilla_Slab({
   display: 'swap',
 })
 
-type Card = {
-  title: string
-  subtitle: string
-  image: string
-  website?: string
-  instagram?: string
-  youtube?: string
-  linkedin?: string
-  facebook?: string
-}
-
-export default function ProjectGroups() {
+export default function ProjectGroups_page() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+  const [cards, setCards] = useState<ProjectGroups[]>()
 
-  const cards: Card[] = [
-    {
-      title: 'Team Abadha CRCE',
-      subtitle:
-        'We are TEAM ABADHA CRCE, creating an Electric All Terrain Vehicle for SAE E-BAJA.',
-      image: '/project_grp/abadha.jpg',
-      website: 'https://teamabadhaofficial.web.app',
-      instagram: 'https://instagram.com/teamabadha?igshid=9rz18qcl27oy',
-      youtube: 'https://youtube.com/channel/UCQ2g2izBdI-Mxmyw-bQD8qQ',
-      linkedin: 'https://www.linkedin.com/in/team-abadha-crce-2492b41aa',
-    },
-    {
-      title: 'Team Robocon',
-      subtitle:
-        'Team Robocon designs and builds robots for the ABU Robocon competition.',
-      image: '/project_grp/robocon.jpg',
-      website: 'http://roboconcrce.org',
-    },
-    {
-      title: 'Team CFR New',
-      subtitle:
-        'CRCE Formula Racing team builds race cars for national and international competitions.',
-      image: '/project_grp/cfr.jpeg',
-      website: 'https://crceformularacing.com/index.html',
-      instagram: 'https://www.instagram.com/teamcfr/?hl=en',
-      linkedin: 'https://www.linkedin.com/company/teamcrceformularacing/',
-      facebook: 'https://www.facebook.com/CRCEFormulaRacing/',
-    },
-    {
-      title: 'HAWK-i CRCE',
-      subtitle:
-        'HAWK-i CRCE is a platform for students pursuing cybersecurity careers and CTF challenges.',
-      image: '/project_grp/hawki.jpg',
-      website: 'http://hawkicrce.com',
-    },
-    {
-      title: 'Project Cell',
-      subtitle:
-        'PROJECT CELL promotes innovation and practical learning to solve social problems.',
-      image: '/project_grp/projectcell.jpg',
-      website: 'https://projectcellcrce2021.web.app/',
-    },
-    {
-      title: 'Marvericks',
-      subtitle:
-        'Team Mavericks UAS develops drones and efficient solutions for various challenges.',
-      image: '/project_grp/mavericks.jpg',
-      website: 'https://mavericksuas.github.io',
-    },
-    {
-      title: 'Team Vaayushastra',
-      subtitle:
-        'Team Vaayushastra, established in 2012, represents CRCE in SAE Aero Design.',
-      image: '/project_grp/vaayushastra.jpg',
-      website: 'https://vaayushastra.com/index.html',
-    },
-  ]
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const project_groups = await getProjectGroups()
+        if (project_groups.length > 0) setCards(project_groups)
+      } catch (error) {
+        console.warn('Falling back to dummy data due to error:', error)
+      }
+    }
+
+    fetchData()
+  }, [])
 
   return (
-    <section className="body-font text-gray-600">
-      <div className="container mx-auto px-5 py-12 md:py-24">
-        <div className="mb-20 flex w-full flex-wrap">
-          <div className="mb-6 w-full lg:mb-0 lg:w-1/2">
-            <h1
-            className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
+    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900">
+      {/* Header Section */}
+      <div className="flex h-full w-full flex-col md:flex-row">
+        <div className="flex w-full flex-col px-4 pt-24 text-[#00122a] md:px-28 md:pt-20">
+          <h1
+            className={`mb-4 flex items-center justify-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
           >
             PROJECT GROUPS
           </h1>
-          </div>
         </div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {cards.map((card, index) => (
-            <div key={index} className="relative">
-              <div
-                className="relative h-full overflow-hidden rounded-lg bg-gray-100 p-6 shadow-lg transition-shadow duration-300 hover:shadow-xl"
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
-              >
-                <img
-                  className="mb-6 h-40 w-full rounded-sm object-cover object-center"
-                  src={card.image}
-                  alt={card.title}
-                />
+      </div>
 
-                <h2 className="title-font mb-4 text-lg font-medium text-gray-900">
-                  {card.title}
-                </h2>
+      {/* Main Content */}
+      <div className="container mx-auto px-4 py-8 sm:px-8 md:px-16 md:py-16 lg:px-28">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {cards?.map((card, index) => (
+            <div key={index} className="group">
+              <div className="h-full overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 hover:shadow-xl">
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                    src={`${process.env.NEXT_PUBLIC_ASSET_URL}${card.image}`}
+                    alt={card.name}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                </div>
 
-                <div
-                  className={`absolute inset-0 flex flex-col justify-between bg-white bg-opacity-90 p-6 transition-transform duration-300 ease-in-out ${
-                    hoveredCard === index ? 'translate-y-0' : 'translate-y-full'
-                  }`}
-                >
-                  <div>
-                    <h2 className="title-font mb-4 text-lg font-medium text-gray-900">
-                      {card.title}
-                    </h2>
-                    <p className="text-base leading-relaxed">{card.subtitle}</p>
-                  </div>
-                  <div className="mt-4 flex justify-center space-x-4">
-                    {card.website && (
-                      <a
-                        href={card.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Earth className="text-2xl text-blue-600" />
-                      </a>
-                    )}
-                    {card.youtube && (
-                      <a
-                        href={card.youtube}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Youtube className="text-2xl text-red-600" />
-                      </a>
-                    )}
-                    {card.linkedin && (
-                      <a
-                        href={card.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Linkedin className="text-2xl text-blue-400" />
-                      </a>
-                    )}
-                    {card.instagram && (
-                      <a
-                        href={card.instagram}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Instagram className="text-2xl text-pink-600" />
-                      </a>
-                    )}
-                    {card.facebook && (
-                      <a
-                        href={card.facebook}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Facebook className="text-2xl text-blue-600" />
-                      </a>
-                    )}
+                <div className="p-6">
+                  <h2
+                    className={`${zilla.className} mb-2 text-xl font-semibold text-[#001f3f]`}
+                  >
+                    {card.name}
+                  </h2>
+                  <p className="mb-4 line-clamp-2 text-sm text-gray-600">
+                    {card.subtitle}
+                  </p>
+
+                  <div className="flex items-center justify-between">
+                    <div className="flex space-x-2">
+                      {card.website && (
+                        <a
+                          href={
+                            card.website.startsWith('http')
+                              ? card.website
+                              : `https://${card.website}`
+                          }
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[#4a90e2] transition-colors hover:text-[#3a7bc2]"
+                        >
+                          <Earth className="h-5 w-5" />
+                        </a>
+                      )}
+                      {card.linkedin && (
+                        <a
+                          href={card.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 transition-colors hover:text-blue-700"
+                        >
+                          <Linkedin className="h-5 w-5" />
+                        </a>
+                      )}
+                      {card.instagram && (
+                        <a
+                          href={card.instagram}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-pink-600 transition-colors hover:text-pink-700"
+                        >
+                          <Instagram className="h-5 w-5" />
+                        </a>
+                      )}
+                    </div>
+
+                    <Link
+                      href={`/students/project_teams/${card.id}`}
+                      className="flex items-center text-sm font-medium text-[#4a90e2] transition-colors hover:text-[#3a7bc2]"
+                    >
+                      Learn More <ChevronRight className="ml-1 h-4 w-4" />
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -176,6 +126,6 @@ export default function ProjectGroups() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   )
 }
