@@ -1,31 +1,62 @@
-import React, { useState } from 'react';
+'use client'
+
+import React, { useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import getInternships, { Internship } from '@/app/api/internships'
+import getPlacements, { Placement } from '@/app/api/placements'
+
+const fallbackInternships: Internship[] = [
+  {
+    id: 1,
+    status: 'published',
+    user_updated: '',
+    date_updated: '',
+    company: 'Example Company',
+    package: '20,000/month', // stipend
+    position: 'Software Engineer Intern',
+    location: 'Mumbai',
+    year: '2023',
+    department: 'ecs',
+  },
+]
+
+const fallbackPlacements: Placement[] = [
+  {
+    id: 1,
+    status: 'published',
+    user_updated: '',
+    date_updated: '',
+    company: 'Example Company',
+    package: '12 LPA',
+    position: 'Software Engineer',
+    location: 'Bangalore',
+    year: '2023',
+    department: 'ecs',
+  },
+]
 
 const PlacementsInternshipsTab = () => {
-  const [activeSubTab, setActiveSubTab] = useState('placements');
+  const [activeSubTab, setActiveSubTab] = useState<
+    'placements' | 'internships'
+  >('placements')
 
- 
-  const placementsData = [
-    {
-      company: "Example Company",
-      position: "Software Engineer",
-      package: "12 LPA",
-      location: "Bangalore",
-      year: "2023"
-    },
-    // Add more placement data as needed
-  ];
+  const {
+    data: internships = fallbackInternships,
+    isLoading: loadingInternships,
+  } = useQuery<Internship[]>({
+    queryKey: ['internships', 'ecs'],
+    queryFn: () => getInternships('ecs'),
+    staleTime: 1000 * 60 * 5,
+  })
 
-  
-  const internshipsData = [
-    {
-      company: "Example Company",
-      position: "Software Engineer Intern",
-      stipend: "20,000/month",
-      location: "Mumbai",
-      year: "2023"
-    },
-    // Add more internship data as needed
-  ];
+  const {
+    data: placements = fallbackPlacements,
+    isLoading: loadingPlacements,
+  } = useQuery<Placement[]>({
+    queryKey: ['placements', 'ecs'],
+    queryFn: () => getPlacements('ecs'),
+    staleTime: 1000 * 60 * 5,
+  })
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -66,27 +97,48 @@ const PlacementsInternshipsTab = () => {
         {activeSubTab === 'placements' ? (
           <div>
             <p className="mb-8 text-lg leading-relaxed text-gray-700">
-              Our department has an impressive placement record with students securing positions in top companies across the industry.
+              Our department has an impressive placement record with students
+              securing positions in top companies across the industry.
             </p>
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200 rounded-lg bg-white shadow">
                 <thead className="bg-[#F5F8FF]">
                   <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Company</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Position</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Package</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Location</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Year</th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                      Company
+                    </th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                      Position
+                    </th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                      Package
+                    </th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                      Location
+                    </th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                      Year
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  {placementsData.map((placement, index) => (
-                    <tr key={index} className="bg-white">
-                      <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">{placement.company}</td>
-                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">{placement.position}</td>
-                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">{placement.package}</td>
-                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">{placement.location}</td>
-                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">{placement.year}</td>
+                  {placements.map((placement, index) => (
+                    <tr key={placement.id ?? index} className="bg-white">
+                      <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900">
+                        {placement.company}
+                      </td>
+                      <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
+                        {placement.position}
+                      </td>
+                      <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
+                        {placement.package}
+                      </td>
+                      <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
+                        {placement.location}
+                      </td>
+                      <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
+                        {placement.year}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -96,27 +148,48 @@ const PlacementsInternshipsTab = () => {
         ) : (
           <div>
             <p className="mb-8 text-lg leading-relaxed text-gray-700">
-              Our students participate in internships at leading organizations to gain practical industry experience.
+              Our students participate in internships at leading organizations
+              to gain practical industry experience.
             </p>
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200 rounded-lg bg-white shadow">
                 <thead className="bg-[#F5F8FF]">
                   <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Company</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Position</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Stipend</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Location</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Year</th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                      Company
+                    </th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                      Position
+                    </th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                      Stipend
+                    </th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                      Location
+                    </th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                      Year
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  {internshipsData.map((internship, index) => (
-                    <tr key={index} className="bg-white">
-                      <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">{internship.company}</td>
-                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">{internship.position}</td>
-                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">{internship.stipend}</td>
-                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">{internship.location}</td>
-                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">{internship.year}</td>
+                  {internships.map((internship, index) => (
+                    <tr key={internship.id ?? index} className="bg-white">
+                      <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-gray-900">
+                        {internship.company}
+                      </td>
+                      <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
+                        {internship.position}
+                      </td>
+                      <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
+                        {internship.package}
+                      </td>
+                      <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
+                        {internship.location}
+                      </td>
+                      <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
+                        {internship.year}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -126,7 +199,8 @@ const PlacementsInternshipsTab = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PlacementsInternshipsTab;
+export default PlacementsInternshipsTab
+
