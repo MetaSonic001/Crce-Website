@@ -51,8 +51,7 @@ export default function NIRFRankingPage() {
           </p>
         </div>
 
-        <div className="mb-12 grid gap-8 md:grid-cols-3">
-          <div className="md:col-span-2">
+        <div className="mb-2">
             <div className="rounded-lg border bg-white p-6">
               <h2 className="mb-4 text-xl font-semibold text-gray-900">
                 About NIRF
@@ -87,28 +86,15 @@ export default function NIRFRankingPage() {
                 </ul>
               </div>
             </div>
-          </div>
-
-          <div>
-            <div className="rounded-lg border bg-white p-6">
-              <h2 className="mb-4 text-xl font-semibold text-gray-900">
-                NIRF Data Archives
-              </h2>
-              <div className="grid gap-2">
-                {yearButtons.map((button) => (
-                  <button
-                    key={button.id}
-                    className="flex w-full items-center gap-2 rounded border px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-50"
-                  >
-                    <FileText className="h-4 w-4" />
-                    {button.year}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
-
+        <div className="text-center m-2">
+          <button
+            onClick={() => window.open('', '_blank')}
+            className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+          >
+            View the 24-25 NIRF Document
+          </button>
+        </div>
         <div className="border-t pt-8">
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-xl font-semibold text-gray-900">
