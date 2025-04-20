@@ -1,37 +1,16 @@
 'use client'
 
+import { useQuery } from '@tanstack/react-query'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useState } from 'react'
-import { useQuery } from '@tanstack/react-query'
 import { Achievement } from '@/app/api/main_achievements'
 import getAchievements from '@/app/api/main_achievements'
 
-const fallbackAchievements: Achievement[] = [
-  {
-    id: 1,
-    title: 'NAAC A+ Accreditation',
-    description:
-      'Fr. CRCE has been awarded an A+ grade by the National Assessment and Accreditation Council (NAAC) in recognition of its academic excellence and institutional quality.',
-    date: '2023-12-08',
-    image: '/crce-building.png',
-    status: 'published',
-  },
-  {
-    id: 2,
-    title: 'NBA Accreditation',
-    description:
-      'The National Board of Accreditation (NBA) has accredited several programs at Fr. CRCE, ensuring that our courses meet the highest standards of quality and relevance.',
-    date: '2023-12-08',
-    image: '/crce-building.png',
-    status: 'published',
-  },
-]
-
-const formatMonthYear = (dateStr: string) => {
+const formatDate = (dateStr: string) => {
   const date = new Date(dateStr)
-  return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })
 }
 
 const HomeAchievements = () => {
@@ -43,27 +22,23 @@ const HomeAchievements = () => {
     isError,
   } = useQuery<Achievement[]>({
     queryKey: ['achievements'],
-    queryFn: () => getAchievements(''),
-    staleTime: 1000 * 60 * 5,
-    retry: false,
+    queryFn: getAchievements,
   })
 
-  const isFetched =
-    !isLoading && !isError && achievements && achievements.length > 0
-  const items = isFetched ? achievements : fallbackAchievements
+  if (isLoading || isError || !achievements || achievements.length === 0) {
+    return null // don't render the section
+  }
 
-  const current = items[currentIndex]!
+  const currentAchievement = achievements[currentIndex]
+  if (!currentAchievement) return null
 
   const handlePrevious = () => {
-    setCurrentIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1))
+    setCurrentIndex((prev) => (prev === 0 ? achievements.length - 1 : prev - 1))
   }
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1))
+    setCurrentIndex((prev) => (prev === achievements.length - 1 ? 0 : prev + 1))
   }
-
-  const resolveImage = (img: string) =>
-    isFetched ? `${process.env.NEXT_PUBLIC_ASSET_URL}${img}` : img
 
   return (
     <section className="bg-white py-12 sm:py-16">
@@ -108,8 +83,8 @@ const HomeAchievements = () => {
                   {/* Image Section */}
                   <div className="relative h-64 w-full md:h-[400px] md:w-1/2">
                     <Image
-                      src={resolveImage(current.image)}
-                      alt={current.title}
+                      src={`${process.env.NEXT_PUBLIC_ASSET_URL}${currentAchievement.image}`}
+                      alt={currentAchievement.title}
                       fill
                       className="object-cover"
                       priority
@@ -119,13 +94,13 @@ const HomeAchievements = () => {
                   {/* Content Section */}
                   <div className="flex flex-1 flex-col justify-center p-6 md:p-8">
                     <div className="mb-2 text-sm font-medium text-blue-600">
-                      {formatMonthYear(current.date)}
+                      {formatDate(currentAchievement.date)}
                     </div>
                     <h3 className="mb-4 text-xl font-bold text-gray-900 sm:text-2xl">
-                      {current.title}
+                      {currentAchievement.title}
                     </h3>
                     <p className="text-base text-gray-600 sm:text-lg">
-                      {current.description}
+                      {currentAchievement.description}
                     </p>
                   </div>
                 </div>
@@ -135,7 +110,7 @@ const HomeAchievements = () => {
 
           {/* Dots Indicator */}
           <div className="mt-4 flex justify-center gap-2">
-            {items.map((_, index) => (
+            {achievements.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
@@ -152,4 +127,3 @@ const HomeAchievements = () => {
 }
 
 export default HomeAchievements
-
