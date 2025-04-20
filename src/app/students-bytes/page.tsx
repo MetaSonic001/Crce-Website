@@ -4,26 +4,24 @@ import YoutubeEmbed from '@/components/YoutubeEmbed'
 const page = () => {
   const data = [
     {
-      title: 'Yashas TE Mech',
-      url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+      title: 'Leandra Monteiro BE IT',
+      url: 'https://youtu.be/i-vuODFG6eQ',
     },
-    { title: 'Student 2', url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-    { title: 'Student 3', url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-    { title: 'Student 4', url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
+    { title: 'Sherwin Dsouza TE ECS', url: 'https://youtu.be/yNrg7ilAyMU' },
+    { title: 'Yashas TE Mech', url: 'https://youtu.be/RN_to0McDi0' },
+    { title: 'Andrea Pinto TE ECS', url: 'https://youtu.be/gqGVmiGfclI' },
     {
-      title: 'Yashas TE Mech',
-      url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+      title: 'Arpita Khar TE ECS',
+      url: 'https://youtu.be/qn-6yxjSYzc',
     },
-    { title: 'Student 2', url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-    { title: 'Student 3', url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-    { title: 'Student 4', url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
+    { title: 'Atharva Joshi TE ECS', url: 'https://youtu.be/EXClFkGqmRs' },
+    { title: 'Meera BE IT', url: 'https://youtu.be/lGKkocUSJzk' },
+    { title: 'Pratham SE AIDS', url: 'https://youtu.be/3mIzMO1O-j0' },
     {
-      title: 'Yashas TE Mech',
-      url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+      title: 'Preet Mehta BE Prod',
+      url: 'https://youtu.be/dEJJ0qie8Uo',
     },
-    { title: 'Student 2', url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-    { title: 'Student 3', url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-    { title: 'Student 4', url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
+    { title: 'Robin Lobo BE IT', url: 'https://youtu.be/AjNM06oymzw' },
   ]
   return (
     <div className="container mx-auto mt-50 p-4">
