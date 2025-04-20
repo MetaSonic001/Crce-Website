@@ -225,12 +225,12 @@ const CreditBasedEvaluationSystem = () => {
   }
 
   return (
-    <div className="mt-25 flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 md:mt-44">
+    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 md:mt-44">
       {/* Header Section */}
-      <div className="flex h-full w-full flex-col bg-white pt-2 md:pt-16">
-        <div className="flex w-full flex-col px-4 pb-6 text-[#00122a] sm:px-8 md:px-16 md:pb-8 lg:px-24">
+      <div className="flex h-full w-full flex-col bg-white">
+        <div className="flex w-full flex-col px-4 pt-36 text-[#00122a] sm:px-8 md:px-16 md:pt-16 lg:px-28">
           <h1
-            className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
+            className={`mb-4 flex items-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
           >
             CREDIT BASED EVALUATION SYSTEM
           </h1>
@@ -238,7 +238,7 @@ const CreditBasedEvaluationSystem = () => {
       </div>
 
       {/* Tab Navigation */}
-      <div className="container mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-24">
+      <div className="container mx-auto my-1 w-full p-4 sm:px-8 md:my-4 md:px-16 lg:px-24">
         <div className="flex flex-wrap">
           {tabs.map((tab) => (
             <button
@@ -361,4 +361,3 @@ const CreditBasedEvaluationSystem = () => {
 }
 
 export default CreditBasedEvaluationSystem
-
