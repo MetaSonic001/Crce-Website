@@ -180,16 +180,9 @@ const dropdownContent: DropdownContent = {
       icon: <Briefcase size={18} />,
     },
     {
-      name: 'Students Council',
-      href: 'students/students_council',
-      icon: <Users size={18} />,
-    },
-    {
-      name: 'Alumni',
-      href: 'https://alumni.frcrce.ac.in',
-      icon: <UserCheck size={18} />,
-      target: '_blank',
-      rel: 'noopener noreferrer',
+      name: 'Councils',
+      href: '/students/councils',
+      icon: <UserPlus size={18} />,
     },
     {
       name: 'Project Groups',
@@ -197,9 +190,11 @@ const dropdownContent: DropdownContent = {
       icon: <FolderGit2 size={18} />,
     },
     {
-      name: 'Councils',
-      href: '/students/councils',
-      icon: <UserPlus size={18} />,
+      name: 'Alumni',
+      href: 'https://alumni.frcrce.ac.in',
+      icon: <UserCheck size={18} />,
+      target: '_blank',
+      rel: 'noopener noreferrer',
     },
     {
       name: 'Notices',
@@ -491,7 +486,7 @@ const Navbar: React.FC = () => {
       )}{' '}
       {/* Mobile Navigation */}
       <nav
-        className={` fixed top-0 z-50 w-full bg-[hsl(224,37%,12%)]/90 font-semibold text-white capitalize transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed top-0 z-50 w-full bg-[hsl(224,37%,12%)]/90 font-semibold text-white capitalize transition-transform duration-300 ease-in-out lg:hidden ${
           hasScrolled
             ? visible
               ? 'translate-y-0'
@@ -554,28 +549,16 @@ const Navbar: React.FC = () => {
 
           {/* Additional Links */}
           <div className="mt-6 space-y-2">
-            <Link
-              href="/news"
-              className="block py-2 text-sm "
-            >
+            <Link href="/news" className="block py-2 text-sm">
               News
             </Link>
-            <Link
-              href="/events"
-              className="block py-2 text-sm "
-            >
+            <Link href="/events" className="block py-2 text-sm">
               Events
             </Link>
-            <Link
-              href="/careers"
-              className="block py-2 text-sm "
-            >
+            <Link href="/careers" className="block py-2 text-sm">
               Work at FrCrce
             </Link>
-            <Link
-              href="/student-links"
-              className="block py-2 text-sm "
-            >
+            <Link href="/student-links" className="block py-2 text-sm">
               Student Links
             </Link>
           </div>
