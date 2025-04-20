@@ -29,6 +29,7 @@ import IndustrialVisits from './IndustrialVisits'
 import DepartmentsNotices from './DepartmentsNotices'
 import Infrastructure from './Infrastructure'
 import getTeachers, { MappedTeacher } from '@/app/api/teachers'
+import PlacementsInternshipsTab from './PlacementsInternshipsTab'
 
 // Font configuration
 const zilla = Zilla_Slab({
@@ -212,107 +213,6 @@ const MechEngineeringPage: React.FC = () => {
     </div>
   )
 
-  // Component: Placements & Internships Tab
-  const PlacementsInternshipsTab: React.FC = () => {
-    const [activeSubTab, setActiveSubTab] = useState('placements')
-  
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="relative mb-12 flex items-center justify-center">
-          <div className="absolute top-1/2 left-0 h-px w-1/5 bg-gray-300"></div>
-          <h2 className="mx-8 text-center text-4xl font-bold text-[#131929]">
-            Placement & Internship Statistics
-          </h2>
-          <div className="absolute top-1/2 right-0 h-px w-1/5 bg-gray-300"></div>
-        </div>
-  
-        <div className="mb-8 flex justify-center">
-          <div className="inline-flex rounded-md">
-            <button
-              onClick={() => setActiveSubTab('placements')}
-              className={`rounded-l-md px-8 py-3 text-base font-medium ${
-                activeSubTab === 'placements'
-                  ? 'bg-[#131929] text-white'
-                  : 'bg-gray-200 text-[#131929] hover:bg-gray-300'
-              } transition-colors duration-200`}
-            >
-              Placements
-            </button>
-            <button
-              onClick={() => setActiveSubTab('internships')}
-              className={`rounded-r-md px-8 py-3 text-base font-medium ${
-                activeSubTab === 'internships'
-                  ? 'bg-[#131929] text-white'
-                  : 'bg-gray-200 text-[#131929] hover:bg-gray-300'
-              } transition-colors duration-200`}
-            >
-              Internships
-            </button>
-          </div>
-        </div>
-  
-        <div className="rounded-lg bg-white p-8 shadow-md">
-          {activeSubTab === 'placements' ? (
-            <div>
-              <p className="mb-8 text-lg leading-relaxed text-gray-700">
-                Our department has an impressive placement record with students securing positions in top companies across the industry.
-              </p>
-              <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200 rounded-lg bg-white shadow">
-                  <thead className="bg-[#F5F8FF]">
-                    <tr>
-                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Company</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Position</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Package</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Location</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Year</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    <tr className="bg-white">
-                      <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">Tech Mechanics</td>
-                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">Mechanical Engineer </td>
-                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">3 LPA</td>
-                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">Mumbai</td>
-                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">2023</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          ) : (
-            <div>
-              <p className="mb-8 text-lg leading-relaxed text-gray-700">
-                Our students participate in internships at leading organizations to gain practical industry experience.
-              </p>
-              <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200 rounded-lg bg-white shadow">
-                  <thead className="bg-[#F5F8FF]">
-                    <tr>
-                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Company</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Position</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Stipend</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Location</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider text-[#131929]">Year</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    <tr className="bg-white">
-                      <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">Tech Mechanics</td>
-                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">Mechanical Engineer Intern</td>
-                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">15,000/month</td>
-                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">Mumbai</td>
-                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">2023</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    )
-  }
 
   // Render the active tab content
   const renderTabContent = () => {
