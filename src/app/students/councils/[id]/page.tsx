@@ -14,51 +14,10 @@ const zilla = Zilla_Slab({
   display: 'swap',
 })
 
-const dummyData: OneCouncil = {
-  id: 1,
-  name: 'CodeLabs CRCE',
-  website: 'https://codelabscrce.netlify.app/',
-  image: '/councils/codelabs.jpg',
-  data: 'CodeLabs CRCE is a technical community focused on fostering coding culture and technical innovation.',
-  events: [
-    {
-      name: 'Tech Talk',
-      date: '2025-03-01',
-      image: '/councils/codelabs.jpg',
-      description: 'This Tech Talk brings together esteemed professionals...',
-      report: '/report.pdf',
-    },
-    {
-      name: 'CodeFest',
-      date: '2025-04-10',
-      image: '/councils/codelabs.jpg',
-      description: 'CodeFest is an intensive 24-hour hackathon...',
-      report: '/report2.pdf',
-    },
-  ],
-  members: [
-    {
-      id: 1,
-      name: 'John Doe',
-      role: 'President',
-      image: '/alumni/adi.jpg',
-      class: 'B.E. Computer Engineering',
-    },
-    {
-      id: 2,
-      name: 'Jane Smith',
-      role: 'Vice President',
-      image: '/alumni/sharu.jpg',
-      class: 'B.E. Information Technology',
-    },
-    // Add more members as needed
-  ],
-}
-
 export default function CouncilDetails({ params }: { params: { id: string } }) {
   const [showAllMembers, setShowAllMembers] = useState(false)
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null)
-  const [council, setCouncil] = useState<OneCouncil>(dummyData)
+  const [council, setCouncil] = useState<OneCouncil>()
 
   useEffect(() => {
     const fetchCouncil = async () => {
@@ -68,9 +27,17 @@ export default function CouncilDetails({ params }: { params: { id: string } }) {
     fetchCouncil()
   }, [params.id])
 
+  if (!council) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="text-2xl text-gray-600">Loading...</div>
+      </div>
+    )
+  }
+
   const visibleMembers = showAllMembers
     ? council.members
-    : council.members?.slice(0, 5)
+    : council.members?.slice(0, 4)
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -118,29 +85,39 @@ export default function CouncilDetails({ params }: { params: { id: string } }) {
               Our Team
             </h2>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              {visibleMembers?.map((member, index) => (
-                <div
-                  key={index}
-                  className="group relative overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-105 hover:ring-blue-300"
-                >
-                  <div className="relative mb-4 aspect-square overflow-hidden rounded-xl">
-                    <Image
-                      src={`${process.env.NEXT_PUBLIC_ASSET_URL}${member.image}`}
-                      alt={member.name}
-                      width={1000}
-                      height={1000}
-                      className="h-full w-full object-cover "
-                    />
+              {visibleMembers?.map(
+                (
+                  member: {
+                    image: string
+                    name: string
+                    role: string
+                    class: string
+                  },
+                  index: number
+                ) => (
+                  <div
+                    key={index}
+                    className="group relative overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:ring-blue-300"
+                  >
+                    <div className="relative mb-4 aspect-square overflow-hidden rounded-xl">
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_ASSET_URL}${member.image}`}
+                        alt={member.name}
+                        width={1000}
+                        height={1000}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <p className="text-lg leading-snug font-bold text-gray-900">
+                        {member.name}
+                      </p>
+                      <p className="font-medium text-blue-600">{member.role}</p>
+                      <p className="text-sm text-gray-500">{member.class}</p>
+                    </div>
                   </div>
-                  <div className="space-y-1">
-                    <p className="text-lg leading-snug font-bold text-gray-900">
-                      {member.name}
-                    </p>
-                    <p className="font-medium text-blue-600">{member.role}</p>
-                    <p className="text-sm text-gray-500">{member.class}</p>
-                  </div>
-                </div>
-              ))}
+                )
+              )}
             </div>
             {!showAllMembers && council.members.length > 4 && (
               <div className="mt-10 text-center">
