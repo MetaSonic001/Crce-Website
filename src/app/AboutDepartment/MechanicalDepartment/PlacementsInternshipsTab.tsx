@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const PlacementsInternshipsTab = () => {
   const [activeSubTab, setActiveSubTab] = useState('placements');
 
-  // Sample placement data - can be replaced with actual data or API calls
+  
   const placementsData = [
     {
       company: "Example Company",
@@ -15,7 +15,7 @@ const PlacementsInternshipsTab = () => {
     // Add more placement data as needed
   ];
 
-  // Sample internship data - can be replaced with actual data or API calls
+
   const internshipsData = [
     {
       company: "Example Company",
