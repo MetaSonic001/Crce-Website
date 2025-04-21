@@ -11,18 +11,30 @@ export async function GET(
 
   const assetUrl = `${assetBase}/assets/${id}`
 
-  // Get the request headers to check for cache validation
-  const headers = new Headers()
+  // Check if the client sent cache validation headers
+  const ifNoneMatch = req.headers.get('if-none-match')
+  const ifModifiedSince = req.headers.get('if-modified-since')
 
   try {
-    // Fetch options to forward cache headers
+    // Create a new request with all original headers to forward conditional requests
+    const fetchHeaders = new Headers()
+    if (ifNoneMatch) fetchHeaders.set('if-none-match', ifNoneMatch)
+    if (ifModifiedSince) fetchHeaders.set('if-modified-since', ifModifiedSince)
+
+    // Fetch options to align with Directus caching (8 hours)
     const fetchOptions: RequestInit = {
+      headers: fetchHeaders,
       next: {
-        revalidate: 86400, // Cache for 24 hours before revalidating
+        revalidate: 28800, // 8 hours in seconds to match Directus CACHE_TTL
       },
     }
 
     const directusRes = await fetch(assetUrl, fetchOptions)
+
+    // Handle 304 Not Modified responses
+    if (directusRes.status === 304) {
+      return new Response(null, { status: 304 })
+    }
 
     if (!directusRes.ok) {
       return new Response('Failed to fetch image', {
@@ -30,30 +42,40 @@ export async function GET(
       })
     }
 
+    const responseHeaders = new Headers()
+
+    // Copy important headers from the Directus response
     const contentType =
       directusRes.headers.get('content-type') || 'application/octet-stream'
+    responseHeaders.set('Content-Type', contentType)
 
-    // Copy all caching-related headers from the original response
-    const cacheControl = directusRes.headers.get('cache-control')
+    // Get cache validation headers
     const etag = directusRes.headers.get('etag')
     const lastModified = directusRes.headers.get('last-modified')
 
-    // Set response headers
-    headers.set('Content-Type', contentType)
-
-    // Set strong caching headers
-    headers.set(
+    // Set strong caching headers - aligned with Directus 8hr TTL
+    responseHeaders.set(
       'Cache-Control',
-      'public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400'
+      'public, max-age=28800, s-maxage=86400, stale-while-revalidate=14400'
     )
 
-    // Forward ETag and Last-Modified if available for validation
-    if (etag) headers.set('ETag', etag)
-    if (lastModified) headers.set('Last-Modified', lastModified)
+    // Forward cache validation headers
+    if (etag) responseHeaders.set('ETag', etag)
+    if (lastModified) responseHeaders.set('Last-Modified', lastModified)
+
+    // Forward content encoding if present
+    const contentEncoding = directusRes.headers.get('content-encoding')
+    if (contentEncoding)
+      responseHeaders.set('Content-Encoding', contentEncoding)
+
+    // Handle content-disposition for downloads
+    const contentDisposition = directusRes.headers.get('content-disposition')
+    if (contentDisposition)
+      responseHeaders.set('Content-Disposition', contentDisposition)
 
     return new Response(directusRes.body, {
-      status: 200,
-      headers,
+      status: directusRes.status,
+      headers: responseHeaders,
     })
   } catch (err) {
     console.error('Image proxy error:', err)
