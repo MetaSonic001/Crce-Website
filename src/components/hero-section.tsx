@@ -4,6 +4,7 @@ import { ChevronRight, X } from 'lucide-react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { intro } from '@/app/files/files'
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -51,11 +52,11 @@ export default function HeroSection() {
           preload="auto"
           onLoadedData={(e) => {
             // Ensure video plays when loaded
-            const video = e.target as HTMLVideoElement;
-            video.play().catch(err => console.log("Video play error:", err));
+            const video = e.target as HTMLVideoElement
+            video.play().catch((err) => console.log('Video play error:', err))
           }}
         >
-          <source src="intro.mp4" type="video/mp4" />
+          <source src={intro} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute top-[20%] z-40 flex w-full flex-col items-center justify-center text-white md:top-[57%] md:w-fit md:flex-row">

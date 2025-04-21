@@ -11,7 +11,7 @@ import {
   PlayCircle,
 } from 'lucide-react'
 import Link from 'next/link'
-import { college_pic } from '@/app/images/files'
+import { college_pic } from '@/app/files/files'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
