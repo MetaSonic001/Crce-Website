@@ -2,6 +2,11 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { adi, shaun, sharu, zane } from '@/app/files/files';
+// import { shaun } from '@/app/files/filess';
+// import { sharu } from '@files/files';
+// import { zane } from '@files/files';
+
 
 // Alumni data with actual images and information
 const alumniData = [
@@ -10,21 +15,21 @@ const alumniData = [
     name: "John D'Souza",
     graduation: 'Class of 2005',
     achievement: 'CEO at Tech Solutions Inc.',
-    image: '/alumni/adi.jpg', // Make sure to add actual images
+    image: adi, // Make sure to add actual images
   },
   {
     id: 2,
     name: 'Priya Sharma',
     graduation: 'Class of 1998',
     achievement: 'Research Director at Innovation Labs',
-    image: '/alumni/shaun.jpg',
+    image: shaun,
   },
   {
     id: 3,
     name: 'Rahul Mehta',
     graduation: 'Class of 2010',
     achievement: 'Founder of StartUp Hub',
-    image: '/alumni/sharu.jpg',
+    image: sharu,
   },
 ]
 
@@ -76,7 +81,7 @@ export default function FamousAlumni() {
             <div className="mx-auto md:mx-0 md:absolute md:top-0 md:left-1/3 h-64 md:h-[100%] w-full md:w-[30%] overflow-hidden rounded-lg shadow-lg mt-6 md:mt-0">
               <div className="relative h-full w-full">
                 <Image
-                  src="/alumni/zane.jpg"
+                  src={zane}
                   alt="College historical view"
                   fill
                   className="object-cover opacity-80"

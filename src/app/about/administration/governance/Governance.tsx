@@ -1,5 +1,8 @@
 import Image from 'next/image'
 import React from 'react'
+import { gov1 } from '@/app/files/files';
+import { gov2 } from '@/app/files/files';
+
 
 const Governance = () => {
   return (
@@ -29,9 +32,9 @@ const Governance = () => {
               Advisors and Principal. The committee meets at least twice a
               month.
             </p>
-            <h2 className="my-3 text-center text-2xl">Oragnisation Chart</h2>
+            <h2 className="my-3 text-center text-2xl">Organisation Chart</h2>
             <Image
-              src={'/gov1.png'}
+              src={gov1}
               alt="Oragnisation Chart"
               height={10000}
               width={10000}
@@ -46,7 +49,7 @@ const Governance = () => {
               and also as members of various committees listed below:
             </p>
             <Image
-              src={'/gov2.png'}
+              src={gov2}
               alt="Oragnisation Chart"
               height={10000}
               width={10000}
