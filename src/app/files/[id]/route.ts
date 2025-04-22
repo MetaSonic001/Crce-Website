@@ -2,7 +2,7 @@ export async function GET(
   req: Request,
   { params }: { params: { id: string } }
 ) {
-  const { id } = params
+  const { id } = await params
   const assetBase = process.env.DIRECTUS_URL
 
   if (!assetBase) {
