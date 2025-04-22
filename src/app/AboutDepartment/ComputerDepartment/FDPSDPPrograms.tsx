@@ -1,6 +1,8 @@
 'use client'
 import React from 'react'
 import { Zilla_Slab } from 'next/font/google'
+import getFdpSdp, { FdpSdp } from '@/app/api/faculty_programs'
+import { useQuery } from '@tanstack/react-query'
 
 const zilla = Zilla_Slab({
   weight: ['300', '500', '700'],
@@ -9,66 +11,58 @@ const zilla = Zilla_Slab({
   display: 'swap',
 })
 
+const fallbackData: FdpSdp[] = [
+  {
+    id: 1,
+    status: 'published',
+    title: 'Machine Learning & Deep Learning Applications',
+    type: 'FDP',
+    duration: '5 Days',
+    date: '2023-06-15',
+    participants: '45 faculty members from various institutes',
+    sponsor: 'AICTE',
+    coordinators: 'Dr. Sujata Deshmukh, Dr. Sunil Surve',
+    department: 'computers',
+  },
+]
+
+function formatDateRange(startDate: string, duration: string): string {
+  try {
+    const start = new Date(startDate)
+    const days = parseInt(duration)
+    if (isNaN(days)) return start.toDateString()
+
+    const end = new Date(start)
+    end.setDate(start.getDate() + days - 1)
+
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    }
+    return `${start.toLocaleDateString('en-IN', options)} - ${end.toLocaleDateString('en-IN', options)}`
+  } catch {
+    return startDate
+  }
+}
+
 const FDPSDPPrograms = () => {
-  const programsData = [
-    {
-      title: 'Machine Learning & Deep Learning Applications',
-      type: 'FDP',
-      duration: '5 days',
-      dates: 'June 15-19, 2023',
-      participants: '45 faculty members from various institutes',
-      sponsor: 'AICTE',
-      coordinators: 'Dr. Sujata Deshmukh, Dr. Sunil Surve',
-    },
-    {
-      title: 'Cloud Computing and DevOps',
-      type: 'FDP',
-      duration: '3 days',
-      dates: 'July 10-12, 2023',
-      participants: '32 faculty members',
-      sponsor: 'Department Funded',
-      coordinators: 'Ms. Merly Thomas, Dr. Ashok Kanthe',
-    },
-    {
-      title: 'Blockchain Technology & Applications',
-      type: 'SDP',
-      duration: '2 days',
-      dates: 'August 5-6, 2023',
-      participants: '50 staff members from industry and academia',
-      sponsor: 'Industry Sponsored (IBM)',
-      coordinators: 'Dr. Sujata Deshmukh, Ms. Monica Khanore',
-    },
-    {
-      title: 'IoT and Embedded Systems',
-      type: 'FDP',
-      duration: '5 days',
-      dates: 'September 12-16, 2023',
-      participants: '38 faculty members',
-      sponsor: 'ISTE',
-      coordinators: 'Ms. Kranti Wagle, Ms. Heena Pendhari',
-    },
-    {
-      title: 'Cyber Security and Network Defense',
-      type: 'SDP',
-      duration: '3 days',
-      dates: 'October 20-22, 2023',
-      participants: '55 staff members from IT industry',
-      sponsor: 'Department Funded',
-      coordinators: 'Dr. Ashok Kanthe, Mr. Unik Lokhande',
-    },
-  ]
+  const { data = fallbackData } = useQuery<FdpSdp[]>({
+    queryKey: ['fdp_sdp_programs', 'computers'],
+    queryFn: () => getFdpSdp('computers'),
+    staleTime: 60 * 1000,
+  })
 
   return (
     <div className="container mx-auto px-6 py-8">
-      {/* Section heading with decorative lines */}
       <div className="relative mb-12 flex items-center justify-center">
-        <div className="absolute top-1/2 left-0 h-px w-1/5 bg-gray-300"></div>
+        <div className="absolute top-1/2 left-0 h-px w-1/5 bg-gray-300" />
         <h2
           className={`${zilla.className} mx-8 text-center text-4xl font-bold text-[#131929]`}
         >
           Faculty & Student Development Programs
         </h2>
-        <div className="absolute top-1/2 right-0 h-px w-1/5 bg-gray-300"></div>
+        <div className="absolute top-1/2 right-0 h-px w-1/5 bg-gray-300" />
       </div>
 
       <div className="rounded-lg bg-white p-6 shadow-md">
@@ -85,63 +79,58 @@ const FDPSDPPrograms = () => {
           <table className="min-w-full divide-y divide-gray-200 rounded-lg bg-white">
             <thead className="bg-[#F5F8FF]">
               <tr>
-                <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                  Program Title
-                </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                  Type
-                </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                  Duration
-                </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                  Dates
-                </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                  Participants
-                </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                  Sponsor
-                </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                  Coordinators
-                </th>
+                {[
+                  'Program Title',
+                  'Type',
+                  'Duration',
+                  'Dates',
+                  'Participants',
+                  'Sponsor',
+                  'Coordinators',
+                ].map((header) => (
+                  <th
+                    key={header}
+                    className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase"
+                  >
+                    {header}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {programsData.map((data, index) => (
+              {data.map((program, index) => (
                 <tr
-                  key={index}
+                  key={program.id}
                   className={index % 2 === 0 ? 'bg-white' : 'bg-[#F9FAFC]'}
                 >
                   <td className="px-6 py-4 text-sm font-medium text-[#131929]">
-                    {data.title}
+                    {program.title}
                   </td>
                   <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
                     <span
                       className={`rounded-full px-3 py-1 text-xs font-medium ${
-                        data.type === 'FDP'
+                        program.type === 'FDP'
                           ? 'bg-blue-100 text-blue-800'
                           : 'bg-green-100 text-green-800'
                       }`}
                     >
-                      {data.type}
+                      {program.type}
                     </span>
                   </td>
                   <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                    {data.duration}
+                    {program.duration}
                   </td>
                   <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                    {data.dates}
+                    {formatDateRange(program.date, program.duration)}
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-700">
-                    {data.participants}
+                    {program.participants}
                   </td>
                   <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                    {data.sponsor}
+                    {program.sponsor}
                   </td>
                   <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                    {data.coordinators}
+                    {program.coordinators}
                   </td>
                 </tr>
               ))}
