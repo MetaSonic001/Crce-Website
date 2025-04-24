@@ -54,7 +54,7 @@ const TABS = [
   //{ id: 'nba_accreditations', title: 'NBA Accreditations' },
   { id: 'innovative_teaching', title: 'Innovative Teaching Learning' },
   { id: 'notable_alumni', title: 'Notable Alumni' },
-  { id: 'faculty_programs', title: 'Faculty Development Programs' },
+  { id: 'faculty_programs', title: 'Development Programs' },
   { id: 'achievements', title: 'Achievements' },
   { id: 'department_notices', title: 'Department Notices' },
 

@@ -51,10 +51,10 @@ const TABS = [
   { id: 'pre_incubation', title: 'Pre-Incubation' },
   // { id: 'internships', title: 'Internships' },
   { id: 'placements', title: 'Placements and Internships' },
- // { id: 'nba_accreditations', title: 'NBA Accreditations' },
+ // { id: 'nba_accreditations', title: 'Accreditations' },
   { id: 'innovative_teaching', title: 'Innovative Teaching Learning' },
   { id: 'notable_alumni', title: 'Notable Alumni' },
-  { id: 'faculty_programs', title: 'Faculty Development Programs' },
+  { id: 'faculty_programs', title: 'Development Programs' },
   { id: 'achievements', title: 'Achievements' },
   { id: 'department_notices', title: 'Department Notices' },
 ]
