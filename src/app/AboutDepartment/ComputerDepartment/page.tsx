@@ -1,33 +1,36 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
-import '../style.css'
+import '@/components/style.css'
 import { Zilla_Slab } from 'next/font/google'
-import { AboutcsDepartment, hodsDesk, programs } from './data'
-import { Sidebar } from '../components'
+import { useRouter, useSearchParams } from 'next/navigation'
+import {
+  AboutcsDepartment,
+  hodsDesk,
+  programs,
+} from '@/components/Departments/Computers/data'
 
 // Component imports
-import AboutHOD from './AboutHOD'
-import PreIncubationCenter from './PreincubationCentre'
-import Publications from './Publications'
-import Faculty, { FacultyTabData } from './Faculty'
-import VisionAndMission from './VisionAndMission'
-import PEOsPOsPSOs from './PEOsPOsPSOs'
-import Internships from './Internships'
-import NBAAccreditations from './NBAAccreditations'
-import InnovativeTeachingLearning from './InnovativeTeachingLearning'
-import NotableAlumnus from './NotableAlumnus'
-import MentorMentee from './MentorMentee'
-import FDPSDPPrograms from './FDPSDPPrograms'
-import AchievementsTab from './AchievementsTab'
-import IndustrialVisits from './IndustrialVisits'
-import DepartmentsNotices from './DepartmentsNotices'
-import Infrastructure from './Infrastructure'
-import getTeachers, { MappedTeacher } from '@/app/api/teachers'
-import PlacementsInternshipsTab from './PlacementsInternshipsTab'
-import DepartmentInitiave from './DepartmentInitiative'
-import FacultyDevProg from './FacultyDevProg'
-import StudentDevProg from './StudentDevProg'
+import AboutHOD from '@/components/Departments/Computers/AboutHOD'
+import PreIncubationCenter from '@/components/Departments/Computers/PreincubationCentre'
+import Publications from '@/components/Departments/Publications'
+import VisionAndMission from '@/components/Departments/Computers/VisionAndMission'
+import PEOsPOsPSOs from '@/components/Departments/Computers/PEOsPOsPSOs'
+import NBAAccreditations from '@/components/Departments/Computers/NBAAccreditations'
+import InnovativeTeachingLearning from '@/components/Departments/InnovativeTeachingLearning'
+import NotableAlumnus from '@/components/Departments/NotableAlumnus'
+import MentorMentee from '@/components/Departments/MentorMentee'
+import FDPSDPPrograms from '@/components/Departments/FDPSDPPrograms'
+import AchievementsTab from '@/components/Departments/AchievementsTab'
+import IndustrialVisits from '@/components/Departments/IndustrialVisits'
+import DepartmentsNotices from '@/components/Departments/DepartmentsNotices'
+import Infrastructure from '@/components/Departments/Computers/Infrastructure'
+import PlacementsInternshipsTab from '@/components/Departments/PlacementsInternshipsTab'
+import DepartmentInitiave from '@/components/Departments/Computers/DepartmentInitiative'
+import FacultyDevProg from '@/components/Departments/FacultyDevProg'
+import StudentDevProg from '@/components/Departments/StudentDevProg'
+import Faculty from '@/components/Departments/Faculty'
+import DynamicSidebar from '@/components/Departments/Sidebar'
 
 // Font configuration
 const zilla = Zilla_Slab({
@@ -47,48 +50,22 @@ const TABS = [
   { id: 'infrastructure', title: 'Infrastructure' },
   { id: 'research_publications', title: 'Research Publications and Patents' },
   { id: 'pre_incubation', title: 'Pre-Incubation' },
-  // { id: 'internships', title: 'Internships' },
   { id: 'placements', title: 'Placements and Internships' },
   { id: 'nba_accreditations', title: 'Accreditations' },
   { id: 'innovative_teaching', title: 'Innovative Teaching Learning' },
   { id: 'notable_alumni', title: 'Notable Alumni' },
- 
- // { id: 'faculty_programs', title: 'Development Programs' },
   { id: 'department_notices', title: 'Department Notices' },
-
   { id: 'department_initiative', title: 'Department Initiatives' },
-
   { id: 'faculty_dev_prog', title: 'Faculty Development Programs' },
   { id: 'student_dev_prog', title: 'Student Development Programs' },
 ]
 
-// Faculty program toggle options
-const FACULTY_PROGRAM_OPTIONS = [
-  { id: 'fdp_sdp', title: 'FDP/SDP Programs' },
-  { id: 'mentor_mentee', title: 'Mentor Mentee' },
-  { id: 'industrial_visits', title: 'Industrial Visits' },
-]
-
 // Main component
 const ComputerEngineeringPage = () => {
-  const [facultyData, setFacultyData] = useState<MappedTeacher[]>([])
-  const [activeTab, setActiveTab] = useState('about')
-  const [activeFacultyToggle, setActiveFacultyToggle] = useState('fdp_sdp')
-
-  // Fetch faculty data on component mount
-  useEffect(() => {
-    const fetchFaculty = async () => {
-      try {
-        const data = await getTeachers('computers')
-        setFacultyData(data)
-      } catch (error) {
-        console.error('Error fetching teacher data, using default data', error)
-        setFacultyData(FacultyTabData as any)
-      }
-    }
-
-    fetchFaculty()
-  }, [])
+  const department = 'computers'
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const tab = searchParams.get('tab') || 'about'
 
   // Component: About Department
   interface AboutDepartmentProps {
@@ -191,14 +168,16 @@ const ComputerEngineeringPage = () => {
     </div>
   )
 
-  // Component: Faculty Programs Toggle
+  // Handle changing tabs via URL
+  const handleTabChange = (tabId: string) => {
+    router.push(`/AboutDepartment/ComputerDepartment?tab=${tabId}`, {
+      scroll: false,
+    })
+  }
 
   // Render the active tab content
   const renderTabContent = () => {
-    // Handle specific case for Faculty Programs tab with toggle
-
-    // Render content based on active tab
-    switch (activeTab) {
+    switch (tab) {
       case 'about':
         return <AboutDepartmentContainer {...AboutcsDepartment} />
       case 'hoddesk':
@@ -208,36 +187,29 @@ const ComputerEngineeringPage = () => {
       case 'peos_pos_psos':
         return <PEOsPOsPSOs />
       case 'faculty':
-        return (
-          <Faculty
-            facultyData={facultyData.length ? facultyData : FacultyTabData}
-          />
-        )
+        return <Faculty department={department} />
       case 'infrastructure':
         return <Infrastructure />
       case 'research_publications':
-        return <Publications />
+        return <Publications department={department} />
       case 'pre_incubation':
         return <PreIncubationCenter />
-      case 'internships':
-        return <Internships />
       case 'placements':
-        return <PlacementsInternshipsTab />
+        return <PlacementsInternshipsTab department={department} />
       case 'nba_accreditations':
         return <NBAAccreditations />
       case 'innovative_teaching':
-        return <InnovativeTeachingLearning />
+        return <InnovativeTeachingLearning department={department} />
       case 'faculty_dev_prog':
-        return <FacultyDevProg />
+        return <FacultyDevProg department={department} />
       case 'student_dev_prog':
-        return <StudentDevProg />
-        case 'department_initiative':
+        return <StudentDevProg department={department} />
+      case 'department_initiative':
         return <DepartmentInitiave />
       case 'notable_alumni':
-        return <NotableAlumnus />
+        return <NotableAlumnus department={department} />
       case 'department_notices':
-        return <DepartmentsNotices />
-      
+        return <DepartmentsNotices department={department} />
       default:
         return <AboutDepartmentContainer {...AboutcsDepartment} />
     }
@@ -263,7 +235,7 @@ const ComputerEngineeringPage = () => {
               title={program.title}
               description={program.description}
               icon={program.icon}
-              buttons={program.button} // Note: rename to buttons in the data file for consistency
+              buttons={program.button}
             />
           ))}
         </div>
@@ -298,17 +270,17 @@ const ComputerEngineeringPage = () => {
       {/* Main content section */}
       <section className="w-full bg-white">
         <div className="flex md:pt-10 md:pl-10">
-          {/* Sidebar navigation */}
-          <Sidebar
+          {/* Dynamic Sidebar navigation */}
+          <DynamicSidebar
             tabs={TABS}
-            activeTab={activeTab}
-            onTabChange={setActiveTab}
-            AccordionContent={null}
+            activeTab={tab}
+            onTabChange={handleTabChange}
+            basePath="/departments/computer"
           />
 
           {/* Main content area */}
           <div className="invisible-scrollbar mx-2 max-h-screen flex-1 flex-col overflow-x-hidden">
-            <div id={activeTab} className="container mx-auto">
+            <div id={tab} className="container mx-auto">
               {renderTabContent()}
             </div>
           </div>
@@ -320,7 +292,7 @@ const ComputerEngineeringPage = () => {
         {/* Achievements Section */}
         <div className="bg-white px-20 py-8">
           <div className="my-12 h-min overflow-hidden">
-            <AchievementsTab />
+            <AchievementsTab department={department} />
           </div>
         </div>
       </section>
