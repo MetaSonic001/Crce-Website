@@ -4,81 +4,92 @@ export async function GET(
 ) {
   const { id } = await params
   const assetBase = process.env.DIRECTUS_URL
-
   if (!assetBase) {
     return new Response('DIRECTUS_ASSET_URL is not defined', { status: 500 })
   }
-
   const assetUrl = `${assetBase}/assets/${id}`
 
-  // Check if the client sent cache validation headers
-  const ifNoneMatch = req.headers.get('if-none-match')
-  const ifModifiedSince = req.headers.get('if-modified-since')
-
   try {
-    // Create a new request with all original headers to forward conditional requests
+    // Forward all relevant request headers, especially Range for video streaming
     const fetchHeaders = new Headers()
-    if (ifNoneMatch) fetchHeaders.set('if-none-match', ifNoneMatch)
-    if (ifModifiedSince) fetchHeaders.set('if-modified-since', ifModifiedSince)
+    for (const [key, value] of req.headers.entries()) {
+      // Only forward headers that won't cause CORS or other issues
+      if (
+        ['range', 'if-none-match', 'if-modified-since', 'accept'].includes(
+          key.toLowerCase()
+        )
+      ) {
+        fetchHeaders.set(key, value)
+      }
+    }
 
-    // Fetch options to align with Directus caching (8 hours)
+    // Fetch options
     const fetchOptions: RequestInit = {
       headers: fetchHeaders,
       next: {
-        revalidate: 28800, // 8 hours in seconds to match Directus CACHE_TTL
+        revalidate: 28800, // 8 hours in seconds
       },
     }
 
     const directusRes = await fetch(assetUrl, fetchOptions)
 
-    // Handle 304 Not Modified responses
+    // Handle various response types
     if (directusRes.status === 304) {
       return new Response(null, { status: 304 })
     }
 
-    if (!directusRes.ok) {
-      return new Response('Failed to fetch image', {
+    if (!directusRes.ok && directusRes.status !== 206) {
+      // Allow 206 Partial Content
+      return new Response(`Failed to fetch asset: ${directusRes.statusText}`, {
         status: directusRes.status,
       })
     }
 
+    // Copy all relevant response headers
     const responseHeaders = new Headers()
+    directusRes.headers.forEach((value, key) => {
+      // Copy most headers, particularly those related to content and caching
+      if (
+        !['connection', 'keep-alive', 'transfer-encoding'].includes(
+          key.toLowerCase()
+        )
+      ) {
+        responseHeaders.set(key, value)
+      }
+    })
 
-    // Copy important headers from the Directus response
-    const contentType =
-      directusRes.headers.get('content-type') || 'application/octet-stream'
-    responseHeaders.set('Content-Type', contentType)
+    // Ensure content type is set
+    if (!responseHeaders.has('content-type')) {
+      const contentType =
+        directusRes.headers.get('content-type') || 'application/octet-stream'
+      responseHeaders.set('Content-Type', contentType)
+    }
 
-    // Get cache validation headers
-    const etag = directusRes.headers.get('etag')
-    const lastModified = directusRes.headers.get('last-modified')
+    // Set appropriate caching headers based on content type
+    const contentType = responseHeaders.get('content-type') || ''
+    const isVideo = contentType.startsWith('video/')
 
-    // Set strong caching headers - aligned with Directus 8hr TTL
-    responseHeaders.set(
-      'Cache-Control',
-      'public, max-age=28800, s-maxage=86400, stale-while-revalidate=14400'
-    )
+    if (isVideo) {
+      // Videos use different caching strategy - less aggressive for streaming
+      responseHeaders.set(
+        'Cache-Control',
+        'public, max-age=3600, s-maxage=28800, stale-while-revalidate=7200'
+      )
+    } else {
+      // Images and other static assets
+      responseHeaders.set(
+        'Cache-Control',
+        'public, max-age=28800, s-maxage=86400, stale-while-revalidate=14400'
+      )
+    }
 
-    // Forward cache validation headers
-    if (etag) responseHeaders.set('ETag', etag)
-    if (lastModified) responseHeaders.set('Last-Modified', lastModified)
-
-    // Forward content encoding if present
-    const contentEncoding = directusRes.headers.get('content-encoding')
-    if (contentEncoding)
-      responseHeaders.set('Content-Encoding', contentEncoding)
-
-    // Handle content-disposition for downloads
-    const contentDisposition = directusRes.headers.get('content-disposition')
-    if (contentDisposition)
-      responseHeaders.set('Content-Disposition', contentDisposition)
-
+    // Forward status code from original response (important for 206 Partial Content)
     return new Response(directusRes.body, {
       status: directusRes.status,
       headers: responseHeaders,
     })
   } catch (err) {
-    console.error('Image proxy error:', err)
+    console.error('Asset proxy error:', err)
     return new Response('Internal Server Error', { status: 500 })
   }
 }

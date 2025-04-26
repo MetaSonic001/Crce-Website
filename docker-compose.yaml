@@ -41,9 +41,9 @@ services:
       CORS_ENABLED: "true"
       CORS_ORIGIN: "http://localhost:9500"
       CORS_METHODS: "GET,POST,PATCH,DELETE,OPTIONS"
-      CORS_ALLOWED_HEADERS: "Content-Type,Authorization"
-      CORS_EXPOSED_HEADERS: "Content-Range"
-      CORS_CREDENTIALS: "true"
+      CORS_ALLOWED_HEADERS: "Content-Type,Authorization,Range"
+      CORS_EXPOSED_HEADERS: "Content-Range,Accept-Ranges,Content-Length"
+      CORS_CREDENTIALS: "false"
     ports:
       - 8055:8055
     depends_on:
