@@ -1,0 +1,152 @@
+/* about department */
+
+.invisible-scrollbar {
+  overflow-y: auto;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+.video-container {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #fff;
+}
+.program-card {
+  perspective: 1000px;
+  width: 100%;
+  max-width: 350px;
+  height: 250px;
+  margin: 10px 20px;
+}
+
+.program-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.program-card.is-flipped .program-card-inner {
+  transform: rotateY(180deg);
+}
+
+.program-card-front,
+.program-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.program-card-front {
+  background-color: white;
+  color: #111827;
+}
+
+.program-card-back {
+  background-color: #3730a3;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.program-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.program-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: #3730a3;
+  color: white;
+}
+
+.program-card-back .program-icon {
+  background-color: white;
+  color: #3730a3;
+}
+
+.program-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.program-description {
+  margin-bottom: 10px;
+  margin-left: 15px;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.learn-more-btn,
+.flip-back-btn {
+  display: inline-flex;
+  align-items: center;
+  color: #3730a3;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.learn-more-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.program-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.program-btn {
+  background-color: white;
+  color: #110f2d;
+  padding: 8px 16px;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.flip-back-btn {
+  color: white;
+  align-self: center;
+}
+
+@media (max-width: 768px) {
+  .program-card {
+    height: 350px;
+  }
+
+  .program-title {
+    font-size: 1.1rem;
+  }
+
+  .program-description {
+    font-size: 0.9rem;
+  }
+
+  .program-btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
