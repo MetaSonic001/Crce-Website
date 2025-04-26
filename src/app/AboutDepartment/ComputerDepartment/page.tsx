@@ -3,11 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import '../style.css'
 import { Zilla_Slab } from 'next/font/google'
-import {
-  AboutcsDepartment,
-  hodsDesk,
-  programs,
-} from './data'
+import { AboutcsDepartment, hodsDesk, programs } from './data'
 import { Sidebar } from '../components'
 
 // Component imports
@@ -29,6 +25,9 @@ import DepartmentsNotices from './DepartmentsNotices'
 import Infrastructure from './Infrastructure'
 import getTeachers, { MappedTeacher } from '@/app/api/teachers'
 import PlacementsInternshipsTab from './PlacementsInternshipsTab'
+import DepartmentInitiave from './DepartmentInitiative'
+import FacultyDevProg from './FacultyDevProg'
+import StudentDevProg from './StudentDevProg'
 
 // Font configuration
 const zilla = Zilla_Slab({
@@ -48,13 +47,18 @@ const TABS = [
   { id: 'infrastructure', title: 'Infrastructure' },
   { id: 'research_publications', title: 'Research Publications and Patents' },
   { id: 'pre_incubation', title: 'Pre-Incubation' },
- // { id: 'internships', title: 'Internships' },
+  // { id: 'internships', title: 'Internships' },
   { id: 'placements', title: 'Placements and Internships' },
   { id: 'nba_accreditations', title: 'NBA Accreditations' },
   { id: 'innovative_teaching', title: 'Innovative Teaching Learning' },
   { id: 'notable_alumni', title: 'Notable Alumni' },
-  { id: 'faculty_programs', title: 'Faculty Development Programs' },
+ 
   { id: 'department_notices', title: 'Department Notices' },
+
+  { id: 'department_initiative', title: 'Department Initiatives' },
+
+  { id: 'faculty_dev_prog', title: 'Faculty Development Programs' },
+  { id: 'student_dev_prog', title: 'Student Development Programs' },
 ]
 
 // Faculty program toggle options
@@ -81,7 +85,7 @@ const ComputerEngineeringPage = () => {
         setFacultyData(FacultyTabData as any)
       }
     }
-    
+
     fetchFaculty()
   }, [])
 
@@ -93,9 +97,16 @@ const ComputerEngineeringPage = () => {
     video?: string | boolean
   }
 
-  const AboutDepartmentContainer = ({ name, description, extendedDescription, video }: AboutDepartmentProps) => (
+  const AboutDepartmentContainer = ({
+    name,
+    description,
+    extendedDescription,
+    video,
+  }: AboutDepartmentProps) => (
     <div className="container mx-auto px-6 py-8 text-justify">
-      <h2 className={`${zilla.className} mb-6 ml-6 text-5xl font-bold text-[#131929]`}>
+      <h2
+        className={`${zilla.className} mb-6 ml-6 text-5xl font-bold text-[#131929]`}
+      >
         {name}
       </h2>
 
@@ -136,7 +147,12 @@ const ComputerEngineeringPage = () => {
     buttons: { label: string; onClick: () => void }[]
   }
 
-  const ProgramCard: React.FC<ProgramCardProps> = ({ title, description, icon, buttons }) => (
+  const ProgramCard: React.FC<ProgramCardProps> = ({
+    title,
+    description,
+    icon,
+    buttons,
+  }) => (
     <div className="mb-8 w-full px-3 lg:mb-0 lg:w-1/3">
       <div className="h-full rounded-lg border border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:shadow-lg">
         <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#EBF2FF] text-[#131929]">
@@ -175,43 +191,10 @@ const ComputerEngineeringPage = () => {
   )
 
   // Component: Faculty Programs Toggle
-  const FacultyProgramsToggle = () => (
-    <div className="mb-8 flex justify-center">
-      <div className="inline-flex rounded-md">
-        {FACULTY_PROGRAM_OPTIONS.map((option) => (
-          <button
-            key={option.id}
-            onClick={() => setActiveFacultyToggle(option.id)}
-            className={`px-8 py-3 text-base font-medium transition-colors duration-200
-              ${activeFacultyToggle === option.id 
-                ? 'bg-[#131929] text-white' 
-                : 'bg-gray-200 text-[#131929] hover:bg-gray-300'
-              }
-              ${option.id === (FACULTY_PROGRAM_OPTIONS[0]?.id ?? '') ? 'rounded-l-md' : ''}
-              ${option.id === (FACULTY_PROGRAM_OPTIONS[FACULTY_PROGRAM_OPTIONS.length-1]?.id ?? '') ? 'rounded-r-md' : ''}
-            `}
-          >
-            {option.title}
-          </button>
-        ))}
-      </div>
-    </div>
-  )
-
 
   // Render the active tab content
   const renderTabContent = () => {
     // Handle specific case for Faculty Programs tab with toggle
-    if (activeTab === 'faculty_programs') {
-      return (
-        <>
-          <FacultyProgramsToggle />
-          {activeFacultyToggle === 'fdp_sdp' && <FDPSDPPrograms />}
-          {activeFacultyToggle === 'mentor_mentee' && <MentorMentee />}
-          {activeFacultyToggle === 'industrial_visits' && <IndustrialVisits />}
-        </>
-      )
-    }
 
     // Render content based on active tab
     switch (activeTab) {
@@ -224,7 +207,11 @@ const ComputerEngineeringPage = () => {
       case 'peos_pos_psos':
         return <PEOsPOsPSOs />
       case 'faculty':
-        return <Faculty facultyData={facultyData.length ? facultyData : FacultyTabData} />
+        return (
+          <Faculty
+            facultyData={facultyData.length ? facultyData : FacultyTabData}
+          />
+        )
       case 'infrastructure':
         return <Infrastructure />
       case 'research_publications':
@@ -239,10 +226,16 @@ const ComputerEngineeringPage = () => {
         return <NBAAccreditations />
       case 'innovative_teaching':
         return <InnovativeTeachingLearning />
+      case 'faculty_dev_prog':
+        return <FacultyDevProg />
+      case 'student_dev_prog':
+        return <StudentDevProg />
       case 'notable_alumni':
         return <NotableAlumnus />
       case 'department_notices':
         return <DepartmentsNotices />
+      case 'department_initiative':
+        return <DepartmentInitiave />
       default:
         return <AboutDepartmentContainer {...AboutcsDepartment} />
     }
@@ -254,15 +247,17 @@ const ComputerEngineeringPage = () => {
       <div className="container mx-auto px-5">
         <div className="relative mb-12 flex items-center justify-center">
           <div className="absolute top-1/2 left-0 h-px w-1/5 bg-gray-300"></div>
-          <h2 className={`${zilla.className} mx-8 text-center text-4xl font-bold text-[#131929]`}>
+          <h2
+            className={`${zilla.className} mx-8 text-center text-4xl font-bold text-[#131929]`}
+          >
             Programs Offered
           </h2>
           <div className="absolute top-1/2 right-0 h-px w-1/5 bg-gray-300"></div>
         </div>
         <div className="flex flex-col items-center justify-center md:flex-row lg:flex-row">
           {programs.map((program, index) => (
-            <ProgramCard 
-              key={index} 
+            <ProgramCard
+              key={index}
               title={program.title}
               description={program.description}
               icon={program.icon}
@@ -290,7 +285,7 @@ const ComputerEngineeringPage = () => {
         </div>
         <div className="relative z-10 container mx-auto flex h-full flex-col justify-center px-4 py-20">
           <div className="max-w-4xl md:max-w-6xl lg:max-w-7xl">
-            <h1 className="mt-28 mb-6 p-28 text-6xl font-bold leading-tight md:text-5xl lg:text-6xl">
+            <h1 className="mt-28 mb-6 p-28 text-6xl leading-tight font-bold md:text-5xl lg:text-6xl">
               COMPUTER ENGINEERING
             </h1>
           </div>
@@ -308,7 +303,7 @@ const ComputerEngineeringPage = () => {
             onTabChange={setActiveTab}
             AccordionContent={null}
           />
-          
+
           {/* Main content area */}
           <div className="invisible-scrollbar mx-2 max-h-screen flex-1 flex-col overflow-x-hidden">
             <div id={activeTab} className="container mx-auto">
