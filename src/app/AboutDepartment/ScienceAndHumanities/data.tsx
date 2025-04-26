@@ -255,7 +255,7 @@ export const tabContents = {
   },
 }
 
-export const AboutcseDepartment = {
+export const AbouthnsDepartment = {
   name: 'Science and Humanities',
   description: 'desp',
   extendedDescription: 'decsp2',

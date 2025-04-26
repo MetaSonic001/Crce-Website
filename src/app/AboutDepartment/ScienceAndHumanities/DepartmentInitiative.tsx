@@ -34,6 +34,60 @@ const DepartmentInitiave = () => {
                 <thead className="bg-[#F5F8FF]">
                   <tr>
                     {[
+                      'ACTIVITY ',
+                      'SPEAKERS',
+                      'EVENT COORDINATORS',
+                      'PARTICPANTS',
+                      'DATE',
+                      
+                    ].map((header) => (
+                      <th
+                        key={header}
+                        className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase"
+                      >
+                        {header}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  <tr className="bg-white">
+                    <td className="px-6 py-4 text-sm font-medium text-[#131929]">
+                      AI & Machine Learning Workshop
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
+                      <span className="rounded-full px-3 py-1 text-xs font-medium bg-blue-100 text-blue-800">
+                        Mr. Patil
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
+                      GDSC
+                    </td>
+                    
+                    <td className="px-6 py-4 text-sm text-gray-700">
+                      65 students from Computer Engineering
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
+                      10 Sep 2023 - 12 Sep 2023
+                    </td>
+                    
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )
+      case 'mentor_mentee':
+        return (
+          <div>
+            <p className="mb-8 text-lg leading-relaxed text-gray-700">
+              The Mentor-Mentee program facilitates guidance and support for students through dedicated faculty mentors.
+            </p>
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200 rounded-lg bg-white">
+                <thead className="bg-[#F5F8FF]">
+                  <tr>
+                    {[
                       'PROGRAM TITLE',
                       'TYPE',
                       'DURATION',
@@ -54,82 +108,27 @@ const DepartmentInitiave = () => {
                 <tbody className="divide-y divide-gray-200">
                   <tr className="bg-white">
                     <td className="px-6 py-4 text-sm font-medium text-[#131929]">
-                      AI & Machine Learning Workshop
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                      <span className="rounded-full px-3 py-1 text-xs font-medium bg-blue-100 text-blue-800">
-                        Workshop
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                      3 Days
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                      10 Sep 2023 - 12 Sep 2023
-                    </td>
-                    <td className="px-6 py-4 text-sm text-gray-700">
-                      65 students from Computer Engineering
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                      TechLearn
-                    </td>
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                      Prof. Anita Patil, Dr. Sushma Vispute
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        )
-      case 'mentor_mentee':
-        return (
-          <div>
-            <p className="mb-8 text-lg leading-relaxed text-gray-700">
-              The Mentor-Mentee program facilitates guidance and support for students through dedicated faculty mentors.
-            </p>
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200 rounded-lg bg-white">
-                <thead className="bg-[#F5F8FF]">
-                  <tr>
-                    {[
-                      'FACULTY MENTOR',
-                      'SPECIALIZATION',
-                      'NUMBER OF MENTEES',
-                      'MENTEE GROUPS',
-                      'MEETING FREQUENCY',
-                      'MENTORSHIP ACTIVITIES',
-                    ].map((header) => (
-                      <th
-                        key={header}
-                        className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase"
-                      >
-                        {header}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  <tr className="bg-white">
-                    <td className="px-6 py-4 text-sm font-medium text-[#131929]">
-                      Dr. Rajesh Kumar
+                      Career Guidance Session
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
                       <span className="rounded-full px-3 py-1 text-xs font-medium bg-green-100 text-green-800">
-                        AI & Machine Learning
+                        Mentoring
                       </span>
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                      20
+                      Semester
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                      BE-A, BE-B
+                      Aug 2023 - Dec 2023
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-700">
-                      Bi-weekly
+                      120 final year students
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                      Career guidance, Project mentoring, Skill development
+                      Department
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
+                      Dr. Rajesh Kumar, Prof. Meena Shah
                     </td>
                   </tr>
                 </tbody>
@@ -148,12 +147,13 @@ const DepartmentInitiave = () => {
                 <thead className="bg-[#F5F8FF]">
                   <tr>
                     {[
-                      'COMPANY NAME',
-                      'INDUSTRY SECTOR',
-                      'COLLABORATION TYPE',
-                      'DATE',
-                      'STUDENT PARTICIPATION',
-                      'OUTCOMES',
+                      'PROGRAM TITLE',
+                      'TYPE',
+                      'DURATION',
+                      'DATES',
+                      'PARTICIPANTS',
+                      'SPONSOR',
+                      'COORDINATORS',
                     ].map((header) => (
                       <th
                         key={header}
@@ -167,15 +167,15 @@ const DepartmentInitiave = () => {
                 <tbody className="divide-y divide-gray-200">
                   <tr className="bg-white">
                     <td className="px-6 py-4 text-sm font-medium text-[#131929]">
-                      Amazon Web Services
+                      Cloud Computing with AWS
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
                       <span className="rounded-full px-3 py-1 text-xs font-medium bg-yellow-100 text-yellow-800">
-                        Cloud Computing
+                        Industry Talk
                       </span>
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                      Industry Talk & Workshop
+                      1 Day
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
                       25 Nov 2023
@@ -184,7 +184,10 @@ const DepartmentInitiave = () => {
                       85 students from Third Year
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                      3 internship offers, AWS certification preparation
+                      Amazon Web Services
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
+                      Dr. Pankaj Agarwal, Prof. Deepti Singh
                     </td>
                   </tr>
                 </tbody>
@@ -203,12 +206,13 @@ const DepartmentInitiave = () => {
                 <thead className="bg-[#F5F8FF]">
                   <tr>
                     {[
-                      'LAB NAME',
-                      'SUBJECT AREA',
-                      'TARGET CLASS',
-                      'USAGE PERIOD',
-                      'NUMBER OF EXPERIMENTS',
-                      'FACULTY IN-CHARGE',
+                      'PROGRAM TITLE',
+                      'TYPE',
+                      'DURATION',
+                      'DATES',
+                      'PARTICIPANTS',
+                      'SPONSOR',
+                      'COORDINATORS',
                     ].map((header) => (
                       <th
                         key={header}
@@ -226,17 +230,20 @@ const DepartmentInitiave = () => {
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
                       <span className="rounded-full px-3 py-1 text-xs font-medium bg-purple-100 text-purple-800">
-                        Database Systems
+                        Virtual Lab
                       </span>
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                      Second Year B.E.
+                      Semester
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
                       Jan 2023 - May 2023
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-700">
-                      12
+                      140 Second year students
+                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
+                      MHRD
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
                       Dr. Vikas Sharma, Prof. Neha Joshi
@@ -265,7 +272,7 @@ const DepartmentInitiave = () => {
         <h2
           className={`${zilla.className} mx-8 text-center text-4xl font-bold text-[#131929]`}
         >
-          Department Initiative
+          Department Initiatives
         </h2>
         <div className="absolute top-1/2 right-0 h-px w-1/5 bg-gray-300" />
       </div>

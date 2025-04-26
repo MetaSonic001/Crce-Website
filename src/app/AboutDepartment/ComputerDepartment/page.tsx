@@ -53,7 +53,7 @@ const TABS = [
   { id: 'innovative_teaching', title: 'Innovative Teaching Learning' },
   { id: 'notable_alumni', title: 'Notable Alumni' },
  
-  { id: 'faculty_programs', title: 'Development Programs' },
+ // { id: 'faculty_programs', title: 'Development Programs' },
   { id: 'department_notices', title: 'Department Notices' },
 
   { id: 'department_initiative', title: 'Department Initiatives' },
@@ -231,12 +231,13 @@ const ComputerEngineeringPage = () => {
         return <FacultyDevProg />
       case 'student_dev_prog':
         return <StudentDevProg />
+        case 'department_initiative':
+        return <DepartmentInitiave />
       case 'notable_alumni':
         return <NotableAlumnus />
       case 'department_notices':
         return <DepartmentsNotices />
-      case 'department_initiative':
-        return <DepartmentInitiave />
+      
       default:
         return <AboutDepartmentContainer {...AboutcsDepartment} />
     }

@@ -30,6 +30,9 @@ import DepartmentsNotices from './DepartmentsNotices'
 import Infrastructure from './Infrastructure'
 import getTeachers, { MappedTeacher } from '@/app/api/teachers'
 import PlacementsInternshipsTab from './PlacementsInternshipsTab'
+import FacultyDevProg from './FacultyDevProg'
+import StudentDevProg from './StudentDevProg'
+import DepartmentInitiave from './DepartmentInitiative'
 
 // Font configuration
 const zilla = Zilla_Slab({
@@ -57,14 +60,13 @@ const TABS = [
   { id: 'faculty_programs', title: 'Development Programs' },
   { id: 'achievements', title: 'Achievements' },
   { id: 'department_notices', title: 'Department Notices' },
+  { id: 'department_initiative', title: 'Department Initiatives' },
+
+  { id: 'faculty_dev_prog', title: 'Faculty Development Programs' },
+  { id: 'student_dev_prog', title: 'Student Development Programs' },
 ]
 
-// Faculty program toggle options
-const FACULTY_PROGRAM_OPTIONS = [
-  { id: 'fdp_sdp', title: 'FDP/SDP Programs' },
-  { id: 'mentor_mentee', title: 'Mentor Mentee' },
-  { id: 'industrial_visits', title: 'Industrial Visits' },
-]
+
 
 // Interfaces
 interface AboutDepartmentProps {
@@ -191,43 +193,13 @@ const CSEDepartmentPage: React.FC = () => {
   )
 
   // Component: Faculty Programs Toggle
-  const FacultyProgramsToggle: React.FC = () => (
-    <div className="mb-8 flex justify-center">
-      <div className="inline-flex rounded-md">
-        {FACULTY_PROGRAM_OPTIONS.map((option) => (
-          <button
-            key={option.id}
-            onClick={() => setActiveFacultyToggle(option.id)}
-            className={`px-8 py-3 text-base font-medium transition-colors duration-200
-              ${activeFacultyToggle === option.id 
-                ? 'bg-[#131929] text-white' 
-                : 'bg-gray-200 text-[#131929] hover:bg-gray-300'
-              }
-              ${option.id === (FACULTY_PROGRAM_OPTIONS[0]?.id ?? '') ? 'rounded-l-md' : ''}
-              ${option.id === (FACULTY_PROGRAM_OPTIONS[FACULTY_PROGRAM_OPTIONS.length-1]?.id ?? '') ? 'rounded-r-md' : ''}
-            `}
-          >
-            {option.title}
-          </button>
-        ))}
-      </div>
-    </div>
-  )
+ 
 
   
   // Render the active tab content
   const renderTabContent = () => {
     // Handle specific case for Faculty Programs tab with toggle
-    if (activeTab === 'faculty_programs') {
-      return (
-        <>
-          <FacultyProgramsToggle />
-          {activeFacultyToggle === 'fdp_sdp' && <FDPSDPPrograms />}
-          {activeFacultyToggle === 'mentor_mentee' && <MentorMentee />}
-          {activeFacultyToggle === 'industrial_visits' && <IndustrialVisits />}
-        </>
-      )
-    }
+    
 
     // Render content based on active tab
     switch (activeTab) {
