@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import Image from 'next/image'
 import '@/components/style.css'
 import { Zilla_Slab } from 'next/font/google'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 import {
   AboutcsDepartment,
   hodsDesk,
@@ -65,6 +65,7 @@ const ComputerEngineeringPage = () => {
   const department = 'computers'
   const router = useRouter()
   const searchParams = useSearchParams()
+  const path = usePathname()
   const tab = searchParams.get('tab') || 'about'
 
   // Component: About Department
@@ -170,11 +171,8 @@ const ComputerEngineeringPage = () => {
 
   // Handle changing tabs via URL
   const handleTabChange = (tabId: string) => {
-    router.push(`/AboutDepartment/ComputerDepartment?tab=${tabId}`, {
-      scroll: false,
-    })
+    router.push(`${path}?tab=${tabId}`, { scroll: false })
   }
-
   // Render the active tab content
   const renderTabContent = () => {
     switch (tab) {
@@ -275,7 +273,7 @@ const ComputerEngineeringPage = () => {
             tabs={TABS}
             activeTab={tab}
             onTabChange={handleTabChange}
-            basePath="/departments/computer"
+            basePath={path}
           />
 
           {/* Main content area */}
