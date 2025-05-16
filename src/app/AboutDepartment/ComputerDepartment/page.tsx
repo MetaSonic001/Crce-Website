@@ -95,15 +95,19 @@ const ComputerEngineeringPage = () => {
             <p className="leading-relaxed text-gray-700">{description}</p>
           </div>
 
+
           {video && (
             <div className="md:w-1/2">
               <div className="relative aspect-video w-full overflow-hidden rounded-lg">
-                <iframe
+                <video
                   className="absolute inset-0 h-full w-full"
                   src="/compsdepttour.mp4"
-                  allowFullScreen
+                  muted
+                  autoPlay
+                  loop
+                  playsInline
                   title="Department Video"
-                ></iframe>
+                />
               </div>
             </div>
           )}
