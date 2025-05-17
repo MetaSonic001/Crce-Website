@@ -3,7 +3,7 @@ import React from 'react'
 export const tabs = [
   {
     id: 'about',
-    title: 'About Science and Humanities',
+    title: 'About Electronics and Computer Science Department',
   },
   {
     id: 'DepartmentsNotices',
@@ -72,20 +72,21 @@ export const tabs = [
 ]
 
 export const hodsDesk = {
-  name: 'Dr. Dileep Chandra',
+  name: 'Dr. Sapna Prabhu',
   title: 'Professor & HOD',
-  bio: 'content',
-  imageUrl: '/scifaculty/dileep.jpg',
-
-  content: 'content',
-  extendedContent: 'content2',
+  bio: 'The Department of Electronics and Computer Science Engineering at CRCE is committed to providing quality education in the field of computer science and engineering.',
+  imageUrl: '/facultyecs/sapnaprabhu.jpg',
+  content:
+    'I am pleased to extend a warm welcome to the incoming students of the Electronics and Electronics and Computer Science Engineering program at our esteemed institute. The Department of Electronics and Computer Science Engineering is deeply committed to fostering your holistic development, paving the way for successful careers, and ultimately, shaping you into invaluable national assets. Our dedicated and experienced faculty is instrumental in nurturing your overall growth, encompassing analytical skill and the ability for creative thinking to compete on a global scale. In addition to the traditional engineering curriculum, our department offers Honour courses that prepare you to meet the dynamic demands of the modern business landscape, cultivating a professional mind-set.',
+  extendedContent:
+    'We encourage collaborative teamwork, idea sharing, presentations, and the enhancing of communication skills among our students. Active participation in Professional Chapters and social clubs not only expands your network but also fosters leadership and team spirit, exposing you to a world beyond the confines of the curriculum. Our department boasts state-of-the-art computational tools and modern laboratories, including a dedicated Machine Learning Server. Additionally, we offer workshops and training to sharpen your interview and job-seeking skills.',
 }
 
 export const programs = [
   {
     title: 'Bachelors of Technology',
     description: [
-      'Undergrad programs',
+      'Undergrad program in Electronics and Computer Science Engineering.',
       'Duration: 4 years ',
       'Intake: 180 students ',
       'Eligibility: 10+2 with PCM',
@@ -114,10 +115,10 @@ export const programs = [
   {
     title: 'Masters of Technology',
     description: [
-      'Postgrad program in Computer Engineering',
+      'Postgrad program in Electronics and Computer Science Engineering',
       'Duration: 2 years',
       'Intake: 60 students',
-      'Eligibility: B.Tech in Computer Engineering',
+      'Eligibility: B.Tech in Electronics and Computer Science Engineering',
     ],
     icon: (
       <svg
@@ -144,10 +145,10 @@ export const programs = [
   {
     title: 'PhD Programs',
     description: [
-      'Doctoral programs in Computer Engineering',
+      'Doctoral programs in Electronics and Computer Science Engineering',
       'Duration: 3 years',
       'Intake: 10 students',
-      'Eligibility: M.Tech in Computer Engineering',
+      'Eligibility: M.Tech in Electronics and Computer Science Engineering',
     ],
     icon: (
       <svg
@@ -255,9 +256,11 @@ export const tabContents = {
   },
 }
 
-export const AbouthnsDepartment = {
-  name: 'Science and Humanities',
-  description: 'desp',
-  extendedDescription: 'decsp2',
+export const AboutecsDepartment = {
+  name: 'Electronics and Computer Science Engineering Department',
+  description:
+    'The Department of Electronics and Computer Science Engineering at Fr.CRCE is committed to providing quality education in the field of Electronics and computer Science engineering. Our programs are designed to prepare students for successful careers in industry, research, and entrepreneurship. We offer a range of undergraduate and postgraduate programs, as well as a PhD program, that provide students with a solid foundation in Electronics and computer Science engineering principles and practices. Our faculty members are experts in their fields and are dedicated to providing students with a challenging and rewarding educational experience. The department has state-of-the-art labs and facilities that allow students to gain hands-on experience with the latest technologies and tools. We also offer a variety of research opportunities and industry collaborations that give students the chance to work on real-world problems and projects. Our graduates are highly sought after by employers and go on to successful careers in a variety of industries and fields',
+
+  extendedDescription: '',
   video: true,
 }

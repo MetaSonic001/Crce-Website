@@ -1,38 +1,37 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
-import '../style.css'
+import '@/components/style.css'
 import { Zilla_Slab } from 'next/font/google'
+import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 import {
   AboutmechDepartment,
-  hodsDesk,
+   hodsDesk,
   programs,
-  tabContents,
-} from './data'
-import { Sidebar } from '../components'
+
+} from '@/components/Departments/Mechanical/data'
 
 // Component imports
-import AboutHOD from './AboutHOD'
-import PreIncubationCenter from './PreincubationCentre'
-import Publications from './Publications'
-import Faculty, { FacultyTabData } from './Faculty'
-import VisionAndMission from './VisionAndMission'
-import PEOsPOsPSOs from './PEOsPOsPSOs'
-import Internships from './Internships'
-import NBAAccreditations from './NBAAccreditations'
-import InnovativeTeachingLearning from './InnovativeTeachingLearning'
-import NotableAlumnus from './NotableAlumnus'
-import MentorMentee from './MentorMentee'
-import FDPSDPPrograms from './FDPSDPPrograms'
-import AchievementsTab from './AchievementsTab'
-import IndustrialVisits from './IndustrialVisits'
-import DepartmentsNotices from './DepartmentsNotices'
-import Infrastructure from './Infrastructure'
-import getTeachers, { MappedTeacher } from '@/app/api/teachers'
-import PlacementsInternshipsTab from './PlacementsInternshipsTab'
-import FacultyDevProg from './FacultyDevProg'
-import StudentDevProg from './StudentDevProg'
-import DepartmentInitiave from './DepartmentInitiative'
+import AboutHOD from '@/components/Departments/Mechanical/AboutHOD'
+import PreIncubationCenter from '@/components/Departments/Mechanical/PreincubationCentre'
+import Publications from '@/components/Departments/Publications'
+import VisionAndMission from '@/components/Departments/Mechanical/VisionAndMission'
+import PEOsPOsPSOs from '@/components/Departments/Mechanical/PEOsPOsPSOs'
+import NBAAccreditations from '@/components/Departments/Mechanical/NBAAccreditations'
+import InnovativeTeachingLearning from '@/components/Departments/InnovativeTeachingLearning'
+import NotableAlumnus from '@/components/Departments/NotableAlumnus'
+import MentorMentee from '@/components/Departments/MentorMentee'
+import FDPSDPPrograms from '@/components/Departments/FDPSDPPrograms'
+import AchievementsTab from '@/components/Departments/AchievementsTab'
+import IndustrialVisits from '@/components/Departments/IndustrialVisits'
+import DepartmentsNotices from '@/components/Departments/DepartmentsNotices'
+import Infrastructure from '@/components/Departments/Mechanical/Infrastructure'
+import PlacementsInternshipsTab from '@/components/Departments/PlacementsInternshipsTab'
+import DepartmentInitiave from '@/components/Departments/Mechanical/DepartmentInitiative'
+import FacultyDevProg from '@/components/Departments/FacultyDevProg'
+import StudentDevProg from '@/components/Departments/StudentDevProg'
+import Faculty from '@/components/Departments/Faculty'
+import DynamicSidebar from '@/components/Departments/Sidebar'
 
 // Font configuration
 const zilla = Zilla_Slab({
@@ -42,9 +41,9 @@ const zilla = Zilla_Slab({
   display: 'swap',
 })
 
-// Tab configuration - Matching ECS structure
+// Tab configuration
 const TABS = [
-  { id: 'about', title: 'About Mechanical Department' },
+  { id: 'about', title: 'About Computer Department' },
   { id: 'hoddesk', title: "HOD's Desk" },
   { id: 'visionandmission', title: 'Vision and Mission' },
   { id: 'peos_pos_psos', title: 'PEOs, POs and PSOs' },
@@ -53,74 +52,41 @@ const TABS = [
   { id: 'research_publications', title: 'Research Publications and Patents' },
   { id: 'pre_incubation', title: 'Pre-Incubation' },
   { id: 'placements', title: 'Placements and Internships' },
-  //{ id: 'nba_accreditations', title: 'NBA Accreditations' },
+  { id: 'nba_accreditations', title: 'Accreditations' },
   { id: 'innovative_teaching', title: 'Innovative Teaching Learning' },
   { id: 'notable_alumni', title: 'Notable Alumni' },
-  { id: 'faculty_programs', title: 'Development Programs' },
-  { id: 'achievements', title: 'Achievements' },
   { id: 'department_notices', title: 'Department Notices' },
   { id: 'department_initiative', title: 'Department Initiatives' },
-
   { id: 'faculty_dev_prog', title: 'Faculty Development Programs' },
   { id: 'student_dev_prog', title: 'Student Development Programs' },
 ]
 
-// Faculty program toggle options
-
-
-// Interfaces
-interface AboutDepartmentProps {
-  name: string;
-  description: string;
-  extendedDescription?: string;
-  video?: string | boolean;
-}
-
-interface ProgramCardProps {
-  title: string;
-  description: string[];
-  icon: React.ReactNode;
-  button: { label: string; onClick: () => void }[];
-}
-
-interface TableRowData {
-  year: string;
-  highest: string;
-  highestCompany: string;
-  lowest: string;
-  lowestCompany: string;
-}
-
 // Main component
-const MechEngineeringPage: React.FC = () => {
-  const [facultyData, setFacultyData] = useState<MappedTeacher[]>([])
-  const [activeTab, setActiveTab] = useState('about')
-  const [activeFacultyToggle, setActiveFacultyToggle] = useState('fdp_sdp')
-
-  // Fetch faculty data on component mount
-  useEffect(() => {
-    const fetchFaculty = async () => {
-      try {
-        const data = await getTeachers('mechanical')
-        setFacultyData(data)
-      } catch (error) {
-        console.error('Error fetching teacher data, using default data', error)
-        setFacultyData(FacultyTabData as any)
-      }
-    }
-    
-    fetchFaculty()
-  }, [])
+const MechanicalPage = () => {
+  const department = 'mechanical'
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const path = usePathname()
+  const tab = searchParams.get('tab') || 'about'
 
   // Component: About Department
-  const AboutDepartmentContainer: React.FC<AboutDepartmentProps> = ({ 
-    name, 
-    description, 
-    extendedDescription, 
-    video 
-  }) => (
+  interface AboutDepartmentProps {
+    name: string
+    description: string
+    extendedDescription?: string
+    video?: string | boolean
+  }
+
+  const AboutDepartmentContainer = ({
+    name,
+    description,
+    extendedDescription,
+    video,
+  }: AboutDepartmentProps) => (
     <div className="container mx-auto px-6 py-8 text-justify">
-      <h2 className={`${zilla.className} mb-6 ml-6 text-5xl font-bold text-[#131929]`}>
+      <h2
+        className={`${zilla.className} mb-6 ml-6 text-5xl font-bold text-[#131929]`}
+      >
         {name}
       </h2>
 
@@ -133,12 +99,15 @@ const MechEngineeringPage: React.FC = () => {
           {video && (
             <div className="md:w-1/2">
               <div className="relative aspect-video w-full overflow-hidden rounded-lg">
-                <iframe
+                <video
                   className="absolute inset-0 h-full w-full"
                   src="/compsdepttour.mp4"
-                  allowFullScreen
+                  muted
+                  autoPlay
+                  loop
+                  playsInline
                   title="Department Video"
-                ></iframe>
+                />
               </div>
             </div>
           )}
@@ -154,7 +123,19 @@ const MechEngineeringPage: React.FC = () => {
   )
 
   // Component: Program Card
-  const ProgramCard: React.FC<ProgramCardProps> = ({ title, description, icon, button }) => (
+  interface ProgramCardProps {
+    title: string
+    description: string[]
+    icon: React.ReactNode
+    buttons: { label: string; onClick: () => void }[]
+  }
+
+  const ProgramCard: React.FC<ProgramCardProps> = ({
+    title,
+    description,
+    icon,
+    buttons,
+  }) => (
     <div className="mb-8 w-full px-3 lg:mb-0 lg:w-1/3">
       <div className="h-full rounded-lg border border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:shadow-lg">
         <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#EBF2FF] text-[#131929]">
@@ -167,7 +148,7 @@ const MechEngineeringPage: React.FC = () => {
           ))}
         </ul>
         <div className="flex flex-wrap gap-2">
-          {button.map((btn, i) => (
+          {buttons.map((btn, i) => (
             <button
               key={i}
               onClick={btn.onClick}
@@ -192,16 +173,16 @@ const MechEngineeringPage: React.FC = () => {
     </div>
   )
 
-
-
+  // Handle changing tabs via URL
+  const handleTabChange = (tabId: string) => {
+    router.push(`${path}?tab=${tabId}`, { scroll: false })
+  }
   // Render the active tab content
   const renderTabContent = () => {
-    // Handle specific case for Faculty Programs tab with toggle
-
-    // Render content based on active tab
-    switch (activeTab) {
+    switch (tab) {
       case 'about':
-        return <AboutDepartmentContainer {...AboutmechDepartment} />
+        return <AboutDepartmentContainer {...  AboutmechDepartment
+} />
       case 'hoddesk':
         return <AboutHOD {...hodsDesk} />
       case 'visionandmission':
@@ -209,60 +190,56 @@ const MechEngineeringPage: React.FC = () => {
       case 'peos_pos_psos':
         return <PEOsPOsPSOs />
       case 'faculty':
-        return (
-          <Faculty
-            facultyData={facultyData.length ? facultyData : FacultyTabData}
-          />
-        )
+        return <Faculty department={department} />
       case 'infrastructure':
         return <Infrastructure />
       case 'research_publications':
-        return <Publications />
+        return <Publications department={department} />
       case 'pre_incubation':
         return <PreIncubationCenter />
-      case 'internships':
-        return <Internships />
       case 'placements':
-        return <PlacementsInternshipsTab />
+        return <PlacementsInternshipsTab department={department} />
       case 'nba_accreditations':
         return <NBAAccreditations />
       case 'innovative_teaching':
-        return <InnovativeTeachingLearning />
+        return <InnovativeTeachingLearning department={department} />
       case 'faculty_dev_prog':
-        return <FacultyDevProg />
+        return <FacultyDevProg department={department} />
       case 'student_dev_prog':
-        return <StudentDevProg />
-        case 'department_initiative':
+        return <StudentDevProg department={department} />
+      case 'department_initiative':
         return <DepartmentInitiave />
       case 'notable_alumni':
-        return <NotableAlumnus />
+        return <NotableAlumnus department={department} />
       case 'department_notices':
-        return <DepartmentsNotices />
-      
+        return <DepartmentsNotices department={department} />
       default:
-        return <AboutDepartmentContainer {...AboutmechDepartment} />
+        return <AboutDepartmentContainer {...AboutmechDepartment
+} />
     }
   }
 
   // Section: Program Highlights
-  const ProgramHighlights: React.FC = () => (
+  const ProgramHighlights = () => (
     <div className="bg-[#F9FAFC] px-20 py-16 text-gray-600">
       <div className="container mx-auto px-5">
         <div className="relative mb-12 flex items-center justify-center">
           <div className="absolute top-1/2 left-0 h-px w-1/5 bg-gray-300"></div>
-          <h2 className={`${zilla.className} mx-8 text-center text-4xl font-bold text-[#131929]`}>
+          <h2
+            className={`${zilla.className} mx-8 text-center text-4xl font-bold text-[#131929]`}
+          >
             Programs Offered
           </h2>
           <div className="absolute top-1/2 right-0 h-px w-1/5 bg-gray-300"></div>
         </div>
         <div className="flex flex-col items-center justify-center md:flex-row lg:flex-row">
           {programs.map((program, index) => (
-            <ProgramCard 
-              key={index} 
+            <ProgramCard
+              key={index}
               title={program.title}
               description={program.description}
               icon={program.icon}
-              button={program.button}
+              buttons={program.button}
             />
           ))}
         </div>
@@ -286,7 +263,7 @@ const MechEngineeringPage: React.FC = () => {
         </div>
         <div className="relative z-10 container mx-auto flex h-full flex-col justify-center px-4 py-20">
           <div className="max-w-4xl md:max-w-6xl lg:max-w-7xl">
-            <h1 className="mt-28 mb-6 p-28 text-6xl font-bold leading-tight md:text-5xl lg:text-6xl">
+            <h1 className="mt-28 mb-6 p-28 text-6xl leading-tight font-bold md:text-5xl lg:text-6xl">
               MECHANICAL ENGINEERING
             </h1>
           </div>
@@ -297,17 +274,17 @@ const MechEngineeringPage: React.FC = () => {
       {/* Main content section */}
       <section className="w-full bg-white">
         <div className="flex md:pt-10 md:pl-10">
-          {/* Sidebar navigation */}
-          <Sidebar
+          {/* Dynamic Sidebar navigation */}
+          <DynamicSidebar
             tabs={TABS}
-            activeTab={activeTab}
-            onTabChange={setActiveTab}
-            AccordionContent={null}
+            activeTab={tab}
+            onTabChange={handleTabChange}
+            basePath={path}
           />
-          
+
           {/* Main content area */}
           <div className="invisible-scrollbar mx-2 max-h-screen flex-1 flex-col overflow-x-hidden">
-            <div id={activeTab} className="container mx-auto">
+            <div id={tab} className="container mx-auto">
               {renderTabContent()}
             </div>
           </div>
@@ -319,7 +296,7 @@ const MechEngineeringPage: React.FC = () => {
         {/* Achievements Section */}
         <div className="bg-white px-20 py-8">
           <div className="my-12 h-min overflow-hidden">
-            <AchievementsTab />
+            <AchievementsTab department={department} />
           </div>
         </div>
       </section>
@@ -327,4 +304,4 @@ const MechEngineeringPage: React.FC = () => {
   )
 }
 
-export default MechEngineeringPage
+export default MechanicalPage
