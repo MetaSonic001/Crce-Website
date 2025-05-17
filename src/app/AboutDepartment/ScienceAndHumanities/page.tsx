@@ -43,7 +43,7 @@ const zilla = Zilla_Slab({
 
 // Tab configuration
 const TABS = [
-  { id: 'about', title: 'About Computer Department' },
+  { id: 'about', title: 'About Science and Humanities Department' },
   { id: 'hoddesk', title: "HOD's Desk" },
   { id: 'visionandmission', title: 'Vision and Mission' },
   { id: 'peos_pos_psos', title: 'PEOs, POs and PSOs' },
