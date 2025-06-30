@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  href="https://frcrce.ac.in/index.php/other-services"
+                  href="/other-services"
                   target="_blank"
                   className="text-sm hover:text-blue-600"
                 >

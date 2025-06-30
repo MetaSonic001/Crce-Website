@@ -27,8 +27,7 @@ const fadeIn = {
 }
 
 export default function Page() {
-  const videoId = 'ZMDlPfqqAsY'
-  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+  const url = 'https://www.youtube.com/watch?v=i-p7szYgDrk'
 
   return (
     <main
@@ -217,7 +216,7 @@ export default function Page() {
             <div className="mx-auto mb-12 h-1 w-16 bg-blue-600" />
           </div>
 
-          <YoutubeEmbed url={`https://youtu.be/${videoId}`} />
+          <YoutubeEmbed url={url} />
         </motion.div>
       </div>
 
