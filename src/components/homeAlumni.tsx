@@ -107,7 +107,9 @@ export default function FamousAlumni() {
               </p>
               <div className="mb-4 h-1 w-16 bg-blue-600" />
               <Link 
-                href={'/'} 
+                href={'https://alumni.frcrce.ac.in/'} 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block rounded-full bg-blue-600 px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
               >
                 Connect with Alumni
