@@ -102,7 +102,9 @@ export default function InnovationPolicy() {
             className="flex justify-center"
           >
             <Link 
-              href="/innovation-policy" 
+              href="http://www.frcrce.ac.in/images/nisp/FRCRCE_NISP-5FEB2021.pdf" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-3 text-white transition-all duration-300 hover:from-blue-700 hover:to-blue-800"
             >
               Click Here to Explore
