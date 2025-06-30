@@ -12,6 +12,7 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import { college_pic } from '@/app/files/files'
+import YoutubeEmbed from '@/components/YoutubeEmbed'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -216,39 +217,7 @@ export default function Page() {
             <div className="mx-auto mb-12 h-1 w-16 bg-blue-600" />
           </div>
 
-          <Link
-            href={`https://youtu.be/${videoId}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group mt-6 block"
-          >
-            <motion.div
-              className="relative overflow-hidden rounded-2xl shadow-xl"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="relative aspect-video w-full">
-                <Image
-                  src={thumbnailUrl}
-                  alt="Campus Tour Video Thumbnail"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1280px) 100vw, 1280px"
-                />
-                <div className="absolute inset-0 bg-black/30 transition-opacity duration-300 group-hover:bg-black/50" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="rounded-full bg-white/20 p-4 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
-                    <PlayCircle className="h-16 w-16 text-white sm:h-24 sm:w-24" />
-                  </div>
-                </div>
-                <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-6">
-                  <p className="text-lg font-medium text-white">
-                    Explore our campus facilities and environment
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </Link>
+          <YoutubeEmbed url={`https://youtu.be/${videoId}`} />
         </motion.div>
       </div>
 

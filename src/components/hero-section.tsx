@@ -43,7 +43,6 @@ export default function HeroSection() {
     <section className="relative min-h-screen w-full overflow-hidden text-gray-600">
       <div className="absolute inset-0">
         <video
-          key={Date.now()} // Add a unique key to force remount
           className="h-full w-full object-cover"
           autoPlay
           muted
@@ -90,10 +89,10 @@ export default function HeroSection() {
       </div>
       {isAdmission ? (
         //TRUE
-        <div className="relative z-10 flex min-h-screen items-center justify-end px-5 py-24 text-center sm:px-20">
+        <div className="relative z-40 flex min-h-screen items-center justify-end px-5 py-24 text-center sm:px-20">
           <div className="sm:relative">
             <div
-              className={`fixed top-1/2 left-0 w-4/5 max-w-sm -translate-y-1/2 transform rounded-r-lg bg-white/95 p-8 shadow-lg backdrop-blur-sm transition-transform duration-500 sm:relative sm:top-auto sm:left-auto sm:w-full sm:max-w-md sm:translate-x-0 sm:translate-y-0 sm:rounded-lg ${
+              className={`absolute top-1/2 left-0 w-4/5 max-w-sm -translate-y-1/2 transform rounded-r-lg bg-white/95 p-8 shadow-lg backdrop-blur-sm transition-transform duration-500 sm:relative sm:top-auto sm:left-auto sm:w-full sm:max-w-md sm:translate-x-0 sm:translate-y-0 sm:rounded-lg ${
                 isVisible ? 'translate-x-0' : '-translate-x-full'
               }`}
             >
@@ -125,7 +124,7 @@ export default function HeroSection() {
             </div>
             <button
               onClick={handleToggle}
-              className={`fixed top-1/2 left-0 -translate-y-1/2 transform rounded-r-md bg-white p-2 shadow-md transition-all duration-500 sm:hidden ${
+              className={`absolute top-1/2 left-0 -translate-y-1/2 transform rounded-r-md bg-white p-2 shadow-md transition-all duration-500 sm:hidden ${
                 isVisible
                   ? 'pointer-events-none translate-x-full opacity-0'
                   : 'translate-x-0 opacity-100'
@@ -140,7 +139,7 @@ export default function HeroSection() {
         <div className="relative z-40 flex min-h-screen items-center justify-end text-center">
           <div className="sm:relative">
             <div
-              className={`fixed top-[75%] left-0 w-4/5 max-w-fit -translate-y-1/2 transform rounded-r-lg transition-transform duration-500 sm:relative sm:top-auto sm:left-auto sm:w-full sm:max-w-md sm:translate-x-0 sm:translate-y-0 sm:rounded-lg ${
+              className={`absolute top-[75%] left-0 w-4/5 max-w-fit -translate-y-1/2 transform rounded-r-lg transition-transform duration-500 sm:relative sm:top-auto sm:left-auto sm:w-full sm:max-w-md sm:translate-x-0 sm:translate-y-0 sm:rounded-lg ${
                 isVisible ? 'translate-x-0' : '-translate-x-full'
               }`}
             >
@@ -182,7 +181,7 @@ export default function HeroSection() {
             </div>
             <button
               onClick={handleToggle}
-              className={`fixed top-[70%] left-0 -translate-y-1/2 transform rounded-r-md bg-white p-2 shadow-md transition-all duration-500 sm:hidden ${
+              className={`absolute top-[70%] left-0 -translate-y-1/2 transform rounded-r-md bg-white p-2 shadow-md transition-all duration-500 sm:hidden ${
                 isVisible
                   ? 'pointer-events-none translate-x-full opacity-0'
                   : 'translate-x-0 opacity-100'
