@@ -53,7 +53,7 @@ const DynamicSidebar: React.FC<DynamicSidebarProps> = ({
       <div className="sticky top-0 hidden h-screen w-64 overflow-y-auto border-r border-gray-200 bg-white md:block">
         <div className="py-4">
           <h2 className="mb-4 px-4 text-lg font-semibold text-gray-800">
-            Department
+            Navigation
           </h2>
           <nav className="space-y-1">
             {tabs.map((tab) => (
@@ -116,12 +116,18 @@ const DynamicSidebar: React.FC<DynamicSidebarProps> = ({
                 </svg>
               </button>
 
-              {/* Only show content for active accordion in mobile */}
+              {/* Display the actual content for active accordion in mobile */}
               {openAccordion === tab.id && activeTab === tab.id && (
                 <div className="bg-gray-50 px-4 py-3">
-                  <div className="text-sm text-gray-700">
-                    {/* Render current tab content summary or quick links if needed */}
-                    You are viewing {tab.title}
+                  <div className="text-sm">
+                    {/* This will be rendered by the parent component */}
+                    {/* Content for this tab should go here */}
+                    <div
+                      id={`mobile-content-${tab.id}`}
+                      className="mobile-tab-content"
+                    >
+                      {/* The parent component should inject content here */}
+                    </div>
                   </div>
                 </div>
               )}

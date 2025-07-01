@@ -6,10 +6,10 @@ import { Zilla_Slab } from 'next/font/google'
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 import {
   AbouthnsDepartment,
-   hodsDesk,
+  hodsDesk,
   programs,
-
 } from '@/components/Departments/Humanities/data'
+import { useMediaQuery } from '@/components/hooks/useMediaQuery'
 
 // Component imports
 import AboutHOD from '@/components/Departments/Humanities/AboutHOD'
@@ -68,6 +68,7 @@ const HumanitiesPage = () => {
   const searchParams = useSearchParams()
   const path = usePathname()
   const tab = searchParams.get('tab') || 'about'
+  const isMobile = useMediaQuery('(max-width: 768px)')
 
   // Component: About Department
   interface AboutDepartmentProps {
@@ -83,17 +84,19 @@ const HumanitiesPage = () => {
     extendedDescription,
     video,
   }: AboutDepartmentProps) => (
-    <div className="container mx-auto px-6 py-8 text-justify">
+    <div className="container mx-auto px-4 py-8 text-justify sm:px-6">
       <h2
-        className={`${zilla.className} mb-6 ml-6 text-5xl font-bold text-[#131929]`}
+        className={`${zilla.className} mb-6 ml-2 text-3xl font-bold text-[#131929] sm:ml-6 sm:text-4xl md:text-5xl`}
       >
         {name}
       </h2>
 
-      <div className="mb-6 overflow-hidden rounded-lg bg-white p-6 shadow-md">
+      <div className="mb-6 overflow-hidden rounded-lg bg-white p-4 shadow-md sm:p-6">
         <div className="flex flex-col md:flex-row md:gap-8">
           <div className="mb-6 md:mb-0 md:w-1/2">
-            <p className="leading-relaxed text-gray-700">{description}</p>
+            <p className="text-sm leading-relaxed text-gray-700 sm:text-base">
+              {description}
+            </p>
           </div>
 
           {video && (
@@ -116,7 +119,9 @@ const HumanitiesPage = () => {
 
       {extendedDescription && (
         <div className="rounded-lg bg-white p-6 text-justify shadow-md">
-          <p className="leading-relaxed text-gray-700">{extendedDescription}</p>
+          <p className="text-sm leading-relaxed text-gray-700 sm:text-base">
+            {extendedDescription}
+          </p>
         </div>
       )}
     </div>
@@ -136,13 +141,15 @@ const HumanitiesPage = () => {
     icon,
     buttons,
   }) => (
-    <div className="mb-8 w-full px-3 lg:mb-0 lg:w-1/3">
-      <div className="h-full rounded-lg border border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:shadow-lg">
-        <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#EBF2FF] text-[#131929]">
+    <div className="mb-8 w-full px-2 sm:px-3 lg:mb-0 lg:w-1/3">
+      <div className="h-full rounded-lg border border-gray-200 bg-white p-4 shadow-md transition-all duration-300 hover:shadow-lg sm:p-6">
+        <div className="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#EBF2FF] text-[#131929] sm:h-10 sm:w-10">
           {icon}
         </div>
-        <h2 className="mb-3 text-lg font-medium text-[#131929]">{title}</h2>
-        <ul className="mb-5 flex-grow list-inside list-disc space-y-1 text-base leading-relaxed text-gray-600">
+        <h2 className="mb-3 text-base font-medium text-[#131929] sm:text-lg">
+          {title}
+        </h2>
+        <ul className="mb-5 flex-grow list-inside list-disc space-y-1 text-sm leading-relaxed text-gray-600 sm:text-base">
           {description.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
@@ -152,11 +159,11 @@ const HumanitiesPage = () => {
             <button
               key={i}
               onClick={btn.onClick}
-              className="inline-flex items-center rounded border-0 bg-[#131929] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#1F2942] focus:outline-none"
+              className="inline-flex items-center rounded border-0 bg-[#131929] px-3 py-2 text-xs font-medium text-white transition-colors hover:bg-[#1F2942] focus:outline-none sm:px-4 sm:text-sm"
             >
               {btn.label}
               <svg
-                className="ml-1 h-4 w-4"
+                className="ml-1 h-3 w-3 sm:h-4 sm:w-4"
                 fill="none"
                 stroke="currentColor"
                 strokeLinecap="round"
@@ -181,8 +188,7 @@ const HumanitiesPage = () => {
   const renderTabContent = () => {
     switch (tab) {
       case 'about':
-        return <AboutDepartmentContainer {...AbouthnsDepartment
-} />
+        return <AboutDepartmentContainer {...AbouthnsDepartment} />
       case 'hoddesk':
         return <AboutHOD {...hodsDesk} />
       case 'visionandmission':
@@ -214,23 +220,22 @@ const HumanitiesPage = () => {
       case 'department_notices':
         return <DepartmentsNotices department={department} />
       default:
-        return <AboutDepartmentContainer {...AbouthnsDepartment
-} />
+        return <AboutDepartmentContainer {...AbouthnsDepartment} />
     }
   }
 
   // Section: Program Highlights
   const ProgramHighlights = () => (
-    <div className="bg-[#F9FAFC] px-20 py-16 text-gray-600">
+    <div className="bg-[#F9FAFC] px-4 py-8 text-gray-600 sm:px-8 sm:py-12 md:px-12 md:py-16 lg:px-20">
       <div className="container mx-auto px-5">
-        <div className="relative mb-12 flex items-center justify-center">
-          <div className="absolute top-1/2 left-0 h-px w-1/5 bg-gray-300"></div>
+        <div className="relative mb-8 flex items-center justify-center sm:mb-12">
+          <div className="absolute top-1/2 left-0 hidden h-px w-1/5 bg-gray-300 sm:block"></div>
           <h2
-            className={`${zilla.className} mx-8 text-center text-4xl font-bold text-[#131929]`}
+            className={`${zilla.className} mx-2 text-center text-2xl font-bold text-[#131929] sm:mx-8 sm:text-3xl md:text-4xl`}
           >
             Programs Offered
           </h2>
-          <div className="absolute top-1/2 right-0 h-px w-1/5 bg-gray-300"></div>
+          <div className="absolute top-1/2 right-0 hidden h-px w-1/5 bg-gray-300 sm:block"></div>
         </div>
         <div className="flex flex-col items-center justify-center md:flex-row lg:flex-row">
           {programs.map((program, index) => (
@@ -263,8 +268,8 @@ const HumanitiesPage = () => {
         </div>
         <div className="relative z-10 container mx-auto flex h-full flex-col justify-center px-4 py-20">
           <div className="max-w-4xl md:max-w-6xl lg:max-w-7xl">
-            <h1 className="mt-28 mb-6 p-28 text-6xl leading-tight font-bold md:text-5xl lg:text-6xl">
-                Science and Humanities
+            <h1 className="mt-16 mb-6 p-4 text-3xl leading-tight font-bold sm:mt-20 sm:p-8 sm:text-4xl md:mt-28 md:p-16 md:text-5xl lg:p-28 lg:text-6xl">
+              Science and Humanities
             </h1>
           </div>
         </div>
@@ -273,18 +278,51 @@ const HumanitiesPage = () => {
 
       {/* Main content section */}
       <section className="w-full bg-white">
-        <div className="flex md:pt-10 md:pl-10">
+        {/* Desktop Layout */}
+        <div className="hidden md:flex md:pt-10 md:pl-10">
           {/* Dynamic Sidebar navigation */}
-          <DynamicSidebar
-            tabs={TABS}
-            activeTab={tab}
-            onTabChange={handleTabChange}
-            basePath={path}
-          />
+          <div className="sticky top-0 h-screen w-auto">
+            <DynamicSidebar
+              tabs={TABS}
+              activeTab={tab}
+              onTabChange={handleTabChange}
+              basePath={path}
+            />
+          </div>
 
-          {/* Main content area */}
-          <div className="invisible-scrollbar mx-2 max-h-screen flex-1 flex-col overflow-x-hidden">
+          {/* Desktop content area */}
+          <div className="mx-2 max-h-screen flex-1 overflow-y-auto">
             <div id={tab} className="container mx-auto">
+              {renderTabContent()}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="md:hidden">
+          {/* Mobile Navigation */}
+          <div className="border-b border-gray-200 bg-white">
+            <div className="px-4 py-3">
+              <h2 className="mb-3 text-lg font-semibold text-gray-800">
+                Navigation
+              </h2>
+              <select
+                value={tab}
+                onChange={(e) => handleTabChange(e.target.value)}
+                className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+              >
+                {TABS.map((tabItem) => (
+                  <option key={tabItem.id} value={tabItem.id}>
+                    {tabItem.title}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* Mobile content area */}
+          <div className="bg-white px-4 py-6">
+            <div id={`mobile-${tab}`} className="container mx-auto">
               {renderTabContent()}
             </div>
           </div>
@@ -294,8 +332,8 @@ const HumanitiesPage = () => {
         <ProgramHighlights />
 
         {/* Achievements Section */}
-        <div className="bg-white px-20 py-8">
-          <div className="my-12 h-min overflow-hidden">
+        <div className="bg-white px-4 py-8 sm:px-8 md:px-12 lg:px-20">
+          <div className="my-8 h-min overflow-hidden sm:my-12">
             <AchievementsTab department={department} />
           </div>
         </div>
