@@ -127,11 +127,11 @@ const dropdownContent: DropdownContent = {
       href: '/academics/autonomous/rules-and-policies',
       icon: <ScrollText size={18} />,
     },
-    {
-      name: 'IIC',
-      href: '/academics/iic',
-      icon: <Lightbulb size={18} />,
-    },
+    // {
+    //   name: 'IIC',
+    //   href: '/academics/iic',
+    //   icon: <Lightbulb size={18} />,
+    // },
     {
       name: 'Academic/Holiday Calender',
       href: '/academics/calendar',
