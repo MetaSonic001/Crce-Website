@@ -45,28 +45,61 @@ const DepartmentsNotices: React.FC<PageProps> = ({ department }) => {
     fetchData()
   }, [])
 
+  // Helper function for category styling
+  const getCategoryStyle = (category: string) => {
+    switch(category) {
+      case 'Academic': return 'bg-blue-100 text-blue-800';
+      case 'Event': return 'bg-purple-100 text-purple-800';
+      case 'Examination': return 'bg-red-100 text-red-800';
+      case 'Internship': return 'bg-green-100 text-green-800';
+      default: return 'bg-yellow-100 text-yellow-800';
+    }
+  }
+
   return (
-    <div className="container mx-auto px-6 py-8">
+    <div className="container mx-auto px-4 sm:px-6 py-8">
       {/* Section heading with decorative lines */}
-      <div className="relative mb-12 flex items-center justify-center">
-        <div className="absolute top-1/2 left-0 h-px w-1/4 bg-gray-300"></div>
+      <div className="relative mb-8 sm:mb-12 flex items-center justify-center">
+        <div className="absolute top-1/2 left-0 h-px w-1/6 sm:w-1/4 bg-gray-300"></div>
         <h2
-          className={`${zilla.className} mx-8 text-center text-4xl font-bold text-[#131929]`}
+          className={`${zilla.className} mx-4 sm:mx-8 text-center text-3xl sm:text-4xl font-bold text-[#131929]`}
         >
           Department Notices
         </h2>
-        <div className="absolute top-1/2 right-0 h-px w-1/4 bg-gray-300"></div>
+        <div className="absolute top-1/2 right-0 h-px w-1/6 sm:w-1/4 bg-gray-300"></div>
       </div>
 
-      <div className="rounded-lg bg-white p-6 shadow-md">
-        <p className="mb-8 text-lg leading-relaxed text-gray-700">
+      <div className="rounded-lg bg-white p-4 sm:p-6 shadow-md">
+        <p className="mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed text-gray-700">
           Important announcements, updates, and notifications from the Computer
           Engineering Department. Students are advised to regularly check this
           section for the latest information regarding academics, events, and
           other departmental activities.
         </p>
 
-        <div className="overflow-x-auto">
+        {/* Mobile view - Cards */}
+        <div className="md:hidden space-y-6">
+          {notices.map((notice) => (
+            <div key={notice.id} className="border rounded-lg overflow-hidden shadow-sm">
+              <div className="bg-[#F5F8FF] px-4 py-3 border-b">
+                <h3 className="font-medium text-[#131929]">{notice.title}</h3>
+              </div>
+              <div className="p-4 space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className={`rounded-full px-3 py-1 text-xs font-medium ${getCategoryStyle(notice.category)}`}>
+                    {notice.category}
+                  </span>
+                  <span className="text-sm text-gray-700">{notice.date}</span>
+                </div>
+                <p className="text-sm text-gray-700">{notice.content}</p>
+                <p className="text-sm font-medium text-gray-700">Issued by: {notice.issued_by}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop view - Table */}
+        <div className="hidden md:block overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200 rounded-lg bg-white">
             <thead className="bg-[#F5F8FF]">
               <tr>
@@ -94,19 +127,7 @@ const DepartmentsNotices: React.FC<PageProps> = ({ department }) => {
                     {notice.title}
                   </td>
                   <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                    <span
-                      className={`rounded-full px-3 py-1 text-xs font-medium ${
-                        notice.category === 'Academic'
-                          ? 'bg-blue-100 text-blue-800'
-                          : notice.category === 'Event'
-                            ? 'bg-purple-100 text-purple-800'
-                            : notice.category === 'Examination'
-                              ? 'bg-red-100 text-red-800'
-                              : notice.category === 'Internship'
-                                ? 'bg-green-100 text-green-800'
-                                : 'bg-yellow-100 text-yellow-800'
-                      }`}
-                    >
+                    <span className={`rounded-full px-3 py-1 text-xs font-medium ${getCategoryStyle(notice.category)}`}>
                       {notice.category}
                     </span>
                   </td>

@@ -60,24 +60,24 @@ const InnovativeTeachingLearning: React.FC<PageProps> = ({ department }) => {
   }
 
   return (
-    <div className="container mx-auto px-6 py-8">
+    <div className="container mx-auto px-4 py-6 sm:px-6 sm:py-8">
       {/* Section heading with decorative lines */}
-      <div className="relative mb-12 flex items-center justify-center">
-        <div className="absolute top-1/2 left-0 h-px w-1/4 bg-gray-300"></div>
+      <div className="relative mb-8 sm:mb-12 flex items-center justify-center">
+        <div className="absolute top-1/2 left-0 h-px w-1/4 bg-gray-300 hidden sm:block"></div>
         <h2
-          className={`${zilla.className} mx-8 text-center text-4xl font-bold text-[#131929]`}
+          className={`${zilla.className} mx-4 sm:mx-8 text-center text-3xl sm:text-4xl font-bold text-[#131929]`}
         >
           Innovative Teaching & Learning
         </h2>
-        <div className="absolute top-1/2 right-0 h-px w-1/4 bg-gray-300"></div>
+        <div className="absolute top-1/2 right-0 h-px w-1/4 bg-gray-300 hidden sm:block"></div>
       </div>
 
       {/* Toggle buttons */}
-      <div className="mb-8 flex justify-center">
-        <div className="inline-flex rounded-md">
+      <div className="mb-6 sm:mb-8 flex justify-center">
+        <div className="inline-flex flex-col sm:flex-row rounded-md w-full sm:w-auto">
           <button
             onClick={() => setActiveToggle('teaching')}
-            className={`rounded-l-md px-8 py-3 text-base font-medium ${
+            className={`rounded-t-md sm:rounded-t-none sm:rounded-l-md px-4 sm:px-8 py-3 text-sm sm:text-base font-medium ${
               activeToggle === 'teaching'
                 ? 'bg-[#131929] text-white'
                 : 'bg-gray-200 text-[#131929] hover:bg-gray-300'
@@ -87,7 +87,7 @@ const InnovativeTeachingLearning: React.FC<PageProps> = ({ department }) => {
           </button>
           <button
             onClick={() => setActiveToggle('courses')}
-            className={`px-8 py-3 text-base font-medium ${
+            className={`px-4 sm:px-8 py-3 text-sm sm:text-base font-medium ${
               activeToggle === 'courses'
                 ? 'bg-[#131929] text-white'
                 : 'bg-gray-200 text-[#131929] hover:bg-gray-300'
@@ -97,7 +97,7 @@ const InnovativeTeachingLearning: React.FC<PageProps> = ({ department }) => {
           </button>
           <button
             onClick={() => setActiveToggle('certifications')}
-            className={`rounded-r-md px-8 py-3 text-base font-medium ${
+            className={`rounded-b-md sm:rounded-b-none sm:rounded-r-md px-4 sm:px-8 py-3 text-sm sm:text-base font-medium ${
               activeToggle === 'certifications'
                 ? 'bg-[#131929] text-white'
                 : 'bg-gray-200 text-[#131929] hover:bg-gray-300'
@@ -108,10 +108,10 @@ const InnovativeTeachingLearning: React.FC<PageProps> = ({ department }) => {
         </div>
       </div>
 
-      <div className="rounded-lg bg-white p-6 shadow-md">
+      <div className="rounded-lg bg-white p-4 sm:p-6 shadow-md">
         {activeToggle === 'teaching' && (
           <>
-            <p className="mb-8 text-lg leading-relaxed text-gray-700">
+            <p className="mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed text-gray-700">
               The Computer Engineering Department employs innovative teaching
               and learning methodologies to enhance student engagement and
               outcomes. Our approach combines traditional teaching with modern
@@ -119,186 +119,192 @@ const InnovativeTeachingLearning: React.FC<PageProps> = ({ department }) => {
               dynamic learning environment.
             </p>
 
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200 rounded-lg bg-white">
-                <thead className="bg-[#F5F8FF]">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                      Teaching Method
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                      Description
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                      Applied Subjects
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                      Learning Outcome
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {teachingData.map((data, index) => (
-                    <tr
-                      key={index}
-                      className={index % 2 === 0 ? 'bg-white' : 'bg-[#F9FAFC]'}
-                    >
-                      <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-[#131929]">
-                        {data.teaching_method}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-700">
-                        {data.description}
-                      </td>
-                      <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                        {data.applied_subjects}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-700">
-                        {data.learning_outcome}
-                      </td>
+            <div className="overflow-x-auto -mx-4 sm:mx-0">
+              <div className="inline-block min-w-full align-middle">
+                <table className="min-w-full divide-y divide-gray-200 rounded-lg bg-white">
+                  <thead className="bg-[#F5F8FF]">
+                    <tr>
+                      <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                        Teaching Method
+                      </th>
+                      <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                        Description
+                      </th>
+                      <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                        Applied Subjects
+                      </th>
+                      <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                        Learning Outcome
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    {teachingData.map((data, index) => (
+                      <tr
+                        key={index}
+                        className={index % 2 === 0 ? 'bg-white' : 'bg-[#F9FAFC]'}
+                      >
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-medium whitespace-nowrap text-[#131929]">
+                          {data.teaching_method}
+                        </td>
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-700">
+                          {data.description}
+                        </td>
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm whitespace-nowrap text-gray-700">
+                          {data.applied_subjects}
+                        </td>
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-700">
+                          {data.learning_outcome}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </>
         )}
 
         {activeToggle === 'courses' && (
           <>
-            <p className="mb-8 text-lg leading-relaxed text-gray-700">
+            <p className="mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed text-gray-700">
               The department offers a variety of specialized courses to help
               students develop expertise in emerging technologies and
               high-demand skills. These courses complement the core curriculum
               and provide students with advanced knowledge in specific domains.
             </p>
 
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200 rounded-lg bg-white">
-                <thead className="bg-[#F5F8FF]">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                      Course Name
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                      Duration
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                      Credits
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                      Level
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                      Description
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                      Prerequisites
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {coursesData.map((data, index) => (
-                    <tr
-                      key={index}
-                      className={index % 2 === 0 ? 'bg-white' : 'bg-[#F9FAFC]'}
-                    >
-                      <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-[#131929]">
-                        {data.course_name}
-                      </td>
-                      <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                        {data.duration}
-                      </td>
-                      <td className="px-6 py-4 text-center text-sm whitespace-nowrap text-gray-700">
-                        {data.credits}
-                      </td>
-                      <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                        <span
-                          className={`rounded-full px-3 py-1 text-xs font-medium ${
-                            data.level === 'Advanced'
-                              ? 'bg-blue-100 text-blue-800'
-                              : data.level === 'Intermediate'
-                                ? 'bg-green-100 text-green-800'
-                                : 'bg-yellow-100 text-yellow-800'
-                          }`}
-                        >
-                          {data.level}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-700">
-                        {data.description}
-                      </td>
-                      <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                        {data.prerequisites}
-                      </td>
+            <div className="overflow-x-auto -mx-4 sm:mx-0">
+              <div className="inline-block min-w-full align-middle">
+                <table className="min-w-full divide-y divide-gray-200 rounded-lg bg-white">
+                  <thead className="bg-[#F5F8FF]">
+                    <tr>
+                      <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                        Course Name
+                      </th>
+                      <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                        Duration
+                      </th>
+                      <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                        Credits
+                      </th>
+                      <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                        Level
+                      </th>
+                      <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                        Description
+                      </th>
+                      <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                        Prerequisites
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    {coursesData.map((data, index) => (
+                      <tr
+                        key={index}
+                        className={index % 2 === 0 ? 'bg-white' : 'bg-[#F9FAFC]'}
+                      >
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-medium whitespace-nowrap text-[#131929]">
+                          {data.course_name}
+                        </td>
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm whitespace-nowrap text-gray-700">
+                          {data.duration}
+                        </td>
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-center text-xs sm:text-sm whitespace-nowrap text-gray-700">
+                          {data.credits}
+                        </td>
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm whitespace-nowrap text-gray-700">
+                          <span
+                            className={`rounded-full px-2 sm:px-3 py-1 text-xs font-medium ${
+                              data.level === 'Advanced'
+                                ? 'bg-blue-100 text-blue-800'
+                                : data.level === 'Intermediate'
+                                  ? 'bg-green-100 text-green-800'
+                                  : 'bg-yellow-100 text-yellow-800'
+                            }`}
+                          >
+                            {data.level}
+                          </span>
+                        </td>
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-700">
+                          {data.description}
+                        </td>
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm whitespace-nowrap text-gray-700">
+                          {data.prerequisites}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </>
         )}
 
         {activeToggle === 'certifications' && (
           <>
-            <p className="mb-8 text-lg leading-relaxed text-gray-700">
+            <p className="mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed text-gray-700">
               The department facilitates industry-recognized certification
               programs to enhance students' employability and specialized
               knowledge. These certifications are highly valued by employers and
               provide students with a competitive edge in the job market.
             </p>
 
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200 rounded-lg bg-white">
-                <thead className="bg-[#F5F8FF]">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                      Certification
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                      Provider
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                      Duration
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                      Eligibility
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                      Benefits
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold tracking-wider text-[#131929] uppercase">
-                      Placement Impact
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {certificationsData.map((data, index) => (
-                    <tr
-                      key={index}
-                      className={index % 2 === 0 ? 'bg-white' : 'bg-[#F9FAFC]'}
-                    >
-                      <td className="px-6 py-4 text-sm font-medium whitespace-nowrap text-[#131929]">
-                        {data.certification}
-                      </td>
-                      <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                        {data.provider}
-                      </td>
-                      <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                        {data.duration}
-                      </td>
-                      <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-700">
-                        {data.eligibility}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-700">
-                        {data.benefits}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-700">
-                        {data.placement_impact}
-                      </td>
+            <div className="overflow-x-auto -mx-4 sm:mx-0">
+              <div className="inline-block min-w-full align-middle">
+                <table className="min-w-full divide-y divide-gray-200 rounded-lg bg-white">
+                  <thead className="bg-[#F5F8FF]">
+                    <tr>
+                      <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                        Certification
+                      </th>
+                      <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                        Provider
+                      </th>
+                      <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                        Duration
+                      </th>
+                      <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                        Eligibility
+                      </th>
+                      <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                        Benefits
+                      </th>
+                      <th className="px-3 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold tracking-wider text-[#131929] uppercase">
+                        Placement Impact
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    {certificationsData.map((data, index) => (
+                      <tr
+                        key={index}
+                        className={index % 2 === 0 ? 'bg-white' : 'bg-[#F9FAFC]'}
+                      >
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-medium whitespace-nowrap text-[#131929]">
+                          {data.certification}
+                        </td>
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm whitespace-nowrap text-gray-700">
+                          {data.provider}
+                        </td>
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm whitespace-nowrap text-gray-700">
+                          {data.duration}
+                        </td>
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm whitespace-nowrap text-gray-700">
+                          {data.eligibility}
+                        </td>
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-700">
+                          {data.benefits}
+                        </td>
+                        <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-gray-700">
+                          {data.placement_impact}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </>
         )}

@@ -88,20 +88,20 @@ const Publications: React.FC<PageProps> = ({ department }) => {
         {publications.map((publication) => (
           <div
             key={publication.id}
-            className="rounded-lg border border-gray-100 bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-md"
+            className="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition-shadow duration-300 hover:shadow-md sm:p-6"
           >
-            <div className="flex items-start">
-              <div className="mr-4 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#131929] text-white">
+            <div className="flex flex-col items-start sm:flex-row">
+              <div className="mb-3 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#131929] text-white sm:mb-0 sm:mr-4">
                 {publication.id}
               </div>
               <div>
-                <h4 className="mb-2 text-lg font-semibold text-[#131929]">
+                <h4 className="mb-2 text-base font-semibold text-[#131929] sm:text-lg">
                   {publication.title}
                 </h4>
-                <p className="mb-1 text-sm font-medium text-gray-600">
+                <p className="mb-1 text-xs font-medium text-gray-600 sm:text-sm">
                   <span className="font-bold">Authors:</span> {publication.authors}
                 </p>
-                <p className="mb-3 italic text-sm text-gray-700">
+                <p className="mb-3 italic text-xs text-gray-700 sm:text-sm">
                   {publication.journal}
                 </p>
                 {publication.link && (
@@ -109,10 +109,10 @@ const Publications: React.FC<PageProps> = ({ department }) => {
                     href={publication.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center rounded-md bg-[#F5F8FF] px-3 py-1 text-sm font-medium text-[#131929] transition-colors hover:bg-[#E3EBFF]"
+                    className="inline-flex items-center rounded-md bg-[#F5F8FF] px-2 py-1 text-xs font-medium text-[#131929] transition-colors hover:bg-[#E3EBFF] sm:px-3 sm:text-sm"
                   >
                     <svg
-                      className="mr-1 h-4 w-4"
+                      className="mr-1 h-3 w-3 sm:h-4 sm:w-4"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -136,25 +136,27 @@ const Publications: React.FC<PageProps> = ({ department }) => {
   }
 
   return (
-    <div className="container mx-auto px-6 py-8">
-      <div className="relative mb-8 flex items-center justify-center">
-        <div className="absolute left-0 top-1/2 h-px w-1/4 bg-gray-300"></div>
-        <h2
-          className={`${zilla.className} mx-8 text-center text-4xl font-bold text-[#131929]`}
-        >
-          Research Publications
-        </h2>
-        <div className="absolute right-0 top-1/2 h-px w-1/4 bg-gray-300"></div>
+    <div className="container mx-auto px-4 py-6 sm:px-6 sm:py-8">
+      <div className="mb-6 sm:mb-8">
+        <div className="relative flex items-center justify-center">
+          <div className="absolute left-0 top-1/2 hidden h-px w-1/4 bg-gray-300 sm:block"></div>
+          <h2
+            className={`${zilla.className} mx-4 text-center text-2xl font-bold text-[#131929] sm:mx-8 sm:text-4xl`}
+          >
+            Research Publications
+          </h2>
+          <div className="absolute right-0 top-1/2 hidden h-px w-1/4 bg-gray-300 sm:block"></div>
+        </div>
       </div>
 
-      <div className="rounded-lg bg-white p-6 shadow-md">
-        <div className="mb-6 rounded-lg bg-[#F5F8FF] p-4">
+      <div className="rounded-lg bg-white p-4 shadow-md sm:p-6">
+        <div className="mb-6 rounded-lg bg-[#F5F8FF] p-3 sm:p-4">
           <h3
-            className={`${zilla.className} mb-2 text-xl font-semibold text-[#131929]`}
+            className={`${zilla.className} mb-2 text-lg font-semibold text-[#131929] sm:text-xl`}
           >
             Publications for the year 2023-24
           </h3>
-          <p className="text-gray-700">
+          <p className="text-sm text-gray-700 sm:text-base">
             Recent research publications by faculty members and students of the
             Computer Engineering Department.
           </p>

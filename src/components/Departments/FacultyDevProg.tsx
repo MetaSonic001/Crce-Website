@@ -58,19 +58,19 @@ const FacultyDevProg: React.FC<PageProps> = ({ department }) => {
   })
 
   return (
-    <div className="container mx-auto px-6 py-8">
-      <div className="relative mb-12 flex items-center justify-center">
-        <div className="absolute top-1/2 left-0 h-px w-1/5 bg-gray-300" />
+    <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
+      <div className="relative mb-8 sm:mb-12 flex items-center justify-center">
+        <div className="absolute top-1/2 left-0 h-px w-10 sm:w-1/5 bg-gray-300" />
         <h2
-          className={`${zilla.className} mx-8 text-center text-4xl font-bold text-[#131929]`}
+          className={`${zilla.className} mx-4 sm:mx-8 text-center text-2xl sm:text-4xl font-bold text-[#131929]`}
         >
           Faculty Development Programs
         </h2>
-        <div className="absolute top-1/2 right-0 h-px w-1/5 bg-gray-300" />
+        <div className="absolute top-1/2 right-0 h-px w-10 sm:w-1/5 bg-gray-300" />
       </div>
 
-      <div className="rounded-lg bg-white p-6 shadow-md">
-        <p className="mb-8 text-lg leading-relaxed text-gray-700">
+      <div className="rounded-lg bg-white p-4 sm:p-6 shadow-md">
+        <p className="mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed text-gray-700">
           The Computer Engineering Department regularly organizes Faculty
           Development Programs (FDPs) to enhance the knowledge and skills of
           academic and industry professionals. These programs cover emerging
@@ -78,7 +78,8 @@ const FacultyDevProg: React.FC<PageProps> = ({ department }) => {
           educational landscape.
         </p>
 
-        <div className="overflow-x-auto">
+        {/* Desktop Table - Hidden on mobile */}
+        <div className="hidden sm:block overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200 rounded-lg bg-white">
             <thead className="bg-[#F5F8FF]">
               <tr>
@@ -139,6 +140,49 @@ const FacultyDevProg: React.FC<PageProps> = ({ department }) => {
               ))}
             </tbody>
           </table>
+        </div>
+
+        {/* Mobile Card View - Visible only on mobile */}
+        <div className="sm:hidden space-y-6">
+          {data.map((program) => (
+            <div key={program.id} className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+              <h3 className="text-lg font-semibold text-[#131929] mb-2">{program.title}</h3>
+              <div className="space-y-2">
+                <div className="flex justify-between">
+                  <span className="text-sm font-medium text-gray-600">Type:</span>
+                  <span
+                    className={`rounded-full px-2 py-0.5 text-xs font-medium ${
+                      program.type === 'FDP'
+                        ? 'bg-blue-100 text-blue-800'
+                        : 'bg-green-100 text-green-800'
+                    }`}
+                  >
+                    {program.type}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-sm font-medium text-gray-600">Duration:</span>
+                  <span className="text-sm text-gray-700">{program.duration}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-sm font-medium text-gray-600">Dates:</span>
+                  <span className="text-sm text-gray-700">{formatDateRange(program.date, program.duration)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-sm font-medium text-gray-600">Participants:</span>
+                  <span className="text-sm text-gray-700 text-right flex-1 ml-2">{program.participants}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-sm font-medium text-gray-600">Sponsor:</span>
+                  <span className="text-sm text-gray-700">{program.sponsor}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-sm font-medium text-gray-600">Coordinators:</span>
+                  <span className="text-sm text-gray-700 text-right flex-1 ml-2">{program.coordinators}</span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
