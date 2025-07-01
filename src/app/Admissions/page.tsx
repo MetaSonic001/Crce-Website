@@ -43,24 +43,13 @@ const Page = () => {
             We're here to help you with your admissions journey
           </p>
           <Link
-            href="/"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeuMdBmOTPctxKaNDsalCcxJhYanCHf_tQGzw_Eg1JK5Spf2A/viewform"
+            target='_blank'
+            rel="noopener noreferqrer"
             className="rounded-full bg-linear-to-r from-[#4a90e2] to-[#357abd] px-6 py-3 text-center text-sm font-semibold text-white transition-all hover:from-[#357abd] hover:to-[#4a90e2] hover:shadow-lg md:text-base"
           >
             Fill Out Enquiry Form
           </Link>
-          <div className="mt-6 rounded-lg bg-gray-100 p-4">
-            <h3
-              className={`${zilla.className} mb-2 text-lg font-semibold text-[#001f3f] md:text-xl`}
-            >
-              Meet for Enquiries
-            </h3>
-            <p className="text-sm text-gray-600 md:text-base">
-              Monday to Friday
-            </p>
-            <p className="text-sm font-semibold text-[#4a90e2] md:text-base">
-              1:30pm to 2:30pm
-            </p>
-          </div>
         </div>
       </div>
       <div className="flex flex-col md:flex-row">
