@@ -28,6 +28,7 @@ interface PreIncubationCenterData {
 }
 
 const data: PreIncubationCenterData = {
+  // Data remains unchanged
   title: 'Pre-incubation Center',
   vision: 'Moulding Engineers who can Build the Nation',
   mission:
@@ -67,94 +68,94 @@ const data: PreIncubationCenterData = {
 
 const PreIncubationCenter: React.FC = () => {
   return (
-    <div className="container mx-auto px-6 py-8">
+    <div className="container mx-auto px-3 sm:px-6 py-6 sm:py-8">
       {/* Section heading with decorative lines */}
-      <div className="relative mb-12 flex items-center justify-center">
-        <div className="absolute left-0 top-1/2 h-px w-1/4 bg-gray-300"></div>
-        <h2 className={`${zilla.className} mx-8 text-center text-4xl font-bold text-[#131929]`}>
+      <div className="relative mb-8 sm:mb-12 flex items-center justify-center">
+        <div className="hidden sm:block absolute left-0 top-1/2 h-px w-1/4 bg-gray-300"></div>
+        <h2 className={`${zilla.className} mx-4 sm:mx-8 text-center text-3xl sm:text-4xl font-bold text-[#131929]`}>
           {data.title}
         </h2>
-        <div className="absolute right-0 top-1/2 h-px w-1/4 bg-gray-300"></div>
+        <div className="hidden sm:block absolute right-0 top-1/2 h-px w-1/4 bg-gray-300"></div>
       </div>
 
       {/* Overview section */}
-      <div className="mb-10 rounded-lg bg-white p-8 shadow-md">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+      <div className="mb-8 sm:mb-10 rounded-lg bg-white p-4 sm:p-8 shadow-md">
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">
           <div>
-            <div className="mb-6">
-              <h3 className={`${zilla.className} mb-3 text-2xl font-bold text-[#131929]`}>Vision</h3>
-              <p className="text-lg leading-relaxed text-gray-700">{data.vision}</p>
+            <div className="mb-5 sm:mb-6">
+              <h3 className={`${zilla.className} mb-2 sm:mb-3 text-xl sm:text-2xl font-bold text-[#131929]`}>Vision</h3>
+              <p className="text-base sm:text-lg leading-relaxed text-gray-700">{data.vision}</p>
             </div>
             
-            <div className="mb-6">
-              <h3 className={`${zilla.className} mb-3 text-2xl font-bold text-[#131929]`}>Mission</h3>
-              <p className="text-lg leading-relaxed text-gray-700">{data.mission}</p>
+            <div className="mb-5 sm:mb-6">
+              <h3 className={`${zilla.className} mb-2 sm:mb-3 text-xl sm:text-2xl font-bold text-[#131929]`}>Mission</h3>
+              <p className="text-base sm:text-lg leading-relaxed text-gray-700">{data.mission}</p>
             </div>
           </div>
           
           <div>
-            <div className="mb-6">
-              <h3 className={`${zilla.className} mb-3 text-2xl font-bold text-[#131929]`}>Short Term Objectives</h3>
-              <ul className="space-y-2 text-gray-700">
+            <div className="mb-5 sm:mb-6">
+              <h3 className={`${zilla.className} mb-2 sm:mb-3 text-xl sm:text-2xl font-bold text-[#131929]`}>Short Term Objectives</h3>
+              <ul className="space-y-1.5 sm:space-y-2 text-gray-700">
                 {data.shortTermObjectives.map((objective, index) => (
                   <li key={index} className="flex items-start">
                     <span className="mr-2 mt-1 text-[#131929]">•</span>
-                    <span className="leading-relaxed">{objective}</span>
+                    <span className="text-base sm:text-lg leading-relaxed">{objective}</span>
                   </li>
                 ))}
               </ul>
             </div>
             
-            <div className="mb-6">
-              <h3 className={`${zilla.className} mb-3 text-2xl font-bold text-[#131929]`}>Long Term Objective</h3>
-              <p className="text-lg leading-relaxed text-gray-700">{data.longTermObjective}</p>
+            <div className="mb-5 sm:mb-6">
+              <h3 className={`${zilla.className} mb-2 sm:mb-3 text-xl sm:text-2xl font-bold text-[#131929]`}>Long Term Objective</h3>
+              <p className="text-base sm:text-lg leading-relaxed text-gray-700">{data.longTermObjective}</p>
             </div>
           </div>
         </div>
         
-        <div className="mt-6 border-t border-gray-100 pt-6">
-          <h3 className={`${zilla.className} mb-3 text-2xl font-bold text-[#131929]`}>Description</h3>
-          <p className="text-lg leading-relaxed text-gray-700">{data.description}</p>
+        <div className="mt-5 sm:mt-6 border-t border-gray-100 pt-5 sm:pt-6">
+          <h3 className={`${zilla.className} mb-2 sm:mb-3 text-xl sm:text-2xl font-bold text-[#131929]`}>Description</h3>
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">{data.description}</p>
         </div>
       </div>
 
       {/* Projects section */}
-      <div className="mb-10">
-        <h3 className={`${zilla.className} mb-8 text-3xl font-bold text-[#131929]`}>Projects</h3>
+      <div className="mb-8 sm:mb-10">
+        <h3 className={`${zilla.className} mb-6 sm:mb-8 text-2xl sm:text-3xl font-bold text-[#131929]`}>Projects</h3>
         
-        <div className="space-y-12">
+        <div className="space-y-8 sm:space-y-12">
           {data.projects.map((project, index) => (
             <div key={index} className="overflow-hidden rounded-lg bg-white shadow-md">
-              <div className="border-b border-gray-100 bg-[#F5F8FF] p-6">
-                <h4 className={`${zilla.className} text-center text-2xl font-bold text-[#131929] md:text-3xl`}>
+              <div className="border-b border-gray-100 bg-[#F5F8FF] p-4 sm:p-6">
+                <h4 className={`${zilla.className} text-center text-xl sm:text-2xl md:text-3xl font-bold text-[#131929]`}>
                   {project.title}
                 </h4>
               </div>
               
-              <div className="p-6">
-                <div className="mb-6">
-                  <h5 className="mb-2 text-xl font-semibold text-[#131929]">Overview</h5>
-                  <p className="leading-relaxed text-gray-700">{project.overview}</p>
+              <div className="p-4 sm:p-6">
+                <div className="mb-5 sm:mb-6">
+                  <h5 className="mb-2 text-lg sm:text-xl font-semibold text-[#131929]">Overview</h5>
+                  <p className="text-base sm:text-lg leading-relaxed text-gray-700">{project.overview}</p>
                 </div>
                 
                 {project.details.length > 0 && (
-                  <div className="mb-6">
-                    <h5 className="mb-3 text-xl font-semibold text-[#131929]">Key Features</h5>
-                    <ul className="space-y-2 text-gray-700">
+                  <div className="mb-5 sm:mb-6">
+                    <h5 className="mb-2 sm:mb-3 text-lg sm:text-xl font-semibold text-[#131929]">Key Features</h5>
+                    <ul className="space-y-1.5 sm:space-y-2 text-gray-700">
                       {project.details.map((detail, detailIndex) => (
                         <li key={detailIndex} className="flex items-start">
-                          <span className="mr-2 mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#EBF2FF] text-xs font-bold text-[#131929]">
+                          <span className="mr-2 mt-1 flex h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#EBF2FF] text-xs font-bold text-[#131929]">
                             {detailIndex + 1}
                           </span>
-                          <span className="leading-relaxed">{detail}</span>
+                          <span className="text-sm sm:text-base leading-relaxed">{detail}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 )}
                 
-                <div className="mt-8 flex justify-center">
-                  <div className="relative h-64 w-full max-w-2xl overflow-hidden rounded-lg shadow-sm md:h-80">
+                <div className="mt-6 sm:mt-8 flex justify-center">
+                  <div className="relative h-48 sm:h-64 md:h-80 w-full max-w-2xl overflow-hidden rounded-lg shadow-sm">
                     <Image
                       src={project.image}
                       alt={project.title}
