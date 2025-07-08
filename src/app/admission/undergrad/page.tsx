@@ -1,5 +1,4 @@
 'use client'
-
 import Image from 'next/image'
 import { Zilla_Slab } from 'next/font/google'
 import { useState } from 'react'
@@ -23,6 +22,56 @@ const quickLinks = [
   { name: 'Listen to Leadership team', url: '/admission/leadership' },
 ]
 
+const extraData = [
+  {
+    title: 'Engineering Admission Information',
+    description:
+      'Get detailed information about our engineering admission process.',
+    link: '/admission/engineering-info',
+    buttonText: 'Learn More',
+  },
+  {
+    title: 'Autonomous Curriculum - Rules and Policies',
+    description: 'View the rules and policies for our autonomous curriculum.',
+    link: '/admission/autonomous-rules',
+    buttonText: 'View Rules',
+  },
+  {
+    title: 'Courses Offered',
+    description:
+      'Explore the variety of engineering courses offered at FR.CRCE.',
+    link: '/admission/courses',
+    buttonText: 'Explore Courses',
+  },
+  {
+    title: 'Autonomous Curriculum - Syllabus',
+    description:
+      'Access the detailed syllabus for our autonomous curriculum programs.',
+    link: '/admission/syllabus',
+    buttonText: 'View Syllabus',
+  },
+  {
+    title: 'Prospectus 2024',
+    description: 'Download the complete prospectus for the academic year 2024.',
+    link: '/admission/prospectus-2024.pdf',
+    buttonText: 'Download',
+  },
+  {
+    title: 'Listen To Our Leadership Team',
+    description:
+      'Hear directly from our leadership about the vision and mission of FR.CRCE.',
+    link: '/admission/leadership',
+    buttonText: 'Listen Now',
+  },
+  {
+    title: 'Education Loan',
+    description:
+      'Information about education loan options and assistance for students.',
+    link: '/admission/Education.mp4',
+    buttonText: 'Learn About Loans',
+  },
+]
+
 const feAdmissionData = [
   {
     title: 'FE CAP Reporting Form',
@@ -42,6 +91,19 @@ const feAdmissionData = [
     link: '/admission/fe-cap-reporting-documents.pdf',
     buttonText: 'Download PDF',
   },
+  {
+    title: 'Fee Notice - First Year Engineering',
+    description: 'View the fee notice for First Year Engineering.',
+    link: '/admission/fe-fee-notice.pdf',
+    buttonText: 'View PDF',
+  },
+  {
+    title: 'Document List - First Year',
+    description:
+      'Download the complete list of required documents for First Year admission.',
+    link: '/admission/fe-document-list.pdf',
+    buttonText: 'Download PDF',
+  },
 ]
 
 const dseAdmissionData = [
@@ -57,6 +119,12 @@ const dseAdmissionData = [
     description: 'Download the required documents for DSE CAP reporting.',
     link: '/admission/dse-cap-reporting-documents.pdf',
     buttonText: 'Download PDF',
+  },
+  {
+    title: 'Fee Notice - Direct Second Year Engineering',
+    description: 'View the fee notice for Direct Second Year Engineering.',
+    link: '/admission/dse-fee-notice.pdf',
+    buttonText: 'View PDF',
   },
 ]
 
@@ -82,7 +150,7 @@ export default function Home() {
       )}
 
       {isChatbotOpen && (
-        <div className="fixed right-4 bottom-4 z-50 h-[500px] w-[350px] rounded-lg bg-white shadow-xl sm:h-[600px] sm:w-[550px]">
+        <div className="fixed right-0 bottom-4 z-50 h-[500px] rounded-lg p-2 sm:h-[600px] sm:w-[550px] md:right-4">
           <ChatBot onClose={() => setIsChatbotOpen(false)} />
         </div>
       )}
@@ -151,6 +219,19 @@ export default function Home() {
               ))}
             </div>
           </div>
+
+          <div className="mt-12 sm:mt-16">
+            <h3
+              className={`mb-6 text-xl font-bold text-[#001a3c] sm:mb-8 sm:text-2xl`}
+            >
+              Other Important Information
+            </h3>
+            <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
+              {extraData.map((item, index) => (
+                <AdmissionCard key={index} {...item} />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -158,7 +239,7 @@ export default function Home() {
         <div className="container mx-auto">
           <div className="flex flex-col gap-8 lg:flex-row">
             {/* Quick Links Section */}
-            <div className="w-full lg:w-3/4">
+            <div className="container mx-auto">
               <h2 className="mb-6 text-xl font-bold text-[#001a3c] sm:mb-8 sm:text-2xl">
                 Quick Links
               </h2>
@@ -172,89 +253,6 @@ export default function Home() {
                     {link.name}
                   </a>
                 ))}
-              </div>
-            </div>
-
-            {/* Program Details Card Section */}
-            <div className="mt-8 w-full lg:mt-0 lg:w-2/3">
-              <h2 className="mb-6 text-xl font-bold text-[#001a3c] sm:mb-8 sm:text-2xl">
-                Fee Details for All Programs
-              </h2>
-              <div className="overflow-hidden rounded-xl shadow-lg">
-                <div className="space-y-4 bg-blue-50 p-6">
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      Duration
-                    </h3>
-                    <p className="text-2xl font-bold text-[#131929] sm:text-3xl">
-                      4 Years
-                    </p>
-                    <p className="mt-1 text-sm text-gray-600">
-                      Last Date To Apply: 26 July 2024
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      Programmes:{' '}
-                    </h3>
-                    <p className="text-sm text-gray-800">
-                      B.Tech Computer Engineering
-                    </p>
-                    <p className="text-sm text-gray-800">
-                      B.Tech Electronics and Computer Science
-                    </p>
-                    <p className="text-sm text-gray-800">
-                      B.Tech Mechanical Engineering
-                    </p>
-                    <p className="text-sm text-gray-800">
-                      B.Tech Computer Science and Engineering
-                    </p>
-                    <p className="text-sm text-gray-800">
-                      B.Tech Science and Humanities
-                    </p>
-                  </div>
-                </div>
-
-                <div className="space-y-6 bg-[#131929] p-6 text-white sm:p-8">
-                  <div>
-                    <p className="text-base text-gray-300 sm:text-lg">
-                      Fee Per Year
-                    </p>
-                    <h2 className="mt-1 text-lg font-bold sm:text-xl">
-                      Rs. 1,67,000
-                    </h2>
-                  </div>
-
-                  <button className="w-full rounded-lg bg-yellow-500 px-4 py-3 font-semibold text-black transition-colors hover:bg-yellow-600 sm:px-6 sm:py-4">
-                    Apply Online Now <span className="">→</span>
-                  </button>
-
-                  <div className="flex flex-col space-y-3 pt-2">
-                    <a
-                      href="#"
-                      className="flex items-center text-white hover:text-blue-300"
-                    >
-                      <span className="underline">Brochure</span>
-                      <span className="ml-2">→</span>
-                    </a>
-                    <a
-                      href="#"
-                      className="flex items-center text-white hover:text-blue-300"
-                    >
-                      <span className="underline">Course Structure</span>
-                      <span className="ml-2">→</span>
-                    </a>
-                  </div>
-
-                  <div className="border-t border-gray-700 pt-4">
-                    <p className="text-base text-gray-300 sm:text-lg">
-                      Highest CTC
-                    </p>
-                    <p className="mt-1 text-xl font-semibold sm:text-2xl">
-                      INR 17.75 LPA
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
