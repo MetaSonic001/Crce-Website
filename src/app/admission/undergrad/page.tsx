@@ -186,7 +186,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 h-16 w-full origin-bottom-right -skew-y-3 transform bg-gray-100"></div>
       </section>
 
-      <section id="admissions" className="m-6 sm:m-10 md:m-16 lg:m-28">
+      <section id="admissions" className="py-5">
         <div className="container mx-auto px-4">
           <h2
             className={`mb-8 text-3xl font-bold text-[#001a3c] sm:mb-12 sm:text-4xl`}
