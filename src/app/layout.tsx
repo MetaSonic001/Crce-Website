@@ -4,7 +4,7 @@ import './globals.css'
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 import ReactQueryProvider from './provider'
-
+import { Suspense } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -21,9 +21,11 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
         <ReactQueryProvider>
-          <Navbar />
-          {children}
-          <Footer />
+          <Suspense fallback={<div>Loading Department...</div>}>
+            <Navbar />
+            {children}
+            <Footer />
+          </Suspense>
         </ReactQueryProvider>
       </body>
     </html>
