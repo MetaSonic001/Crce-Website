@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
         <ReactQueryProvider>
-          <Suspense fallback={<div>Loading Department...</div>}>
+          <Suspense fallback={<div>Loading ...</div>}>
             <Navbar />
             {children}
             <Footer />
