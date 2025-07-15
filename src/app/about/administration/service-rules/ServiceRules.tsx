@@ -2,7 +2,7 @@ import React from 'react'
 
 const ServiceRules = () => {
   return (
-    <div className="flex min-h-[100dvh] w-[90vw] flex-col sm:w-full">
+    <div className="flex min-h-screen w-[90vw] flex-col sm:w-full">
       <main className="container mx-auto grow p-2 sm:p-4">
         <div className="rounded-lg bg-white p-2 shadow-lg sm:p-6">
           {' '}

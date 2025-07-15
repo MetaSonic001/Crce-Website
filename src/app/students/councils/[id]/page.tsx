@@ -29,7 +29,7 @@ export default function CouncilDetails({ params }: { params: { id: string } }) {
 
   if (!council) {
     return (
-      <div className="flex min-h-[100dvh] items-center justify-center">
+      <div className="flex min-h-screen items-center justify-center">
         <div className="text-2xl text-gray-600">Loading...</div>
       </div>
     )
@@ -40,7 +40,7 @@ export default function CouncilDetails({ params }: { params: { id: string } }) {
     : council.members?.slice(0, 4)
 
   return (
-    <div className="flex min-h-[100dvh] flex-col">
+    <div className="flex min-h-screen flex-col">
       <main
         className={`flex-grow bg-white px-8 pt-[100px] lg:pt-[180px] ${zilla.className}`}
       >

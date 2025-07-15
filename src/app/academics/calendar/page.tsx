@@ -2,7 +2,7 @@ import React from 'react'
 
 const PDFViewerPage = () => {
   return (
-    <div className="flex min-h-[100dvh] flex-col bg-linear-to-b from-white to-[#E5F0FF]">
+    <div className="flex min-h-screen flex-col bg-linear-to-b from-white to-[#E5F0FF]">
       <div className="flex h-full w-full flex-col bg-white pt-24 md:flex-row">
         <div className="flex w-full flex-col px-4 pt-20 text-[#00122a] sm:px-8 md:px-16 md:pt-36 lg:px-28">
           <h1

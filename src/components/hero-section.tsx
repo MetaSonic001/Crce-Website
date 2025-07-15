@@ -40,7 +40,7 @@ export default function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-[100dvh] w-full overflow-hidden text-gray-600">
+    <section className="relative min-h-screen w-full overflow-hidden text-gray-600">
       <div className="absolute inset-0">
         <video
           className="h-full w-full object-cover"
@@ -89,7 +89,7 @@ export default function HeroSection() {
       </div>
       {isAdmission ? (
         //TRUE
-        <div className="relative z-40 flex min-h-[100dvh] items-center justify-end px-5 py-24 text-center sm:px-20">
+        <div className="relative z-40 flex min-h-screen items-center justify-end px-5 py-24 text-center sm:px-20">
           <div className="sm:relative">
             <div
               className={`absolute top-1/2 left-0 w-4/5 max-w-sm -translate-y-1/2 transform rounded-r-lg bg-white/95 p-8 shadow-lg backdrop-blur-sm transition-transform duration-500 sm:relative sm:top-auto sm:left-auto sm:w-full sm:max-w-md sm:translate-x-0 sm:translate-y-0 sm:rounded-lg ${
@@ -139,7 +139,7 @@ export default function HeroSection() {
         </div>
       ) : (
         //FALSE
-        <div className="relative z-40 flex min-h-[100dvh] items-center justify-end text-center">
+        <div className="relative z-40 flex min-h-screen items-center justify-end text-center">
           <div className="sm:relative">
             <div
               className={`absolute top-[75%] left-0 w-4/5 max-w-fit -translate-y-1/2 transform rounded-r-lg transition-transform duration-500 sm:relative sm:top-auto sm:left-auto sm:w-full sm:max-w-md sm:translate-x-0 sm:translate-y-0 sm:rounded-lg ${

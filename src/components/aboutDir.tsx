@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const DirectorPage = () => {
   return (
-    <div className="mt-[80px] flex min-h-[100dvh] w-full items-center justify-center bg-linear-to-b from-white to-[#E5F0FF] pt-20 md:pt-0">
+    <div className="mt-[80px] flex min-h-screen w-full items-center justify-center bg-linear-to-b from-white to-[#E5F0FF] pt-20 md:pt-0">
       <main className="container mx-auto px-4">
         <div className="rounded-xl bg-white p-10 shadow-lg">
           <h2 className="font-ptserif mb-10 text-center text-5xl font-semibold text-blue-950">

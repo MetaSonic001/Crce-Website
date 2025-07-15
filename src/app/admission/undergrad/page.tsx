@@ -139,7 +139,7 @@ export default function Home() {
   const [isChatbotOpen, setIsChatbotOpen] = useState(false)
 
   return (
-    <main className="min-h-[100dvh] bg-gray-100">
+    <main className="min-h-screen bg-gray-100">
       {!isChatbotOpen && (
         <button
           onClick={() => setIsChatbotOpen(true)}
@@ -155,7 +155,7 @@ export default function Home() {
         </div>
       )}
 
-      <section className="hero relative min-h-[100dvh] overflow-hidden bg-gray-700 text-white">
+      <section className="hero relative min-h-screen overflow-hidden bg-gray-700 text-white">
         <div className="absolute inset-0 z-0">
           <Image
             src={'/college2.avif'}

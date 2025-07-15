@@ -39,7 +39,7 @@ export default function NIRFRankingPage() {
   ]
 
   return (
-    <div className="mt-16 min-h-[100dvh] bg-white py-12 md:mt-38">
+    <div className="mt-16 min-h-screen bg-white py-12 md:mt-38">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
           <h1 className="mb-4 text-3xl font-bold text-gray-900">

@@ -37,7 +37,7 @@ export default function FamousAlumni() {
     <>
       <div className="w-3/4 border-t border-gray-300"></div>
 
-      <section className="relative mb-36 h-[100dvh] w-full px-4 pt-21 md:mb-0">
+      <section className="relative mb-[90%] h-screen w-full px-4 pt-21 md:mb-0">
         {/* Mobile Alumni Row - Visible only on mobile */}
         <div className="md:hidden">
           <h2 className="mb-6 text-center text-3xl font-bold text-blue-900">
