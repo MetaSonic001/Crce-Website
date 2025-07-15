@@ -50,7 +50,7 @@ const DynamicSidebar: React.FC<DynamicSidebarProps> = ({
   return (
     <div className={`sidebar-container ${className}`}>
       {/* Desktop Sidebar */}
-      <div className="sticky top-0 hidden h-screen w-64 overflow-y-auto border-r border-gray-200 bg-white md:block">
+      <div className="sticky top-0 hidden h-[100dvh] w-64 overflow-y-auto border-r border-gray-200 bg-white md:block">
         <div className="py-4">
           <h2 className="mb-4 px-4 text-lg font-semibold text-gray-800">
             Navigation

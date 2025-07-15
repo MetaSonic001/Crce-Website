@@ -10,7 +10,7 @@ const zilla = Zilla_Slab({
 
 const CodeOfConduct = () => {
   return (
-    <div className="flex min-h-screen w-full flex-col">
+    <div className="flex min-h-[100dvh] w-full flex-col">
       <main className="container mx-auto p-4">
         <div className="rounded-lg bg-white p-6 shadow-lg">
           <h2 className="mb-4 text-2xl font-semibold">Code of Conduct</h2>

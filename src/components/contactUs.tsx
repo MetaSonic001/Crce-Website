@@ -19,7 +19,7 @@ const zilla = Zilla_Slab({
 
 const ContactUs = () => {
   return (
-    <div className="min-h-screen bg-linear-to-br pt-40 text-black">
+    <div className="min-h-[100dvh] bg-linear-to-br pt-40 text-black">
       <div className="container mx-auto px-4 py-16 pt-0 md:pt-10">
         <h1
           className={`${zilla.className} mb-12 text-center text-4xl font-bold sm:text-5xl`}

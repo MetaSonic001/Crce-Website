@@ -255,7 +255,7 @@ const CSEPage = () => {
   return (
     <div className="flex-row text-black">
       {/* Hero section */}
-      <section className="hero relative min-h-screen overflow-hidden text-white">
+      <section className="hero relative min-h-[100dvh] overflow-hidden text-white">
         <div className="absolute inset-0 z-0">
           <Image
             src="/college2.avif"
@@ -281,7 +281,7 @@ const CSEPage = () => {
         {/* Desktop Layout */}
         <div className="hidden md:flex md:pt-10 md:pl-10">
           {/* Dynamic Sidebar navigation */}
-          <div className="sticky top-0 h-screen w-auto">
+          <div className="sticky top-0 h-[100dvh] w-auto">
             <DynamicSidebar
               tabs={TABS}
               activeTab={tab}
@@ -291,7 +291,7 @@ const CSEPage = () => {
           </div>
 
           {/* Desktop content area */}
-          <div className="mx-2 max-h-screen flex-1 overflow-y-auto">
+          <div className="mx-2 max-h-[100dvh] flex-1 overflow-y-auto">
             <div id={tab} className="container mx-auto">
               {renderTabContent()}
             </div>

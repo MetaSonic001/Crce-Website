@@ -125,7 +125,7 @@ const ContactUs = () => {
   }
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-white to-[#E5F0FF] pt-40 text-gray-900 md:pt-40">
+    <div className="min-h-[100dvh] w-full bg-gradient-to-br from-white to-[#E5F0FF] pt-40 text-gray-900 md:pt-40">
       <div className="container mx-auto px-4 py-8 md:py-16">
         <h1
           className={`${zilla.className} mb-6 text-center text-3xl font-bold md:mb-12 md:text-5xl`}
@@ -408,4 +408,3 @@ const ContactUs = () => {
 }
 
 export default ContactUs
-

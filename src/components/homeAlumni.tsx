@@ -2,11 +2,10 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { adi, shaun, sharu, zane } from '@/app/files/files';
+import { adi, shaun, sharu, zane } from '@/app/files/files'
 // import { shaun } from '@/app/files/filess';
 // import { sharu } from '@files/files';
 // import { zane } from '@files/files';
-
 
 // Alumni data with actual images and information
 const alumniData = [
@@ -38,17 +37,17 @@ export default function FamousAlumni() {
     <>
       <div className="w-3/4 border-t border-gray-300"></div>
 
-      <section className="relative px-4 mb-36 md:mb-0 w-full h-screen pt-21 ">
+      <section className="relative mb-36 h-[100dvh] w-full px-4 pt-21 md:mb-0">
         {/* Mobile Alumni Row - Visible only on mobile */}
         <div className="md:hidden">
           <h2 className="mb-6 text-center text-3xl font-bold text-blue-900">
             Our Distinguished Alumni
           </h2>
-          <div className="flex overflow-x-auto gap-4 pb-6">
+          <div className="flex gap-4 overflow-x-auto pb-6">
             {alumniData.map((alumni) => (
-              <div 
-                key={alumni.id} 
-                className="flex-shrink-0 w-48 h-56 rounded-lg shadow-lg overflow-hidden"
+              <div
+                key={alumni.id}
+                className="h-56 w-48 flex-shrink-0 overflow-hidden rounded-lg shadow-lg"
               >
                 <div className="relative h-full w-full">
                   <Image
@@ -73,12 +72,12 @@ export default function FamousAlumni() {
         <div className="relative container mx-auto h-auto md:h-[650px]">
           <div className="relative h-full w-full">
             {/* Title - Visible on desktop, hidden on mobile */}
-            <h2 className="hidden font-serif md:block absolute top-20 left-10 z-10 text-center text-5xl font-bold text-blue-900">
+            <h2 className="absolute top-20 left-10 z-10 hidden text-center font-serif text-5xl font-bold text-blue-900 md:block">
               Our Distinguished <br /> Alumni
             </h2>
-            
+
             {/* Base Image */}
-            <div className="mx-auto md:mx-0 md:absolute md:top-0 md:left-1/3 h-64 md:h-[100%] w-full md:w-[30%] overflow-hidden rounded-lg shadow-lg mt-6 md:mt-0">
+            <div className="mx-auto mt-6 h-64 w-full overflow-hidden rounded-lg shadow-lg md:absolute md:top-0 md:left-1/3 md:mx-0 md:mt-0 md:h-[100%] md:w-[30%]">
               <div className="relative h-full w-full">
                 <Image
                   src={zane}
@@ -94,20 +93,20 @@ export default function FamousAlumni() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="relative md:absolute mt-6 md:mt-0 md:top-[70%] md:left-[55%] z-10 w-full md:w-72  rounded-lg bg-white p-6 shadow-xl"
+              className="relative z-10 mt-6 w-full rounded-lg bg-white p-6 shadow-xl md:absolute md:top-[70%] md:left-[55%] md:mt-0 md:w-72"
             >
               <h3 className="mb-3 text-lg font-bold text-blue-800">
                 Excellence in Every Field
               </h3>
-              <p className="mb-4 text-slate-700 text-sm">
+              <p className="mb-4 text-sm text-slate-700">
                 Our alumni have achieved remarkable success across various
                 industries, from technology and research to entrepreneurship and
                 innovation. Their accomplishments showcase our institution's
                 legacy of excellence.
               </p>
               <div className="mb-4 h-1 w-16 bg-blue-600" />
-              <Link 
-                href={'https://alumni.frcrce.ac.in/'} 
+              <Link
+                href={'https://alumni.frcrce.ac.in/'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block rounded-full bg-blue-600 px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
@@ -119,36 +118,36 @@ export default function FamousAlumni() {
             {/* Alumni Cards - Only visible on desktop */}
             <div className="hidden md:block">
               {alumniData.map((alumni, index) => (
-              <motion.div
-              key={alumni.id}
-              initial={{
-                opacity: 0,
-                x: (index - 1) * 100,
-                y: 50,
-                rotate: (index - 1) * 5,
-              }}
-              animate={{ 
-                opacity: 1, 
-                x: 0, 
-                y: [0, -10, 0],  // Added floating animation
-                // rotate: [(index - 1) * 5, (index - 1) * 5 + 5, (index - 1) * 5]  // Combined rotation
-              }}
-              transition={{ 
-                duration: 0.7,
-                delay: index * 0.2,
-                y: {
-                  repeat: Infinity,
-                  duration: 8,
-                  ease: 'easeInOut'
-                },
-                rotate: {
-                  repeat: Infinity,
-                  duration: 8,
-                  ease: 'easeInOut'
-                }
-              }}
-              className={`absolute ${getPosition(index)} z-20 overflow-hidden rounded-lg shadow-lg`}
-            >
+                <motion.div
+                  key={alumni.id}
+                  initial={{
+                    opacity: 0,
+                    x: (index - 1) * 100,
+                    y: 50,
+                    rotate: (index - 1) * 5,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                    y: [0, -10, 0], // Added floating animation
+                    // rotate: [(index - 1) * 5, (index - 1) * 5 + 5, (index - 1) * 5]  // Combined rotation
+                  }}
+                  transition={{
+                    duration: 0.7,
+                    delay: index * 0.2,
+                    y: {
+                      repeat: Infinity,
+                      duration: 8,
+                      ease: 'easeInOut',
+                    },
+                    rotate: {
+                      repeat: Infinity,
+                      duration: 8,
+                      ease: 'easeInOut',
+                    },
+                  }}
+                  className={`absolute ${getPosition(index)} z-20 overflow-hidden rounded-lg shadow-lg`}
+                >
                   <div className="relative h-full w-full">
                     <Image
                       src={alumni.image}

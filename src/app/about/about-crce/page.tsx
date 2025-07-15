@@ -31,7 +31,7 @@ export default function Page() {
 
   return (
     <main
-      className={`${montserrat.variable} min-h-screen bg-gradient-to-b from-blue-50 to-white pt-[191px] font-sans`}
+      className={`${montserrat.variable} min-h-[100dvh] bg-gradient-to-b from-blue-50 to-white pt-[191px] font-sans`}
     >
       {/* Hero Section - Enhanced with better typography and subtle animation */}
       <motion.div

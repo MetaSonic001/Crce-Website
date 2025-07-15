@@ -23,7 +23,7 @@ export default async function Page() {
   const data = await getSiteData(domain)
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100 px-4 pb-10 pt-32 lg:pt-48">
+    <div className="flex min-h-[100dvh] items-center justify-center bg-gray-100 px-4 pt-32 pb-10 lg:pt-48">
       <div className="w-full max-w-3xl overflow-hidden rounded-lg bg-white shadow-lg">
         <div className="bg-blue-600 py-4 text-center text-white">
           <h2 className="text-2xl font-bold"> {data.name}</h2>

@@ -2,9 +2,11 @@ import React from 'react'
 
 const ServiceRules = () => {
   return (
-    <div className="flex min-h-screen sm:w-full w-[90vw]  flex-col">
+    <div className="flex min-h-[100dvh] w-[90vw] flex-col sm:w-full">
       <main className="container mx-auto grow p-2 sm:p-4">
-        <div className="rounded-lg bg-white p-2 sm:p-6 shadow-lg">          <h2 className="mb-4 text-2xl font-semibold">Service Rules</h2>
+        <div className="rounded-lg bg-white p-2 shadow-lg sm:p-6">
+          {' '}
+          <h2 className="mb-4 text-2xl font-semibold">Service Rules</h2>
           <div className="h-[800px] w-full">
             {/* Adjust height as needed */}
             <object
