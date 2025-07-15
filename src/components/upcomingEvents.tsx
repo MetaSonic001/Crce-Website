@@ -46,7 +46,7 @@ const EventCards = () => {
   const totalPages = Math.ceil(events.data.length / itemsPerPage)
 
   return (
-    <div id="events" className="w-screen max-w-full bg-white px-4 py-8">
+    <div id="events" className="w-screen max-w-full bg-white px-4">
       {/* Title */}
       <div className="relative mt-10 mb-8 text-center">
         <div className="absolute inset-0 flex items-center justify-center">
@@ -167,10 +167,10 @@ const EventCards = () => {
               <h3 className="text-sm font-bold text-gray-800 sm:text-3xl">
                 {events.data[selectedEvent]?.title}
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium text-blue-600">
+              <p className="mt-2 text-xs font-medium text-blue-600 sm:text-sm">
                 {events.data[selectedEvent]?.date}
               </p>
-              <div className="prose prose-sm sm:prose text-left mt-2 text-xs sm:text-sm sm:mt-4 text-gray-700">
+              <div className="prose prose-sm sm:prose mt-2 text-left text-xs text-gray-700 sm:mt-4 sm:text-sm">
                 {events.data[selectedEvent]?.description}
               </div>
             </div>
