@@ -60,18 +60,18 @@ const RulesAndPoliciesPage = () => {
   return (
     <div className="flex h-fit w-full flex-col bg-linear-to-b from-white to-[#E5F0FF] px-2 text-gray-900">
       <div className="flex h-full w-full flex-col bg-white pt-24 md:flex-row">
-        <div className="flex w-full flex-col pt-18 text-[#00122a] sm:px-8 md:px-16 md:pt-36 lg:px-28">
+        <div className="flex w-full flex-col px-4 pt-18 text-[#00122a] sm:px-8 md:px-16 md:pt-36 lg:px-28">
           <h1
-            className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
+            className={`${zilla.className} mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
           >
             RULES & POLICIES
           </h1>
         </div>
       </div>
 
-      <div className="container mx-auto w-full p-4 px-0 md:p-0 md:px-28 md:py-16">
+      <div className="container mx-auto w-full p-4 px-4 md:p-0 md:px-28 md:py-16">
         <div className="mb-16">
-          <h2 className={`mb-6 text-2xl font-bold text-[#001f3f] md:text-2xl`}>
+          <h2 className={`${zilla.className} mb-6 text-2xl font-bold text-[#001f3f] md:text-2xl`}>
             Institutional Guidelines
           </h2>
           <div className="rounded-lg bg-white p-6 shadow-lg">
@@ -89,7 +89,7 @@ const RulesAndPoliciesPage = () => {
         </div>
 
         <div className="mb-16">
-          <h2 className={`mb-6 text-2xl font-bold text-[#001f3f] md:text-2xl`}>
+          <h2 className={`${zilla.className} mb-6 text-2xl font-bold text-[#001f3f] md:text-2xl`}>
             Important Documents
           </h2>
 
@@ -123,7 +123,7 @@ const RulesAndPoliciesPage = () => {
         </div>
 
         <div className="mb-16">
-          <h2 className={`mb-6 text-2xl font-bold text-[#001f3f] md:text-2xl`}>
+          <h2 className={`${zilla.className} mb-6 text-2xl font-bold text-[#001f3f] md:text-2xl`}>
             Compliance
           </h2>
           <div className="rounded-lg bg-white p-6 shadow-lg">

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Zilla_Slab } from 'next/font/google'
+
 const zilla = Zilla_Slab({
-  weight: ['300', '500', '700'],
+  weight: ['400', '700'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
   display: 'swap',
@@ -11,8 +12,8 @@ const Trustees = () => {
   const councilMembers = [
     { number: '1', name: 'Fr. Bento Rodrigues', designation: 'Chairman' },
     { number: '2', name: 'Fr. Alarico Carvalho', designation: 'Vice Chairman' },
-    { number: '3', name: 'Fr. Peter D’Souza', designation: 'Treasurer' },
-    { number: '4', name: 'Fr. Valerian D’Souza', designation: 'Secretary' },
+    { number: '3', name: "Fr. Peter D'Souza", designation: 'Treasurer' },
+    { number: '4', name: "Fr. Valerian D'Souza", designation: 'Secretary' },
     { number: '5', name: 'Fr. Agnelo Gomes', designation: 'Member' },
   ]
 
@@ -36,8 +37,8 @@ const Trustees = () => {
           {[
             ['1', 'Fr. Bento Rodrigues', 'Chairman'],
             ['2', 'Fr. Alarico Carvalho', 'Vice Chairman'],
-            ['3', 'Fr. Peter D’Souza', 'Treasurer'],
-            ['4', 'Fr. Valerian D’Souza', 'Secretary'],
+            ['3', "Fr. Peter D'Souza", 'Treasurer'],
+            ['4', "Fr. Valerian D'Souza", 'Secretary'],
             ['5', 'Fr. Agnelo Gomes', 'Member'],
           ].map((row, index) => (
             <tr

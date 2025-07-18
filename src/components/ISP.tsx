@@ -27,7 +27,7 @@ export default function InnovationPolicy() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <h2 className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
+              <h2 className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-3xl font-bold text-transparent md:text-4xl mt-24">
                 Innovation and Startup Policy
               </h2>
               <p className="mt-3 text-lg text-gray-600">

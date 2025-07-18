@@ -2,7 +2,6 @@
 import React from 'react'
 import Link from 'next/link'
 import { Zilla_Slab } from 'next/font/google'
-import Navigation from '@/components/navigation'
 import { BookOpen, Users, Award, BarChart, Calendar } from 'lucide-react'
 
 const zilla = Zilla_Slab({
@@ -13,11 +12,6 @@ const zilla = Zilla_Slab({
 })
 
 const TeachingLearningProcessPage = () => {
-  const navigationItems = [
-    { label: 'Academics', url: '/academics' },
-    { label: 'Teaching Learning Process', url: '/academics/teaching-learning' },
-  ]
-
   // Section data
   const sections = [
     {
@@ -122,27 +116,38 @@ const TeachingLearningProcessPage = () => {
   ]
 
   return (
-    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900">
-      {/* Header Section - Matching the IQAC style */}
+    <div className="flex h-fit w-full flex-col bg-linear-to-b from-white to-[#E5F0FF] px-2 text-gray-900">
       <div className="flex h-full w-full flex-col bg-white pt-24 md:flex-row">
-        <div className="flex w-full flex-col px-4 pt-8 text-[#00122a] sm:px-8 md:px-16 md:pt-36 lg:px-28">
+        <div className="flex w-full flex-col px-4 pt-18 text-[#00122a] sm:px-8 md:px-16 md:pt-36 lg:px-28">
           <h1
-            className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
+            className={`${zilla.className} mb-4 font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
           >
             TEACHING LEARNING PROCESS
           </h1>
         </div>
       </div>
 
-      <div className="container mx-auto w-full px-4 py-8 sm:px-8 md:px-16 md:py-16 lg:px-28">
+      <div className="container mx-auto w-full p-4 px-4 md:p-0 md:px-28 md:py-16">
+        <div className="mb-16">
+          <h2 className={`${zilla.className} mb-6 text-2xl font-bold text-[#001f3f] md:text-2xl`}>
+            Educational Excellence Framework
+          </h2>
+          <div className="rounded-lg bg-white p-6 shadow-lg">
+            <p className="mb-4 text-xl font-semibold text-[#4a90e2]">
+              "Structured Approach to Quality Education"
+            </p>
+            <p className="text-gray-700 mb-6">
+              Our teaching-learning process follows a systematic approach that integrates academic planning, innovative delivery methods, continuous assessment, and performance enhancement to ensure quality education and student success.
+            </p>
+          </div>
+        </div>
+
         {/* Our Teaching Learning Cycle */}
-        <section className="mb-8 md:mb-16">
-          <h2
-            className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-          >
+        <div className="mb-16">
+          <h2 className={`${zilla.className} mb-6 text-2xl font-bold text-[#001f3f] md:text-2xl`}>
             Our Teaching Learning Cycle
           </h2>
-          <div className="rounded-lg bg-white p-4 shadow-lg md:p-6">
+          <div className="rounded-lg bg-white p-6 shadow-lg">
             <div className="flex flex-wrap justify-between gap-4">
               {processSteps.map((step, index) => (
                 <div key={index} className="flex flex-col items-center">
@@ -159,30 +164,28 @@ const TeachingLearningProcessPage = () => {
               ))}
             </div>
           </div>
-        </section>
+        </div>
 
         {/* Main Content */}
         {sections.map((section) => (
-          <section key={section.id} className="mb-8 md:mb-16">
-            <h2
-              className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
-            >
+          <div key={section.id} className="mb-16">
+            <h2 className={`${zilla.className} mb-6 text-2xl font-bold text-[#001f3f] md:text-2xl`}>
               {section.title}
             </h2>
-            <div className="rounded-lg bg-white p-4 shadow-lg md:p-6">
+            <div className="rounded-lg bg-white p-6 shadow-lg">
               {section.content.text && (
-                <p className="mb-4 text-sm text-gray-700 md:text-base">
+                <p className="mb-6 text-gray-700">
                   {section.content.text}
                 </p>
               )}
               <div className="space-y-4">
                 {section.content.items.map((item, index) => (
                   <div key={index} className="flex items-start">
-                    <span className="mr-3 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-sm text-white md:mr-4 md:h-8 md:w-8 md:text-base">
+                    <span className="mr-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-white">
                       {index + 1}
                     </span>
                     <div className="flex-1">
-                      <p className="text-sm text-gray-700 md:text-base">
+                      <p className="text-gray-700">
                         {item}
                       </p>
                     </div>
@@ -190,17 +193,30 @@ const TeachingLearningProcessPage = () => {
                 ))}
               </div>
             </div>
-          </section>
+          </div>
         ))}
 
+        <div className="mb-16">
+          <h2 className={`${zilla.className} mb-6 text-2xl font-bold text-[#001f3f] md:text-2xl`}>
+            Continuous Improvement
+          </h2>
+          <div className="rounded-lg bg-white p-6 shadow-lg">
+            <p className="mb-4 text-gray-700">
+              Our teaching-learning process is designed to be dynamic and responsive to changing educational needs. We continuously evaluate and improve our methods based on student feedback, industry requirements, and academic best practices.
+            </p>
+            <p className="text-gray-700">
+              For more information about our teaching methodologies and academic processes, please contact the academic office or your respective department.
+            </p>
+          </div>
+        </div>
+
         {/* Call to Action */}
-        <div className="mt-6 flex justify-center md:mt-10">
+        <div className="flex justify-center">
           <a
             href="/teaching-learning-process.pdf"
-            className="flex items-center rounded-lg bg-[#4a90e2] px-4 py-3 text-sm font-semibold text-white transition-all hover:bg-[#3a7bc2] hover:shadow-lg sm:px-6 md:px-8 md:py-4 md:text-base"
+            className="rounded-lg bg-[#4a90e2] px-8 py-4 font-semibold text-white transition-all hover:bg-[#3a7bc2] hover:shadow-lg"
             download
           >
-            <BookOpen className="mr-2 h-4 w-4 md:h-5 md:w-5" />
             Download Teaching Learning Process PDF
           </a>
         </div>

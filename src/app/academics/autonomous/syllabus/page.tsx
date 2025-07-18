@@ -160,7 +160,7 @@ export default async function Page() {
       <div className="flex h-full w-full flex-col bg-white pt-24 md:flex-row">
         <div className="flex w-full flex-col px-4 pt-8 text-[#00122a] sm:px-8 md:px-16 md:pt-36 lg:px-28">
           <h1
-            className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
+            className={`${zilla.className} mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
           >
             AUTONOMOUS SYLLABUS
           </h1>
@@ -172,4 +172,3 @@ export default async function Page() {
     </div>
   )
 }
-
