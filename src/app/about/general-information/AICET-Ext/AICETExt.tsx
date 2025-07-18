@@ -4,11 +4,11 @@ const AICETExt = () => {
   return (
     <div className="flex min-h-screen w-full flex-col">
       <main className="container mx-auto grow p-4">
-        <div className="rounded-lg bg-white p-4 sm:p-6 shadow-lg">
-          <h2 className="mb-4 text-xl sm:text-2xl font-semibold">
+        <div className="rounded-lg bg-white p-4 shadow-lg sm:p-6">
+          <h2 className="mb-4 text-xl font-semibold sm:text-2xl">
             AICTE - Extension For Approval Letter 2023-24
           </h2>
-          <div className="h-[400px] sm:h-[500px] md:h-[600px] lg:h-[800px] w-full">
+          <div className="h-[400px] w-full sm:h-[500px] md:h-[600px] lg:h-[800px]">
             <object
               data="/AICTE_Approval_2023-24.pdf"
               type="application/pdf"

@@ -115,7 +115,10 @@ export default function HeroSection() {
                   Deadline: 8th July, 2024
                 </p>
                 <button className="group text-md w-full rounded-lg bg-gradient-to-r from-yellow-400 to-yellow-500 px-6 py-4 font-semibold text-gray-900 shadow-sm transition-all duration-300 hover:from-yellow-500 hover:to-yellow-600 hover:shadow-md focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2">
-                  <Link href={'/Admissions'} className="flex items-center justify-center gap-2">
+                  <Link
+                    href={'/Admissions'}
+                    className="flex items-center justify-center gap-2"
+                  >
                     Get Started
                     <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>

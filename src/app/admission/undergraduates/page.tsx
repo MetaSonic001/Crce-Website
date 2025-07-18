@@ -38,7 +38,7 @@ const HomePage = () => {
                   {link.text}
                 </div>
                 {link.sublinks.length > 0 && (
-                  <ul className="ml-4 mt-2 space-y-2 text-gray-600">
+                  <ul className="mt-2 ml-4 space-y-2 text-gray-600">
                     {link.sublinks.map((sublink, subindex) => (
                       <li key={subindex} className="hover:text-blue-600">
                         {sublink}

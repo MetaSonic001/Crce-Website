@@ -39,7 +39,7 @@ export default function NIRFRankingPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white py-12 md:mt-38 mt-16">
+    <div className="mt-16 min-h-screen bg-white py-12 md:mt-38">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
           <h1 className="mb-4 text-3xl font-bold text-gray-900">
@@ -52,42 +52,40 @@ export default function NIRFRankingPage() {
         </div>
 
         <div className="mb-2">
-            <div className="rounded-lg border bg-white p-6">
-              <h2 className="mb-4 text-xl font-semibold text-gray-900">
-                About NIRF
-              </h2>
-              <div className="space-y-4 text-gray-600">
-                <p>
-                  The National Institutional Ranking Framework (NIRF) was
-                  approved by the MHRD and launched by the Honourable Minister
-                  of Human Resource Development on 29th September 2015.
-                </p>
-                <p>
-                  This framework outlines a methodology to rank institutions
-                  across the country, based on parameters agreed upon by a Core
-                  Committee set up by MHRD.
-                </p>
-              </div>
-
-              <div className="mt-8">
-                <h3 className="mb-4 text-lg font-semibold">
-                  Ranking Parameters
-                </h3>
-                <ul className="space-y-2">
-                  {parameters.map((param, index) => (
-                    <li
-                      key={index}
-                      className="flex items-center gap-2 text-gray-700"
-                    >
-                      {param.icon}
-                      <span>{param.name}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <div className="rounded-lg border bg-white p-6">
+            <h2 className="mb-4 text-xl font-semibold text-gray-900">
+              About NIRF
+            </h2>
+            <div className="space-y-4 text-gray-600">
+              <p>
+                The National Institutional Ranking Framework (NIRF) was approved
+                by the MHRD and launched by the Honourable Minister of Human
+                Resource Development on 29th September 2015.
+              </p>
+              <p>
+                This framework outlines a methodology to rank institutions
+                across the country, based on parameters agreed upon by a Core
+                Committee set up by MHRD.
+              </p>
             </div>
+
+            <div className="mt-8">
+              <h3 className="mb-4 text-lg font-semibold">Ranking Parameters</h3>
+              <ul className="space-y-2">
+                {parameters.map((param, index) => (
+                  <li
+                    key={index}
+                    className="flex items-center gap-2 text-gray-700"
+                  >
+                    {param.icon}
+                    <span>{param.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
-        <div className="text-center m-2">
+        <div className="m-2 text-center">
           <button
             onClick={() => window.open('', '_blank')}
             className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"

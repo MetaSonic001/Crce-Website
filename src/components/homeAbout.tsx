@@ -6,8 +6,8 @@ import { ArrowRight, Building, CircleCheck } from 'lucide-react'
 
 const HomeAbout = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-16">
-      <div className="container mx-auto px-4">
+    <section className="relative overflow-hidden px-4 bg-white py-16">
+      <div className="container mx-auto">
         <div className="flex md:flex-col flex-col-reverse  gap-12 lg:grid lg:grid-cols-2 lg:gap-8">
           <motion.div
             initial={{ opacity: 0, x: -20 }}

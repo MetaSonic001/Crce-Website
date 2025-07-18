@@ -119,8 +119,8 @@ const NoticesSection: React.FC = () => {
     return <p className="text-red-500">Error: {(error as Error).message}</p>
 
   return (
-    <section id="notices" className="w-full bg-white py-10 text-black">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="notices" className="w-full bg-white py-10 px-4 text-black">
+      <div className="container mx-auto">
         <div className="relative mt-10 mb-8 text-center">
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-3/4 border-t border-gray-300"></div>

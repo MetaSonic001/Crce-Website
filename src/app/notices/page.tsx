@@ -207,7 +207,7 @@ const NoticesPage: React.FC = () => {
   const noticeTypes = ['all', 'exam', 'holiday', 'event']
 
   return (
-    <div className="min-h-screen md:mt-36 mt-24 bg-gray-50 py-12">
+    <div className="mt-24 min-h-screen bg-gray-50 py-12 md:mt-36">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-12 text-center">

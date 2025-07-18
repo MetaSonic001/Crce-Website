@@ -139,7 +139,7 @@ const dropdownContent: DropdownContent = {
     },
     {
       name: 'Examination',
-      href: '/academics/grading-process',
+      href: '/academics/examination',
       icon: <ClipboardCheck size={18} />,
     },
     {
@@ -339,12 +339,16 @@ const Navbar: React.FC = () => {
               <Link
                 href="http://granth.fragnel.edu.in:5186/pinfo/index.php"
                 className="transition duration-300 hover:text-yellow-300"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Students
+                Students Information
               </Link>
               <Link
                 href="https://frcrce.ac.in/images/2023/02/College_Committees_2023-24.pdf"
                 className="transition duration-300 hover:text-yellow-300"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Faculty & Staff
               </Link>
@@ -352,24 +356,30 @@ const Navbar: React.FC = () => {
               <Link
                 href="https://alumni.frcrce.ac.in/"
                 className="transition duration-300 hover:text-yellow-300"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Alumni
               </Link>
               <Link
-                href="https://frcrce.ac.in/index.php/academics/examination/exam-process"
+                href="/academics/examination"
                 className="transition duration-300 hover:text-yellow-300"
               >
                 Examinations
               </Link>
               <Link
-                href="https://mail.crce.edu.in/webMail/src/login.phpA"
+                href="http://mail.crce.edu.in/webMail/"
                 className="transition duration-300 hover:text-yellow-300"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Student Mail Service
               </Link>
               <Link
-                href="https://ldap.fragnel.edu.in/sso/module.php/core/loginuserpass.php?AuthState=_6b157699dea50ff48aabaaecd16e081fa7068b966f%3Ahttps%3A%2F%2Fldap.fragnel.edu.in%2Fsso%2Fsaml2%2Fidp%2FSSOService.php%3Fspentityid%3Dgoogle.com%26cookieTime%3D1726659075%26RelayState%3Dhttps%253A%252F%252Fwww.google.com%252Fa%252Ffragnel.edu.in%252FServiceLogin%253Fservice%253Dmail%2526passive%253Dtrue%2526rm%253Dfalse%2526continue%253Dhttps%25253A%25252F%25252Fmail.google.com%25252Fmail%25252F%2526ss%253D1%2526ltmpl%253Ddefault%2526ltmplcache%253D2%2526emr%253D1%2526osid%253D1"
+                href="http://mail.google.com/a/fragnel.edu.in/"
                 className="transition duration-300 hover:text-yellow-300"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Agnel Staff E-mail
               </Link>
@@ -549,17 +559,52 @@ const Navbar: React.FC = () => {
 
           {/* Additional Links */}
           <div className="mt-6 space-y-2">
-            <Link href="/news" className="block py-2 text-sm">
-              News
+            <Link href="/notices" className="block py-2 text-sm">
+              Notices
             </Link>
-            <Link href="/events" className="block py-2 text-sm">
-              Events
+            <Link
+              href="http://granth.fragnel.edu.in:5186/pinfo/index.php"
+              className="block py-2 text-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Students Information
             </Link>
-            <Link href="/careers" className="block py-2 text-sm">
-              Work at FrCrce
+            <Link
+              href="https://frcrce.ac.in/images/2023/02/College_Committees_2023-24.pdf"
+              className="block py-2 text-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Faculty & Staff
             </Link>
-            <Link href="/student-links" className="block py-2 text-sm">
-              Student Links
+
+            <Link
+              href="https://alumni.frcrce.ac.in/"
+              className="block py-2 text-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Alumni
+            </Link>
+            <Link href="/academics/examination" className="block py-2 text-sm">
+              Examinations
+            </Link>
+            <Link
+              href="http://mail.crce.edu.in/webMail/"
+              className="block py-2 text-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Student Mail Service
+            </Link>
+            <Link
+              href="http://mail.google.com/a/fragnel.edu.in/"
+              className="block py-2 text-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Agnel Staff E-mail
             </Link>
           </div>
         </div>
