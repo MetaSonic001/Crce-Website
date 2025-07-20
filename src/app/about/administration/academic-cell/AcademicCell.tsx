@@ -11,47 +11,33 @@ const AcademicCell = () => {
   ]
 
   return (
-    <div className="flex min-h-max sm:w-full w-[90vw]  flex-col">
+    <div className="flex min-h-max sm:w-full w-[90vw] flex-col">
       <main className="container mx-auto grow p-2 sm:p-4">
         <div className="rounded-lg bg-white p-2 sm:p-6 shadow-lg">
           <h2 className="mb-6 text-2xl font-semibold">Academic Cell</h2>
-          <section className="mx-auto mb-10 w-full lg:w-[70%]">
-            <div className="overflow-x-auto">
-              <table className="min-w-full border-collapse rounded-lg bg-white shadow-md">
-                <thead className="bg-[#001f3f] text-white">
-                  <tr>
-                    <th className="border border-gray-300 p-3 text-sm lg:text-base">
-                      Sr.
-                    </th>
-                    <th className="border border-gray-300 p-3 text-sm lg:text-base">
-                      Name
-                    </th>
-                    <th className="border border-gray-300 p-3 text-sm lg:text-base">
-                      Designation
-                    </th>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse rounded-lg bg-white shadow-md">
+              <thead className="bg-[#001f3f] text-white">
+                <tr>
+                  <th className="border border-gray-300 p-3">Sr.</th>
+                  <th className="border border-gray-300 p-3">Name</th>
+                  <th className="border border-gray-300 p-3">Designation</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((row, index) => (
+                  <tr
+                    key={index}
+                    className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}
+                  >
+                    <td className="border border-gray-300 p-3">{row[0]}</td>
+                    <td className="border border-gray-300 p-3">{row[1]}</td>
+                    <td className="border border-gray-300 p-3">{row[2]}</td>
                   </tr>
-                </thead>
-                <tbody>
-                  {data.map((row, index) => (
-                    <tr
-                      key={index}
-                      className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}
-                    >
-                      <td className="border border-gray-300 p-2 text-sm lg:p-3 lg:text-base">
-                        {row[0]}
-                      </td>
-                      <td className="border border-gray-300 p-2 text-sm lg:p-3 lg:text-base">
-                        {row[1]}
-                      </td>
-                      <td className="border border-gray-300 p-2 text-sm lg:p-3 lg:text-base">
-                        {row[2]}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </main>
     </div>

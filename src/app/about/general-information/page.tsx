@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Zilla_Slab } from 'next/font/google'
 import Image from 'next/image'
 import { BookOpenText } from 'lucide-react'
@@ -19,6 +19,7 @@ const zilla = Zilla_Slab({
   subsets: ['latin'],
   display: 'swap',
 })
+
 export default function Page() {
   const [activeTab, setActiveTab] = useState(tabs[0]?.id || 'overview')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -63,7 +64,7 @@ export default function Page() {
         </button>
       </div>
       
-      <div className="flex h-fit w-full flex-col justify-center bg-linear-to-b from-white to-[#E5F0FF] py-4 md:flex-row">
+      <div className="flex h-fit w-full flex-col justify-center bg-gradient-to-b from-white to-[#E5F0FF] py-4 md:flex-row">
         <div className={`px-4 w-full md:w-auto md:min-w-[250px] lg:min-w-[300px] transition-all duration-300 ${mobileMenuOpen ? 'block' : 'hidden md:block'}`}>
           <div className="sticky top-24 md:top-32">
             <Sidebar

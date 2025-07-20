@@ -12,6 +12,16 @@ const zilla = Zilla_Slab({
   display: 'swap',
 })
 
+interface MOUData {
+  organization: string
+  description: string
+  link: string
+}
+
+interface CategoryCounts {
+  [key: string]: number
+}
+
 const MOUCollaborationPage = () => {
   const navigationItems = [
     { label: 'Academics', url: '/academics' },
@@ -22,7 +32,7 @@ const MOUCollaborationPage = () => {
   const [filter, setFilter] = useState('all')
 
   // Define MOU data
-  const mouData = [
+  const mouData: MOUData[] = [
     {
       organization: 'Brillmax Private Limited',
       description:
@@ -182,7 +192,7 @@ const MOUCollaborationPage = () => {
   ]
 
   // Group MOUs by category
-  const categories = {
+  const categories: { [key: string]: string[] } = {
     'Technology Partners': [
       'Amazon Web Services (AWS)',
       'D-LINK',
@@ -241,11 +251,11 @@ const MOUCollaborationPage = () => {
     }
 
     return filtered
-  }, [searchTerm, filter, mouData])
+  }, [searchTerm, filter])
 
   // Count MOUs in each category for the stats
-  const categoryCounts = Object.entries(categories).reduce(
-    (acc, [category, orgs]) => {
+  const categoryCounts: CategoryCounts = Object.entries(categories).reduce(
+    (acc: CategoryCounts, [category, orgs]) => {
       acc[category] = orgs.length
       return acc
     },
@@ -255,26 +265,26 @@ const MOUCollaborationPage = () => {
   return (
     <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900">
       {/* Header Section - Matching the IQAC style */}
-      <div className="flex h-full w-full flex-col bg-white pt-24 md:flex-row">
-        <div className="flex w-full flex-col px-4 pt-8 text-[#00122a] sm:px-8 md:px-16 md:pt-36 lg:px-28">
+      <div className="flex h-full w-full flex-col bg-white pt-16 md:pt-24 md:flex-row">
+        <div className="flex w-full flex-col px-4 sm:px-8 md:px-28 pt-20 md:pt-32 text-[#00122a]">
           <h1
-            className={`mb-4 font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
+            className={`mb-4 flex items-center justify-center text-center font-serif text-xl sm:text-2xl font-bold md:text-3xl lg:text-4xl`}
           >
             MOU & COLLABORATIONS
           </h1>
         </div>
       </div>
 
-      <div className="container mx-auto w-full px-4 py-8 sm:px-8 md:px-16 md:py-16 lg:px-28">
+      <div className="container mx-auto w-full px-4 sm:px-8 md:px-28 py-8 md:py-16">
         {/* About MOU Section */}
         <section className="mb-8 md:mb-16">
           <h2
-            className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
+            className={`mb-4 md:mb-6 text-xl md:text-2xl font-bold text-[#001f3f]`}
           >
             About Our Collaborations
           </h2>
-          <div className="rounded-lg bg-white p-4 shadow-lg md:p-6">
-            <p className="mb-4 text-sm text-gray-700 md:text-base">
+          <div className="rounded-lg bg-white p-4 md:p-6 shadow-lg">
+            <p className="mb-4 text-sm sm:text-base text-gray-700">
               The institute has signed various Memorandums of Understanding with
               several Companies, Foreign Universities, Institutes of national
               and international repute, and Technology Providers to provide
@@ -283,47 +293,49 @@ const MOUCollaborationPage = () => {
               and co-curricular activities.
             </p>
 
-            {/* Stats section */}
-            <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
-              <div className="rounded-lg bg-[#4a90e2]/10 p-3 text-center">
-                <p className="text-xl font-bold text-[#001f3f] md:text-2xl">
+            {/* Stats section - improved mobile layout */}
+            <div className="mt-6 grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-6">
+              <div className="rounded-lg bg-[#4a90e2]/10 p-2 sm:p-3 text-center">
+                <p className="text-lg sm:text-xl md:text-2xl font-bold text-[#001f3f]">
                   {mouData.length}
                 </p>
-                <p className="text-xs md:text-sm">Total Partnerships</p>
+                <p className="text-xs sm:text-sm">Total</p>
               </div>
               {Object.entries(categoryCounts).map(([category, count]) => (
                 <div
                   key={category}
-                  className="rounded-lg bg-[#4a90e2]/10 p-3 text-center"
+                  className="rounded-lg bg-[#4a90e2]/10 p-2 sm:p-3 text-center"
                 >
-                  <p className="text-xl font-bold text-[#001f3f] md:text-2xl">
+                  <p className="text-lg sm:text-xl md:text-2xl font-bold text-[#001f3f]">
                     {count}
                   </p>
-                  <p className="text-xs md:text-sm">{category}</p>
+                  <p className="text-xs sm:text-sm break-words">
+                    {category.split(' ')[0]}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Search and Filter Section */}
+        {/* Search and Filter Section - improved mobile layout */}
         <section className="mb-8 md:mb-16">
           <h2
-            className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
+            className={`mb-4 md:mb-6 text-xl md:text-2xl font-bold text-[#001f3f]`}
           >
             Find Collaborations
           </h2>
-          <div className="rounded-lg bg-white p-4 shadow-lg md:p-6">
-            <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+          <div className="rounded-lg bg-white p-4 md:p-6 shadow-lg">
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div className="relative w-full md:w-1/2">
                 <Search
-                  className="absolute top-1/2 left-3 -translate-y-1/2 transform text-gray-400"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-400"
                   size={20}
                 />
                 <input
                   type="text"
-                  placeholder="Search organizations or descriptions..."
-                  className="w-full rounded-lg border py-3 pr-4 pl-10 focus:ring-2 focus:ring-[#4a90e2] focus:outline-none"
+                  placeholder="Search organizations..."
+                  className="w-full rounded-lg border py-2.5 sm:py-3 pl-10 pr-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#4a90e2]"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -331,11 +343,11 @@ const MOUCollaborationPage = () => {
 
               <div className="relative w-full md:w-auto">
                 <Filter
-                  className="absolute top-1/2 left-3 -translate-y-1/2 transform text-gray-400"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-400"
                   size={20}
                 />
                 <select
-                  className="w-full appearance-none rounded-lg border bg-white py-3.5 pr-4 pl-10 focus:ring-2 focus:ring-[#4a90e2] focus:outline-none md:w-60"
+                  className="w-full appearance-none rounded-lg border bg-white py-2.5 sm:py-3.5 pl-10 pr-10 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#4a90e2] md:w-60"
                   value={filter}
                   onChange={(e) => setFilter(e.target.value)}
                 >
@@ -351,16 +363,16 @@ const MOUCollaborationPage = () => {
           </div>
         </section>
 
-        {/* MOU Cards Section */}
+        {/* MOU Cards Section - improved mobile layout */}
         <section className="mb-8 md:mb-16">
           <h2
-            className={`mb-4 text-xl font-bold text-[#001f3f] md:mb-6 md:text-2xl`}
+            className={`mb-4 md:mb-6 text-xl md:text-2xl font-bold text-[#001f3f]`}
           >
             Our Partner Organizations
           </h2>
-          <div className="rounded-lg bg-white p-4 shadow-lg md:p-6">
+          <div className="rounded-lg bg-white p-4 md:p-6 shadow-lg">
             {filteredMouData.length > 0 ? (
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {filteredMouData.map((mou, index) => {
                   // Find the category for this MOU
                   const category =
@@ -369,7 +381,7 @@ const MOUCollaborationPage = () => {
                     )?.[0] || 'Other'
 
                   // Generate color based on category
-                  const categoryColors = {
+                  const categoryColors: { [key: string]: string } = {
                     'Technology Partners': 'border-blue-500 bg-blue-50',
                     'Educational Institutions': 'border-green-500 bg-green-50',
                     'Corporate Partners': 'border-purple-500 bg-purple-50',
@@ -378,32 +390,32 @@ const MOUCollaborationPage = () => {
                     Other: 'border-gray-500 bg-gray-50',
                   }
 
-                  const colorClass = categoryColors[category]
+                  const colorClass = categoryColors[category] || categoryColors.Other
 
                   return (
                     <div
                       key={index}
-                      className={`rounded-xl border-l-4 ${colorClass} p-6 shadow-md transition-shadow duration-300 hover:shadow-lg`}
+                      className={`rounded-xl border-l-4 ${colorClass} p-4 sm:p-6 shadow-md transition-shadow duration-300 hover:shadow-lg`}
                     >
                       <div className="mb-2 text-xs font-medium text-gray-500">
                         {category}
                       </div>
                       <h2
-                        className={`${zilla.className} mb-3 text-xl font-bold text-[#001f3f]`}
+                        className={`${zilla.className} mb-3 text-lg sm:text-xl font-bold text-[#001f3f]`}
                       >
                         {mou.organization}
                       </h2>
-                      <p className="mb-4 text-sm text-gray-700 md:text-base">
+                      <p className="mb-4 text-sm sm:text-base text-gray-700 line-clamp-4">
                         {mou.description}
                       </p>
                       {mou.link && (
                         <a
                           href={mou.link}
-                          className="mt-auto flex items-center text-blue-600 transition-colors hover:text-blue-800"
+                          className="mt-auto flex items-center text-sm sm:text-base text-blue-600 transition-colors hover:text-blue-800"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          Visit Website{' '}
+                          Visit Website
                           <ExternalLink size={16} className="ml-1" />
                         </a>
                       )}
@@ -412,8 +424,8 @@ const MOUCollaborationPage = () => {
                 })}
               </div>
             ) : (
-              <div className="rounded-lg bg-white p-10 text-center shadow">
-                <p className="text-lg text-gray-500">
+              <div className="rounded-lg bg-white p-6 sm:p-10 text-center">
+                <p className="text-base sm:text-lg text-gray-500">
                   No collaborations found matching your search criteria.
                 </p>
                 <button
@@ -421,7 +433,7 @@ const MOUCollaborationPage = () => {
                     setSearchTerm('')
                     setFilter('all')
                   }}
-                  className="mt-4 rounded-lg bg-[#4a90e2] px-4 py-2 text-white hover:bg-[#3a80d2]"
+                  className="mt-4 rounded-lg bg-[#4a90e2] px-4 py-2 text-sm sm:text-base text-white hover:bg-[#3a80d2]"
                 >
                   Clear filters
                 </button>

@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Zilla_Slab } from 'next/font/google'
 import Image from 'next/image'
 import { BookOpenText } from 'lucide-react'
@@ -22,8 +22,10 @@ const zilla = Zilla_Slab({
   subsets: ['latin'],
   display: 'swap',
 })
+
 export default function Page() {
   const [activeTab, setActiveTab] = useState(tabs[0]?.id || 'overview')
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const renderContent = () => {
     switch (activeTab) {
@@ -45,31 +47,47 @@ export default function Page() {
         return <ServiceRules />
       case 'staffincharges':
         return <StaffIncharge />
-
       default:
         return null
     }
   }
 
+  // Function to handle tab change and close mobile menu when a tab is selected
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId)
+    setMobileMenuOpen(false)
+  }
+
   return (
-    <div className="flex-row">
-      <main className="mt-25 flex h-fit w-full flex-col items-center justify-center md:mt-52">
-        <div className="flex h-fit w-full flex-col justify-center bg-linear-to-b from-white to-[#E5F0FF] py-4 md:flex-row">
-          <div className="mx-2 flex min-w-max md:pt-10 md:pl-10">
+    <main className="flex h-fit w-full flex-col items-center justify-center mt-28 sm:mt-36 md:mt-40 lg:mt-52">
+      {/* Mobile menu toggle button */}
+      <div className="w-full px-4 mb-4 md:hidden">
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="flex items-center justify-between w-full p-3 bg-blue-50 rounded-md border border-gray-200"
+        >
+          <span className="font-medium">Menu - {tabs.find(tab => tab.id === activeTab)?.title || 'Overview'}</span>
+          <span className="transform transition-transform duration-200">
+            {mobileMenuOpen ? '▲' : '▼'}
+          </span>
+        </button>
+      </div>
+      
+      <div className="flex h-fit w-full flex-col justify-center bg-gradient-to-b from-white to-[#E5F0FF] py-4 md:flex-row">
+        <div className={`px-4 w-full md:w-auto md:min-w-[250px] lg:min-w-[300px] transition-all duration-300 ${mobileMenuOpen ? 'block' : 'hidden md:block'}`}>
+          <div className="sticky top-24 md:top-32">
             <Sidebar
               tabs={tabs}
               activeTab={activeTab}
-              onTabChange={(tabId) => setActiveTab(tabId)}
-              AccordionContent={renderContent()}
+              onTabChange={handleTabChange}
+              AccordionContent={null}
             />
           </div>
-          <div className="mx-2 flex-1 flex-col overflow-x-hidden overflow-y-scroll">
-            <div id={activeTab} className="container mx-auto hidden md:flex">
-              {renderContent()}
-            </div>
-          </div>
         </div>
-      </main>
-    </div>
+        <div id={activeTab} className="w-full px-4 md:px-6 lg:px-8 py-4">
+          {renderContent()}
+        </div>
+      </div>
+    </main>
   )
 }
