@@ -109,8 +109,8 @@ export default function Page() {
         <div className="mx-auto w-full px-4 pt-36 text-[#00122a] sm:px-8 md:px-16 md:pt-36 lg:px-28">
           <div className="relative text-center">
             <h1
-              className={`mb-4 flex items-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
-            >
+            className={`mb-4 flex items-center justify-center text-center font-serif text-2xl sm:text-2xl font-bold md:text-3xl lg:text-4xl`}
+          >
               Notices
             </h1>
           </div>

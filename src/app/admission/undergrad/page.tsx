@@ -164,20 +164,19 @@ export default function Home() {
             objectFit="cover"
             quality={100}
           />
-          <div className="absolute inset-0 bg-blue-950 opacity-70"></div>
         </div>
         <div className="relative z-10 container mx-auto flex h-full flex-col justify-center px-6 py-24 sm:px-12 sm:py-32 md:px-20 md:py-40 lg:px-28 lg:py-48">
           <div className="mt-20 max-w-3xl sm:mt-32 md:mt-40 lg:mt-52">
             <h1 className="mb-6 text-3xl leading-tight font-bold sm:text-4xl md:text-5xl lg:text-6xl">
               MOULDING ENGINEERS WHO CAN BUILD THE NATION
             </h1>
-            <p className="mb-8 text-lg text-blue-100 sm:text-xl md:text-2xl">
+            <p className="mb-8 text-lg text-gray-100 sm:text-xl md:text-2xl">
               Join a community of innovative thinkers and future leaders at
               FR.CRCE
             </p>
             <a
               href="#admissions"
-              className="inline-block rounded-full bg-[#00122a] px-6 py-2 font-semibold text-white transition-colors hover:bg-[#002452] sm:px-8 sm:py-3"
+              className="inline-block rounded-full bg-white px-6 py-2 font-semibold text-[#001f3f] transition-colors hover:bg-gray-100 sm:px-8 sm:py-3"
             >
               Explore Admissions
             </a>

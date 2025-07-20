@@ -4,17 +4,15 @@ import React from 'react'
 const PDFViewerPage = () => {
   return (
     <div className="absolute top-0 flex h-fit w-full flex-col items-center justify-center bg-linear-to-b from-white to-[#E5F0FF]">
-      <header className="h-full w-full bg-linear-to-br from-[#001f3f] to-[#003366] p-6 pt-32 text-center text-white md:pt-48">
-        <h1 className="text-2xl font-bold">
-          STUDENT GRIEVANCE REDRESSAL POLICY
-        </h1>
-      </header>
+    
 
-      <main className="container mx-auto my-8 grow p-4">
-        <div className="mb-8 rounded-lg bg-white p-6 shadow-md">
-          <h2 className="mb-4 text-2xl font-semibold">
+      <main className="container mx-auto my-8 grow ">
+        <div className="mb-8 rounded-lg bg-white p-6  mt-28 md:mt-40 shadow-md">
+          <h1
+            className={`mb-4 flex items-center justify-center text-center font-serif text-xl sm:text-2xl font-bold md:text-3xl lg:text-4xl`}
+          >
             STUDENT GRIEVANCE REDRESSAL POLICY
-          </h2>
+          </h1>
           <div className="h-[800px] w-full">
             {' '}
             {/* Adjust height as needed */}

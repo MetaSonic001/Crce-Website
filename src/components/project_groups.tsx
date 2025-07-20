@@ -43,7 +43,7 @@ export default function ProjectGroups_page() {
       <div className="flex h-full w-full flex-col md:flex-row">
         <div className="flex w-full flex-col px-4 pt-24 text-[#00122a] md:px-28 md:pt-20">
           <h1
-            className={`mb-4 flex items-center justify-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
+            className={`mb-4 flex items-center justify-center text-center font-serif text-xl sm:text-2xl font-bold md:text-3xl lg:text-4xl`}
           >
             PROJECT GROUPS
           </h1>
