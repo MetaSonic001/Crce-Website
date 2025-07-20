@@ -176,7 +176,7 @@ const dropdownContent: DropdownContent = {
   Students: [
     {
       name: 'Campus Placements',
-      href: '/international/programs',
+      href: '/students/placements',
       icon: <Briefcase size={18} />,
     },
     {

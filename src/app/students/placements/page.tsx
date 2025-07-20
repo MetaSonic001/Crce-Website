@@ -15,8 +15,8 @@ const PlacementsPage = () => {
       {/* Header Section */}
       <div className="flex h-full w-full flex-col bg-white">
         <div className="flex w-full flex-col px-4 pt-36 text-[#00122a] sm:px-8 md:px-16 md:pt-16 lg:px-28">
-          <h1
-            className={`mb-4 font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
+           <h1
+            className={`mb-4 flex items-center justify-center text-center font-serif text-xl sm:text-2xl font-bold md:text-3xl lg:text-4xl`}
           >
             CAMPUS PLACEMENTS
           </h1>
