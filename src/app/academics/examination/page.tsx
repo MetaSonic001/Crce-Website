@@ -25,9 +25,12 @@ const CreditBasedEvaluationSystem = () => {
       case 'scheme':
         return (
           <div className="p-6">
-            <h2 className={`${zilla.className} mb-4 text-2xl font-bold text-[#001f3f] md:text-2xl`}>
+        <h1
+            className={`mb-4 flex items-center justify-center text-center font-serif text-xl sm:text-2xl font-bold md:text-3xl lg:text-4xl`}
+          >
+           
               Scheme of Examination
-            </h2>
+            </h1>
             <p className="text-gray-700">
               The performance of the learners shall be evaluated into two
               components. The learner's performance shall be assessed by
@@ -228,8 +231,8 @@ const CreditBasedEvaluationSystem = () => {
     <div className="flex h-fit w-full flex-col bg-linear-to-b from-white to-[#E5F0FF] px-2 text-gray-900">
       <div className="flex h-full w-full flex-col bg-white pt-24 md:flex-row">
         <div className="flex w-full flex-col px-4 pt-18 text-[#00122a] sm:px-8 md:px-16 md:pt-36 lg:px-28">
-          <h1
-            className={`${zilla.className} mb-4 flex items-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
+           <h1
+            className={`mb-4 flex items-center justify-center text-center font-serif text-xl sm:text-2xl font-bold md:text-3xl lg:text-4xl`}
           >
             CREDIT BASED EVALUATION SYSTEM
           </h1>

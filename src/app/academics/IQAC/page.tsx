@@ -38,7 +38,7 @@ const IQACPage = () => {
       case 'about':
         return (
           <div>
-            <p className="text-sm md:text-base text-gray-700 mb-4">
+            <p className="mb-4 text-sm text-gray-700 md:text-base">
               National Assessment and Accreditation Council (NAAC), Bangalore
               proposed that every accredited institution should establish an
               Internal Quality Assurance Cell (IQAC) as a quality sustenance
@@ -46,7 +46,7 @@ const IQACPage = () => {
               IQAC is a part of the institution's system and works towards the
               realisation of the goals of quality enhancement and sustenance.
             </p>
-            <p className="text-sm md:text-base text-gray-700">
+            <p className="text-sm text-gray-700 md:text-base">
               The work of the IQAC is the first step towards the internalization
               and institutionalization of quality enhancement initiatives. Its
               success depends upon the sense of belongingness and participation
@@ -55,41 +55,41 @@ const IQACPage = () => {
             </p>
           </div>
         )
-      
+
       case 'vision':
         return (
           <div>
-            <p className="text-sm md:text-base text-gray-700">
+            <p className="text-sm text-gray-700 md:text-base">
               To ensure quality culture as the prime concern for the Higher
               Education Institutions through institutionalizing and
-              internalizing all the initiatives taken with internal and
-              external support.
+              internalizing all the initiatives taken with internal and external
+              support.
             </p>
           </div>
         )
-      
+
       case 'objectives':
         return (
           <div>
-            <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
+            <ul className="list-disc space-y-2 pl-5 text-sm text-gray-700 md:text-base">
               <li>
                 To develop a system for conscious, consistent and catalytic
-                action to improve the academic and administrative
-                performance of the institution.
+                action to improve the academic and administrative performance of
+                the institution.
               </li>
               <li>
                 To promote measures for institutional functioning towards
-                quality enhancement through internalization of quality
-                culture and institutionalization of best practices.
+                quality enhancement through internalization of quality culture
+                and institutionalization of best practices.
               </li>
             </ul>
           </div>
         )
-      
+
       case 'strategies':
         return (
           <div>
-            <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
+            <ul className="list-disc space-y-2 pl-5 text-sm text-gray-700 md:text-base">
               {[
                 'Ensuring the timely, efficient and progressive performance of academic, administrative and financial tasks;',
                 'Relevant and quality academic/ research programmes;',
@@ -104,11 +104,11 @@ const IQACPage = () => {
             </ul>
           </div>
         )
-      
+
       case 'functions':
         return (
           <div>
-            <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
+            <ul className="list-disc space-y-2 pl-5 text-sm text-gray-700 md:text-base">
               {[
                 'Development and application of quality benchmarks;',
                 'Parameters for various academic and administrative activities of the institution;',
@@ -127,11 +127,11 @@ const IQACPage = () => {
             </ul>
           </div>
         )
-      
+
       case 'benefits':
         return (
           <div>
-            <ul className="text-sm md:text-base text-gray-700 list-disc pl-5 space-y-2">
+            <ul className="list-disc space-y-2 pl-5 text-sm text-gray-700 md:text-base">
               {[
                 'Ensure clarity and focus in institutional functioning towards quality enhancement;',
                 'Ensure internalization of the quality culture;',
@@ -145,11 +145,11 @@ const IQACPage = () => {
             </ul>
           </div>
         )
-      
+
       case 'composition':
         return (
           <div>
-            <p className="mb-4 text-sm md:text-base text-gray-700">
+            <p className="mb-4 text-sm text-gray-700 md:text-base">
               The composition of IQAC consists of:
             </p>
 
@@ -157,8 +157,8 @@ const IQACPage = () => {
               <table className="min-w-full border border-gray-300 bg-white text-center text-sm md:text-base">
                 <thead className="bg-[#012146] text-white">
                   <tr>
-                    <th className="p-2 w-[10%]">No.</th>
-                    <th className="p-2 w-[90%] text-left">Designation</th>
+                    <th className="w-[10%] p-2">No.</th>
+                    <th className="w-[90%] p-2 text-left">Designation</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -180,11 +180,17 @@ const IQACPage = () => {
                     { id: 15, title: `Stakeholder's Nominee (Parent)1` },
                     { id: 16, title: 'Entrepreneur' },
                     { id: 17, title: 'Nominee from Industry' },
-                    { id: 18, title: 'Nominee of the Student- General Secretary' },
+                    {
+                      id: 18,
+                      title: 'Nominee of the Student- General Secretary',
+                    },
                     { id: 19, title: 'NAAC and NBA Co-ordinator' },
                     { id: 20, title: 'NIRF Co-ordinator' },
                   ].map((item, index) => (
-                    <tr key={item.id} className={index % 2 === 0 ? 'bg-gray-50' : ''}>
+                    <tr
+                      key={item.id}
+                      className={index % 2 === 0 ? 'bg-gray-50' : ''}
+                    >
                       <td className="p-2">{item.id}</td>
                       <td className="p-2 text-left">{item.title}</td>
                     </tr>
@@ -194,26 +200,28 @@ const IQACPage = () => {
             </div>
           </div>
         )
-      
+
       default:
         return null
     }
   }
 
   return (
-    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 mt-44">
+    <div className="mt-28 flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 md:mt-40">
       {/* Header Section */}
       <div className="flex h-full w-full flex-col bg-white pt-12 md:pt-16">
-        <div className="flex w-full flex-col px-4 sm:px-8 md:px-16 lg:px-24 pb-6 md:pb-8 text-[#00122a]">
-          <h1 className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}>
+        <div className="flex w-full flex-col px-4 pb-6 text-[#00122a] sm:px-8 md:px-16 md:pb-8 lg:px-24">
+           <h1
+            className={`mb-4 flex items-center justify-center text-center font-serif text-xl sm:text-2xl font-bold md:text-3xl lg:text-4xl`}
+          >
             IQAC - INTERNAL QUALITY ASSESSMENT CELL
           </h1>
         </div>
       </div>
 
-      <div className="container mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-24 py-4 md:py-8">
+      <div className="container mx-auto w-full px-4 py-4 sm:px-8 md:px-16 md:py-8 lg:px-24">
         {/* Main Card with Tabs */}
-        <div className="bg-white rounded-lg shadow-lg mb-8 overflow-hidden">
+        <div className="mb-8 overflow-hidden rounded-lg bg-white shadow-lg">
           {/* Tab Navigation */}
           <div className="flex overflow-x-auto border-b">
             {tabs.map((tab) => (
@@ -225,7 +233,6 @@ const IQACPage = () => {
                     ? 'rounded-t-lg bg-white font-semibold text-[#012146]'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
-                
               >
                 {tab.label}
               </button>
@@ -234,8 +241,8 @@ const IQACPage = () => {
 
           {/* Tab Content */}
           <div className="p-4 md:p-6">
-            <h2 className="text-lg md:text-xl font-semibold mb-4 text-[#012146] w-full">
-              {tabs.find(tab => tab.id === activeTab)?.label}
+            <h2 className="mb-4 w-full text-lg font-semibold text-[#012146] md:text-xl">
+              {tabs.find((tab) => tab.id === activeTab)?.label}
             </h2>
             {renderTabContent()}
           </div>

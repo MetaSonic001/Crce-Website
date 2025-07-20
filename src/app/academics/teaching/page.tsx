@@ -120,7 +120,7 @@ const TeachingLearningProcessPage = () => {
       <div className="flex h-full w-full flex-col bg-white pt-24 md:flex-row">
         <div className="flex w-full flex-col px-4 pt-18 text-[#00122a] sm:px-8 md:px-16 md:pt-36 lg:px-28">
           <h1
-            className={`${zilla.className} mb-4 font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
+            className={`mb-4 flex items-center justify-center text-center font-serif text-xl sm:text-2xl font-bold md:text-3xl lg:text-4xl`}
           >
             TEACHING LEARNING PROCESS
           </h1>

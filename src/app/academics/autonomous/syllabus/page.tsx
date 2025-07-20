@@ -114,9 +114,7 @@ const AutonomousSyllabus = ({ syllabus }: Props) => {
     <div className="container mx-auto w-full px-4 py-8 sm:px-8 md:px-16 md:py-16 lg:px-28">
       <div className="mb-8 md:mb-16">
         <div className="rounded-lg bg-gray-100 p-4 shadow-lg md:p-6">
-          <p className="mb-3 text-lg font-semibold text-[#4a90e2] md:mb-4 md:text-xl">
-            "University of Mumbai Syllabus Information"
-          </p>
+        
           <p className="text-sm text-gray-700 md:text-base">
             The following syllabus documents are available for the Academic Year
             2024-2025 (Autonomous). Please select the appropriate course and
@@ -160,7 +158,7 @@ export default async function Page() {
       <div className="flex h-full w-full flex-col bg-white pt-24 md:flex-row">
         <div className="flex w-full flex-col px-4 pt-8 text-[#00122a] sm:px-8 md:px-16 md:pt-36 lg:px-28">
           <h1
-            className={`${zilla.className} mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
+            className={`mb-4 flex items-center justify-center text-center font-serif text-xl sm:text-2xl font-bold md:text-3xl lg:text-4xl`}
           >
             AUTONOMOUS SYLLABUS
           </h1>

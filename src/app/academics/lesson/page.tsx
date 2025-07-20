@@ -73,8 +73,9 @@ const LessonPlanPage = () => {
       <div className="flex h-full w-full flex-col bg-white pt-12 md:pt-16">
         <div className="flex w-full flex-col px-4 pb-6 text-[#00122a] sm:px-8 md:px-16 md:pb-8 lg:px-24">
           <h1
-            className={`mb-4 flex items-center text-center font-serif text-2xl font-bold md:text-3xl lg:text-4xl`}
+            className={`mb-4 flex items-center justify-center text-center font-serif text-xl sm:text-2xl font-bold md:text-3xl lg:text-4xl`}
           >
+          
             ACADEMIC LESSON PLANS
           </h1>
         </div>
