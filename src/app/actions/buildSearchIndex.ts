@@ -6,7 +6,7 @@ import getEvents from '../api/events'
 import { dropdownContent } from '../actions/data'
 
 const appDir = path.join(process.cwd(), 'app')
-const cacheDir = path.join(process.cwd(), '.cache')
+const cacheDir = path.join(process.cwd(), 'public')
 const cacheFile = path.join(cacheDir, 'searchIndex.json')
 
 const dropdownIndexItems = Object.entries(dropdownContent).flatMap(([section, items]) =>

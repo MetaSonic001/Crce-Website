@@ -9,49 +9,11 @@ import {
   X,
   Menu,
   ArrowLeft,
-  Home,
-  Book,
-  Search,
-  Users,
-  GraduationCap,
-  NewspaperIcon,
-  Calendar,
-  Briefcase,
-  Phone,
-  MoveRight,
-  Globe,
-  Info,
-  School,
-  UserPlus,
-  UserCheck,
-  Target,
-  Building2,
-  FileText,
-  FileCheck2,
-  BookOpen,
-  FileSignature,
-  ClipboardCheck,
-  Award,
-  FlaskConical,
-  BadgeCheck,
-  Library,
-  MessageSquare,
-  FolderGit2,
-  Bell,
-  MessageCircleWarning,
-  Cpu,
-  CircuitBoard,
-  Cog,
-  Atom,
-  Code2,
-  CreditCard,
-  Images,
-  ScrollText,
-  Folder,
-  Lightbulb,
+  MoveRight
 } from 'lucide-react'
 
 import { dropdownContent } from '@/app/actions/data'
+import SearchBar from './SearchBar'
 
 const Navbar: React.FC = () => {
   const pathname = usePathname()
@@ -171,6 +133,7 @@ const Navbar: React.FC = () => {
                 Agnel Staff E-mail
               </Link>
             </div>
+            <SearchBar />
             <Link
               href="/Admissions"
               className="scale-75 rounded-md bg-yellow-500 px-6 py-2 font-bold text-black transition duration-300 hover:bg-yellow-600 lg:scale-100"

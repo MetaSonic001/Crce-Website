@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { buildSearchIndex } from '@/app/actions/buildSearchIndex'
 import { Index } from 'flexsearch'
+import SearchBar from '@/components/SearchBar'
 
 export default function SearchBuilder() {
   const [results, setResults] = useState<any[]>([])
@@ -51,6 +52,7 @@ export default function SearchBuilder() {
           </li>
         ))}
       </ul>
+
     </div>
   )
 }
