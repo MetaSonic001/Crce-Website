@@ -51,219 +51,7 @@ import {
   Lightbulb,
 } from 'lucide-react'
 
-interface DropdownItem {
-  name: string
-  href: string
-  icon?: React.ReactNode
-  target?: string
-  rel?: string
-}
-
-interface DropdownContent {
-  [key: string]: DropdownItem[]
-}
-
-const dropdownContent: DropdownContent = {
-  About: [
-    {
-      name: 'About CRCE',
-      href: '/about/about-crce',
-      icon: <Info size={18} />,
-    },
-    {
-      name: "From Director's ",
-      href: '/about/from-directors',
-      icon: <UserPlus size={18} />,
-    },
-    {
-      name: 'Principal- Dr. Surendra Singh Rathod',
-      href: '/about/principal',
-      icon: <UserCheck size={18} />,
-    },
-    {
-      name: 'Vision and Mission',
-      href: '/about/vision-and-mission',
-      icon: <Target size={18} />,
-    },
-    {
-      name: 'Administration',
-      href: '/about/administration',
-      icon: <Building2 size={18} />,
-    },
-    {
-      name: 'General Information',
-      href: '/about/general-information',
-      icon: <FileText size={18} />,
-    },
-    {
-      name: "List of MOU's",
-      href: '/about/mou',
-      icon: <FileSignature size={18} />,
-    },
-    {
-      name: 'Mandatory Disclosure',
-      href: '/about/mandatory-disclosure',
-      icon: <FileCheck2 size={18} />,
-    },
-    {
-      name: 'Contact Us',
-      href: '/about/contact-us',
-      icon: <Phone size={18} />,
-    },
-    {
-      name: 'Public File Browser',
-      href: '/folders',
-      icon: <Folder size={18} />,
-    },
-  ],
-  Academics: [
-    {
-      name: 'Autonomous Curriculum',
-      href: '/academics/autonomous/syllabus',
-      icon: <BookOpen size={18} />,
-    },
-    {
-      name: 'Autonomous Rules',
-      href: '/academics/autonomous/rules-and-policies',
-      icon: <ScrollText size={18} />,
-    },
-    // {
-    //   name: 'IIC',
-    //   href: '/academics/iic',
-    //   icon: <Lightbulb size={18} />,
-    // },
-    {
-      name: 'Academic/Holiday Calender',
-      href: '/academics/calendar',
-      icon: <Calendar size={18} />,
-    },
-    {
-      name: 'Examination',
-      href: '/academics/examination',
-      icon: <ClipboardCheck size={18} />,
-    },
-    {
-      name: 'Teaching Learning Process',
-      href: '/academics/teaching',
-      icon: <GraduationCap size={18} />,
-    },
-    {
-      name: 'NAAC',
-      href: '/academics/naac',
-      icon: <Award size={18} />,
-    },
-    {
-      name: 'Research & Development',
-      href: '/academics/research',
-      icon: <FlaskConical size={18} />,
-    },
-    {
-      name: 'Lesson Plan',
-      href: '/academics/lesson',
-      icon: <BookOpen size={18} />,
-    },
-    {
-      name: 'IQAC-CRCE',
-      href: '/academics/IQAC',
-      icon: <BadgeCheck size={18} />,
-    },
-    {
-      name: 'Library',
-      href: '/academics/library',
-      icon: <Library size={18} />,
-    },
-  ],
-  Students: [
-    {
-      name: 'Campus Placements',
-      href: '/students/placements',
-      icon: <Briefcase size={18} />,
-    },
-    {
-      name: 'Councils',
-      href: '/students/councils',
-      icon: <UserPlus size={18} />,
-    },
-    {
-      name: 'Project Groups',
-      href: '/students/project_teams',
-      icon: <FolderGit2 size={18} />,
-    },
-    {
-      name: 'Alumni',
-      href: 'https://alumni.frcrce.ac.in',
-      icon: <UserCheck size={18} />,
-      target: '_blank',
-      rel: 'noopener noreferrer',
-    },
-    {
-      name: 'Notices',
-      href: '/students/notices',
-      icon: <Bell size={18} />,
-    },
-    {
-      name: 'Students Information',
-      href: '/students/student-info',
-      icon: <FileText size={18} />,
-    },
-    {
-      name: 'Grievances',
-      href: '/students/grievance-policy',
-      icon: <MessageCircleWarning size={18} />,
-    },
-  ],
-  Departments: [
-    {
-      name: 'Computer Engineering',
-      href: '/AboutDepartment/ComputerDepartment',
-      icon: <Cpu size={18} />,
-    },
-    {
-      name: 'Electronics and Computer Science',
-      href: '/AboutDepartment/EcsDepartment',
-      icon: <CircuitBoard size={18} />,
-    },
-    {
-      name: 'Mechanical Engineering',
-      href: '/AboutDepartment/MechanicalDepartment',
-      icon: <Cog size={18} />,
-    },
-    {
-      name: 'Computer Science and Engineering',
-      href: '/AboutDepartment/CseDepartment',
-      icon: <Code2 size={18} />,
-    },
-    {
-      name: 'Science and Humanities',
-      href: '/AboutDepartment/ScienceAndHumanities',
-      icon: <Atom size={18} />,
-    },
-  ],
-  Admission: [
-    {
-      name: 'Under Graduate',
-      href: '/admission/undergrad',
-      icon: <GraduationCap size={18} />,
-    },
-    {
-      name: 'Post Graduate',
-      href: '/admission/postgraduate',
-      icon: <School size={18} />,
-    },
-    {
-      name: 'Ph.D',
-      href: '/admission/phd',
-      icon: <Award size={18} />,
-    },
-  ],
-  Online: [
-    {
-      name: 'Make Online Payment',
-      href: 'https://pay.fragnel.edu.in/CRCE/initPay.php',
-      icon: <CreditCard size={18} />,
-    },
-  ],
-}
+import { dropdownContent } from '@/app/actions/data'
 
 const Navbar: React.FC = () => {
   const pathname = usePathname()
@@ -325,13 +113,12 @@ const Navbar: React.FC = () => {
     <>
       {/* Desktop Navigation */}
       <nav
-        className={`fixed top-0 z-50 hidden w-full bg-[hsl(224,37%,12%)]/90 font-semibold text-white transition-transform duration-300 ease-in-out lg:block ${
-          hasScrolled
-            ? visible
-              ? 'translate-y-0'
-              : '-translate-y-full'
+        className={`fixed top-0 z-50 hidden w-full bg-[hsl(224,37%,12%)]/90 font-semibold text-white transition-transform duration-300 ease-in-out lg:block ${hasScrolled
+          ? visible
+            ? 'translate-y-0'
             : '-translate-y-full'
-        }`}
+          : '-translate-y-full'
+          }`}
       >
         <div className="flex flex-col px-20">
           <div className="flex h-1/3 items-center justify-between px-6 pt-3 pb-1.5">
@@ -452,13 +239,12 @@ const Navbar: React.FC = () => {
       </nav>
       {dropdown && dropdownContent[dropdown] && (
         <div
-          className={`fixed top-[147px] z-50 hidden w-full bg-white text-black shadow-lg transition-all duration-300 ease-out lg:block ${
-            hasScrolled
-              ? visible
-                ? 'md:translate-y-0'
-                : 'md:-translate-y-[165px]'
-              : 'md:-translate-y-full'
-          }`}
+          className={`fixed top-[147px] z-50 hidden w-full bg-white text-black shadow-lg transition-all duration-300 ease-out lg:block ${hasScrolled
+            ? visible
+              ? 'md:translate-y-0'
+              : 'md:-translate-y-[165px]'
+            : 'md:-translate-y-full'
+            }`}
         >
           <div className="container mx-auto px-8 pt-9 pb-11">
             <button
@@ -496,13 +282,12 @@ const Navbar: React.FC = () => {
       )}{' '}
       {/* Mobile Navigation */}
       <nav
-        className={`fixed top-0 z-50 w-full bg-[hsl(224,37%,12%)]/90 font-semibold text-white capitalize transition-transform duration-300 ease-in-out lg:hidden ${
-          hasScrolled
-            ? visible
-              ? 'translate-y-0'
-              : '-translate-y-full'
+        className={`fixed top-0 z-50 w-full bg-[hsl(224,37%,12%)]/90 font-semibold text-white capitalize transition-transform duration-300 ease-in-out lg:hidden ${hasScrolled
+          ? visible
+            ? 'translate-y-0'
             : '-translate-y-full'
-        }`}
+          : '-translate-y-full'
+          }`}
       >
         <div className="flex items-center justify-between px-4 py-3">
           <Link href="/">
@@ -524,9 +309,8 @@ const Navbar: React.FC = () => {
       </nav>
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-50 transform overflow-y-auto bg-gray-900 text-white capitalize transition-transform duration-300 ease-in-out lg:hidden ${
-          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed inset-0 z-50 transform overflow-y-auto bg-gray-900 text-white capitalize transition-transform duration-300 ease-in-out lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         <div className="flex flex-col p-4">
           <div className="flex items-center justify-between pb-6">
@@ -611,9 +395,8 @@ const Navbar: React.FC = () => {
       </div>
       {/* Mobile Submenu */}
       <div
-        className={`fixed inset-0 z-50 transform overflow-y-auto bg-gray-800 text-white capitalize transition-transform duration-300 ease-in-out lg:hidden ${
-          mobileSubmenu ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed inset-0 z-50 transform overflow-y-auto bg-gray-800 text-white capitalize transition-transform duration-300 ease-in-out lg:hidden ${mobileSubmenu ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         {mobileSubmenu && dropdownContent[mobileSubmenu] && (
           <div className="flex flex-col p-4">
