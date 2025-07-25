@@ -2,7 +2,7 @@
 
 import fs from 'fs'
 import path from 'path'
-import getEvents from '../api/events'
+import { fetchDynamicContent } from './fetchDynamicContent'
 import { dropdownContent } from '../actions/data'
 
 const appDir = path.join(process.cwd(), 'app')
@@ -45,17 +45,9 @@ function crawlStaticFromDropdown() {
   return result
 }
 
-async function crawlDynamicContent() {
-  const events = await getEvents()
-  return events.data.map(event => ({
-    path: `/events/${event.id}`,
-    content: `${event.title} ${event.description}`,
-  }))
-}
-
 export async function buildSearchIndex() {
   const staticContent = crawlStaticFromDropdown()
-  const dynamicContent = await crawlDynamicContent()
+  const dynamicContent = await fetchDynamicContent()
   const index = [...staticContent, ...dynamicContent]
 
   if (!fs.existsSync(cacheDir)) fs.mkdirSync(cacheDir)
