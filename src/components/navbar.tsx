@@ -133,7 +133,9 @@ const Navbar: React.FC = () => {
                 Agnel Staff E-mail
               </Link>
             </div>
-            <SearchBar />
+            <div>
+              <SearchBar />
+            </div>
             <Link
               href="/Admissions"
               className="scale-75 rounded-md bg-yellow-500 px-6 py-2 font-bold text-black transition duration-300 hover:bg-yellow-600 lg:scale-100"

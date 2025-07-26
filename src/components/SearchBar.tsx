@@ -32,7 +32,7 @@ interface SearchBarProps {
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({
-  placeholder = "Search documentation...",
+  placeholder = "Search",
   maxResults = 8,
   maxRecentSearches = 5,
   className = ""
@@ -310,9 +310,9 @@ const SearchBar: React.FC<SearchBarProps> = ({
           value={query}
           onChange={handleInputChange}
           onFocus={handleInputFocus}
-          className="w-full pl-12 pr-12 py-3 text-lg border border-gray-200 rounded-xl 
-                   bg-white/80 backdrop-blur-sm shadow-lg shadow-gray-200/50
-                   focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent 
+          className="w-full pl-12 pr-12 py-3 text-lg  rounded-xl 
+g-[hsl(224,37%,12%)]/90
+                                        focus:outline-none focus:ring-2 focus:ring-blue-500  
                    transition-all duration-200 placeholder-gray-400"
           disabled={isLoading}
           aria-label="Search"
@@ -336,8 +336,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
       {/* Search Results Dropdown */}
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl border border-gray-200 
-                      shadow-2xl shadow-gray-200/50 backdrop-blur-sm z-50 overflow-hidden"
+        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl  
+                      shadow-2xl shadow-gray-200/50  z-50 overflow-hidden"
           role="listbox"
           aria-label="Search results">
 
@@ -378,11 +378,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
                           <p className="text-xs text-gray-500 mt-1 truncate">
                             {result.path}
                           </p>
-                          <div className="flex items-center mt-1 space-x-2">
-                            <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded">
-                              Score: {Math.round(result.score * 100) / 100}
-                            </span>
-                          </div>
+
                         </div>
                         <ArrowRight className="h-4 w-4 text-gray-400 flex-shrink-0" />
                       </div>
@@ -445,7 +441,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
             <div className="p-8 text-center text-gray-500">
               <Search className="h-8 w-8 mx-auto mb-3 text-gray-300" />
               <p className="text-sm">Start typing to search...</p>
-              <p className="text-xs mt-1 text-gray-400">Search through documentation and pages</p>
+              <p className="text-xs mt-1 text-gray-400">Search pages</p>
             </div>
           )}
         </div>
