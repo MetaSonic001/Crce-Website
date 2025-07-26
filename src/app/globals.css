@@ -2,10 +2,8 @@
 
 @theme {
   --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
-  --background-image-gradient-conic: conic-gradient(
-    from 180deg at 50% 50%,
-    var(--tw-gradient-stops)
-  );
+  --background-image-gradient-conic: conic-gradient(from 180deg at 50% 50%,
+      var(--tw-gradient-stops));
 
   --font-merriweather: Merriweather;
   --font-roboto: Roboto, sans-serif;
@@ -23,6 +21,7 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+
   *,
   ::after,
   ::before,
@@ -58,15 +57,56 @@
 
   body {
     color: 'black';
-    background: linear-gradient(
-        to bottom,
+    background: linear-gradient(to bottom,
         transparent,
-        rgb(var(--background-end-rgb))
-      )
-      rgb(var(--background-start-rgb));
+        rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
   }
 }
 
 .hero {
   height: calc(100vh - 157px);
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  /* Set initial state for when JS is disabled or for the animation fill mode */
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Ken Burns Background Image Effect */
+@keyframes kenburns {
+  0% {
+    transform: scale(1.1) translate(0, 0);
+  }
+
+  100% {
+    transform: scale(1.15) translate(-2%, 2%);
+  }
+}
+
+.animate-ken-burns {
+  animation: kenburns 30s ease-in-out infinite alternate;
+}
+
+
+/* Animation Delay Utilities */
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
 }

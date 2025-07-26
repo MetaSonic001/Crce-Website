@@ -32,6 +32,7 @@ import FacultyDevProg from '@/components/Departments/FacultyDevProg'
 import StudentDevProg from '@/components/Departments/StudentDevProg'
 import Faculty from '@/components/Departments/Faculty'
 import DynamicSidebar from '@/components/Departments/Sidebar'
+import { BookOpen, Users } from 'lucide-react'
 
 // Font configuration
 const zilla = Zilla_Slab({
@@ -255,7 +256,7 @@ const HumanitiesPage = () => {
   return (
     <div className="flex-row text-black">
       {/* Hero section */}
-      <section className="hero relative min-h-screen overflow-hidden text-white">
+      <section className="hero relative flex min-h-screen items-center justify-center overflow-hidden text-center text-white">
         <div className="absolute inset-0 z-0">
           <Image
             src="/college2.avif"
@@ -263,19 +264,46 @@ const HumanitiesPage = () => {
             layout="fill"
             objectFit="cover"
             quality={100}
+            priority // Load the hero image first
+            className="animate-ken-burns" // Apply Ken Burns animation
           />
-          <div className="absolute inset-0 bg-[#131929] opacity-80"></div>
+          {/* Improved gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#131929] via-[#131929]/80 to-transparent"></div>
         </div>
-        <div className="relative z-10 container mx-auto flex h-full flex-col justify-center px-4 py-20">
-          <div className="max-w-4xl md:max-w-6xl lg:max-w-7xl">
-            <h1 className="mt-16 mb-6 p-4 text-3xl leading-tight font-bold sm:mt-20 sm:p-8 sm:text-4xl md:mt-28 md:p-16 md:text-5xl lg:p-28 lg:text-6xl">
-              Science and Humanities
-            </h1>
+
+        <div className="relative z-10 flex flex-col items-center px-4 md:px-12">
+          <h1
+            className="animate-fade-in-up mb-4 text-4xl font-extrabold tracking-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl"
+            style={{ textShadow: '2px 2px 8px rgba(0, 0, 0, 0.7)' }}
+          >
+            Science and Humanities
+          </h1>
+          <p
+            className="animate-fade-in-up animation-delay-300 mb-8 max-w-2xl text-base font-light text-gray-200 drop-shadow-md sm:text-lg md:text-xl"
+          >
+            Where science provides the principles and humanities provide the purpose.
+          </p>
+          <div className="animate-fade-in-up animation-delay-500 flex flex-col gap-4 sm:flex-row">
+            <button
+              onClick={() => document.getElementById('programs')?.scrollIntoView({ behavior: 'smooth' })}
+              className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-blue-700"
+            >
+              <BookOpen className="mr-2 h-5 w-5" />
+              Explore Programs
+            </button>
+            <button
+              onClick={() => { handleTabChange('faculty'); document.getElementById('faculty')?.scrollIntoView({ behavior: 'smooth' }) }}
+              className="inline-flex items-center justify-center rounded-lg border border-white bg-white/10 px-6 py-3 text-base font-semibold text-white shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-white/20"
+            >
+              <Users className="mr-2 h-5 w-5" />
+              Meet The Faculty
+            </button>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 h-16 w-full origin-bottom-right -skew-y-3 transform bg-white"></div>
-      </section>
 
+        {/* Angled divider to transition to the next section */}
+        <div className="absolute bottom-0 left-0 h-16 w-full origin-bottom-right -skew-y-2 transform bg-white md:-skew-y-1"></div>
+      </section>
       {/* Main content section */}
       <section className="w-full bg-white">
         {/* Desktop Layout */}
@@ -329,7 +357,9 @@ const HumanitiesPage = () => {
         </div>
 
         {/* Program Highlights Section */}
-        <ProgramHighlights />
+        <div id='programs'>
+          <ProgramHighlights />
+        </div>
 
         {/* Achievements Section */}
         <div className="bg-white px-4 py-8 sm:px-8 md:px-12 lg:px-20">
