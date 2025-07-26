@@ -13,40 +13,87 @@ const zilla = Zilla_Slab({
 
 const rulesData = [
   {
-    id: 1,
-    title: 'Academic Rule Book',
-    filePath: 'academic/rules/academic_rules_v2.3_2025_26.pdf',
+    year: 'AY 2025-26',
+    section: 'Details',
+    items: [
+      {
+        id: 1,
+        title: 'Academic Rule Book',
+        filePath: '/rules/academic_rules_v2.3_2025_26.pdf',
+      },
+      {
+        id: 2,
+        title: 'Training, Internship and Placement Rule Book',
+        filePath: '/rules/training_intern_placement_v1.7_2025_26.pdf',
+      },
+      {
+        id: 3,
+        title: 'Student Activities Rule Book',
+        filePath: '/rules/student_activities_v1.4_2025_26.pdf',
+      },
+      {
+        id: 4,
+        title: 'Academic Calendar',
+        filePath: '/rules/academic_cal_v3.1_2025_26.pdf',
+      },
+      {
+        id: 5,
+        title: 'Internship data Format to be maintained',
+        filePath: '/rules/intern_data_format_v2.0_2025_26.pdf',
+      },
+      {
+        id: 6,
+        title: 'Implementation of revised ESE pattern from AY 2025-2026',
+        filePath: '/rules/ese_pattern_rev_v1.2_2025_26.pdf',
+      },
+      {
+        id: 7,
+        title:
+          'Implementation of Curriculum revisions for First-and Second-Year Engineering in Academic Year 2025-26',
+        filePath: '/rules/curriculum_rev_v1.5_2025_26.pdf',
+      },
+    ],
   },
   {
-    id: 2,
-    title: 'Training, Internship and Placement Rule Book',
-    filePath: 'academic/rules/training_intern_placement_v1.7_2025_26.pdf',
-  },
-  {
-    id: 3,
-    title: 'Student Activities Rule Book',
-    filePath: 'academic/rules/student_activities_v1.4_2025_26.pdf',
-  },
-  {
-    id: 4,
-    title: 'Academic Calendar',
-    filePath: 'academic/rules/academic_cal_v3.1_2025_26.pdf',
-  },
-  {
-    id: 5,
-    title: 'Internship Data Format to be maintained',
-    filePath: 'academic/rules/intern_data_format_v2.0_2025_26.pdf',
-  },
-  {
-    id: 6,
-    title: 'Implementation of revised ESE pattern from AY 2025-2026',
-    filePath: 'academic/rules/ese_pattern_rev_v1.2_2025_26.pdf',
-  },
-  {
-    id: 7,
-    title:
-      'Implementation of Curriculum revisions for First-and Second-Year Engineering in Academic Year 2025-26',
-    filePath: 'academic/rules/curriculum_rev_v1.5_2025_26.pdf',
+    year: 'AY 2024-2025',
+    section: 'Details',
+    items: [
+      {
+        id: 1,
+        title: 'Academic Rule Book',
+        filePath: '/rules/academic_rules_v2.2_2024_25.pdf',
+      },
+      {
+        id: 2,
+        title: 'Training, Internship and Placement Rule Book',
+        filePath: '/rules/training_intern_placement_v1.6_2024_25.pdf',
+      },
+      {
+        id: 3,
+        title: 'Student Activities Rule Book',
+        filePath: '/rules/student_activities_v1.3_2024_25.pdf',
+      },
+      {
+        id: 4,
+        title: 'Academic Calendar',
+        filePath: '/rules/academic_cal_v3.0_2024_25.pdf',
+      },
+      {
+        id: 5,
+        title: 'SE/TE/BE MSE Exam Time-Table for ODD SEM',
+        filePath: '/rules/mse_tt_sep_2024_25.pdf',
+      },
+      {
+        id: 6,
+        title: 'SE/TE/BE ESE Exam Time-Table for ODD SEM',
+        filePath: '/rules/ese_tt_nov_2024_25.pdf',
+      },
+      {
+        id: 7,
+        title: 'Internship data Format to be maintained',
+        filePath: '/rules/intern_data_format_v1.9_2024_25.pdf',
+      },
+    ],
   },
 ]
 
@@ -63,10 +110,14 @@ const syllabusData = [
         cse: 'CSE',
         ecs: 'ECS',
         mech: 'MECH',
-        cePath: 'academic/syllabus/ce_fe_2025_26_complex.pdf',
-        csePath: 'academic/syllabus/cse_fe_2025_26_v2.pdf',
-        ecsPath: 'academic/syllabus/ecs_fe_2025_26_v3.pdf',
-        mechPath: 'academic/syllabus/mech_fe_2025_26_v1.pdf',
+        cePath:
+          'academic/syllabus/FE/2025-2026/currirulum_FE_FrCRCE_CE_2025_26-v2-21jun25 (1).pdf',
+        csePath:
+          'academic/syllabus/FE/2025-2026/currirulum_FE_FrCRCE_CS_2025_26_new_withoutLLC_1.pdf',
+        ecsPath:
+          'academic/syllabus/FE/2025-2026/curriculum_FE_FrCRCE_ECS_2025_26.pdf',
+        mechPath:
+          'academic/syllabus/FE/2025-2026/curriculum_FE_FrCRCE_ME_2025_26.pdf',
       },
       {
         title: 'SE',
@@ -195,7 +246,7 @@ const Page = () => {
   const [activeTab, setActiveTab] = useState('syllabus')
 
   return (
-    <div className="flex h-screen w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900">
+    <div className="flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] px-2 text-gray-900">
       <div className="flex h-full w-full flex-row bg-white pt-24">
         <div className="w-1/4 bg-gray-100 p-4 shadow-lg">
           <h1
@@ -384,36 +435,43 @@ const Page = () => {
                   robust framework of rules and policies to ensure academic
                   integrity and operational excellence.
                 </p>
-                <div className="space-y-4">
-                  {rulesData.map((item, index) => (
-                    <div
-                      key={item.id}
-                      className="flex items-start rounded-lg bg-gray-50 p-4 shadow-md"
-                    >
-                      <span className="mr-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-white">
-                        {index + 1}
-                      </span>
-                      <div className="flex-1">
-                        <h4 className="mb-2 text-lg font-semibold text-[#001f3f]">
-                          {item.title}
-                        </h4>
-                        <a
-                          href={item.filePath}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center text-[#4a90e2] hover:underline"
+                {rulesData.map((yearData, index) => (
+                  <div key={index} className="mb-8">
+                    <h2 className="mb-4 text-xl font-semibold text-[#001f3f]">
+                      {yearData.year}
+                    </h2>
+                    <div className="space-y-4">
+                      {yearData.items.map((item) => (
+                        <div
+                          key={item.id}
+                          className="flex items-start rounded-lg bg-gray-50 p-4 shadow-md"
                         >
-                          <Download className="mr-2 h-5 w-5" />
-                          Download PDF
-                        </a>
-                      </div>
+                          <span className="mr-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#4a90e2] text-white">
+                            {item.id}
+                          </span>
+                          <div className="flex-1">
+                            <h4 className="mb-2 text-lg font-semibold text-[#001f3f]">
+                              {item.title}
+                            </h4>
+                            <a
+                              href={item.filePath}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center text-[#4a90e2] hover:underline"
+                            >
+                              <Download className="mr-2 h-5 w-5" />
+                              Download PDF
+                            </a>
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-                <div className="mt-8">
+                  </div>
+                ))}
+                <div className="mt-8 flex justify-center">
                   <a
                     href="/rules/all_rules_compiled_v1.9_2025_26.pdf"
-                    className="rounded-lg bg-[#4a90e2] px-6 py-3 font-semibold text-white transition-all hover:bg-[#3a7bc2] hover:shadow-lg"
+                    className="rounded-lg bg-[#4a90e2] px-8 py-4 font-semibold text-white transition-all hover:bg-[#3a7bc2] hover:shadow-lg"
                     download
                   >
                     Download All Rules & Policies

@@ -99,11 +99,6 @@ export const dropdownContent: DropdownContent = {
       icon: <FileText size={18} />,
     },
     {
-      name: "List of MOU's",
-      href: '/about/mou',
-      icon: <FileSignature size={18} />,
-    },
-    {
       name: 'Mandatory Disclosure',
       href: '/about/mandatory-disclosure',
       icon: <FileCheck2 size={18} />,
@@ -122,18 +117,23 @@ export const dropdownContent: DropdownContent = {
   Academics: [
     {
       name: 'Autonomous Curriculum',
-      href: '/academics/autonomous/syllabus',
+      href: '/academics/autonomous/autonomous',
       icon: <BookOpen size={18} />,
-    },
-    {
-      name: 'Autonomous Rules',
-      href: '/academics/autonomous/rules-and-policies',
-      icon: <ScrollText size={18} />,
     },
     {
       name: 'Academic/Holiday Calender',
       href: '/academics/calendar',
       icon: <Calendar size={18} />,
+    },
+    {
+      name: 'Outreach Programmes',
+      href: '/academics/outreach',
+      icon: <ClipboardCheck size={18} />,
+    },
+    {
+      name: "List of MOU's",
+      href: '/academics/mou',
+      icon: <FileSignature size={18} />,
     },
     {
       name: 'Examination',
@@ -268,10 +268,11 @@ export const dropdownContent: DropdownContent = {
  * including their section, name, and href. This is useful for
  * creating a comprehensive index, sitemap, or search functionality.
  */
-export const dropdownIndexItems = Object.entries(dropdownContent).flatMap(([section, items]) =>
-  items.map(({ name, href }) => ({
-    section,
-    name,
-    href,
-  }))
+export const dropdownIndexItems = Object.entries(dropdownContent).flatMap(
+  ([section, items]) =>
+    items.map(({ name, href }) => ({
+      section,
+      name,
+      href,
+    }))
 )
