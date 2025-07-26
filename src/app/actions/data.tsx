@@ -196,7 +196,7 @@ export const dropdownContent: DropdownContent = {
     },
     {
       name: 'Notices',
-      href: '/students/notices',
+      href: '/notices',
       icon: <Bell size={18} />,
     },
     {

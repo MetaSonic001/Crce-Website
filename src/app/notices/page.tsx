@@ -13,42 +13,11 @@ import {
 } from 'lucide-react'
 import { useQuery } from '@tanstack/react-query'
 import getNotices from '@/app/api/notices'
+import { getIconForNoticeType } from '@/components/notices'
+import { getColorForNoticeType } from '@/components/notices'
+import type { Notice } from '@/app/api/notices'
 
-interface Notice {
-  id: number
-  status: string
-  date_created: string
-  date_updated: string | null
-  title: string
-  info: string
-  about: string
-}
 
-const getIconForNoticeType = (type: string) => {
-  switch (type) {
-    case 'exam':
-      return <Book className="h-5 w-5 text-purple-600" />
-    case 'holiday':
-      return <Calendar className="h-5 w-5 text-green-600" />
-    case 'event':
-      return <Bell className="h-5 w-5 text-blue-600" />
-    default:
-      return <GraduationCap className="h-5 w-5 text-gray-600" />
-  }
-}
-
-const getColorForNoticeType = (type: string) => {
-  switch (type) {
-    case 'exam':
-      return 'bg-purple-100 text-purple-800 hover:bg-purple-200'
-    case 'holiday':
-      return 'bg-green-100 text-green-800 hover:bg-green-200'
-    case 'event':
-      return 'bg-blue-100 text-blue-800 hover:bg-blue-200'
-    default:
-      return 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-  }
-}
 
 const NoticesPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('')
@@ -247,7 +216,7 @@ const NoticesPage: React.FC = () => {
                     {filterType === 'all'
                       ? 'All Types'
                       : filterType.charAt(0).toUpperCase() +
-                        filterType.slice(1)}
+                      filterType.slice(1)}
                   </span>
                 </div>
                 <ChevronDown
@@ -264,11 +233,10 @@ const NoticesPage: React.FC = () => {
                         setFilterType(type)
                         setIsDropdownOpen(false)
                       }}
-                      className={`w-full px-3 py-2 text-left text-sm first:rounded-t-md last:rounded-b-md hover:bg-gray-100 ${
-                        filterType === type
-                          ? 'bg-blue-50 text-blue-600'
-                          : 'text-gray-700'
-                      }`}
+                      className={`w-full px-3 py-2 text-left text-sm first:rounded-t-md last:rounded-b-md hover:bg-gray-100 ${filterType === type
+                        ? 'bg-blue-50 text-blue-600'
+                        : 'text-gray-700'
+                        }`}
                     >
                       {type === 'all'
                         ? 'All Types'
