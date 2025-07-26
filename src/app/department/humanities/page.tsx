@@ -362,7 +362,7 @@ const HumanitiesPage = () => {
         </div>
 
         {/* Achievements Section */}
-        <div className="bg-white px-4 py-8 sm:px-8 md:px-12 lg:px-20">
+        <div className="bg-white px-4 py-8 sm:px-8 md:px-12 lg:px-20" id="AchievementsTab">
           <div className="my-8 h-min overflow-hidden sm:my-12">
             <AchievementsTab department={department} />
           </div>

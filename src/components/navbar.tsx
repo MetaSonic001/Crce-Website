@@ -204,7 +204,7 @@ const Navbar: React.FC = () => {
       </nav>
       {dropdown && dropdownContent[dropdown] && (
         <div
-          className={`fixed top-[165px] z-50 hidden w-full bg-white text-black shadow-lg transition-all duration-300 ease-out lg:block ${hasScrolled
+          className={`fixed top-[175px] z-50 hidden w-full bg-white text-black shadow-lg transition-all duration-300 ease-out lg:block ${hasScrolled
             ? visible
               ? 'md:translate-y-0'
               : 'md:-translate-y-[165px]'
