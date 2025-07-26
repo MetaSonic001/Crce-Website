@@ -1,4 +1,3 @@
-
 'use server'
 
 import getEvents from '../api/events'
@@ -8,22 +7,136 @@ import getProjectGroups from '../api/projectGroups'
 import getNews from '../api/news'
 import getTeachers from '../api/teachers'
 import getNotices from '../api/notices'
-//divide
+
+
 import getDepartmentNotices from '../api/department'
+import getDepartmentAchievements from '../api/achievements'
 import getFdpSdp from '../api/faculty_programs'
+import getIndustrialVisits from '../api/industrial_visits'
 import getInternships from '../api/internships'
 import getItlCertifications from '../api/itlCertifications'
 import getItlCoursesOffered from '../api/itlCoursesOffered'
-import getDepartmentPublications from '../api/publications'
+import getItlTeachingMethods from '../api/itlTeachingMethods'
 import getPlacements from '../api/placements'
 import getMentorships from '../api/mentorship'
 
-
+const departments = ['computers', 'cse', 'mechanical', 'ecs']
 
 export async function fetchDynamicContent() {
+  const result = []
+
   const events = await getEvents()
-  return events.data.map(event => ({
-    path: `/events/${event.id}`,
-    content: `${event.title} ${event.description}`,
-  }))
+  result.push(
+    ...events.data.map(event => ({
+      path: `/events`,
+      content: `${event.title} ${event.description}`,
+    }))
+  )
+
+  const achievements = await getAchievements()
+  result.push(
+    ...achievements.map(item => ({
+      path: `/achievements`,
+      content: `${item.title} ${item.description}`,
+    }))
+  )
+
+  const news = await getNews()
+  result.push(
+    ...news.data.map(item => ({
+      path: `/news`,
+      content: `${item.title} ${item.info}`,
+    }))
+  )
+
+  const notices = await getNotices()
+  result.push(
+    ...notices.data.map(item => ({
+      path: `/notices`,
+      content: `${item.title} ${item.info}`,
+    }))
+  )
+
+  const projectGroups = await getProjectGroups()
+  result.push(
+    ...projectGroups.map(item => ({
+      path: `/project-groups`,
+      content: `${item.name} ${item.subtitle}`,
+    }))
+  )
+
+  const councils = await getCouncils()
+  result.push(
+    ...councils.map(item => ({
+      path: `/councils`,
+      content: `${item.name} ${item.subtitle}`,
+    }))
+  )
+
+  for (const department of departments) {
+    const [teachers, notices, achievements, fdpSdp, visits, internships, certifications, courses, methods, placements, mentorships] =
+      await Promise.all([
+        getTeachers(department),
+        getDepartmentNotices(department),
+        getDepartmentAchievements(department),
+        getFdpSdp(department),
+        getIndustrialVisits(department),
+        getInternships(department),
+        getItlCertifications(department),
+        getItlCoursesOffered(department),
+        getItlTeachingMethods(department),
+        getPlacements(department),
+        getMentorships(department),
+      ])
+
+    result.push(
+      ...teachers.map(n => ({
+        path: `/department/${department}`,
+        content: `${n.name} ${n.designation} ${n.areasOfInterest}`,
+      })),
+      ...notices.map(n => ({
+        path: `/department/${department}`,
+        content: `${n.title} ${n.category} ${n.content}`,
+      })),
+      ...achievements.map(a => ({
+        path: `/department/${department}`,
+        content: `${a.title} ${a.description} ${a.people} ${a.event}}`,
+      })),
+      ...fdpSdp.map(p => ({
+        path: `/department/${department}`,
+        content: `${p.title} ${p.type} ${p.participants} ${p.sponsor}`,
+      })),
+      ...visits.map(v => ({
+        path: `/department/${department}`,
+        content: `${v.company} ${v.location} ${v.outcomes}`,
+      })),
+      ...internships.map(i => ({
+        path: `/department/${department}`,
+        content: `${i.company} ${i.position} ${i.location}`,
+      })),
+      ...certifications.map(c => ({
+        path: `/department/${department}`,
+        content: `${c.certification} ${c.provider} ${c.benefits}`,
+      })),
+      ...courses.map(c => ({
+        path: `/department/${department}`,
+        content: `${c.course_name} ${c.description}`,
+      })),
+      ...methods.map(m => ({
+        path: `/department/${department}`,
+        content: `${m.teaching_method} ${m.description} ${m.learning_outcome}`,
+      })),
+      ...placements.map(p => ({
+        path: `/department/${department}`,
+        content: `${p.company} ${p.position} ${p.location}`,
+      })),
+      ...mentorships.map(m => ({
+        path: `/department/${department}`,
+        content: `${m.mentor} ${m.specialization} ${m.activities}`,
+      }))
+    )
+  }
+
+  return result
 }
+

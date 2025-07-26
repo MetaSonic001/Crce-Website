@@ -108,23 +108,23 @@
     "content": "Students Grievances"
   },
   {
-    "path": "/AboutDepartment/ComputerDepartment",
+    "path": "/department/computers",
     "content": "Departments Computer Engineering"
   },
   {
-    "path": "/AboutDepartment/EcsDepartment",
+    "path": "/department/ecs",
     "content": "Departments Electronics and Computer Science"
   },
   {
-    "path": "/AboutDepartment/MechanicalDepartment",
+    "path": "/department/mechanical",
     "content": "Departments Mechanical Engineering"
   },
   {
-    "path": "/AboutDepartment/CseDepartment",
+    "path": "/department/cse",
     "content": "Departments Computer Science and Engineering"
   },
   {
-    "path": "/AboutDepartment/ScienceAndHumanities",
+    "path": "/department/humanities",
     "content": "Departments Science and Humanities"
   },
   {
@@ -144,19 +144,139 @@
     "content": "Online Make Online Payment"
   },
   {
-    "path": "/events/3",
+    "path": "/events",
     "content": "Pre-admission Counseling Session - Campus Visit Welcoming all Aspiring Engineering Candidates with their Parents to visit our College Campus for a Personalized Pre-admission Counseling Session. Available all working days (except Sundays & Bank Holidays) from 09:30 am to 04:30 pm. No prior registration required. Visit Admission Cell on 1st Floor, Waiting Lounge, Fr. CRCE"
   },
   {
-    "path": "/events/2",
+    "path": "/events",
     "content": "Display of Provisional Merit List for Maharashtra State (MH) / All India (AI) Category Provisional Merit List for Maharashtra State (MH) / All India (AI) Category Candidates will be displayed on the website https://fe2025.mahacet.org/StaticPages/HomePage as part of the admission schedule for First Year Undergraduate Technical Courses in Engineering & Technology for Academic Year 2025-2026."
   },
   {
-    "path": "/events/4",
+    "path": "/events",
     "content": "Pre-admission Campus Visit & Counseling Session Welcoming all aspiring engineering candidates along with their parents to visit our campus for a personalized pre-admission counseling session from our admission guidance team. Available on all working days between 9:30 am to 4:30 pm. Visit FR. CONCEICAO RODRIGUES COLLEGE OF ENGINEERING, Fr. Agnel Ashram, Bandstand, Bandra (W), Mumbai - 400050. Contact: +91-22-67114135 / +91-22-67114104 or email: admission_support@frcrcce.ac.in"
   },
   {
-    "path": "/events/1",
+    "path": "/events",
     "content": "B.Tech. in Computer Engineering Program - 180 Seats Available Computer engineering program covering hardware and software aspects of computing, from microcontrollers to software design. Focuses on how computer systems work and integrate into larger systems. Tasks include writing software & firmware, designing operating systems, constructing databases, web content development, algorithms, and information processing."
+  },
+  {
+    "path": "/achievements",
+    "content": "NAAC A+ Accreditations Fr. CRCE has been awarded an A+ grade by the National Assessment and Accreditation Council (NAAC) in recognition of its academic excellence and institutional quality."
+  },
+  {
+    "path": "/news",
+    "content": "title ftvftvftv"
+  },
+  {
+    "path": "/news",
+    "content": "cecc dwdwd"
+  },
+  {
+    "path": "/news",
+    "content": "wdnjwnd dwdwdw"
+  },
+  {
+    "path": "/news",
+    "content": "News1 dwddwdw"
+  },
+  {
+    "path": "/notices",
+    "content": "Time Table for the Odd Term of 2025–26 Starting from 7th July The odd semester for the academic year 2025–26 will commence from 7th July 2025, and students are expected to follow the newly issued time table accordingly."
+  },
+  {
+    "path": "/notices",
+    "content": "Commencement of Academic Term for SE and TE Students The academic term for Second Year (SE) and Third Year (TE) students will commence from Monday, 7th July 2025. Students are requested to attend all lectures and practicals from the first day of the term without fail."
+  },
+  {
+    "path": "/notices",
+    "content": "Notice Regarding Time Limit Extension for SE Students – Inter Branch Transfer 2025–26 This is to inform all Second Year (SE) students that the time limit for applying for inter-branch transfers for the academic year 2025–26 has been extended. Students who wish to apply for a transfer to a different branch are advised to submit their applications by the revised deadline, which will be communicated shortly by the academic office."
+  },
+  {
+    "path": "/notices",
+    "content": "Notice Regarding SE Students – Inter Branch Transfer (2025–26) All Second Year (SE) students who wish to apply for an inter-branch transfer for the academic year 2025–26 are hereby informed that the last date to submit applications is 2nd July 2025 by 10:00 AM.\n\nNo applications will be accepted after the deadline under any circumstances. Students must ensure they meet the required eligibility criteria before applying. For further queries, please contact the academic section.\n\n"
+  },
+  {
+    "path": "/councils",
+    "content": "dwdw fdsdffsdffsfd"
+  },
+  {
+    "path": "/councils",
+    "content": "test dasdasddasdasad"
+  },
+  {
+    "path": "/councils",
+    "content": "GDSC Google Developer Student Clubs"
+  },
+  {
+    "path": "/department/computers",
+    "content": "teacher test test"
+  },
+  {
+    "path": "/department/computers",
+    "content": "Kalpana Techer CODE"
+  },
+  {
+    "path": "/department/computers",
+    "content": "Academic Calendar Update for Semester Break Examination The semester break has been rescheduled to begin from December 20, 2023 instead of December 15, 2023. Classes will resume on January 5, 2024."
+  },
+  {
+    "path": "/department/computers",
+    "content": "Guest Lecture on \"Emerging Trends in AI\" Event A guest lecture by Dr. Ramesh Kumar, AI Scientist at Google, will be held on November 25, 2023 at 10:00 AM in the Seminar Hall. All third and final year students are required to attend."
+  },
+  {
+    "path": "/department/computers",
+    "content": "Reasearch on Best Diplomats null null"
+  },
+  {
+    "path": "/department/computers",
+    "content": "test Congrats - test}"
+  },
+  {
+    "path": "/department/computers",
+    "content": "Won Coding Contest fwfwfwfw CHris GDSC}"
+  },
+  {
+    "path": "/department/computers",
+    "content": "Machine Learning & Deep Learning Applications FDP 45 faculty members from various institutes AICTE"
+  },
+  {
+    "path": "/department/computers",
+    "content": "TCS Innovation Labs Mumbai, Maharashtra Exposure to industry-scale AI projects, Understanding of software development lifecycle"
+  },
+  {
+    "path": "/department/computers",
+    "content": "Capstone Software Tester Mumbai"
+  },
+  {
+    "path": "/department/computers",
+    "content": "ad asda asda"
+  },
+  {
+    "path": "/department/computers",
+    "content": "asdad dasd"
+  },
+  {
+    "path": "/department/computers",
+    "content": "eff sfds sfdsf"
+  },
+  {
+    "path": "/department/computers",
+    "content": "BrowserStack Software Tester Mumbai"
+  },
+  {
+    "path": "/department/computers",
+    "content": "BrowserStack Software Tester Mumbai"
+  },
+  {
+    "path": "/department/computers",
+    "content": "Dr. Sujata Deshmukh Data Mining, Machine Learning, Blockchain Academic guidance, Career counseling, Research mentorship"
+  },
+  {
+    "path": "/department/ecs",
+    "content": "how to eat good null null"
+  },
+  {
+    "path": "/department/ecs",
+    "content": "Test Company TEST TEST"
   }
 ]

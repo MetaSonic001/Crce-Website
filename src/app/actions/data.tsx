@@ -213,27 +213,27 @@ export const dropdownContent: DropdownContent = {
   Departments: [
     {
       name: 'Computer Engineering',
-      href: '/AboutDepartment/ComputerDepartment',
+      href: '/department/computers',
       icon: <Cpu size={18} />,
     },
     {
       name: 'Electronics and Computer Science',
-      href: '/AboutDepartment/EcsDepartment',
+      href: '/department/ecs',
       icon: <CircuitBoard size={18} />,
     },
     {
       name: 'Mechanical Engineering',
-      href: '/AboutDepartment/MechanicalDepartment',
+      href: '/department/mechanical',
       icon: <Cog size={18} />,
     },
     {
       name: 'Computer Science and Engineering',
-      href: '/AboutDepartment/CseDepartment',
+      href: '/department/cse',
       icon: <Code2 size={18} />,
     },
     {
       name: 'Science and Humanities',
-      href: '/AboutDepartment/ScienceAndHumanities',
+      href: '/department/humanities',
       icon: <Atom size={18} />,
     },
   ],
