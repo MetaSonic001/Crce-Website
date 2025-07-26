@@ -35,4 +35,8 @@ export const tabs = [
     id: 'staffincharges',
     title: 'Staff Incharges',
   },
+  {
+    id: 'irgpolicy',
+    title: 'IRG Policy',
+  },
 ]

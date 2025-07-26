@@ -12,9 +12,10 @@ import StaffIncharge from './staff-incharge/StaffIncharge'
 import Trustees from './trustees/Trustees'
 import Governance from './governance/Governance'
 import CollegeDevelopmentCommittee from './college-dev-committee/CollegeDevCommittee'
-import GoverningCouncil from './governing-council/GoverningCouncil'
+import GoverningCouncil from './governing-council/GoverningCouncilTabs'
 import AcademicCell from './academic-cell/AcademicCell'
 import LocalManagementCouncil from './local-management-council/LocalManagementCouncil'
+import Irg from './irg-policy/irgpolicy'
 
 const zilla = Zilla_Slab({
   weight: ['400', '700'],
@@ -47,6 +48,8 @@ export default function Page() {
         return <ServiceRules />
       case 'staffincharges':
         return <StaffIncharge />
+      case 'irgpolicy':
+        return <Irg />
       default:
         return null
     }
@@ -59,22 +62,27 @@ export default function Page() {
   }
 
   return (
-    <main className="flex h-fit w-full flex-col items-center justify-center mt-28 sm:mt-36 md:mt-40 lg:mt-52">
+    <main className="mt-28 flex h-fit w-full flex-col items-center justify-center sm:mt-36 md:mt-40 lg:mt-52">
       {/* Mobile menu toggle button */}
-      <div className="w-full px-4 mb-4 md:hidden">
+      <div className="mb-4 w-full px-4 md:hidden">
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="flex items-center justify-between w-full p-3 bg-blue-50 rounded-md border border-gray-200"
+          className="flex w-full items-center justify-between rounded-md border border-gray-200 bg-blue-50 p-3"
         >
-          <span className="font-medium">Menu - {tabs.find(tab => tab.id === activeTab)?.title || 'Overview'}</span>
+          <span className="font-medium">
+            Menu -{' '}
+            {tabs.find((tab) => tab.id === activeTab)?.title || 'Overview'}
+          </span>
           <span className="transform transition-transform duration-200">
             {mobileMenuOpen ? '▲' : '▼'}
           </span>
         </button>
       </div>
-      
+
       <div className="flex h-fit w-full flex-col justify-center bg-gradient-to-b from-white to-[#E5F0FF] py-4 md:flex-row">
-        <div className={`px-4 w-full md:w-auto md:min-w-[250px] lg:min-w-[300px] transition-all duration-300 ${mobileMenuOpen ? 'block' : 'hidden md:block'}`}>
+        <div
+          className={`w-full px-4 transition-all duration-300 md:w-auto md:min-w-[250px] lg:min-w-[300px] ${mobileMenuOpen ? 'block' : 'hidden md:block'}`}
+        >
           <div className="sticky top-24 md:top-32">
             <Sidebar
               tabs={tabs}
@@ -84,7 +92,7 @@ export default function Page() {
             />
           </div>
         </div>
-        <div id={activeTab} className="w-full px-4 md:px-6 lg:px-8 py-4">
+        <div id={activeTab} className="w-full px-4 py-4 md:px-6 lg:px-8">
           {renderContent()}
         </div>
       </div>

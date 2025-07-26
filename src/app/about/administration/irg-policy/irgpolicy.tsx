@@ -1,16 +1,16 @@
 import React from 'react'
 
-const ServiceRules = () => {
+const irgpolicy = () => {
   return (
     <div className="flex min-h-screen w-[90vw] flex-col sm:w-full">
       <main className="container mx-auto grow p-2 sm:p-4">
         <div className="rounded-lg bg-white p-2 shadow-lg sm:p-6">
           {' '}
-          <h2 className="mb-4 text-2xl font-semibold">Service Rules</h2>
+          <h2 className="mb-4 text-2xl font-semibold">IRG Policy</h2>
           <div className="h-[800px] w-full">
             {/* Adjust height as needed */}
             <object
-              data="/Service_Rules.pdf"
+              data="/Revised_IRG_Policy_wef_2023.pdf"
               type="application/pdf"
               width="100%"
               height="100%"
@@ -19,7 +19,7 @@ const ServiceRules = () => {
               <p>
                 Unable to display PDF file.
                 <a
-                  href="/Service_Rules.pdf"
+                  href="/Revised_IRG_Policy_wef_2023.pdf"
                   className="text-blue-600 hover:underline"
                 >
                   Download
@@ -34,4 +34,4 @@ const ServiceRules = () => {
   )
 }
 
-export default ServiceRules
+export default irgpolicy
