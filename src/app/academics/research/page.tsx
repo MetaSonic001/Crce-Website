@@ -599,10 +599,10 @@ const ResearchPage = () => {
           {activeSection === 'activities' && (
             <div className="flex items-center justify-center p-4 md:p-6">
               <img
-                src="/research-activities.jpg" // Replace with actual image path in public directory
+                src="/VJTI_PreincubationVisit.jpg" // Replace with actual image path in public directory
                 alt="Activities under R&D Cell"
                 className="h-auto max-w-full rounded-lg shadow-md"
-                style={{ maxHeight: '600px' }}
+                style={{ maxHeight: '1500px' }}
               />
             </div>
           )}
