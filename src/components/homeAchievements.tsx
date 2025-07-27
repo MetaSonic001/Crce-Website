@@ -22,6 +22,7 @@ const HomeAchievements = () => {
     isError,
   } = useQuery<Achievement[]>({
     queryKey: ['achievements'],
+    staleTime: 6 * 60 * 60 * 1000, // 6 hour cache
     queryFn: getAchievements,
   })
 
@@ -114,9 +115,8 @@ const HomeAchievements = () => {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`h-2 w-2 rounded-full transition-all ${
-                  currentIndex === index ? 'w-4 bg-blue-600' : 'bg-gray-300'
-                }`}
+                className={`h-2 w-2 rounded-full transition-all ${currentIndex === index ? 'w-4 bg-blue-600' : 'bg-gray-300'
+                  }`}
               />
             ))}
           </div>

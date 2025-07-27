@@ -18,6 +18,7 @@ const EventCards = () => {
     isError,
   } = useQuery<EventsResponse>({
     queryKey: ['events'],
+    staleTime: 6 * 60 * 60 * 1000, // 6 hour cache
     queryFn: getEvents,
   })
 
@@ -116,11 +117,10 @@ const EventCards = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handlePageChange(index + 1)}
-              className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
-                currentPage === index + 1
-                  ? 'bg-blue-600 text-white'
-                  : 'text-gray-700 hover:bg-gray-100'
-              }`}
+              className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${currentPage === index + 1
+                ? 'bg-blue-600 text-white'
+                : 'text-gray-700 hover:bg-gray-100'
+                }`}
             >
               {index + 1}
             </motion.button>

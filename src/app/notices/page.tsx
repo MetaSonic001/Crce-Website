@@ -44,6 +44,7 @@ const NoticesPage: React.FC = () => {
 
   const { data, isLoading, isError, error } = useQuery<Notice[]>({
     queryKey: ['notices'],
+    staleTime: 6 * 60 * 60 * 1000, // 6 hour cache
     queryFn: async () => {
       try {
         const res = await getNotices()

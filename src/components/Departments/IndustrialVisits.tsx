@@ -25,6 +25,7 @@ const IndustrialVisits: React.FC<PageProps> = ({ department }) => {
     isError,
   } = useQuery<IndustrialVisit[]>({
     queryKey: ['industrial-visits', department],
+    staleTime: 6 * 60 * 60 * 1000, // 6 hour cache
     queryFn: () => getIndustrialVisits(department),
   })
 

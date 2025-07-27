@@ -5,12 +5,36 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { intro } from '@/app/files/files'
+import getPopUp from '@/app/api/pop_up'
+import type { PopUp } from '@/app/api/pop_up'
+import { useQuery } from '@tanstack/react-query'
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
   const [isMobile, setIsMobile] = useState(true)
   const [windowHeight, setWindowHeight] = useState(0)
   const { scrollY } = useScroll()
+
+  // Wrapper function to extract PopUp data from the response
+  const fetchPopUpData = async (): Promise<PopUp> => {
+    const response = await getPopUp()
+    // Adjust this based on the actual structure of your API response
+    // If response.data contains the PopUp, use: return response.data
+    // If response itself is the PopUp, use: return response
+    // If it's nested differently, adjust accordingly
+    return response.data || response
+  }
+
+  // React Query to fetch popup data with 6-hour stale time
+  const {
+    data: popupData,
+    isLoading: isPopupLoading,
+    isError: isPopupError
+  } = useQuery<PopUp>({
+    queryKey: ['popup'],
+    staleTime: 6 * 60 * 60 * 1000, // 6 hour cache
+    queryFn: fetchPopUpData,
+  })
 
   useEffect(() => {
     // Check for mobile and get window height
@@ -34,7 +58,10 @@ export default function HeroSection() {
     }
   )
 
-  const isAdmission = true //During addmission time make this TRUE , other time keep it FALSE!!
+  // Use React Query data to determine if admission section should be shown
+  // Show admission section only if data is loaded, not in error state, and enabled is true
+  const isAdmission = !isPopupLoading && !isPopupError && popupData?.enabled === true
+
   const handleToggle = () => {
     setIsVisible(!isVisible)
   }
@@ -83,18 +110,17 @@ export default function HeroSection() {
               University of Mumbai <br className="block md:hidden" />| NAAC "A"
               Grade Accredited |
             </h1>
-            {/* <h1 className='text-2xl font-josefinsans'></h1> */}
           </div>
         </div>
       </div>
+
       {isAdmission ? (
-        //TRUE
+        // TRUE - Show admission section with dynamic data from React Query
         <div className="relative z-40 flex min-h-screen items-center justify-end px-5 py-24 text-center sm:px-20">
           <div className="sm:relative">
             <div
-              className={`absolute top-1/2 left-0 w-4/5 max-w-sm -translate-y-1/2 transform rounded-r-lg bg-white/95 p-8 shadow-lg backdrop-blur-sm transition-transform duration-500 sm:relative sm:top-auto sm:left-auto sm:w-full sm:max-w-md sm:translate-x-0 sm:translate-y-0 sm:rounded-lg ${
-                isVisible ? 'translate-x-0' : '-translate-x-full'
-              }`}
+              className={`absolute top-1/2 left-0 w-4/5 max-w-sm -translate-y-1/2 transform rounded-r-lg bg-white/95 p-8 shadow-lg backdrop-blur-sm transition-transform duration-500 sm:relative sm:top-auto sm:left-auto sm:w-full sm:max-w-md sm:translate-x-0 sm:translate-y-0 sm:rounded-lg ${isVisible ? 'translate-x-0' : '-translate-x-full'
+                }`}
             >
               <button
                 onClick={handleToggle}
@@ -104,47 +130,58 @@ export default function HeroSection() {
               </button>
               <div className="mb-6">
                 <h2 className="text-2xl font-bold text-gray-900 sm:text-4xl">
-                  Welcome New Under Graduate Students
+                  {isPopupLoading ? 'Loading...' : popupData?.title || 'Welcome New Under Graduate Students'}
                 </h2>
               </div>
               <div className="flex flex-col gap-3">
                 <p className="text-md text-gray-600">
-                  Admission: Applications Opened
+                  {isPopupLoading ? 'Loading...' : popupData?.line1 || 'Admission: Applications Opened'}
                 </p>
                 <p className="text-md font-bold text-gray-900">
-                  Deadline: 8th July, 2024
+                  {isPopupLoading ? 'Loading...' : popupData?.line2 || 'Deadline: 8th July, 2024'}
                 </p>
-                <button className="group text-md w-full rounded-lg bg-gradient-to-r from-yellow-400 to-yellow-500 px-6 py-4 font-semibold text-gray-900 shadow-sm transition-all duration-300 hover:from-yellow-500 hover:to-yellow-600 hover:shadow-md focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2">
-                  <Link
-                    href={'/Admissions'}
-                    className="flex items-center justify-center gap-2"
+                {!isPopupLoading && popupData?.url && (
+                  <button className="group text-md w-full rounded-lg bg-gradient-to-r from-yellow-400 to-yellow-500 px-6 py-4 font-semibold text-gray-900 shadow-sm transition-all duration-300 hover:from-yellow-500 hover:to-yellow-600 hover:shadow-md focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2">
+                    <Link
+                      href={popupData.url}
+                      className="flex items-center justify-center gap-2"
+                    >
+                      Get Started
+                      <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </button>
+                )}
+                {!isPopupLoading && !popupData?.url && (
+                  <button
+                    disabled
+                    className="group text-md w-full rounded-lg bg-gray-300 px-6 py-4 font-semibold text-gray-500 shadow-sm cursor-not-allowed"
                   >
-                    Get Started
-                    <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </button>
+                    <span className="flex items-center justify-center gap-2">
+                      Get Started
+                      <ChevronRight className="h-4 w-4" />
+                    </span>
+                  </button>
+                )}
               </div>
             </div>
             <button
               onClick={handleToggle}
-              className={`absolute top-1/2 left-0 -translate-y-1/2 transform rounded-r-md bg-white p-2 shadow-md transition-all duration-500 sm:hidden ${
-                isVisible
+              className={`absolute top-1/2 left-0 -translate-y-1/2 transform rounded-r-md bg-white p-2 shadow-md transition-all duration-500 sm:hidden ${isVisible
                   ? 'pointer-events-none translate-x-full opacity-0'
                   : 'translate-x-0 opacity-100'
-              }`}
+                }`}
             >
               <ChevronRight className="h-8 w-8 text-black" />
             </button>
           </div>
         </div>
       ) : (
-        //FALSE
+        // FALSE - Show quick glance section (hidden if popup is enabled but loading/error occurred)
         <div className="relative z-40 flex min-h-screen items-center justify-end text-center">
           <div className="sm:relative">
             <div
-              className={`absolute top-[75%] left-0 w-4/5 max-w-fit -translate-y-1/2 transform rounded-r-lg transition-transform duration-500 sm:relative sm:top-auto sm:left-auto sm:w-full sm:max-w-md sm:translate-x-0 sm:translate-y-0 sm:rounded-lg ${
-                isVisible ? 'translate-x-0' : '-translate-x-full'
-              }`}
+              className={`absolute top-[75%] left-0 w-4/5 max-w-fit -translate-y-1/2 transform rounded-r-lg transition-transform duration-500 sm:relative sm:top-auto sm:left-auto sm:w-full sm:max-w-md sm:translate-x-0 sm:translate-y-0 sm:rounded-lg ${isVisible ? 'translate-x-0' : '-translate-x-full'
+                }`}
             >
               <button
                 onClick={handleToggle}
@@ -164,10 +201,10 @@ export default function HeroSection() {
                 }}
                 transition={{ duration: 1.0 }}
               >
-                <motion.button className="group text-md 0 w-full rounded-sm bg-[hsl(225,38%,20%)] p-2 font-semibold text-white shadow-sm duration-300 ease-in-out hover:bg-white hover:text-[hsl(225,38%,20%)] hover:shadow-md focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
+                <motion.button className="group text-md w-full rounded-sm bg-[hsl(225,38%,20%)] p-2 font-semibold text-white shadow-sm duration-300 ease-in-out hover:bg-white hover:text-[hsl(225,38%,20%)] hover:shadow-md focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
                   <span className="flex pl-2">Faculty Recruitment Advt</span>
                 </motion.button>
-                <motion.button className="group text-md hover:to- w-full rounded-sm bg-gradient-to-r from-white to-gray-100 p-2 font-semibold text-[hsl(225,38%,20%)] shadow-sm duration-100 ease-in-out hover:bg-gradient-to-r hover:from-[hsl(225,38%,20%)] hover:text-white hover:shadow-md focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
+                <motion.button className="group text-md w-full rounded-sm bg-gradient-to-r from-white to-gray-100 p-2 font-semibold text-[hsl(225,38%,20%)] shadow-sm duration-100 ease-in-out hover:bg-gradient-to-r hover:from-[hsl(225,38%,20%)] hover:text-white hover:shadow-md focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
                   <Link href={'/nirf'} className="flex pl-2">
                     NIRF
                   </Link>
@@ -184,11 +221,10 @@ export default function HeroSection() {
             </div>
             <button
               onClick={handleToggle}
-              className={`absolute top-[70%] left-0 -translate-y-1/2 transform rounded-r-md bg-white p-2 shadow-md transition-all duration-500 sm:hidden ${
-                isVisible
+              className={`absolute top-[70%] left-0 -translate-y-1/2 transform rounded-r-md bg-white p-2 shadow-md transition-all duration-500 sm:hidden ${isVisible
                   ? 'pointer-events-none translate-x-full opacity-0'
                   : 'translate-x-0 opacity-100'
-              }`}
+                }`}
             >
               <ChevronRight className="h-8 w-8 text-black" />
             </button>
@@ -198,3 +234,4 @@ export default function HeroSection() {
     </section>
   )
 }
+

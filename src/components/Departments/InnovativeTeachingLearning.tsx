@@ -26,6 +26,7 @@ const InnovativeTeachingLearning: React.FC<PageProps> = ({ department }) => {
     isError: isErrorTeaching,
   } = useQuery({
     queryKey: ['teaching-methods', department],
+    staleTime: 6 * 60 * 60 * 1000, // 1 hour cache
     queryFn: () => getItlTeachingMethods(department),
   })
 
@@ -35,6 +36,7 @@ const InnovativeTeachingLearning: React.FC<PageProps> = ({ department }) => {
     isError: isErrorCourses,
   } = useQuery({
     queryKey: ['courses-offered', department],
+    staleTime: 6 * 60 * 60 * 1000, // 1 hour cache
     queryFn: () => getItlCoursesOffered(department),
   })
 
@@ -44,6 +46,7 @@ const InnovativeTeachingLearning: React.FC<PageProps> = ({ department }) => {
     isError: isErrorCertifications,
   } = useQuery({
     queryKey: ['certifications', department],
+    staleTime: 6 * 60 * 60 * 1000, // 1 hour cache
     queryFn: () => getItlCertifications(department),
   })
 
@@ -77,31 +80,28 @@ const InnovativeTeachingLearning: React.FC<PageProps> = ({ department }) => {
         <div className="inline-flex flex-col sm:flex-row rounded-md w-full sm:w-auto">
           <button
             onClick={() => setActiveToggle('teaching')}
-            className={`rounded-t-md sm:rounded-t-none sm:rounded-l-md px-4 sm:px-8 py-3 text-sm sm:text-base font-medium ${
-              activeToggle === 'teaching'
-                ? 'bg-[#131929] text-white'
-                : 'bg-gray-200 text-[#131929] hover:bg-gray-300'
-            } transition-colors duration-200`}
+            className={`rounded-t-md sm:rounded-t-none sm:rounded-l-md px-4 sm:px-8 py-3 text-sm sm:text-base font-medium ${activeToggle === 'teaching'
+              ? 'bg-[#131929] text-white'
+              : 'bg-gray-200 text-[#131929] hover:bg-gray-300'
+              } transition-colors duration-200`}
           >
             Teaching Methods
           </button>
           <button
             onClick={() => setActiveToggle('courses')}
-            className={`px-4 sm:px-8 py-3 text-sm sm:text-base font-medium ${
-              activeToggle === 'courses'
-                ? 'bg-[#131929] text-white'
-                : 'bg-gray-200 text-[#131929] hover:bg-gray-300'
-            } transition-colors duration-200`}
+            className={`px-4 sm:px-8 py-3 text-sm sm:text-base font-medium ${activeToggle === 'courses'
+              ? 'bg-[#131929] text-white'
+              : 'bg-gray-200 text-[#131929] hover:bg-gray-300'
+              } transition-colors duration-200`}
           >
             Courses Offered
           </button>
           <button
             onClick={() => setActiveToggle('certifications')}
-            className={`rounded-b-md sm:rounded-b-none sm:rounded-r-md px-4 sm:px-8 py-3 text-sm sm:text-base font-medium ${
-              activeToggle === 'certifications'
-                ? 'bg-[#131929] text-white'
-                : 'bg-gray-200 text-[#131929] hover:bg-gray-300'
-            } transition-colors duration-200`}
+            className={`rounded-b-md sm:rounded-b-none sm:rounded-r-md px-4 sm:px-8 py-3 text-sm sm:text-base font-medium ${activeToggle === 'certifications'
+              ? 'bg-[#131929] text-white'
+              : 'bg-gray-200 text-[#131929] hover:bg-gray-300'
+              } transition-colors duration-200`}
           >
             Certifications
           </button>
@@ -216,13 +216,12 @@ const InnovativeTeachingLearning: React.FC<PageProps> = ({ department }) => {
                         </td>
                         <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm whitespace-nowrap text-gray-700">
                           <span
-                            className={`rounded-full px-2 sm:px-3 py-1 text-xs font-medium ${
-                              data.level === 'Advanced'
-                                ? 'bg-blue-100 text-blue-800'
-                                : data.level === 'Intermediate'
-                                  ? 'bg-green-100 text-green-800'
-                                  : 'bg-yellow-100 text-yellow-800'
-                            }`}
+                            className={`rounded-full px-2 sm:px-3 py-1 text-xs font-medium ${data.level === 'Advanced'
+                              ? 'bg-blue-100 text-blue-800'
+                              : data.level === 'Intermediate'
+                                ? 'bg-green-100 text-green-800'
+                                : 'bg-yellow-100 text-yellow-800'
+                              }`}
                           >
                             {data.level}
                           </span>
