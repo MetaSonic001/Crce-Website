@@ -521,7 +521,7 @@ const ResearchPage = () => {
                   href="#"
                   onClick={(e) => {
                     e.preventDefault()
-                    openPdf('/research_ethics.pdf')
+                    openPdf('/Research Ethics Policy.pdf')
                   }}
                   className="text-blue-600 underline hover:text-blue-800"
                 >
