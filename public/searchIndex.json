@@ -96,7 +96,7 @@
     "content": "Students Alumni"
   },
   {
-    "path": "/students/notices",
+    "path": "/notices",
     "content": "Students Notices"
   },
   {
@@ -157,7 +157,27 @@
   },
   {
     "path": "/events",
+    "content": "Beyond the Degree - Vacation Upskilling Courses Department of Computer Engineering presents vacation upskilling courses to upgrade your skills and elevate your future. Course duration: 20-30 hours, 4-5 hours/day with theory sessions and hands-on practical sessions. Schedule: June 10-17 (Cloudstart: AWS Fundamentals), June 30 - July 5 (Deep Learning, IoT), July 30 - August 5 (Verilog Programming). Target: UG/PG Students aspiring to build a strong programming foundation. Course fee: Rs. 2000/-. For queries: +91 95610 66633. QR code available for registration."
+  },
+  {
+    "path": "/events",
     "content": "B.Tech. in Computer Engineering Program - 180 Seats Available Computer engineering program covering hardware and software aspects of computing, from microcontrollers to software design. Focuses on how computer systems work and integrate into larger systems. Tasks include writing software & firmware, designing operating systems, constructing databases, web content development, algorithms, and information processing."
+  },
+  {
+    "path": "/events",
+    "content": "Embedded Systems Industry Insights and Practical Applications Guest lecture by Mr. Ayush Jain, Co-founder, UtopiaTech Pvt. Ltd., for SE and TE ECS students on embedded systems."
+  },
+  {
+    "path": "/events",
+    "content": "Navigating Competitive Programming and Industry Connections Guest lecture by Mr. Gaurav Sen, Founder, Interview Ready, for FE and SE ECS students on competitive programming."
+  },
+  {
+    "path": "/events",
+    "content": "Mentoring & Guidance for ECS Students Mentoring session by Mr. Dhruv Pednekar, R&D Engineer, SELEC Controls Pvt. Ltd., for SE ECS students on career paths."
+  },
+  {
+    "path": "/events",
+    "content": "Unlocking Careers in System Security Guest lecture by Mr. Upmanyu Jha, Software Developer, Quantiphi, for BE ECS and interested FE students on system security."
   },
   {
     "path": "/achievements",
@@ -196,6 +216,10 @@
     "content": "Notice Regarding SE Students – Inter Branch Transfer (2025–26) All Second Year (SE) students who wish to apply for an inter-branch transfer for the academic year 2025–26 are hereby informed that the last date to submit applications is 2nd July 2025 by 10:00 AM.\n\nNo applications will be accepted after the deadline under any circumstances. Students must ensure they meet the required eligibility criteria before applying. For further queries, please contact the academic section.\n\n"
   },
   {
+    "path": "/project-groups",
+    "content": "P1 2EP"
+  },
+  {
     "path": "/councils",
     "content": "dwdw fdsdffsdffsfd"
   },
@@ -204,79 +228,187 @@
     "content": "test dasdasddasdasad"
   },
   {
-    "path": "/councils",
-    "content": "GDSC Google Developer Student Clubs"
-  },
-  {
-    "path": "/department/computers",
+    "path": "/department/computers?tab=faculty",
     "content": "teacher test test"
   },
   {
-    "path": "/department/computers",
+    "path": "/department/computers?tab=faculty",
     "content": "Kalpana Techer CODE"
   },
   {
-    "path": "/department/computers",
+    "path": "/department/computers?tab=department_notices",
     "content": "Academic Calendar Update for Semester Break Examination The semester break has been rescheduled to begin from December 20, 2023 instead of December 15, 2023. Classes will resume on January 5, 2024."
   },
   {
-    "path": "/department/computers",
+    "path": "/department/computers?tab=department_notices",
     "content": "Guest Lecture on \"Emerging Trends in AI\" Event A guest lecture by Dr. Ramesh Kumar, AI Scientist at Google, will be held on November 25, 2023 at 10:00 AM in the Seminar Hall. All third and final year students are required to attend."
   },
   {
-    "path": "/department/computers",
+    "path": "/department/computers?tab=department_notices",
     "content": "Reasearch on Best Diplomats null null"
   },
   {
-    "path": "/department/computers",
+    "path": "/department/computers#AchievementsTab",
     "content": "test Congrats - test}"
   },
   {
-    "path": "/department/computers",
+    "path": "/department/computers#AchievementsTab",
     "content": "Won Coding Contest fwfwfwfw CHris GDSC}"
   },
   {
-    "path": "/department/computers",
-    "content": "Machine Learning & Deep Learning Applications FDP 45 faculty members from various institutes AICTE"
+    "path": "/department/computers#AchievementsTab",
+    "content": "test Congrats - test}"
+  },
+  {
+    "path": "/department/computers#AchievementsTab",
+    "content": "Won Coding Contest fwfwfwfw CHris GDSC}"
   },
   {
     "path": "/department/computers",
     "content": "TCS Innovation Labs Mumbai, Maharashtra Exposure to industry-scale AI projects, Understanding of software development lifecycle"
   },
   {
-    "path": "/department/computers",
+    "path": "/department/computers?tab=placements",
     "content": "Capstone Software Tester Mumbai"
   },
   {
-    "path": "/department/computers",
+    "path": "/department/computers?tab=innovative_teaching",
     "content": "ad asda asda"
   },
   {
-    "path": "/department/computers",
+    "path": "/department/computers?tab=innovative_teaching",
     "content": "asdad dasd"
   },
   {
-    "path": "/department/computers",
+    "path": "/department/computers?tab=innovative_teaching",
     "content": "eff sfds sfdsf"
   },
   {
-    "path": "/department/computers",
+    "path": "/department/computers?tab=placements",
     "content": "BrowserStack Software Tester Mumbai"
   },
   {
-    "path": "/department/computers",
+    "path": "/department/computers?tab=placements",
     "content": "BrowserStack Software Tester Mumbai"
   },
   {
-    "path": "/department/computers",
+    "path": "/department/computers?tab=department_initiative",
     "content": "Dr. Sujata Deshmukh Data Mining, Machine Learning, Blockchain Academic guidance, Career counseling, Research mentorship"
   },
   {
-    "path": "/department/ecs",
+    "path": "/department/cse#AchievementsTab",
+    "content": "2nd Place Organized by Tolani College of Commerce (Autonomous) Atharva Patil Intercollegiate Zone II Shooting Tournament 24-25 (Air Rifle Men 60 Shots)}"
+  },
+  {
+    "path": "/department/cse#AchievementsTab",
+    "content": "1st Place Organized by Mumbai University Harshil Sampat Under 23 Championship Shotput}"
+  },
+  {
+    "path": "/department/cse#AchievementsTab",
+    "content": "2nd Place Organized by Mumbai University Harshil Sampat Under 23 Championship Discus Throw}"
+  },
+  {
+    "path": "/department/cse#AchievementsTab",
+    "content": "1st Place Organized by Atharva College of Engineering Abdussami Qazi, Aaren Solanki, Tejas Salvi HackDeck}"
+  },
+  {
+    "path": "/department/cse#AchievementsTab",
+    "content": "1st Place Organized by K.J. Somaiya Abdussami Qazi, Aaren Solanki, Tejas Salvi Innoquest}"
+  },
+  {
+    "path": "/department/cse#AchievementsTab",
+    "content": "1st Place Organized by SIES Abdussami Qazi, Aaren Solanki, Tejas Salvi GenAI-Thon}"
+  },
+  {
+    "path": "/department/cse#AchievementsTab",
+    "content": "3rd Place Organized by Rajiv Gandhi Institute of Technology Jonah Quadros, Soham, Jeet Ruia Shark-A-Thon}"
+  },
+  {
+    "path": "/department/cse#AchievementsTab",
+    "content": "2nd Place Organized by Xavier Institute of Technology Royce Antony, Sian George InnoVision}"
+  },
+  {
+    "path": "/department/cse#AchievementsTab",
+    "content": "2nd Place Organized by K.J. Somaiya Vidyavihar University Royce Antony, Sian George Healthcare Ideathon}"
+  },
+  {
+    "path": "/department/cse#AchievementsTab",
+    "content": "2nd Place Organized by Divisional Round IEEE, Mumbai Aditya M. Rathod, Chaitanya B. Rele, Kaustubh M. Natu Technovation 2025}"
+  },
+  {
+    "path": "/department/cse?tab=faculty_dev_prog",
+    "content": "HD FDP DWDW DWD"
+  },
+  {
+    "path": "/department/ecs?tab=department_notices",
     "content": "how to eat good null null"
   },
   {
-    "path": "/department/ecs",
+    "path": "/department/ecs#AchievementsTab",
+    "content": "Late Y.K. Bhushan Most Influential Professors Received at Taj Land's End Dr. Sapna Prabhu World Education Congress Awards 12th Edition}"
+  },
+  {
+    "path": "/department/ecs#AchievementsTab",
+    "content": "Best Technical Paper Award Enhanced Geospatial Raster Data Protection: Harnessing Chaos Maps and DNA Encryption Information and Network Security Track Prajakta Bhangale International Conference ICCUBEA, Pune}"
+  },
+  {
+    "path": "/department/ecs#AchievementsTab",
+    "content": "Best Technical Paper Award Cogni-Sonance: Navigating the Neurological Orchestra of Imagined Speech Jeenal Rambhia IEEE International Conference on Artificial Intelligence and Emerging Technology}"
+  },
+  {
+    "path": "/department/ecs#AchievementsTab",
+    "content": "NPTEL Discipline Star Received a certificate in Discipline of Computer Science and Engineering Dr. Dipali Koshti NPTEL}"
+  },
+  {
+    "path": "/department/ecs#AchievementsTab",
+    "content": "Third Position Bronze Medal Part of college team in Peep Sight Air Rifle Men’s Group Team Event Aadi Gavankar, Vineet Chaturvedi University of Mumbai Inter-collegiate Tournament Zone – II}"
+  },
+  {
+    "path": "/department/ecs#AchievementsTab",
+    "content": "Participating Finalists Representing Team EvoTech at Indian Institute of Technology Hyderabad IITH Anuj Naik, Aahana Peter, Freia Quadros, Mehek Gupta Smart India Hackathon SIH 2024}"
+  },
+  {
+    "path": "/department/ecs#AchievementsTab",
+    "content": "Participating Finalists At Indian Institute of Technology Kharagpur IITKGP David Porathur, Dr. Dipali Koshti Smart India Hackathon SIH 2024}"
+  },
+  {
+    "path": "/department/ecs#AchievementsTab",
+    "content": "Participating Finalists At Amity University, Raipur Chhattisgarh Shubham Shanbag Smart India Hackathon SIH 2024}"
+  },
+  {
+    "path": "/department/ecs#AchievementsTab",
+    "content": "Winners Team SafeWay Innovation at Excel Engineering College, Erode, Tamil Nadu Mac Brass, Jesveld Brass, Tanish Khot, Bhushan Naik, Bliss Machado, Prof. Vaibhav Godbole Smart India Hackathon SIH 2024}"
+  },
+  {
+    "path": "/department/ecs#AchievementsTab",
+    "content": "Runners-up Second Position Team Magnetix among top 12 teams out of 15,000 participants at Indian Institute of Technology Madras IITM under ‘Problem Statement’ category Mugdha Zope, Aarush Wasnik, Krishna Soni AtomQuest Finals}"
+  },
+  {
+    "path": "/department/ecs#AchievementsTab",
+    "content": "Winners 1st Position Global Business Case Study Competition by Consulting & Analytics Club of IIT Guwahati, cash prize of Rs. 50,000/- Bhushan Naik, Tanish Khot, Bliss Machado, Prof. Vaibhav Godbole Strategy Storm 2025}"
+  },
+  {
+    "path": "/department/ecs#AchievementsTab",
+    "content": "Top 10 Short-listed Teams Project SafeTrak – Smart Safety Device, Mumbai Tanushree Koli, Manasvi Patil, Avanish Belel, Sudan Jerald CIIA 4 Start-up & Innovation Exhibition Competition}"
+  },
+  {
+    "path": "/department/ecs#AchievementsTab",
+    "content": "All India Rank #1 Team CFR in ‘Business Plan Presentation’ event, Coimbatore, Tamil Nadu Shantanu Karekar Formula Bharat}"
+  },
+  {
+    "path": "/department/ecs#AchievementsTab",
+    "content": "Winners Team CodeBreakers won with a cash prize of Rs. 15,000/- at JSPM Rajashri Shahu Maharaj College of Engineering, Pune David Porathur Hack-Sphere}"
+  },
+  {
+    "path": "/department/ecs#AchievementsTab",
+    "content": "Runners-up Second Position Best Paper Presentation category, out of 184 papers, at Institute of Engineering Sciences IES of IPS Academy, Indore Ratan Singh, Aarush Wasnik, Krishna Mistry, Prof. Jayen Modi, Dr. Dipali Koshti IEEE International Conference on Computing, Communication & Information Technologies}"
+  },
+  {
+    "path": "/department/ecs#AchievementsTab",
+    "content": "1st Runners-up Pitched idea at AICTE-organized event at Gitanjali Institute of Technical Studies, Udaipur, Rajasthan Bliss Machado, Samruddhi Shetty, Bhushan Naik, Tanish Khot, Prof. Vaibhav Godbole Innovation, Design & Entrepreneurship IDE Bootcamp}"
+  },
+  {
+    "path": "/department/ecs?tab=placements",
     "content": "Test Company TEST TEST"
   }
 ]
