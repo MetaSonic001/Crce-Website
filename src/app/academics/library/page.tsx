@@ -13,6 +13,7 @@ import {
   ChevronUp,
   ChevronLeft,
   ChevronRight,
+  Mail,
 } from 'lucide-react'
 import Navigation from '@/components/navigation'
 
@@ -39,6 +40,10 @@ export default function LibraryPage() {
       url: 'http://fragnelcollegelibrary.blogspot.com/',
     },
     {
+      label: 'The Knowledge Library',
+      url: 'https://www.theknowledgelibrary.in/',
+    },
+    {
       label: 'Online Library Catalog (WebOPAC)',
       url: 'http://pustak.fragnel.edu.in:4040',
     },
@@ -59,12 +64,24 @@ export default function LibraryPage() {
       url: 'http://asmedigitalcollection.asme.org/',
     },
     {
+      label: 'Science Direct',
+      url: 'https://www.sciencedirect.com/',
+    },
+    {
       label: 'National Digital Library',
       url: 'https://ndl.iitkgp.ac.in/',
     },
     {
       label: 'Knimbus e-Library',
       url: 'http://frcrce.knimbus.com',
+    },
+    {
+      label: 'Directory of Open Access of Books',
+      url: 'https://www.doabooks.org',
+    },
+    {
+      label: 'Directory of Open Access of Journals',
+      url: 'https://doaj.org/',
     },
     {
       label: 'Question Paper Archive - Before 2021',
@@ -76,7 +93,11 @@ export default function LibraryPage() {
     },
     {
       label: 'AICTE recommended e-Books [Free Download]',
-      url: 'https://ekumbh.aicte-india.org/index.php',
+      url: 'https://ekumbh.aicte-india.org/index.php',  
+    },
+    {
+      label: 'Printed National and International Journals',
+      url: 'https://frcrce.ac.in/index.php/academics/library/printed-journals/nijmp',  
     },
   ]
 
@@ -149,10 +170,9 @@ export default function LibraryPage() {
       {/* Header Section */}
       <div className="flex h-full w-full flex-col bg-white pt-12 md:pt-16">
         <div className="flex w-full flex-col px-4 pb-6 text-[#00122a] sm:px-8 md:px-16 md:pb-8 lg:px-24">
-         <h1
-            className={`mb-4 flex items-center justify-center text-center font-serif text-xl sm:text-2xl font-bold md:text-3xl lg:text-4xl`}
+          <h1
+            className={`mb-4 flex items-center justify-center text-center font-serif text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl`}
           >
-      
             LIBRARY
           </h1>
         </div>
@@ -325,15 +345,21 @@ export default function LibraryPage() {
                   {activeSection === 'orientation' && (
                     <div className="p-3">
                       <p className="mb-2 text-sm text-gray-700 md:text-base">
-                        First-year students are given orientation about the
-                        library rules, services, and facilities. They are taken
-                        on a library tour, informed about various sections, and
-                        the rules to be followed.
+                        First-year students are given orientation, regarding the
+                        Library rules, services and facilities when they come
+                        for the First Year. A Students are taken to Library
+                        batch-wise on separate days and students are taken on
+                        Library Tour, informing them about various sections,
+                        services, and rules to be followed in Library. Students
+                        are made to visit the Internet center and are informed
+                        about the cyber rules to be followed in the Internet
+                        center.
                       </p>
                       <p className="text-sm text-gray-700 md:text-base">
-                        Additionally, a book exhibition is organized for
-                        students to explore new titles and research materials
-                        relevant to their courses.
+                        Additionally, a book exhibition is conducted every year
+                        since 2008. Students and Staff Members visit the
+                        exhibition every year, and the lucky draw is conducted
+                        among the visitors and books are distributed as Prizes.
                       </p>
                     </div>
                   )}
@@ -367,6 +393,38 @@ export default function LibraryPage() {
                         <li>Reference materials</li>
                         <li>Theses and dissertations</li>
                       </ul>
+                    </div>
+                  )}
+                </div>
+                <div className="mb-4">
+                  <button
+                    className="flex w-full items-center justify-between p-3 text-left"
+                    onClick={() => toggleSection('infrastructure')}
+                  >
+                    <h3
+                      className={`text-md font-semibold md:text-lg ${activeSection === 'infrastructure' ? 'text-[#043874]' : 'text-[#001a38]'}`}
+                    >
+                      Infrastructure
+                    </h3>
+                    <span className="ml-2 text-[#043874]">
+                      {activeSection === 'infrastructure' ? (
+                        <ChevronUp className="h-4 w-4" />
+                      ) : (
+                        <ChevronDown className="h-4 w-4" />
+                      )}
+                    </span>
+                  </button>
+
+                  {activeSection === 'infrastructure' && (
+                    <div className="p-3">
+                      <p className="mb-2 text-sm text-gray-700 md:text-base">
+                        <li>Carpet Area of Library : 400 mtr sqr.</li>
+                        <li>Reading Space of Library : 167 mtr sqr.</li>
+                        <li>
+                          Online Facility : Attached Internet Center with 35
+                          Desktop Systems
+                        </li>
+                      </p>
                     </div>
                   )}
                 </div>
@@ -431,7 +489,42 @@ export default function LibraryPage() {
               </div>
             </div>
           </div>
-        </div>
+          </div>
+<div className="mt-10 mb-8  rounded-lg bg-white p-6 shadow-lg">
+  <div className="p-4 md:p-6">
+    <h2 className="mb-6 text-lg font-semibold text-[#012146] md:text-xl">
+      General Rules and Regulations
+    </h2>
+    <div className="grid gap-6 md:grid-cols-2">
+      {/* Column 1 */}
+      <ol className="list-disc space-y-2 pl-5 text-sm text-gray-700 md:text-base">
+        <li>An identity card is compulsory for getting access to the library.</li>
+        <li>Silence to be maintained. No group discussions allowed inside the library.</li>
+        <li>Enter your name and sign in the register kept at the entrance.</li>
+        <li>Textbooks, printed materials, and issued material are not allowed inside the library.</li>
+        <li>Use of cell phones is not allowed.</li>
+        <li>No library material can be taken outside the library.</li>
+        <li>Photocopying of books can be done by producing coupons collected from the office.</li>
+        <li>Documents taken off the shelves must be left on the table. Do not reshelve books.</li>
+        <li>Violating the rules may result in suspension from using the library.</li>
+      </ol>
+
+      {/* Column 2 */}
+      <ol className="list-disc space-y-2 pl-5 text-sm text-gray-700 md:text-base" start={8}>
+        
+        <li><strong>CIRCULATION ISSUE SYSTEMS:</strong> Books are issued on ID cards. Students must check books before borrowing and are responsible for any damage.</li>
+        <li>B.E. students may issue 2 books for one week; M.E. students may issue 4 books. Renewal is allowed once.</li>
+        <li><strong>OVERDUE CHARGES:</strong> Items must be returned by the due date. Late returns will incur a fine.</li>
+        <li><strong>BOOK LOST:</strong> If a book is lost, it must be replaced or paid for at twice its cost.</li>
+        <li><strong>LOSS OF ID CARD:</strong> Report to the librarian immediately. A duplicate may be issued for Rs. 140/-.</li>
+        <li>The librarian may recall any book at any time.</li>
+        
+      </ol>
+    </div>
+  </div>
+</div>
+
+
 
         {/* Contact Info Section */}
         <div className="mb-8 rounded-lg bg-white shadow-lg">
@@ -452,6 +545,10 @@ export default function LibraryPage() {
                   <Phone className="mr-2 h-4 w-4" />
                   022-642114114
                 </p>
+                <p className="flex items-center text-sm text-gray-700 md:text-base">
+                  <Mail className="mr-2 h-4 w-4" />
+                  jyothilakshmi@frcrce.ac.in
+                </p>
               </div>
 
               {/* Library Hours */}
@@ -460,9 +557,15 @@ export default function LibraryPage() {
                   Library Hours
                 </h3>
                 <div className="text-sm text-gray-700 md:text-base">
-                  <p>Monday - Friday: 8:15 AM to 6:00 PM</p>
-                  <p>(Exam Period: 8:15 AM to 7:00 PM)</p>
-                  <p>Saturday: 8:15 AM to 4:30 PM</p>
+                  <p>
+                    <b>Non Exam Period : </b>Monday - Friday: 8:15 AM to 6:00 PM
+                  </p>
+                  <p>
+                    <b>Exam Period : </b> Monday - Friday: 8:15 AM to 7:00 PM
+                  </p>
+                  <p>
+                    <b>All Saturdays :</b> 8:15 AM to 4:30 PM
+                  </p>
                 </div>
               </div>
 
@@ -473,16 +576,19 @@ export default function LibraryPage() {
                 </h3>
                 <div className="text-sm text-gray-700 md:text-base">
                   <p>
-                    <span className="font-medium">Chairman:</span> Dr. V.S.
-                    Jorapur
+                    <span className="font-medium">Chairman:</span> Dr. Hemant
+                    Khanolkar
                   </p>
                   <p>
-                    <span className="font-medium">Secretary:</span> Mrs. G.
-                    Jothilakshmi
+                    <span className="font-medium">Convenor / Secretary:</span>{' '}
+                    Mrs. G. Jothilakshmi - Librarian
                   </p>
                   <p>
-                    <span className="font-medium">Members:</span> Prof. Prasad
-                    Lalit & Team
+                    <span className="font-medium">Members:</span>
+                    <li>Prof. Binsy Joseph</li>
+                    <li>Prof. Supriya Kamoji</li>
+                    <li>Prof. Sarika Daware</li>
+                    <li>Mr. Amit Kumar Sonawane</li>
                   </p>
                 </div>
               </div>
@@ -493,4 +599,3 @@ export default function LibraryPage() {
     </div>
   )
 }
-
