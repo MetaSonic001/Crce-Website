@@ -432,6 +432,35 @@ export default function LibraryPage() {
                 <div className="mb-4">
                   <button
                     className="flex w-full items-center justify-between p-3 text-left"
+                    onClick={() => toggleSection('bookbank')}
+                  >
+                    <h3
+                      className={`text-md font-semibold md:text-lg ${activeSection === 'bookbank' ? 'text-[#043874]' : 'text-[#001a38]'}`}
+                    >
+                      Book Bank
+                    </h3>
+                    <span className="ml-2 text-[#043874]">
+                      {activeSection === 'print' ? (
+                        <ChevronUp className="h-4 w-4" />
+                      ) : (
+                        <ChevronDown className="h-4 w-4" />
+                      )}
+                    </span>
+                  </button>
+
+                  {activeSection === 'bookbank' && (
+                    <div className="p-3">
+                      <p className="list-disc space-y-2 pl-5 text-sm text-gray-700 md:text-base">
+                        Book Bank facility is available for all Students starting from III sem to VII sem. Two or more books are distributed for students every semester. Books are issued for one semester and book bank books should be returned after the of the semester. No money is collected for the above service. <br>  </br>
+Number of Books available in Book Bank: 6183 
+</p>
+                    </div>
+                  )}
+                </div>
+
+                <div className="mb-4">
+                  <button
+                    className="flex w-full items-center justify-between p-3 text-left"
                     onClick={() => toggleSection('digital')}
                   >
                     <h3
