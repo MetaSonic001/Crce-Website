@@ -144,11 +144,10 @@ const ResearchPage = () => {
           {publication.title}
         </h3>
         <span
-          className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
-            publication.status.toLowerCase() === 'published'
+          className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${publication.status.toLowerCase() === 'published'
               ? 'bg-green-100 text-green-800'
               : 'bg-yellow-100 text-yellow-800'
-          }`}
+            }`}
         >
           {publication.status}
         </span>
@@ -330,11 +329,10 @@ const ResearchPage = () => {
               <button
                 key={tab.id}
                 onClick={() => showSection(tab.id as SectionId)}
-                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors sm:px-4 sm:py-2 sm:text-base ${
-                  activeSection === tab.id
+                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors sm:px-4 sm:py-2 sm:text-base ${activeSection === tab.id
                     ? 'bg-[#012146] text-white'
                     : 'border border-gray-200 bg-white text-[#012146] hover:bg-gray-50'
-                }`}
+                  }`}
               >
                 {tab.title}
               </button>
@@ -584,15 +582,1064 @@ const ResearchPage = () => {
               <h2 className="mb-4 text-xl font-semibold text-[#012146] md:text-2xl">
                 Research Centre Details
               </h2>
-              <p className="text-gray-700">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
+              <div className="space-y-8">
+                {/* Research Centre Statistics */}
+                <div className="text-center">
+                  <h3 className="mb-4 text-2xl font-bold text-gray-800">Research Centre Statistics</h3>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full table-auto border-collapse border border-gray-300">
+                      <thead>
+                        <tr className="bg-gray-100">
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Research Centre</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Electronics Engineering</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Mechanical Engineering</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Computer Engineering</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Year of Introduction</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">2014</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">2015</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">2023</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Sanctioned Intake</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">14</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">10</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">10</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">No. of Candidates pursuing Ph.D.</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">6</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">8</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">9</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">No. of Candidates Registered</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">0</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">2</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">2</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">No. of Candidates with Thesis Submitted</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">No. of Candidates with Ph.D. Awarded</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">9</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">4</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700">Total Vacancies</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700">8</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700">2</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700">1</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* Electronics Engineering Guides */}
+                <div className="text-center">
+                  <h3 className="mb-4 text-xl font-bold text-gray-800">Electronics Engineering</h3>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full table-auto border-collapse border border-gray-300">
+                      <thead>
+                        <tr className="bg-gray-100">
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Sr. No</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Name of Guide</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Designation</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">No. of Candidates with Ph.D. Awarded from the Research Centre</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">No. of Candidates with Thesis Submitted from the Research Centre</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">No. of Ph.D. Candidates currently Admitted to the Research Centre</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Total Ph.D. Candidates Admitted to date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Deepak V. Bhoir</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Professor</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">02</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">02</td>
+                          <td rowSpan={5} className="border border-gray-300 px-4 py-2 text-sm text-gray-700 align-middle">16</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">2</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sunil K. Surve</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Professor</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">02</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">00</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">3</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna U. Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Professor</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">00</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">01</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">03</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">4</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Surendra S Rathod</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Professor</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">00</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">01</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">5</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Srija Unnikrishnan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Professor</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">05</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">00</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* Mechanical Engineering Guides */}
+                <div className="text-center">
+                  <h3 className="mb-4 text-xl font-bold text-gray-800">Mechanical Engineering</h3>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full table-auto border-collapse border border-gray-300">
+                      <thead>
+                        <tr className="bg-gray-100">
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Sr. No</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Name of Guide</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Designation</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">No. of Candidates with Ph.D. Awarded from the Research Centre</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">No. of Candidates with Thesis Submitted from the Research Centre</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">No. of Ph.D. Candidates currently Admitted to the Research Centre</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Total Ph.D. Candidates Admitted to date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan T. Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Professor</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">04</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">05</td>
+                          <td rowSpan={2} className="border border-gray-300 px-4 py-2 text-sm text-gray-700 align-middle">12</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">2</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Vasim A Shaikh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Associate Professor</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">03</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* Computer Engineering Guides */}
+                <div className="text-center">
+                  <h3 className="mb-4 text-xl font-bold text-gray-800">Computer Engineering</h3>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full table-auto border-collapse border border-gray-300">
+                      <thead>
+                        <tr className="bg-gray-100">
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Sr. No</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Name of Guide</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Designation</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">No. of Candidates with Ph.D. Awarded from the Research Centre</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">No. of Candidates with Thesis Submitted from the Research Centre</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">No. of Ph.D. Candidates currently Admitted to the Research Centre</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Total Ph.D. Candidates Admitted to date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Professor</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">06</td>
+                          <td rowSpan={3} className="border border-gray-300 px-4 py-2 text-sm text-gray-700 align-middle">09</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">2</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Ashok Kanthe</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Associate Professor</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">03</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">3</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Vijay Shelake</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Assistant Professor</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* Details of Ph.D. Candidates (Electronics Engineering) */}
+                <div className="text-center">
+                  <h3 className="mb-4 text-xl font-bold text-gray-800">Details of Ph.D. Candidates - Electronics Engineering</h3>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full table-auto border-collapse border border-gray-300">
+                      <thead>
+                        <tr className="bg-gray-100">
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">S. No.</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Name of Ph.D. Scholar</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Date of Admission</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Date of Registration</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Date of Thesis Submission</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Date of Defense</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Supervisor</th>
+                          <th colSpan={4} className="border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700">Research Advisory Committee Members</th>
+                        </tr>
+                        <tr className="bg-gray-100">
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Convenor (HOD)</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Supervisor / Guide</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Expert 1</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Expert 2</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Monica Khanore</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1-Dec-13</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">20-Nov-15</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">12-Jan-21</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Srija Unnikrishnan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Srija Unnikrishnan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. B.K. Lande</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">2</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Sanjeev Ghosh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1-Dec-13</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">20-Nov-15</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">9-Jan-20</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">24-Dec-21</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Srija Unnikrishnan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Srija Unnikrishnan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Deven Shah</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">3</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Ami Munshi</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1-Jan-15</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1-Oct-16</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">24-Feb-20</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">5-May-22</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Srija Unnikrishnan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Shivraj Rathod</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">4</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Siddharth Gautam</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1-Jan-15</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">11-May-16</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">21-Nov-20</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">21-Jun-22</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Srija Unnikrishnan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Srija Unnikrishnan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Archana Bhise</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">5</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Nandana Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1-Sep-15</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">2-Jan-17</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">17-Jan-20</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">17-Jan-22</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Deepak Bhoir</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Deepak. Bhoir</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sunil Surve</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Prof. Kishore Kinage</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">6</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Preeti Jain</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1-Sep-15</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">18-Apr-17</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">24-Jan-20</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">2-Mar-22</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr Sunil Surve</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr.Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sunil Surve</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. N. M. Singh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. J.M.Nair</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">7</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Seema Talmale</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1-Sep-15</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">25-Jan-17</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">24-Jan-20</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">5-Jul-22</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Srija Unnikrishnan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr.Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Srija Unnikrishnan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. B. K. Lande</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">8</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Prashan Kasambe</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1-Dec-15</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">27-Mar-17</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">31-Dec-21</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">8-Jul-22</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Deepak Bhoir</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Srija Unnikrishnan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sunil Surve</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Nitin Kale</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">9</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Binsy Joseph</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1-Feb-18</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">7-Feb-21</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Deepak Bhoir</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Srija Unnikrishnan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sunil Surve</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Nitin Kale</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">10</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Sushma Nagdeote</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1-Feb-19</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">6-Mar-21</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Deepak Bhoir</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Kishore Kinage</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">11</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Shridhar Sahu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1-Feb-19</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">7-May-21</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Deepak Bhoir</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Deepak Bhoir</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sunil Surve</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. S. S. Rathod</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">12</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Rohan Borgalli</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1-Feb-19</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">7-May-21</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sunil Surve</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sunil Surve</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sunil Surve</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Deepak Garg</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">13</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Zafar Khan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1-Jun-21</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">14</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Devanand Bathe</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1-Jun-21</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">15</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Garima Singh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1-Jan-25</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Surendra Singh Rathod</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">16</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Flynn Jui</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1-Jan-25</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* Research Topics (Electronics Engineering) */}
+                <div className="text-center">
+                  <h3 className="mb-4 text-xl font-bold text-gray-800">Research Topics - Electronics Engineering</h3>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full table-auto border-collapse border border-gray-300">
+                      <thead>
+                        <tr className="bg-gray-100">
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">S.No.</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Name of Ph.D. Scholar</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Supervisor</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Title of Thesis</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Monica Khanore</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Srija Unnikrishnan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Interference Canceller for DS-CDMA System</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">2</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Sanjeev Ghosh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Srija Unnikrishnan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Queuing Theoretic Approach to Wireless Sensor Networks for the Internet of Things</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">3</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Ami Munshi</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Srija Unnikrishnan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Channel Estimation in MIMO OFDM Systems</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">4</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Siddharth Gautam</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Srija Unnikrishnan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Vertical handover decision algorithm in Vehicular Network</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">5</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Nandana Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Deepak V. Bhoir</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">An automated screening system for classification of Diabetic Retinopathy and investigation if its association with pathological parameters</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">6</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Preeti Jain</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr Sunil K. Surve</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Coordination And Synchronization of Shared Resources for Multi-Agent Systems</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">7</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Seema Talmale</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Srija Unnikrishnan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Decoding Algorithm for Error Correcting Codes with Syndrome Polynomial</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">8</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Prashant Kasambe</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Deepak V. Bhoir</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Performance Evaluation of MEMS Devices for various Geometric Structures</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">9</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Binsy Joseph</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Deepak V. Bhoir</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Electric Vehicle Battery Management and prediction</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">10</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Sushma Nagdeote</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna U. Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">An Enhanced Digital Imaging Technique for Predictions in Cancer.</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">11</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Shridhar Sahu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Deepak V. Bhoir</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">High Resolution Data Converters with Improved Accuracy for Low Power Biomedical Applications</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">12</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Rohan Borgalli</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sunil K. Surve</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Learning Algorithm for Facial Expression Recognition (FER) System</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">13</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Zafar Khan</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna U. Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Topic Yet to be Decided</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">14</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Devanand Bathe</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna U. Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Topic Yet to be Decided</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">15</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Garima Singh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Surendra Singh Rathod</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Topic Yet to be Decided</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">16</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Flynn Jui</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sapna U. Prabhu</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Topic Yet to be Decided</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* Details of Ph.D. Candidates (Mechanical Engineering) */}
+                <div className="text-center">
+                  <h3 className="mb-4 text-xl font-bold text-gray-800">Details of Ph.D. Candidates - Mechanical Engineering</h3>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full table-auto border-collapse border border-gray-300">
+                      <thead>
+                        <tr className="bg-gray-100">
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">S. No.</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Name of Ph.D. Scholar</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Date of Admission</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Date of Registration</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Date of Thesis Submission</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Date of Defense</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Supervisor</th>
+                          <th colSpan={4} className="border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700">Research Advisory Committee Members</th>
+                        </tr>
+                        <tr className="bg-gray-100">
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Chairperson (HOD)</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">External Examiner1</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">External Examiner2</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Convenor (Guide)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Geetha Subramanian</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">30-Sep-15</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">24-Nov-17</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">18-Aug-21</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">20-Aug-24</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. P D Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Vivek Yakkundi</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">2</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Ketaki Narendra Joshi</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">27-Jul-16</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">26-Apr-17</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">24-Oct-19</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">12-Jun-20</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. P D Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Vivek Yakkundi</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">3</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Devarkonda Satya Sundara Sudhakar</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">27-Jul-16</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">18-Dec-17</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. P D Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Vivek Yakkundi</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">4</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Deepika Singh Singraur</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">27-Jul-16</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">19-Dec-17</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. S. U. Bokade</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. C. M. Chaudhari</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">5</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dipali Kisan Bhise</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">27-Jul-16</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">4-Sep-18</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">7-Dec-23</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">10-Feb-24</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. S. U. Bokade</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. C. M. Chaudhari</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">6</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">VeerBhadra Rao D. N. Miriyala</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">27-Jul-16</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">5-Oct-18</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">19-Apr-24</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">6-Jul-24</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. S U Bokade</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Ramesh Lekurwale</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">7</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Zoya Rizvi</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">5-Apr-22</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Kiran Bhole</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. S.U. Bokade</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">8</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Pranit Prashant Mehta</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">23-Dec-22</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Vasim Shaikh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">9</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Samanwita Bagg</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">23-Dec-22</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Vasim Shaikh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">10</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Varad Deshpande</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">13-Sep-23</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Vasim Shaikh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">11</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Onkar Potadar</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">03-Jan-25</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">12</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Preeti Vairagi</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">03-Jan-25</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* Research Topics (Mechanical Engineering) */}
+                <div className="text-center">
+                  <h3 className="mb-4 text-xl font-bold text-gray-800">Research Topics - Mechanical Engineering</h3>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full table-auto border-collapse border border-gray-300">
+                      <thead>
+                        <tr className="bg-gray-100">
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">S.No.</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Name of Ph.D. Scholar</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Supervisor</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Title of Thesis</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Geetha Subramanian</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan T. Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Improving Operational Efficiency of Micro Small and Medium Enterprises (MSME) using Collaborative manufacturing, Cloud Technology and Industry 4.0</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">2</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Ketaki Narendra Joshi</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan T. Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Design and Development of Machine Vision Systems for Inspection and Quality Control in Manufacturing Industry</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">3</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Devarkonda Satya Sundara Sudhakar</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan T. Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Investigations into interpolators for arbitrary contours on Open CNC system</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">4</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Deepika Singh Singraur</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan T. Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Performance Enhancement of Plastic Injection Molding using Conformal cooling Channels</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">5</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dipali Kisan Bhise</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan T. Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Investigation and Analysis of Micro Lubrication in Milling Operation</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">6</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">VeerBhadra Rao D. N. Miriyala</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan T. Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Performance Evaluation of Turning AISI 4340 Steel using Minimum Quantity Lubrication (MQL) with Biodegradable Metal Working Fluids (MWFs)</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">7</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Zoya Rizvi</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan T. Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Investigation into Nozzles used for Agricultural Drones</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">8</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Pranit Prashant Mehta</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Vasim Shaikh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Analyzing the Effectiveness of Minimum Quantity Lubrication using Cutting Fluid Derived from Vegetable oil: An Approach towards Green manufacturing</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">9</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Samanwita Bagg</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Vasim Shaikh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Investigation into a Smart Suspension using Active Magnetorheological Damper</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">10</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Varad Deshpande</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Vasim Shaikh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Topic Yet to be Decided</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">11</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Onkar Potadar</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Topic Yet to be Decided</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">12</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Preeti Vairagi</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Bhushan Patil</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Topic Yet to be Decided</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* Details of Ph.D. Candidates (Computer Engineering) */}
+                <div className="text-center">
+                  <h3 className="mb-4 text-xl font-bold text-gray-800">Details of Ph.D. Candidates - Computer Engineering</h3>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full table-auto border-collapse border border-gray-300">
+                      <thead>
+                        <tr className="bg-gray-100">
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">S. No.</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Name of Ph.D. Scholar</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Date of Admission</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Date of Registration</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Date of Thesis Submission</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Date of Defense</th>
+                          <th rowSpan={2} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Supervisor</th>
+                          <th colSpan={4} className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Research Advisory Committee Members</th>
+                        </tr>
+                        <tr className="bg-gray-100">
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Chairperson (HOD)</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">External Examiner1</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">External Examiner2</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Convenor (Guide)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Pardeshi Anandkumar Vilas</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">13-Sep-23</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. S. K. Shinde</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Narendra Shekokar</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">2</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Shah Parshvi Zankesh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">30-Sep-23</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. S. K. Shinde</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Narendra Shekokar</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">3</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Surwadkar Tushar Jagannath</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">30-Sep-23</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. S. K. Shinde</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Narendra Shekokar</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">4</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Wasnik Chitra Tukaramji</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">13-Sep-23</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. G.T. Thampi</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. D.R. Kalabande</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">5</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Joshua Michael</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">3-Jan-25</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">6</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Savita Borole</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">3-Jan-25</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">7</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Urade Pratyush Prakash</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">30-Sep-23</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Ashok Kanthe</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. G.T. Thampi</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. D.R. Kalabande</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">8</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Mhatre Anita Dayanand</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">30-Sep-23</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Ashok Kanthe</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. G.T. Thampi</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. D.R. Kalabande</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">9</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Ankita Amburle</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">3-Jan-25</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Ashok Kanthe</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">-</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* Research Topics (Computer Engineering) */}
+                <div className="text-center">
+                  <h3 className="mb-4 text-xl font-bold text-gray-800">Research Topics - Computer Engineering</h3>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full table-auto border-collapse border border-gray-300">
+                      <thead>
+                        <tr className="bg-gray-100">
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">S.No.</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Name of Ph.D. Scholar</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Supervisor</th>
+                          <th className="border border-gray-300 px-4 py-2 text-left text-sm font-semibold text-gray-700">Title of Thesis</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">1</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Pardeshi Anandkumar Vilas</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Integrating Multi-Source Data with Sentiment Analysis and Language Models to Enhance Stock Market Decision Making</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">2</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Shah Parshvi Zankesh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Design and Implement Quantum safe Cryptographic Solutions to secure IOT Data</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">3</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Surwadkar Tushar Jagannath</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Enhancing Decision-Making in Dermatological Disorders using Interpretable Artificial Intelligence for Indian Skin Diseases</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">4</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Wasnik Chitra Tukaramji</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Generative AI Driven Professional Education Model for Building Efficiencies</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">5</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Joshua Michael</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Topic Yet to be Decided</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">6</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Savita Borole</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Sujata Deshmukh</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Topic Yet to be Decided</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">7</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Urade Pratyush Prakash</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Ashok Kanthe</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Analysis of Multiple Access Techniques in Wireless Network Using Channel State Information and Machine Learning</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">8</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Mhatre Anita Dayanand</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Ashok Kanthe</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Enhancing Routing and Congestion Control in Flying Ad-Hoc Networks (FANETs) through Machine Learning and Multi-Agent Systems</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">9</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Ankita Amburle</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Dr. Ashok Kanthe</td>
+                          <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">Topic Yet to be Decided</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
 
