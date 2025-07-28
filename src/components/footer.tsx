@@ -476,7 +476,7 @@ const Footer: React.FC = () => {
             </span>{' '}
             {new Date().getFullYear()} DEVELOPMENT BY{' '}
             <Link
-              href="https://gdsc-crce.vercel.app/"
+              href="/credits"
               target="_blank"
               className="font-semibold hover:text-blue-600"
             >
@@ -538,7 +538,7 @@ const Footer: React.FC = () => {
               </Link>
             </div>
             <Link
-              href="https://gdsc-crce.vercel.app/"
+              href="/credits"
               target="_blank"
               className="group inline-flex items-center justify-center gap-2"
             >

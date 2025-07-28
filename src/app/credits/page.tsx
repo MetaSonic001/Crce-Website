@@ -33,7 +33,7 @@ export default function CreditsPage() {
             className="group inline-block"
           >
             <h2 className={`${zilla.className} text-4xl md:text-5xl lg:text-6xl font-bold text-[#00122a] mb-4 group-hover:text-blue-600 transition-colors duration-300`}>
-              GDSC
+              GDSC CRCE
             </h2>
             <p className="text-xl md:text-2xl font-semibold text-gray-700 group-hover:text-blue-500 transition-colors duration-300">
               2024-2025
@@ -66,7 +66,7 @@ export default function CreditsPage() {
 
               <div className="group text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                 <h3 className="text-lg md:text-xl font-bold text-[#00122a] mb-2 group-hover:text-blue-600 transition-colors">
-                  DATA COLLECTOR
+                  UI/UX & DATA 
                 </h3>
                 <p className={`${zilla.className} text-2xl md:text-3xl font-bold text-gray-800`}>
                   Susan Fernandes
@@ -80,7 +80,7 @@ export default function CreditsPage() {
                 DEVELOPMENT TEAM
               </h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
                 <div className="group text-center p-6 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                   <h4 className="text-sm md:text-base font-bold text-[#00122a] mb-2 group-hover:text-blue-600 transition-colors">
                     CO-LEAD DEVELOPER
@@ -114,6 +114,15 @@ export default function CreditsPage() {
                   </h4>
                   <p className={`${zilla.className} text-lg md:text-xl font-bold text-gray-800`}>
                     Vanessa Rodrigues
+                  </p>
+                </div>
+
+                <div className="group text-center p-6 bg-gradient-to-br from-blue-50 to-pink-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                  <h4 className="text-sm md:text-base font-bold text-[#00122a] mb-2 group-hover:text-pink-600 transition-colors">
+                    DEVELOPER
+                  </h4>
+                  <p className={`${zilla.className} text-lg md:text-xl font-bold text-gray-800`}>
+                    Sumeet Pathak
                   </p>
                 </div>
 

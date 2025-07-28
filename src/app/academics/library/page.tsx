@@ -451,7 +451,8 @@ export default function LibraryPage() {
                   {activeSection === 'bookbank' && (
                     <div className="p-3">
                       <p className="list-disc space-y-2 pl-5 text-sm text-gray-700 md:text-base">
-                        Book Bank facility is available for all Students starting from III sem to VII sem. Two or more books are distributed for students every semester. Books are issued for one semester and book bank books should be returned after the of the semester. No money is collected for the above service. <br>  </br>
+                        Book Bank facility is available for all Students starting from III sem to VII sem. Two or more books are distributed for students every semester. Books are issued for one semester and book bank books should be returned after the of the semester. No money is collected for the above service. </p>
+                        <p className="list-disc space-y-2 pl-5 text-sm text-gray-700 md:text-base">
 Number of Books available in Book Bank: 6183 
 </p>
                     </div>
