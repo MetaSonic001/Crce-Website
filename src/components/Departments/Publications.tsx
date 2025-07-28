@@ -158,7 +158,7 @@ const Publications: React.FC<PageProps> = ({ department }) => {
           </h3>
           <p className="text-sm text-gray-700 sm:text-base">
             Recent research publications by faculty members and students of the
-            Computer Engineering Department.
+            Department.
           </p>
         </div>
 

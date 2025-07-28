@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import { Zilla_Slab } from 'next/font/google'
 
@@ -13,18 +13,15 @@ const zilla = Zilla_Slab({
 export default function CreditsPage() {
   return (
     <div className="mt-28 flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 md:mt-40">
-      {/* Header Section */}
       <div className="flex h-full w-full flex-col bg-white pt-12 md:pt-16">
         <div className="flex w-full flex-col px-4 pb-6 text-[#00122a] sm:px-8 md:px-16 md:pb-8 lg:px-24">
-          <h1 className={`mb-4 flex items-center justify-center text-center font-serif text-xl sm:text-2xl font-bold md:text-3xl lg:text-4xl`}>
+          <h1 className="mb-4 flex items-center justify-center text-center font-serif text-xl sm:text-2xl font-bold md:text-3xl lg:text-4xl">
             CREDITS
           </h1>
         </div>
       </div>
 
-      {/* Main Credits Section */}
       <div className="flex w-full flex-col items-center px-4 py-12 sm:px-8 md:px-16 lg:px-24">
-        {/* GDSC Organization */}
         <div className="mb-16 text-center">
           <Link
             href="https://gdsc-crce-2024.vercel.app"
@@ -41,10 +38,8 @@ export default function CreditsPage() {
           </Link>
         </div>
 
-        {/* Core Team */}
         <div className="w-full max-w-6xl">
           <div className="grid gap-8 md:gap-12 lg:gap-16">
-            {/* Leadership Row */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
               <div className="group text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                 <h3 className="text-lg md:text-xl font-bold text-[#00122a] mb-2 group-hover:text-blue-600 transition-colors">
@@ -66,7 +61,7 @@ export default function CreditsPage() {
 
               <div className="group text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                 <h3 className="text-lg md:text-xl font-bold text-[#00122a] mb-2 group-hover:text-blue-600 transition-colors">
-                  UI/UX & DATA 
+                  UI/UX & DATA
                 </h3>
                 <p className={`${zilla.className} text-2xl md:text-3xl font-bold text-gray-800`}>
                   Susan Fernandes
@@ -74,32 +69,33 @@ export default function CreditsPage() {
               </div>
             </div>
 
-            {/* Development Team Row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+              <div className="group text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <h3 className="text-lg md:text-xl font-bold text-[#00122a] mb-2 group-hover:text-blue-600 transition-colors">
+                  CO-LEAD DEVELOPER
+                </h3>
+                <p className={`${zilla.className} text-2xl md:text-3xl font-bold text-gray-800`}>
+                  Sharian Dabre
+                </p>
+              </div>
+
+              <div className="group text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <h3 className="text-lg md:text-xl font-bold text-[#00122a] mb-2 group-hover:text-green-600 transition-colors">
+                  DEVELOPER
+                </h3>
+                <p className={`${zilla.className} text-2xl md:text-3xl font-bold text-gray-800`}>
+                  Chris Lopes
+                </p>
+              </div>
+            </div>
+
             <div className="mt-12">
               <h3 className={`${zilla.className} text-3xl md:text-4xl font-bold text-center text-[#00122a] mb-12`}>
                 DEVELOPMENT TEAM
               </h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
-                <div className="group text-center p-6 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                  <h4 className="text-sm md:text-base font-bold text-[#00122a] mb-2 group-hover:text-blue-600 transition-colors">
-                    CO-LEAD DEVELOPER
-                  </h4>
-                  <p className={`${zilla.className} text-lg md:text-xl font-bold text-gray-800`}>
-                    Sharian Dabre
-                  </p>
-                </div>
-
-                <div className="group text-center p-6 bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                  <h4 className="text-sm md:text-base font-bold text-[#00122a] mb-2 group-hover:text-green-600 transition-colors">
-                    DEVELOPER
-                  </h4>
-                  <p className={`${zilla.className} text-lg md:text-xl font-bold text-gray-800`}>
-                    Chris Lopes
-                  </p>
-                </div>
-
-                <div className="group text-center p-6 bg-gradient-to-br from-purple-50 to-violet-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className=" mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
+                <div className="group text-center  p-6 bg-gradient-to-br from-purple-50 to-violet-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                   <h4 className="text-sm md:text-base font-bold text-[#00122a] mb-2 group-hover:text-purple-600 transition-colors">
                     DEVELOPER
                   </h4>
@@ -128,10 +124,19 @@ export default function CreditsPage() {
 
                 <div className="group text-center p-6 bg-gradient-to-br from-orange-50 to-amber-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                   <h4 className="text-sm md:text-base font-bold text-[#00122a] mb-2 group-hover:text-orange-600 transition-colors">
-                    VISUAL CONTENT CREATOR
+                    CONTENT CREATOR
                   </h4>
                   <p className={`${zilla.className} text-lg md:text-xl font-bold text-gray-800`}>
                     Vadim Rodrigues
+                  </p>
+                </div>
+
+                <div className="group text-center p-6 bg-gradient-to-br from-blue-50 to-pink-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                  <h4 className="text-sm md:text-base font-bold text-[#00122a] mb-2 group-hover:text-pink-600 transition-colors">
+                    DEVELOPER
+                  </h4>
+                  <p className={`${zilla.className} text-lg md:text-xl font-bold text-gray-800`}>
+                    Sumeet Parthak
                   </p>
                 </div>
               </div>
@@ -139,7 +144,6 @@ export default function CreditsPage() {
           </div>
         </div>
 
-        {/* Thank You Section */}
         <div className="mt-20 text-center">
           <div className="inline-block p-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl shadow-2xl">
             <h3 className={`${zilla.className} text-3xl md:text-4xl font-bold text-white mb-2`}>
