@@ -94,7 +94,7 @@ export default function CreditsPage() {
                 DEVELOPMENT TEAM
               </h3>
 
-              <div className=" mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
+              <div className=" mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                 <div className="group text-center  p-6 bg-gradient-to-br from-purple-50 to-violet-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                   <h4 className="text-sm md:text-base font-bold text-[#00122a] mb-2 group-hover:text-purple-600 transition-colors">
                     DEVELOPER
@@ -118,7 +118,7 @@ export default function CreditsPage() {
                     DEVELOPER
                   </h4>
                   <p className={`${zilla.className} text-lg md:text-xl font-bold text-gray-800`}>
-                    Sumeet Pathak
+                    Sumeet Pathak 
                   </p>
                 </div>
 
