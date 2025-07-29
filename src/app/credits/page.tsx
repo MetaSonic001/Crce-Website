@@ -131,14 +131,7 @@ export default function CreditsPage() {
                   </p>
                 </div>
 
-                <div className="group text-center p-6 bg-gradient-to-br from-blue-50 to-pink-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                  <h4 className="text-sm md:text-base font-bold text-[#00122a] mb-2 group-hover:text-pink-600 transition-colors">
-                    DEVELOPER
-                  </h4>
-                  <p className={`${zilla.className} text-lg md:text-xl font-bold text-gray-800`}>
-                    Sumeet Parthak
-                  </p>
-                </div>
+                
               </div>
             </div>
           </div>
