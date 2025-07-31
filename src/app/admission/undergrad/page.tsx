@@ -2,7 +2,10 @@
 import Image from 'next/image'
 import { Zilla_Slab } from 'next/font/google'
 import { useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
 import ChatBot from './chatBot'
+import getAdmissions from '@/app/api/admissions'
+import type { Admission } from '@/app/api/admissions'
 
 const zilla = Zilla_Slab({
   weight: ['400', '700'],
@@ -22,111 +25,8 @@ const quickLinks = [
   { name: 'Listen to Leadership team', url: '/admission/leadership' },
 ]
 
-const extraData = [
-  {
-    title: 'Engineering Admission Information',
-    description:
-      'Get detailed information about our engineering admission process.',
-    link: '/admission/engineering-info',
-    buttonText: 'Learn More',
-  },
-  {
-    title: 'Autonomous Curriculum - Rules and Policies',
-    description: 'View the rules and policies for our autonomous curriculum.',
-    link: '/admission/autonomous-rules',
-    buttonText: 'View Rules',
-  },
-  {
-    title: 'Courses Offered',
-    description:
-      'Explore the variety of engineering courses offered at FR.CRCE.',
-    link: '/admission/courses',
-    buttonText: 'Explore Courses',
-  },
-  {
-    title: 'Autonomous Curriculum - Syllabus',
-    description:
-      'Access the detailed syllabus for our autonomous curriculum programs.',
-    link: '/admission/syllabus',
-    buttonText: 'View Syllabus',
-  },
-  {
-    title: 'Prospectus 2024',
-    description: 'Download the complete prospectus for the academic year 2024.',
-    link: '/admission/prospectus-2024.pdf',
-    buttonText: 'Download',
-  },
-  {
-    title: 'Listen To Our Leadership Team',
-    description:
-      'Hear directly from our leadership about the vision and mission of FR.CRCE.',
-    link: '/admission/leadership',
-    buttonText: 'Listen Now',
-  },
-  {
-    title: 'Education Loan',
-    description:
-      'Information about education loan options and assistance for students.',
-    link: '/admission/Education.mp4',
-    buttonText: 'Learn About Loans',
-  },
-]
-
-const feAdmissionData = [
-  {
-    title: 'FE CAP Reporting Form',
-    description: 'Fill out the First Year Engineering CAP reporting form.',
-    link: 'http://granth.fragnel.edu.in:5186/pinfo/feadm/FEMnu.php',
-    buttonText: 'Go to Form',
-  },
-  {
-    title: 'FE Admission Notice 24-25',
-    description: 'View the admission notice for FE 2024-25.',
-    link: '/admission/fe-admission-notice-24-25.pdf',
-    buttonText: 'View PDF',
-  },
-  {
-    title: 'FE CAP Reporting Documents',
-    description: 'Download the required documents for FE CAP reporting.',
-    link: '/admission/fe-cap-reporting-documents.pdf',
-    buttonText: 'Download PDF',
-  },
-  {
-    title: 'Fee Notice - First Year Engineering',
-    description: 'View the fee notice for First Year Engineering.',
-    link: '/admission/fe-fee-notice.pdf',
-    buttonText: 'View PDF',
-  },
-  {
-    title: 'Document List - First Year',
-    description:
-      'Download the complete list of required documents for First Year admission.',
-    link: '/admission/fe-document-list.pdf',
-    buttonText: 'Download PDF',
-  },
-]
-
-const dseAdmissionData = [
-  {
-    title: 'DSE CAP Reporting Form',
-    description:
-      'Fill out the Direct Second Year Engineering CAP reporting form.',
-    link: 'http://granth.fragnel.edu.in:5186/pinfo/seadm/SEMnu.php',
-    buttonText: 'Go to Form',
-  },
-  {
-    title: 'DSE CAP Reporting Documents',
-    description: 'Download the required documents for DSE CAP reporting.',
-    link: '/admission/dse-cap-reporting-documents.pdf',
-    buttonText: 'Download PDF',
-  },
-  {
-    title: 'Fee Notice - Direct Second Year Engineering',
-    description: 'View the fee notice for Direct Second Year Engineering.',
-    link: '/admission/dse-fee-notice.pdf',
-    buttonText: 'View PDF',
-  },
-]
+const ASSET_BASE_URL = process.env.NEXT_PUBLIC_ASSET_URL || ''
+const getAssetUrl = (filename: string) => `${ASSET_BASE_URL}${filename}`
 
 type AdmissionCardProps = {
   title: string
@@ -135,8 +35,87 @@ type AdmissionCardProps = {
   buttonText: string
 }
 
+type ProcessedAdmission = {
+  title: string
+  description: string
+  link: string
+  buttonText: string
+}
+
 export default function Home() {
   const [isChatbotOpen, setIsChatbotOpen] = useState(false)
+
+  const { data: admissions, isLoading, error } = useQuery({
+    queryKey: ['admissions'],
+    queryFn: getAdmissions,
+    staleTime: 6 * 60 * 60 * 1000, // 6 hours
+    gcTime: 6 * 60 * 60 * 1000, // 6 hours (formerly cacheTime)
+  })
+
+  // Process admissions data
+  const processAdmissions = (admissions: Admission[]): {
+    feAdmissions: ProcessedAdmission[]
+    dseAdmissions: ProcessedAdmission[]
+    otherInfo: ProcessedAdmission[]
+  } => {
+    const feAdmissions: ProcessedAdmission[] = []
+    const dseAdmissions: ProcessedAdmission[] = []
+    const otherInfo: ProcessedAdmission[] = []
+
+    admissions?.forEach((admission) => {
+      const processedAdmission: ProcessedAdmission = {
+        title: admission.title,
+        description: admission.description,
+        link: admission.file ? getAssetUrl(admission.file) : (admission.link || '#'),
+        buttonText: getButtonText(admission.type, admission.file, admission.link)
+      }
+
+      if (admission.section === "First Year Engineering (FE) Admissions through CAP") {
+        feAdmissions.push(processedAdmission)
+      } else if (admission.section === "Direct Second Year (DSE) Admissions through CAP") {
+        dseAdmissions.push(processedAdmission)
+      } else {
+        otherInfo.push(processedAdmission)
+      }
+    })
+
+    return { feAdmissions, dseAdmissions, otherInfo }
+  }
+
+  const getButtonText = (type: string, file: string | null, link: string | null): string => {
+    if (file) {
+      if (type === 'pdf') return 'Open PDF'
+      return 'Download File'
+    }
+
+    if (type === 'form') return 'Go to Form'
+    if (type === 'pdf') return 'Open PDF'
+    if (type === 'link') return 'Open Link'
+
+    return 'View More'
+  }
+
+  if (isLoading) {
+    return (
+      <main className="min-h-screen bg-gray-100">
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="text-xl text-gray-600">Loading admissions data...</div>
+        </div>
+      </main>
+    )
+  }
+
+  if (error) {
+    return (
+      <main className="min-h-screen bg-gray-100">
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="text-xl text-red-600">Error loading admissions data. Please try again later.</div>
+        </div>
+      </main>
+    )
+  }
+
+  const { feAdmissions, dseAdmissions, otherInfo } = processAdmissions(admissions || [])
 
   return (
     <main className="min-h-screen bg-gray-100">
@@ -193,44 +172,60 @@ export default function Home() {
             Admissions
           </h2>
 
-          <div className="mb-12 sm:mb-16">
-            <h3
-              className={`mb-6 text-xl font-bold text-[#001a3c] sm:mb-8 sm:text-2xl`}
-            >
-              First Year Engineering (FE) Admissions through CAP
-            </h3>
-            <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
-              {feAdmissionData.map((item, index) => (
-                <AdmissionCard key={index} {...item} />
-              ))}
+          {/* First Year Engineering (FE) Admissions */}
+          {feAdmissions.length > 0 && (
+            <div className="mb-12 sm:mb-16">
+              <h3
+                className={`mb-6 text-xl font-bold text-[#001a3c] sm:mb-8 sm:text-2xl`}
+              >
+                First Year Engineering (FE) Admissions through CAP
+              </h3>
+              <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
+                {feAdmissions.map((item, index) => (
+                  <AdmissionCard key={`fe-${index}`} {...item} />
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
-          <div>
-            <h3
-              className={`mb-6 text-xl font-bold text-[#001a3c] sm:mb-8 sm:text-2xl`}
-            >
-              Direct Second Year (DSE) Admissions through CAP
-            </h3>
-            <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
-              {dseAdmissionData.map((item, index) => (
-                <AdmissionCard key={index} {...item} />
-              ))}
+          {/* Direct Second Year (DSE) Admissions */}
+          {dseAdmissions.length > 0 && (
+            <div className="mb-12 sm:mb-16">
+              <h3
+                className={`mb-6 text-xl font-bold text-[#001a3c] sm:mb-8 sm:text-2xl`}
+              >
+                Direct Second Year (DSE) Admissions through CAP
+              </h3>
+              <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
+                {dseAdmissions.map((item, index) => (
+                  <AdmissionCard key={`dse-${index}`} {...item} />
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
-          <div className="mt-12 sm:mt-16">
-            <h3
-              className={`mb-6 text-xl font-bold text-[#001a3c] sm:mb-8 sm:text-2xl`}
-            >
-              Other Important Information
-            </h3>
-            <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
-              {extraData.map((item, index) => (
-                <AdmissionCard key={index} {...item} />
-              ))}
+          {/* Other Important Information */}
+          {otherInfo.length > 0 && (
+            <div className="mb-12 sm:mb-16">
+              <h3
+                className={`mb-6 text-xl font-bold text-[#001a3c] sm:mb-8 sm:text-2xl`}
+              >
+                Other Important Information
+              </h3>
+              <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
+                {otherInfo.map((item, index) => (
+                  <AdmissionCard key={`other-${index}`} {...item} />
+                ))}
+              </div>
             </div>
-          </div>
+          )}
+
+          {/* Show message if no admissions data */}
+          {admissions && admissions.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-gray-600 text-lg">No admission information available at the moment.</p>
+            </div>
+          )}
         </div>
       </section>
 
@@ -284,3 +279,4 @@ const AdmissionCard = ({
     </a>
   </div>
 )
+
