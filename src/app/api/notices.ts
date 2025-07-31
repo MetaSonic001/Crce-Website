@@ -8,6 +8,7 @@ export interface Notice {
   title: string
   info: string // description
   about: string // type
+  file?: string
 }
 
 export interface NoticesResponse {

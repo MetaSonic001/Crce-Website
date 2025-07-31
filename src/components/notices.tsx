@@ -35,17 +35,10 @@ import {
 import { useQuery } from '@tanstack/react-query'
 import { redirect } from 'next/navigation'
 import getNotices from '@/app/api/notices'
+import type { Notice } from '@/app/api/notices'
 
-interface Notice {
-  id: number
-  status: string
-  date_created: string
-  date_updated: string | null
-  title: string
-  info: string
-  about: string
-}
-
+const ASSET_BASE_URL = process.env.NEXT_PUBLIC_ASSET_URL || ''
+const getAssetUrl = (filename: string) => `${ASSET_BASE_URL}${filename}`
 
 export const getIconForNoticeType = (type: string) => {
   switch (type) {
@@ -173,28 +166,22 @@ export const getColorForNoticeType = (type: string) => {
   }
 }
 
-
 const NoticesSection: React.FC = () => {
   const [showAll, setShowAll] = useState(false)
   const [visibleNoticesCount, setVisibleNoticesCount] = useState(6)
 
   const { data, isLoading, isError, error } = useQuery<Notice[]>({
     queryKey: ['notices'],
-    staleTime: 60 * 60 * 1000, // 1 hour cache
+    staleTime: 60 * 60 * 1000,
     queryFn: async () => {
       try {
         const res = await getNotices()
-        if (!res?.data || !Array.isArray(res.data)) {
-          throw new Error('Invalid data format')
-        }
+        if (!res?.data || !Array.isArray(res.data)) throw new Error('Invalid data format')
         return res.data.filter(
-          (notice): notice is Notice =>
-            notice && typeof notice === 'object' && 'id' in notice
+          (notice): notice is Notice => notice && typeof notice === 'object' && 'id' in notice
         )
       } catch (err) {
         console.error('Error fetching notices:', err)
-
-        // Return fallback dummy data
         return [
           {
             id: 1,
@@ -203,7 +190,7 @@ const NoticesSection: React.FC = () => {
             date_updated: null,
             title: 'Midterm Exam Schedule Released',
             info: 'The midterm exams will begin on April 15, 2025.',
-            about: 'exam',
+            about: 'exam'
           },
           {
             id: 2,
@@ -212,7 +199,7 @@ const NoticesSection: React.FC = () => {
             date_updated: null,
             title: 'Holiday on Ambedkar Jayanti',
             info: 'College will remain closed on April 14, 2025.',
-            about: 'holiday',
+            about: 'holiday'
           },
           {
             id: 3,
@@ -221,35 +208,28 @@ const NoticesSection: React.FC = () => {
             date_updated: null,
             title: 'Tech Talk: AI in Education',
             info: 'Join us for an expert talk on the future of AI in the classroom.',
-            about: 'event',
-          },
+            about: 'event'
+          }
         ]
       }
-    },
+    }
   })
 
   useEffect(() => {
     const updateVisibleNoticesCount = () => {
-      if (window.innerWidth < 640) {
-        setVisibleNoticesCount(2)
-      } else if (window.innerWidth < 768) {
-        setVisibleNoticesCount(4)
-      } else {
-        setVisibleNoticesCount(6)
-      }
+      if (window.innerWidth < 640) setVisibleNoticesCount(2)
+      else if (window.innerWidth < 768) setVisibleNoticesCount(4)
+      else setVisibleNoticesCount(6)
     }
     updateVisibleNoticesCount()
     window.addEventListener('resize', updateVisibleNoticesCount)
     return () => window.removeEventListener('resize', updateVisibleNoticesCount)
   }, [])
 
-  const visibleNotices = showAll
-    ? (data ?? [])
-    : (data ?? []).slice(0, visibleNoticesCount)
+  const visibleNotices = showAll ? (data ?? []) : (data ?? []).slice(0, visibleNoticesCount)
 
   if (isLoading) return <p>Loading...</p>
-  if (isError)
-    return <p className="text-red-500">Error: {(error as Error).message}</p>
+  if (isError) return <p className="text-red-500">Error: {(error as Error).message}</p>
 
   return (
     <section id="notices" className="w-full bg-white py-10 px-4 text-black">
@@ -273,8 +253,7 @@ const NoticesSection: React.FC = () => {
                   <span
                     className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ${getColorForNoticeType(notice.about)}`}
                   >
-                    {notice.about.charAt(0).toUpperCase() +
-                      notice.about.slice(1)}
+                    {notice.about.charAt(0).toUpperCase() + notice.about.slice(1)}
                   </span>
                   <div className="flex items-center text-sm font-medium text-gray-600">
                     <Calendar className="mr-1.5 h-4 w-4" />
@@ -283,11 +262,19 @@ const NoticesSection: React.FC = () => {
                 </div>
                 <div className="mb-4 flex items-center">
                   {getIconForNoticeType(notice.about)}
-                  <h3 className="ml-2 text-xl font-bold text-gray-900">
-                    {notice.title}
-                  </h3>
+                  <h3 className="ml-2 text-xl font-bold text-gray-900">{notice.title}</h3>
                 </div>
                 <p className="mb-4 text-gray-600">{notice.info}</p>
+                {notice.file && (
+                  <a
+                    href={getAssetUrl(notice.file)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block text-blue-600 hover:underline"
+                  >
+                    View File
+                  </a>
+                )}
               </div>
             </div>
           ))}
