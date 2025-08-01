@@ -24,7 +24,21 @@ const Faculty: React.FC<PageProps> = ({ department }) => {
     error,
   } = useQuery<MappedTeacher[]>({
     queryKey: ['faculty', department],
-    queryFn: () => getTeachers(department),
+    queryFn: async () => {
+      const data = await getTeachers(department)
+      // Sort faculty: HODs first, then alphabetically by name
+      return data?.sort((a, b) => {
+        const isHodA = a.designation.toLowerCase().includes('hod')
+        const isHodB = b.designation.toLowerCase().includes('hod')
+
+        // If one is HOD and other is not, HOD comes first
+        if (isHodA && !isHodB) return -1
+        if (!isHodA && isHodB) return 1
+
+        // If both are HODs or both are not HODs, sort alphabetically by name
+        return a.name.localeCompare(b.name)
+      }) || []
+    },
     staleTime: 60 * 60 * 1000, // 1 hour cache
     gcTime: 60 * 60 * 1000, // 1 hour garbage collection
   })
@@ -129,7 +143,7 @@ const Faculty: React.FC<PageProps> = ({ department }) => {
                   href={faculty.ctaOnClick}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block rounded-md bg-[#131929] px-5 py-2 text-center text-sm font-medium text-white transition-all duration-300 hover:bg-[#1E40AF] hover:shadow-md"
+                  className="inline-block rounded-md bg-[#131929] px-5 py-2 text-center text-sm font-medium text-white transition-all duration-300 hover:bg-[#131929] hover:shadow-md"
                 >
                   {faculty.ctaText}
                 </a>
@@ -143,3 +157,4 @@ const Faculty: React.FC<PageProps> = ({ department }) => {
 }
 
 export default Faculty
+
