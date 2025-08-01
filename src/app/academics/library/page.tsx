@@ -97,7 +97,7 @@ export default function LibraryPage() {
     },
     {
       label: 'Printed National and International Journals',
-      url: 'https://frcrce.ac.in/index.php/academics/library/printed-journals/nijmp',  
+      url: 'https://frcrce.ac.in/index.php/academics/library/printed-journals/nijm',  
     },
   ]
 

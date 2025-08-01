@@ -478,7 +478,7 @@ const ResearchPage = () => {
               <h3 className="mb-3 text-lg font-semibold text-[#012146]">
                 Preamble
               </h3>
-              <p className="mb-4 text-gray-700">
+              <p className="mb-4 text-gray-700 justify-content">
                 University Of Mumbai adopted notification regarding Promotion of
                 Academic Integrity and Prevention of Plagiarism by UGC vide
                 circular number Th./ICD/2018-19/558 dated 6th October 2018. Our
@@ -514,6 +514,7 @@ const ResearchPage = () => {
                   <li key={index}>{item}</li>
                 ))}
               </ul>
+              
               <div className="mt-4">
                 <a
                   href="#"
