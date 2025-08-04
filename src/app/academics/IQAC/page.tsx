@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Zilla_Slab } from 'next/font/google'
 import Navigation from '@/components/navigation'
+import Sidebar from '@/components/QuicklinksSidebar'
 import { FileText, Download, X } from 'lucide-react'
 import { motion } from 'framer-motion'
 
@@ -27,6 +28,7 @@ export default function IQACPage() {
 
   const [selectedPdf, setSelectedPdf] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState('iqac')
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handlePopState = () => {
@@ -46,16 +48,21 @@ export default function IQACPage() {
     window.history.back()
   }
 
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId)
+    setMobileMenuOpen(false) // Close mobile menu when tab is selected
+  }
+
   const tabs = [
-    { id: 'iqac', label: 'IQAC' },
-    { id: 'composition', label: 'Composition' },
-    { id: 'constitution', label: 'Constitution' },
-    { id: 'roles', label: 'Roles and Responsibilities' },
-    { id: 'minutes', label: 'Minutes of Meeting' },
-    { id: 'activities', label: 'Activities' },
+    { id: 'iqac', title: 'IQAC' },
+    { id: 'composition', title: 'Composition' },
+    { id: 'constitution', title: 'Constitution' },
+    { id: 'roles', title: 'Roles and Responsibilities' },
+    { id: 'minutes', title: 'Minutes of Meeting' },
+    { id: 'activities', title: 'Activities' },
   ]
 
-  const renderTabContent = () => {
+  const renderContent = () => {
     switch (activeTab) {
       case 'iqac':
         return (
@@ -395,7 +402,7 @@ export default function IQACPage() {
   }
 
   return (
-    <div className="mt-28 flex h-fit w-full flex-col bg-gradient-to-b from-white to-[#E5F0FF] text-gray-900 md:mt-40">
+    <div className="mt-16 flex h-fit w-full flex-col text-gray-900 md:mt-30">
       {/* Header Section */}
       <div className="flex h-full w-full flex-col bg-white pt-12 md:pt-16">
         <div className="flex w-full flex-col px-4 pb-6 text-[#00122a] sm:px-8 md:px-16 md:pb-8 lg:px-24">
@@ -416,45 +423,54 @@ export default function IQACPage() {
         transition={{ duration: 0.8 }}
       >
         <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-          Outreach Programmes
+          Internal Quality Assurance Cell
         </h2>
-        <div className="mx-auto mt-2 h-1 w-16 bg-blue-600" />
+        <p className="mt-2 text-lg text-gray-600">
+          Committed to quality enhancement and sustenance in higher education
+        </p>
+        <div className="mx-auto mt-4 h-1 w-16 bg-blue-600" />
       </motion.div>
 
-      {/* Tabs Layout */}
-      <motion.div
-        className="mx-auto flex max-w-7xl px-4 sm:px-8 md:px-16 lg:px-24"
-        {...fadeIn}
-      >
-        {/* Left Sidebar for Tabs */}
-        <div className="w-64 pr-6">
-          <nav className="sticky top-[191px] space-y-2">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`w-full rounded-lg px-4 py-2 text-left font-medium ${
-                  activeTab === tab.id
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-700 hover:bg-gray-100'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </nav>
+      <main className="flex h-fit w-full flex-col items-center justify-center">
+        {/* Mobile menu toggle button */}
+        <div className="mb-4 w-full px-4 md:hidden">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="flex w-full items-center justify-between rounded-md border border-gray-200 bg-blue-50 p-3"
+          >
+            <span className="font-medium">
+              Menu -{' '}
+              {tabs.find((tab) => tab.id === activeTab)?.title || 'Overview'}
+            </span>
+            <span className="transform transition-transform duration-200">
+              {mobileMenuOpen ? '▲' : '▼'}
+            </span>
+          </button>
         </div>
 
-        {/* Content Area */}
-        <div className="flex-1">
-          <div className="overflow-hidden rounded-2xl bg-white p-6 shadow-xl">
-            <h2 className="mb-4 text-2xl font-semibold text-[#012146]">
-              {tabs.find((tab) => tab.id === activeTab)?.label}
-            </h2>
-            {renderTabContent()}
+        <div className="flex h-fit w-full flex-col justify-center bg-gradient-to-b from-white to-[#E5F0FF] py-4 md:flex-row">
+          <div
+            className={`w-full px-4 transition-all duration-300 md:w-auto md:min-w-[250px] lg:min-w-[300px] ${mobileMenuOpen ? 'block' : 'hidden md:block'}`}
+          >
+            <div className="sticky top-24 md:top-32">
+              <Sidebar
+                tabs={tabs}
+                activeTab={activeTab}
+                onTabChange={handleTabChange}
+                AccordionContent={null}
+              />
+            </div>
+          </div>
+          <div id={activeTab} className="w-full px-4 py-4 md:px-6 lg:px-8">
+            <div className="overflow-hidden rounded-2xl bg-white p-6 shadow-xl">
+              <h2 className="mb-4 text-2xl font-semibold text-[#012146]">
+                {tabs.find((tab) => tab.id === activeTab)?.title}
+              </h2>
+              {renderContent()}
+            </div>
           </div>
         </div>
-      </motion.div>
+      </main>
 
       {/* PDF Modal */}
       {selectedPdf && (
