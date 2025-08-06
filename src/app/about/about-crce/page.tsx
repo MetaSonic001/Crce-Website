@@ -31,7 +31,7 @@ export default function Page() {
 
   return (
     <main
-      className={`${montserrat.variable} min-h-screen bg-gradient-to-b from-blue-50 to-white pt-[191px] font-sans`}
+      className={`${montserrat.variable} font-roboto min-h-screen bg-gradient-to-b from-blue-50 to-white pt-[191px]`}
     >
       {/* Hero Section - Enhanced with better typography and subtle animation */}
       <motion.div
@@ -43,7 +43,7 @@ export default function Page() {
         <div className="relative z-10 flex h-full items-center justify-center px-4">
           <div className="text-center">
             <motion.h1
-              className="mb-4 text-5xl font-bold tracking-tight text-gray-900 md:text-7xl"
+              className="mb-4 text-4xl font-bold font-serif tracking-tight text-gray-900 md:text-6xl"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -62,7 +62,7 @@ export default function Page() {
 
       {/* About Section - Refined for more professional presentation */}
       <motion.div
-        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+        className="mx-auto container px-4 py-16 sm:px-6 lg:px-8"
         {...fadeIn}
       >
         <div className="overflow-hidden rounded-2xl bg-white shadow-xl">
@@ -87,7 +87,7 @@ export default function Page() {
               <h2 className="mb-4 border-l-4 border-blue-600 pl-4 text-2xl font-bold text-gray-900">
                 Academic Excellence & Innovation
               </h2>
-              <div className="prose prose-lg max-w-none space-y-4 leading-relaxed text-gray-700">
+              <div className="prose text-justify prose-lg max-w-none space-y-4 leading-relaxed text-gray-700">
                 <p>
                   Fr. Conceicao Rodrigues College of Engineering (Fr.CRCE)
                   stands as a premier institution in Mumbai's educational

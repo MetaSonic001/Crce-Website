@@ -12,7 +12,7 @@ const PresidentPage = () => {
       <div className="h-full w-full bg-linear-to-b from-white to-[#E5F0FF] md:pt-24">
         <main className="container mx-auto px-4 pb-12 pt-16">
           <div className="rounded-xl bg-white p-8 shadow-lg">
-            <h2 className="mb-10 text-center font-ptserif text-5xl font-semibold text-blue-950">
+            <h2 className="mb-10 text-center font-serif text-2xl md:text-5xl font-semibold text-blue-950">
               Principal - Dr. Surendra Singh Rathod
             </h2>
 
@@ -27,10 +27,10 @@ const PresidentPage = () => {
                 />
               </div>
               <div className="lg:ml-12 lg:w-1/2">
-                <h3 className="mb-6 font-roboto text-2xl font-semibold text-gray-800">
+                <h3 className="mb-6 font-roboto text-xl md:text-2xl font-semibold text-gray-800">
                   Greetings and a very warm welcome to CRCE!
                 </h3>
-                <p className="mb-4 font-roboto leading-relaxed text-gray-700">
+                <p className="mb-4 font-roboto text-justify leading-relaxed text-gray-700">
                   I have great pleasure in expressing my thoughts as the
                   Principal of Fr. Conceicao Rodriuges College of Engineering: a
                   prestigious, self-financed institute affiliated to University
@@ -39,14 +39,14 @@ const PresidentPage = () => {
                   can Build the Nation inspired by the dream of our founder Rev.
                   Fr. Conceicao Rodrigues.
                 </p>
-                <p className="mb-4 font-roboto leading-relaxed text-gray-700">
+                <p className="mb-4 font-roboto text-justify leading-relaxed text-gray-700">
                   Fr. CRCE aspires to be a center of excellence in engineering
                   education, moulding engineers with the state-of-the art
                   technologies, innovative skills and human values matching with
                   the growing expectations of the corporates and the society and
                   thus play an effective role in nation building.
                 </p>
-                <p className="mb-6 font-roboto leading-relaxed text-gray-700">
+                <p className="mb-6 font-roboto text-justify leading-relaxed text-gray-700">
                   Education makes one more well-informed and knowledgeable. Both
                   of these will help to enhance critical thinking skills needed
                   to make good decisions in every walk of life. Education must

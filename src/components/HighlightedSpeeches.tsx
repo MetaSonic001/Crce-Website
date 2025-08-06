@@ -29,7 +29,7 @@ const speeches: Speech[] = [
 const HighlightedSpeeches: React.FC = () => {
   return (
     <div className="bg-[#E5F0FF] px-8 py-16">
-      <h2 className="mb-10 text-center font-ptserif text-5xl font-semibold text-blue-950">
+      <h2 className="mb-10 text-center font-serif text-2xl md:text-5xl font-semibold text-blue-950">
         Highlighted Speeches, Articles, and Media
       </h2>
       <div className="flex flex-col justify-center gap-8 md:flex-row">
@@ -44,7 +44,7 @@ const HighlightedSpeeches: React.FC = () => {
             <h3 className="mb-4 text-xl font-bold text-gray-800">
               {speech.title}
             </h3>
-            <p className="text-gray-600">{speech.description}</p>
+            <p className="text-gray-600 text-justify">{speech.description}</p>
           </div>
         ))}
       </div>

@@ -52,7 +52,7 @@ export default function Page() {
 
   return (
     <main
-      className={`${montserrat.variable} min-h-screen bg-gradient-to-b from-blue-50 to-white pt-[191px] font-sans`}
+      className={`${montserrat.variable} min-h-screen bg-gradient-to-b from-blue-50 to-white pt-[191px] font-roboto`}
     >
       {/* Page Title */}
       <motion.div
