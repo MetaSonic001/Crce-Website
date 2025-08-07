@@ -7,10 +7,28 @@ import ReactQueryProvider from './provider'
 import { Suspense } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
+
 export const metadata: Metadata = {
   title: 'Fr.Crce',
   description: 'Father Conceicao Rodrigues College of Engineering',
+  openGraph: {
+    title: 'Fr.Crce',
+    description: 'Father Conceicao Rodrigues College of Engineering',
+    url: 'http://gyan.fragnel.edu.in:9500',
+    siteName: 'Fr.Crce',
+    images: [
+      {
+        url: 'http://gyan.fragnel.edu.in:9500/college.png',
+        width: 1200,
+        height: 630,
+        alt: 'Fr.Crce Open Graph Image',
+        type: 'image/png',
+      },
+    ],
+    type: 'website',
+  },
 }
+
 
 export default function RootLayout({
   children,
