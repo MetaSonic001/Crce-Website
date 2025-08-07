@@ -60,6 +60,14 @@ services:
     ports:
       - 5432:5432
 
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "9500:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    restart: always
+
 volumes:
   crce-website_minio_data:
     external: true

@@ -408,7 +408,7 @@ export default function IQACPage() {
         <div className="flex w-full flex-col px-4 pb-6 text-[#00122a] sm:px-8 md:px-16 md:pb-8 lg:px-24">
           <Navigation items={navigationItems} />
           <h1
-            className={`mb-4 flex items-center justify-center text-center font-serif text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl ${zilla.className}`}
+            className={`mb-4 mt-8 md:mt-18 flex items-center justify-center text-center font-serif text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl ${zilla.className}`}
           >
             IQAC - INTERNAL QUALITY ASSESSMENT CELL
           </h1>
